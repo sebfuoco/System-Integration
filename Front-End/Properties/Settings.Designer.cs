@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace main.Properties
+namespace Front_End.Properties
 {
 
 
