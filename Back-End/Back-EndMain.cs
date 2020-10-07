@@ -13,20 +13,20 @@ namespace Back_End
         }
     }
 
-    //Fetch new bookings
+    //Fetch new bookings : SN
     private void fetchData()
     {
 
     }
 
-    //Update Primary database with new bookings
+    //Update Primary database with new bookings : SN
     private void updatePrimaryDatabase()
     {
 
     }
 
 
-    //Batch update the secondary database
+    //Batch update the secondary database : SN
     private void batchUpdate()
     {
 
