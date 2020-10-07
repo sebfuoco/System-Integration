@@ -12,4 +12,26 @@ namespace Back_End
         {
         }
     }
+
+    //Fetch new bookings
+    private void fetchData()
+    {
+
+    }
+
+    //Update Primary database with new bookings
+    private void updatePrimaryDatabase()
+    {
+
+    }
+
+
+    //Batch update the secondary database
+    private void batchUpdate()
+    {
+
+    }
+
+
+
 }
