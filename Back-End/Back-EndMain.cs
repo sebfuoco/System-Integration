@@ -20,7 +20,6 @@ namespace Back_End
     {
 
     }
-
     
     //Batch update the secondary database : Seb
     private void batchUpdate()
@@ -31,12 +30,16 @@ namespace Back_End
     //Update Primary database with new bookings : Sing
     private void updatePrimaryDatabase()
     {
+        querydatabase("",false);
 
     }
 
     //Query database for information : Sing
-    private void queryDatabase(){
+    private void queryDatabase()
+    {
     
+         querydatabase("",false);
+
     }
 
     //Send print notification to front-end : Akmal
@@ -56,7 +59,25 @@ namespace Back_End
         
     
 
+    //Sing : Query Databases Function - Accept query and returns boolean value.
 
+         public bool querydatabase(string query, bool flag)
+        {
+            try
+            {
+                connection.Open();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                connection.Close();
+                return flag = true;
+            }
+            catch (Exception error)
+            {
+                connection.Close();
+                MessageBox.Show(error.Message.ToString());
+                return flag = false;
+            }
+        }
 
 
 }
