@@ -30,7 +30,7 @@ namespace Back_End
     //Update Primary database with new bookings : Sing
     private void updatePrimaryDatabase()
     {
-        querydatabase("",false);
+        query("",false);
 
     }
 
@@ -38,7 +38,7 @@ namespace Back_End
     private void queryDatabase()
     {
     
-         querydatabase("",false);
+         query("",false);
 
     }
 
@@ -61,7 +61,7 @@ namespace Back_End
 
     //Sing : Query Databases Function - Accept query and returns boolean value.
 
-         public bool querydatabase(string query, bool flag)
+         public bool query(string query, bool flag)
         {
             try
             {
