@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Back_End
 {
+    //Database connection goes here : Akmal
+
     class Program
     {
         static void Main(string[] args)
@@ -13,24 +15,47 @@ namespace Back_End
         }
     }
 
-    //Fetch new bookings : SN
+    //Fetch new bookings : Seb
     private void fetchData()
     {
 
     }
 
-    //Update Primary database with new bookings : SN
+    
+    //Batch update the secondary database : Seb
+    private void batchUpdate()
+    {
+
+    }
+
+    //Update Primary database with new bookings : Sing
     private void updatePrimaryDatabase()
     {
 
     }
 
+    //Query database for information : Sing
+    private void queryDatabase(){
+    
+    }
 
-    //Batch update the secondary database : SN
-    private void batchUpdate()
-    {
+    //Send print notification to front-end : Akmal
+    private void sendPrintNotifications(){
 
     }
+
+    //Batch recovery/resync in case of batch failure : Ndey
+    private void batchRecovery(){
+    
+    }
+
+    //Notify front-end of bacth recovery : Ndey
+    private void notifyRecovery(){
+    
+    }
+        
+    
+
 
 
 
