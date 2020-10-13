@@ -9,6 +9,10 @@ using System.Windows.Forms;
 namespace Back_End
 {
     //Database connection goes here : Akmal
+    /* IMPORTANT!!!
+     * Data being exchanged between programs must be in file format!
+     * !!!
+    */
 
     class Program
     {
@@ -20,13 +24,13 @@ namespace Back_End
     //Fetch new bookings : Seb
     private void fetchData()
     {
-
+        
     }
     
     //Batch update the secondary database : Seb
     private void batchUpdate()
     {
-
+        
     }
 
     //Update Primary database with new bookings : Sing
