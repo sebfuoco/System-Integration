@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace Back_End
 {
@@ -13,7 +15,7 @@ namespace Back_End
         static void Main(string[] args)
         {
         }
-    }
+   
 
     //Fetch new bookings : Seb
     private void fetchData()
@@ -65,19 +67,19 @@ namespace Back_End
         {
             try
             {
-                connection.Open();
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-                connection.Close();
+                //connection.Open();
+                //command.CommandText = query;
+                //command.ExecuteNonQuery();
+                //connection.Close();
                 return flag = true;
             }
             catch (Exception error)
             {
-                connection.Close();
+               // connection.Close();
                 MessageBox.Show(error.Message.ToString());
                 return flag = false;
             }
         }
 
-
+    }
 }
