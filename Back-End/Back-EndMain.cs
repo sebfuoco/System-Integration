@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Back_End
 {
-    //Database connection goes here : Akmal
+    //Database connection goes here : Ndey
     /* IMPORTANT!!!
      * Data being exchanged between programs must be in file format!
      * !!!
@@ -60,7 +60,7 @@ namespace Back_End
 
         }
 
-        //Notify front-end of bacth recovery : Ndey
+        //Notify front-end of bacth recovery : Akmal
         private void notifyRecovery()
         {
 
