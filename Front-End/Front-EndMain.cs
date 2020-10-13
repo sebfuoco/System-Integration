@@ -11,6 +11,10 @@ namespace Front_End
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+        /* IMPORTANT!!!
+         * Data being exchanged between programs must be in file format!
+         * !!!
+        */
         [STAThread]
         static void Main()
         {
