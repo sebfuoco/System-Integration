@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace Back_End
 {
     //Database connection goes here : Ndey
@@ -14,17 +13,12 @@ namespace Back_End
      * !!!
     */
 
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-        }
-
-
-        //Fetch new bookings : Seb
-        private void fetchData()
-        {
-
+            var database = new Database();
+            database.fetchData();
         }
 
         //Batch update the secondary database : Seb
@@ -105,6 +99,15 @@ namespace Back_End
                 //username and password is wrong - try again.
                 MessageBox.Show("Username or password is incorrrect, please try again");
             };
+        }
+    }
+    class Database
+    {
+        //Fetch new bookings : Seb
+        public void fetchData()
+        {
+            Console.WriteLine("HELLO");
+            Console.ReadKey();
         }
     }
 }
