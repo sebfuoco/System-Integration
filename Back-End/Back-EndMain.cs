@@ -12,59 +12,55 @@ namespace Back_End
      * Data being exchanged between programs must be in file format!
      * !!!
     */
-
     public class Program
     {
         public static void Main(string[] args)
         {
-            var database = new Database();
-            database.fetchData();
+            // Must initalise class before use
+            var primaryDatabase = new PrimaryDatabase();
+            var secondaryDatabase = new SecondaryDatabase();
+            // tests
+            primaryDatabase.fetchData();
+            primaryDatabase.batchUpdate();
         }
-
+        //Sing : Login for Front-end.
+        private void authenticateUser(string username, string password)
+            {
+                if (username == "admin" && password == "password")
+                {
+                    //athenticate admin
+                }
+                else if (username == "normaluser" && password == "normalpassword")
+                {
+                    //athenticate normal user
+                }
+                else
+                {
+                    //username and password is wrong - try again.
+                    MessageBox.Show("Username or password is incorrrect, please try again");
+                };
+            }
+    }
+    class PrimaryDatabase
+    {
+        //Fetch new bookings : Seb
+        protected internal void fetchData()
+        {
+            Console.WriteLine("HELLO");
+            Console.ReadKey();
+        }
         //Batch update the secondary database : Seb
-        private void batchUpdate()
+        protected internal void batchUpdate()
         {
 
         }
-
         //Update Primary database with new bookings : Sing
-        private void updatePrimaryDatabase()
+        protected internal void updatePrimaryDatabase()
         {
-            query("", false);
-
+            //query("", false);
         }
-
-        //Query database for information : Sing
-        private void queryDatabase()
-        {
-
-            query("", false);
-
-        }
-
-        //Send print notification to front-end : Akmal
-        private void sendPrintNotifications()
-        {
-
-        }
-
-        //Batch recovery/resync in case of batch failure : Ndey
-        private void batchRecovery()
-        {
-
-        }
-
-        //Notify front-end of bacth recovery : Akmal
-        private void notifyRecovery()
-        {
-
-        }
-
-
-
         //Sing : Query Databases Function - Accept query and returns boolean value.
-
-        public bool query(string query, bool flag)
+        protected internal bool query(string query, bool flag)
         {
             try
             {
@@ -81,33 +77,29 @@ namespace Back_End
                 return flag = false;
             }
         }
-
-
-        //Sing : Login for Front-end.
-        private void authenticateUser(string username, string password)
+        //Query database for information : Sing
+        protected internal void queryDatabase()
         {
-            if (username == "admin" && password == "password")
-            {
-                //athenticate admin
-            }
-            else if (username == "normaluser" && password == "normalpassword")
-            {
-                //athenticate normal user
-            }
-            else
-            {
-                //username and password is wrong - try again.
-                MessageBox.Show("Username or password is incorrrect, please try again");
-            };
+            //query("", false);
         }
+
     }
-    class Database
+    class SecondaryDatabase
     {
-        //Fetch new bookings : Seb
-        public void fetchData()
+        //Batch recovery/resync in case of batch failure : Ndey
+        protected internal void batchRecovery()
         {
-            Console.WriteLine("HELLO");
-            Console.ReadKey();
+
+        }
+        //Notify front-end of bacth recovery : Akmal
+        protected internal void notifyRecovery()
+        {
+
+        }
+        //Send print notification to front-end : Akmal
+        protected internal void sendPrintNotifications()
+        {
+
         }
     }
 }
