@@ -4,16 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
+using System.Data;
+using System.IO;
 
 namespace Back_End
 {
-    //Database connection goes here : Ndey
-    /* IMPORTANT!!!
-     * Data being exchanged between programs must be in file format!
-     * !!!
-    */
+  
     public class Program
     {
+
+        //Database connection goes here : Ndey
+        /* IMPORTANT!!!
+         * Data being exchanged between programs must be in file format!
+         * !!!
+        */
+
+        //Sing : login database declarations
+        System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+        OleDbDataAdapter ad;
+        DataTable dtable = new DataTable();
+        OleDbCommand command = new OleDbCommand();
+        OleDbDataReader reader;
+
+
         public static void Main(string[] args)
         {
             // Must initalise class before use
@@ -22,28 +36,54 @@ namespace Back_End
             // tests
             primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
+        }
 
+        //Sing : Class Constructor 
+        public Program()
+        {
             //Sing : Login database connection
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
             command.Connection = connection;
         }
+
+
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
             {
-                if (username == "admin" && password == "password")
+
+            //Opening a connection to the database
+            connection.Open();
+            //defining the query 
+            ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
+            //Filling the table adaptor 
+            ad.Fill(dtable);
+
+            //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
+            if (dtable.Rows.Count <= 0)
+            {
+                //Details do not exist in the database
+                connection.Close();
+                MessageBox.Show("Login Invalid. Please try again.");
+            }
+            else if (dtable.Rows.Count > 0)
+            {
+                //Data exists in the database, therefore this function checks where admin credientials are used.
+                if (username == "admin" && password == "admin")
                 {
-                    //athenticate admin
-                }
-                else if (username == "normaluser" && password == "normalpassword")
-                {
-                    //athenticate normal user
+                    connection.Close();
+                    //admin credentials are used.
+                    //Open admin page 
+                    //Login authenticated
                 }
                 else
                 {
-                    //username and password is wrong - try again.
-                    MessageBox.Show("Username or password is incorrrect, please try again");
-                };
+                    //username and password exists in the database
+                    connection.Close();
+                    //normal user authenticated
+                }
             }
+
+        }
     }
     class PrimaryDatabase
     {
