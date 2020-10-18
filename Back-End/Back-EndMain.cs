@@ -22,6 +22,10 @@ namespace Back_End
             // tests
             primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
+
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
+            command.Connection = connection;
         }
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
