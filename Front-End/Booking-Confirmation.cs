@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Starting page of the program
-// User and business operations
+// Shows the inputs from the previous page (Booking Reservation)
+// User can cancel, go back to edit details or proceed to confirm booking
 
 namespace Front_End
 {
-    public partial class main : Form
+    public partial class Booking_Confirmation : Form
     {
-        public main()
+        public Booking_Confirmation()
         {
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
+        private void Booking_Confirmation_Load(object sender, EventArgs e)
         {
 
         }

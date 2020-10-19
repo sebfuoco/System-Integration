@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Starting page of the program
-// User and business operations
+// Availability Check/Query
+// This form will check and will allow user to select items for reservation
 
 namespace Front_End
 {
-    public partial class main : Form
+    public partial class Availability_Check : Form
     {
-        public main()
+        public Availability_Check()
         {
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
+        private void Availability_Check_Load(object sender, EventArgs e)
         {
 
         }

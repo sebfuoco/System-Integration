@@ -8,19 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Starting page of the program
-// User and business operations
+// Prints invoice for the user showing the booked items
 
 namespace Front_End
 {
-    public partial class main : Form
+    public partial class Print_Invoice : Form
     {
-        public main()
+        public Print_Invoice()
         {
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
+        private void Print_Invoice_Load(object sender, EventArgs e)
         {
 
         }

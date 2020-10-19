@@ -8,19 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Starting page of the program
-// User and business operations
+// Requires user input after selecting the items
+// previous page (Availability check/Query
 
 namespace Front_End
 {
-    public partial class main : Form
+    public partial class Booking_Reservation : Form
     {
-        public main()
+        public Booking_Reservation()
         {
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
+        private void Booking_Reservation_Load(object sender, EventArgs e)
         {
 
         }
