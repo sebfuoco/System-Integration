@@ -16,5 +16,10 @@ namespace Front_End
         {
             InitializeComponent();
         }
+
+        private void main_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
