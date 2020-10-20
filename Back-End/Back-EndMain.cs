@@ -26,7 +26,7 @@ namespace Back_End
         DataTable dtable = new DataTable();
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
-        //test
+       
 
 
         public static void Main(string[] args)
@@ -39,12 +39,23 @@ namespace Back_End
             primaryDatabase.batchUpdate();
         }
 
+        private string passedString;
+
         //Sing : Class Constructor 
-        public Program()
+        public Program(string teststring)
         {
             //Sing : Login database connection
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
             command.Connection = connection;
+            passedString = teststring;
+        }
+
+
+        //Sing : Passing value test function:
+
+        private void testfunc(string a)
+        {
+            MessageBox.Show(a);
         }
 
 
