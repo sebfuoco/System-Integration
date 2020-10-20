@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.cnlButton = new System.Windows.Forms.Button();
+            this.nxtButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cnlButton
@@ -41,11 +42,22 @@
             this.cnlButton.UseVisualStyleBackColor = true;
             this.cnlButton.Click += new System.EventHandler(this.cnlButton_Click);
             // 
+            // nxtButton
+            // 
+            this.nxtButton.Location = new System.Drawing.Point(650, 405);
+            this.nxtButton.Name = "nxtButton";
+            this.nxtButton.Size = new System.Drawing.Size(138, 33);
+            this.nxtButton.TabIndex = 2;
+            this.nxtButton.Text = "Next";
+            this.nxtButton.UseVisualStyleBackColor = true;
+            this.nxtButton.Click += new System.EventHandler(this.nxtButton_Click);
+            // 
             // Availability_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
             this.Name = "Availability_Check";
             this.Text = "Availability Check";
@@ -56,5 +68,6 @@
         #endregion
 
         private System.Windows.Forms.Button cnlButton;
+        private System.Windows.Forms.Button nxtButton;
     }
 }

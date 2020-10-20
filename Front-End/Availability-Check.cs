@@ -36,5 +36,13 @@ namespace Front_End
                 this.Close();
             }
         }
+
+        private void nxtButton_Click(object sender, EventArgs e)
+        {
+            // Please a condition here that will notify the user that they have to choose at least 1 selection
+            this.Hide();
+            Booking_Reservation b = new Booking_Reservation();
+            b.ShowDialog();
+        }
     }
 }
