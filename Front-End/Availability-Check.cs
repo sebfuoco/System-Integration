@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 // Availability Check/Query
-// This form will check and will allow user to select items for reservation
+// This form will check and allow user to select items for reservation
 
 namespace Front_End
 {
