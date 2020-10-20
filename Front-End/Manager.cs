@@ -43,10 +43,11 @@ namespace Front_End
         {
             // Please add code here for username and password
             //hi
+            Back_End.Program PassVal = new Back_End.Program("Hello World");
             this.Hide();
             Business_Operations b = new Business_Operations();
             b.ShowDialog();
-            Back_End.Program PassVal = new Back_End.Program("Hello World");
+            
         }
 
     }
