@@ -8,50 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-// Starting page of the program
-// User and business operations
-
 namespace Front_End
 {
-    public partial class main : Form
+    public partial class Business_Operations : Form
     {
-        public main()
+        public Business_Operations()
         {
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void extButton_Click(object sender, EventArgs e)
         {
-            const string text = "Do you want to exit?";
+            const string text = "Do you want to exit? This will redirect you to the starting page.";
             const string caption = "EXIT";
             var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                Application.Exit();
+                this.Hide();
+                main m = new main();
+                m.ShowDialog();
             }
             else if (result == DialogResult.Yes)
             {
                 this.Close();
             }
-        }
-
-        private void userSearch_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Availability_Check a = new Availability_Check();
-            a.ShowDialog();
-        }
-
-        private void mgrButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Manager m = new Manager();
-            m.ShowDialog();
         }
     }
 }

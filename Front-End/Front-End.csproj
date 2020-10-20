@@ -64,6 +64,12 @@
     <Compile Include="Booking-Reservation.Designer.cs">
       <DependentUpon>Booking-Reservation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business-Operations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business-Operations.Designer.cs">
+      <DependentUpon>Business-Operations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Front-EndForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
       <DependentUpon>Front-EndForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Front-EndMain.cs" />
+    <Compile Include="Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Print-Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,8 +99,14 @@
     <EmbeddedResource Include="Booking-Reservation.resx">
       <DependentUpon>Booking-Reservation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Business-Operations.resx">
+      <DependentUpon>Business-Operations.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Front-EndForm.resx">
       <DependentUpon>Front-EndForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print-Invoice.resx">
       <DependentUpon>Print-Invoice.cs</DependentUpon>
