@@ -10,10 +10,8 @@ using System.IO;
 
 namespace Back_End
 {
-  
     public class Program
     {
-
         //Database connection goes here : Ndey
         /* IMPORTANT!!!
          * Data being exchanged between programs must be in file format!
@@ -27,17 +25,34 @@ namespace Back_End
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
 
-
         public static void Main(string[] args)
         {
             // Must initalise class before use
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
+            primaryDatabase.dummyWrite();
             primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
-        }
+            // Test database
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                // query
+                string sql = "SELECT * FROM Flights";
+                // Create a command and set its connection  
+                OleDbCommand command = new OleDbCommand(sql, conn);
+                conn.Open();
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read()) // reads all data from query
+                {
+                    Console.WriteLine("Country: " + reader.GetString(1));
+                }
+                conn.Close();
+                Console.ReadKey();
 
+            }
+        }
         //Sing : Class Constructor 
         public Program()
         {
@@ -45,19 +60,15 @@ namespace Back_End
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
             command.Connection = connection;
         }
-
-
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
             {
-
             //Opening a connection to the database
             connection.Open();
             //defining the query 
             ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
             //Filling the table adaptor 
             ad.Fill(dtable);
-
             //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
             if (dtable.Rows.Count <= 0)
             {
@@ -82,16 +93,31 @@ namespace Back_End
                     //normal user authenticated
                 }
             }
-
         }
     }
     class PrimaryDatabase
     {
+        protected internal void dummyWrite()
+        {
+            if (!File.Exists("bookings.txt")){
+                // Create a file to write to.
+                using (StreamWriter writetext = new StreamWriter("bookings.txt"))
+                {
+                    // test
+                    int price = 100;
+                    string name = "Seb Fuoco", country = "Spain", city = "Barcelona", flightType = "return";
+                    writetext.WriteLine($"{name}|{price}|{country}|{city}|{flightType}");
+                }
+            }
+        }
         //Fetch new bookings : Seb
         protected internal void fetchData()
         {
-            Console.WriteLine("HELLO");
-            Console.ReadKey();
+            using (StreamReader readtext = new StreamReader("bookings.txt"))
+            {
+                Console.WriteLine(readtext.ReadLine());
+                Console.ReadKey();
+            }
         }
         //Batch update the secondary database : Seb
         protected internal void batchUpdate()
@@ -126,7 +152,6 @@ namespace Back_End
         {
             //query("", false);
         }
-
     }
     class SecondaryDatabase
     {
