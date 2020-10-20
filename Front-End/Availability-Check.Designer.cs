@@ -49,7 +49,6 @@
             this.Controls.Add(this.cnlButton);
             this.Name = "Availability_Check";
             this.Text = "Availability Check";
-            this.Load += new System.EventHandler(this.Availability_Check_Load);
             this.ResumeLayout(false);
 
         }

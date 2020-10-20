@@ -73,7 +73,6 @@
             this.Controls.Add(this.extButton);
             this.Name = "main";
             this.Text = "Holiday Booking System";
-            this.Load += new System.EventHandler(this.main_Load);
             this.ResumeLayout(false);
 
         }

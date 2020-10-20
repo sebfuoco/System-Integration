@@ -20,11 +20,6 @@ namespace Front_End
             InitializeComponent();
         }
 
-        private void Availability_Check_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void cnlButton_Click(object sender, EventArgs e)
         {
             const string text = "Do you want to cancel? This will redirect you to the starting page.";
