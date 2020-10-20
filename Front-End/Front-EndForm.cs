@@ -42,7 +42,9 @@ namespace Front_End
 
         private void userSearch_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Availability_Check f2 = new Availability_Check();
+            f2.ShowDialog();
         }
     }
 }
