@@ -42,6 +42,7 @@ namespace Front_End
         private void lgnButton_Click(object sender, EventArgs e)
         {
             // Please add code here for username and password
+            //hi
             this.Hide();
             Business_Operations b = new Business_Operations();
             b.ShowDialog();
