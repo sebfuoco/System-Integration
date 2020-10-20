@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +34,7 @@ namespace Back_End
             primaryDatabase.dummyWrite();
             primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
+
             // Test database
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
             using (OleDbConnection conn = new OleDbConnection(connectionString))
@@ -52,13 +53,27 @@ namespace Back_End
                 Console.ReadKey();
 
             }
+
         }
+        
         //Sing : Class Constructor 
-        public Program()
+        public Program(string teststring)
         {
             //Sing : Login database connection
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
             command.Connection = connection;
+
+            testfunc(teststring);
+
+        }
+
+
+        //Sing : Passing value test function:
+
+        private void testfunc(string a)
+        {
+            MessageBox.Show(a);
+
         }
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
