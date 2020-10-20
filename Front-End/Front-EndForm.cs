@@ -20,11 +20,6 @@ namespace Front_End
             InitializeComponent();
         }
 
-        private void main_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void extButton_Click(object sender, EventArgs e)
         {
             const string text = "Do you want to exit?";
