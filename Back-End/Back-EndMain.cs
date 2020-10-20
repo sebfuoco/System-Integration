@@ -25,6 +25,7 @@ namespace Back_End
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
 
+
         public static void Main(string[] args)
         {
             // Must initalise class before use
@@ -57,13 +58,17 @@ namespace Back_End
         }
         
         //Sing : Class Constructor 
-        public Program(string teststring)
+        public Program(string teststring, string name, string password)
         {
             //Sing : Login database connection
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
-            command.Connection = connection;
+            //connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
+            //command.Connection = connection;
 
+            //testing:
             testfunc(teststring);
+            authenticateUser(name, password);
+            
+
 
         }
 
@@ -97,12 +102,14 @@ namespace Back_End
                 if (username == "admin" && password == "admin")
                 {
                     connection.Close();
+                    MessageBox.Show("You are an admin user");
                     //admin credentials are used.
                     //Open admin page 
                     //Login authenticated
                 }
                 else
                 {
+                    MessageBox.Show("You are a normal user");
                     //username and password exists in the database
                     connection.Close();
                     //normal user authenticated
