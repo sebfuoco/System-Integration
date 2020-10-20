@@ -46,6 +46,8 @@ namespace Front_End
             this.Hide();
             Business_Operations b = new Business_Operations();
             b.ShowDialog();
+            Back_End.Program PassVal = new Back_End.Program("Hello World");
         }
+
     }
 }
