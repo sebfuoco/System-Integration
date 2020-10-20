@@ -56,7 +56,7 @@ namespace Back_End
             }
 
         }
-        
+
         //Sing : Class Constructor 
         public Program(string teststring, string name, string password)
         {
@@ -67,7 +67,7 @@ namespace Back_End
             //testing:
             testfunc(teststring);
             authenticateUser(name, password);
-            
+
 
 
         }
@@ -82,7 +82,7 @@ namespace Back_End
         }
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
-            {
+        {
             //Opening a connection to the database
             connection.Open();
             //defining the query 
@@ -121,7 +121,7 @@ namespace Back_End
     {
         protected internal void dummyWrite()
         {
-            if (!File.Exists("bookings.txt")){
+            if (!File.Exists("bookings.txt")) {
                 // Create a file to write to.
                 using (StreamWriter writetext = new StreamWriter("bookings.txt"))
                 {
