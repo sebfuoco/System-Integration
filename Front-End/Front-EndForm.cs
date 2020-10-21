@@ -48,5 +48,6 @@ namespace Front_End
             Manager m = new Manager();
             m.ShowDialog();
         }
+
     }
 }
