@@ -41,11 +41,12 @@ namespace Front_End
 
         private void lgnButton_Click(object sender, EventArgs e)
         {
-
-            Back_End.Program PassVal = new Back_End.Program("Hello World","admin","admin");
-            this.Hide();
-            Business_Operations b = new Business_Operations();
-            b.ShowDialog();
+            Manager ManagerForm = new Manager();
+            Business_Operations BusinessForm = new Business_Operations();
+            Back_End.Program PassVal = new Back_End.Program("admin","admin", ManagerForm, BusinessForm);
+            //this.Hide();
+            //Business_Operations b = new Business_Operations();
+            //b.ShowDialog();
             
         }
 

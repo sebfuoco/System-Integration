@@ -25,9 +25,10 @@ namespace Back_End
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
 
-
+        
         public static void Main(string[] args)
         {
+           
             // Must initalise class before use
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
@@ -37,7 +38,7 @@ namespace Back_End
             primaryDatabase.batchUpdate();
 
             // Test database
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb;Jet OLEDB:Database Password=;";
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 // query
@@ -52,21 +53,22 @@ namespace Back_End
                 }
                 conn.Close();
                 Console.ReadKey();
+           
 
-            }
+            } 
 
         }
 
         //Sing : Class Constructor 
-        public Program(string uname, string password)
+        public Program(string uname, string password, Form current, Form next)
         {
             //Sing : Login database connection
-            //connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
-            //command.Connection = connection;
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
 
             //testing:
-            
-            authenticateUser(uname, password);
+
+            authenticateUser(uname, password, current, next);
 
 
 
@@ -75,7 +77,7 @@ namespace Back_End
 
        
         //Sing : Login for Front-end.
-        private void authenticateUser(string username, string password)
+        private void authenticateUser(string username, string password, Form currentform, Form nextForm)
         {
             //Opening a connection to the database
             connection.Open();
@@ -97,6 +99,8 @@ namespace Back_End
                 {
                     connection.Close();
                     MessageBox.Show("You are an admin user");
+                    currentform.Hide();
+                    nextForm.Show();
                     //admin credentials are used.
                     //Open admin page 
                     //Login authenticated
@@ -106,6 +110,8 @@ namespace Back_End
                     MessageBox.Show("You are a normal user");
                     //username and password exists in the database
                     connection.Close();
+                    currentform.Hide();
+                    nextForm.Show();
                     //normal user authenticated
                 }
             }
