@@ -60,24 +60,19 @@ namespace Back_End
         }
 
         //Sing : Class Constructor 
-        public Program(string uname, string password, Form current, Form next)
+        public Program(string uname, string password, Form next)
         {
             //Sing : Login database connection
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database Password=;";
             command.Connection = connection;
-
-            //testing:
-
-            authenticateUser(uname, password, current, next);
-
-
-
+            //sing : Login - Authenticating admin and normal user.
+            authenticateUser(uname, password, next);
         }
 
 
        
         //Sing : Login for Front-end.
-        private void authenticateUser(string username, string password, Form currentform, Form nextForm)
+        private void authenticateUser(string username, string password, Form nextForm)
         {
             //Opening a connection to the database
             connection.Open();
@@ -99,7 +94,7 @@ namespace Back_End
                 {
                     connection.Close();
                     MessageBox.Show("You are an admin user");
-                    currentform.Hide();
+                    
                     nextForm.Show();
                     //admin credentials are used.
                     //Open admin page 
@@ -110,7 +105,6 @@ namespace Back_End
                     MessageBox.Show("You are a normal user");
                     //username and password exists in the database
                     connection.Close();
-                    currentform.Hide();
                     nextForm.Show();
                     //normal user authenticated
                 }
