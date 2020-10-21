@@ -58,28 +58,22 @@ namespace Back_End
         }
 
         //Sing : Class Constructor 
-        public Program(string teststring, string name, string password)
+        public Program(string uname, string password)
         {
             //Sing : Login database connection
             //connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database";
             //command.Connection = connection;
 
             //testing:
-            testfunc(teststring);
-            authenticateUser(name, password);
+            
+            authenticateUser(uname, password);
 
 
 
         }
 
 
-        //Sing : Passing value test function:
-
-        private void testfunc(string a)
-        {
-            MessageBox.Show(a);
-
-        }
+       
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password)
         {
