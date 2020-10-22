@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,40 +25,23 @@ namespace Back_End
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
 
-        
         public static void Main(string[] args)
         {
-           
+            // Primary Database
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
             // Must initalise class before use
+            var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            primaryDatabase.dummyWrite();
-            primaryDatabase.fetchData();
+            //primaryDatabase.dummyWrite();
+            //primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
-
             // Test database
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb;Jet OLEDB:Database Password=;";
-            using (OleDbConnection conn = new OleDbConnection(connectionString))
-            {
-                // query
-                string sql = "SELECT * FROM Flights";
-                // Create a command and set its connection  
-                OleDbCommand command = new OleDbCommand(sql, conn);
-                conn.Open();
-                OleDbDataReader reader = command.ExecuteReader();
-                while (reader.Read()) // reads all data from query
-                {
-                    Console.WriteLine("Country: " + reader.GetString(1));
-                }
-                conn.Close();
-                Console.ReadKey();
-           
-
-            } 
-
+            dbFunc.writeDatabase(connectionString);
+            dbFunc.readDatabase(connectionString);
         }
-
+        private string passedString;
         //Sing : Class Constructor 
         public Program(string uname, string password, Form next)
         {
@@ -69,8 +52,6 @@ namespace Back_End
             authenticateUser(uname, password, next);
         }
 
-
-       
         //Sing : Login for Front-end.
         private void authenticateUser(string username, string password, Form nextForm)
         {
@@ -94,7 +75,7 @@ namespace Back_End
                 {
                     connection.Close();
                     MessageBox.Show("You are an admin user");
-                    
+
                     nextForm.Show();
                     //admin credentials are used.
                     //Open admin page 
@@ -111,11 +92,58 @@ namespace Back_End
             }
         }
     }
+    
+    class DatabaseFunctions
+    {
+        protected internal void writeDatabase(string connectionString)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                string title = "Mr", firstName = "Bob", lastName = "Page", gender = "Male", nationality = "American", address = "America", email = "bobpage@gmail.com";
+                int customerAge = 20, passportNumber = 87771243, contactDetails = 771014512;
+                string sql = ("INSERT INTO CustomerDetails (Title, FirstName, LastName, Gender, CustomerAge, PassportNumber, Nationality," +
+                    "Address, ContactDetails, Email) VALUES (@title, @firstName, @lastName, @gender, @customerAge, @passportNumber, @nationality, @address," +
+                    "@contactDetails, @email)");
+                conn.Open();
+                OleDbCommand command = new OleDbCommand(sql, conn);
+                command.Parameters.Add(new OleDbParameter("@title", OleDbType.VarChar)).Value = title;
+                command.Parameters.Add(new OleDbParameter("@firstName", OleDbType.VarChar)).Value = firstName;
+                command.Parameters.Add(new OleDbParameter("@lastName", OleDbType.VarChar)).Value = lastName;
+                command.Parameters.Add(new OleDbParameter("@gender", OleDbType.VarChar)).Value = gender;
+                command.Parameters.Add(new OleDbParameter("@customerAge", OleDbType.VarChar)).Value = customerAge;
+                command.Parameters.Add(new OleDbParameter("@passportNumber", OleDbType.VarChar)).Value = passportNumber;
+                command.Parameters.Add(new OleDbParameter("@nationality", OleDbType.VarChar)).Value = nationality;
+                command.Parameters.Add(new OleDbParameter("@address", OleDbType.VarChar)).Value = address;
+                command.Parameters.Add(new OleDbParameter("@contactDetails", OleDbType.VarChar)).Value = contactDetails;
+                command.Parameters.Add(new OleDbParameter("@email", OleDbType.VarChar)).Value = email;
+                command.ExecuteNonQuery();
+            }
+        }
+
+        protected internal void readDatabase(string connectionString)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                // query
+                string sql = "SELECT * FROM CustomerDetails";
+                // Create a command and set its connection  
+                conn.Open();
+                OleDbCommand command = new OleDbCommand(sql, conn);
+                OleDbDataReader reader = command.ExecuteReader();
+                while (reader.Read()) // reads all data from query
+                {
+                    Console.WriteLine($"Name: {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+
     class PrimaryDatabase
     {
         protected internal void dummyWrite()
         {
-            if (!File.Exists("bookings.txt")) {
+            if (!File.Exists("bookings.txt")){
                 // Create a file to write to.
                 using (StreamWriter writetext = new StreamWriter("bookings.txt"))
                 {
