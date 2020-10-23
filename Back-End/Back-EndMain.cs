@@ -38,8 +38,10 @@ namespace Back_End
             //primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
             // Test database
-            dbFunc.writeDatabase(connectionString);
-            dbFunc.readDatabase(connectionString);
+            //dbFunc.writeDatabase(connectionString);
+            //dbFunc.readDatabase(connectionString);
+            //dbFunc.deleteDatabase(connectionString);
+            dbFunc.checkDuplicateDatabase(connectionString);
         }
         private string passedString;
         //Sing : Class Constructor 
@@ -95,27 +97,55 @@ namespace Back_End
     
     class DatabaseFunctions
     {
+        protected internal void checkDuplicateDatabase(string connectionString)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand command = new OleDbCommand("SELECT COUNT(*) FROM CustomerDetails WHERE [FirstName] = @FirstName AND [LastName] = @LastName", conn))
+                {
+                    string firstName = "Julian", lastName = "Smith";
+                    command.Parameters.AddWithValue("@FirstName", firstName);
+                    command.Parameters.AddWithValue("@LastName", lastName);
+                    conn.Open();
+                    using (OleDbDataReader reader = command.ExecuteReader())
+                    {
+                        reader.Read();
+                        Console.WriteLine(reader.GetInt32(0)); // show number of duplicates
+                    }
+                }
+            }
+            Console.ReadKey();
+        }
+
+        protected internal void deleteDatabase(string connectionString)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                // Delete from ID range
+                string sql = ("DELETE FROM CustomerDetails WHERE CustomerID BETWEEN 9 AND 15");
+                conn.Open();
+                OleDbCommand command = new OleDbCommand(sql, conn);
+                command.ExecuteNonQuery();
+            }
+        }
+
         protected internal void writeDatabase(string connectionString)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
-                string title = "Mr", firstName = "Bob", lastName = "Page", gender = "Male", nationality = "American", address = "America", email = "bobpage@gmail.com";
-                int customerAge = 20, passportNumber = 87771243, contactDetails = 771014512;
+                string title = "Mr", firstName = "Bob", lastName = "Page", gender = "Male", nationality = "American", address = "America", 
+                    email = "bobpage@gmail.com", customerAge = "20", passportNumber = "07771243", contactDetails = "771014512"; ;
+                string[] arr = { "@title", title, "@firstName", firstName, "@lastName", lastName, "@gender", gender, "@customerAge", customerAge,
+                    "@passportNumber", passportNumber, "@nationality", nationality, "@address", address, "@contactDetails", contactDetails, "@email", email };   
                 string sql = ("INSERT INTO CustomerDetails (Title, FirstName, LastName, Gender, CustomerAge, PassportNumber, Nationality," +
                     "Address, ContactDetails, Email) VALUES (@title, @firstName, @lastName, @gender, @customerAge, @passportNumber, @nationality, @address," +
                     "@contactDetails, @email)");
                 conn.Open();
                 OleDbCommand command = new OleDbCommand(sql, conn);
-                command.Parameters.Add(new OleDbParameter("@title", OleDbType.VarChar)).Value = title;
-                command.Parameters.Add(new OleDbParameter("@firstName", OleDbType.VarChar)).Value = firstName;
-                command.Parameters.Add(new OleDbParameter("@lastName", OleDbType.VarChar)).Value = lastName;
-                command.Parameters.Add(new OleDbParameter("@gender", OleDbType.VarChar)).Value = gender;
-                command.Parameters.Add(new OleDbParameter("@customerAge", OleDbType.VarChar)).Value = customerAge;
-                command.Parameters.Add(new OleDbParameter("@passportNumber", OleDbType.VarChar)).Value = passportNumber;
-                command.Parameters.Add(new OleDbParameter("@nationality", OleDbType.VarChar)).Value = nationality;
-                command.Parameters.Add(new OleDbParameter("@address", OleDbType.VarChar)).Value = address;
-                command.Parameters.Add(new OleDbParameter("@contactDetails", OleDbType.VarChar)).Value = contactDetails;
-                command.Parameters.Add(new OleDbParameter("@email", OleDbType.VarChar)).Value = email;
+                // loop through parameters
+                for (int i = 0; i < arr.Length; i+=2){
+                    command.Parameters.Add(new OleDbParameter(arr[i], OleDbType.VarChar)).Value = arr[i+1];
+                }
                 command.ExecuteNonQuery();
             }
         }
@@ -204,12 +234,12 @@ namespace Back_End
         {
 
         }
-        //Notify front-end of bacth recovery : Akmal
+        //Notify front-end of bacth recovery : Avar
         protected internal void notifyRecovery()
         {
 
         }
-        //Send print notification to front-end : Akmal
+        //Send print notification to front-end : Avar
         protected internal void sendPrintNotifications()
         {
 
