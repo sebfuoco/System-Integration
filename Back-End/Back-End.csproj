@@ -61,6 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Back-EndMain.cs" />
+    <Compile Include="HolidayBookingSystemDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayBookingSystemNEWDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HolidayBookingSystemNEWDataSet.xsd</DependentUpon>
     <Compile Include="Business Operations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +85,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="HolidayBookingSystemDataSet.xsc">
+      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HolidayBookingSystemDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HolidayBookingSystemDataSet.xss">
+      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemNEWDataSet.xsc">
+      <DependentUpon>HolidayBookingSystemNEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemNEWDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HolidayBookingSystemNEWDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HolidayBookingSystemNEWDataSet.xss">
+      <DependentUpon>HolidayBookingSystemNEWDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,6 +125,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="HolidayBookingSystemNEW.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Users.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
