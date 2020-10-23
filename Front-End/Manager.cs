@@ -41,13 +41,21 @@ namespace Front_End
 
         private void lgnButton_Click(object sender, EventArgs e)
         {
+            //Sing : login
+            if (usernametxt.Text == "norm")
+            {
+                //open form for new user.
 
-            Back_End.Program PassVal = new Back_End.Program("Hello World","admin","admin");
-            this.Hide();
-            Business_Operations b = new Business_Operations();
-            b.ShowDialog();
-            
+            }
+            else if (usernametxt.Text == "admin")
+            {
+                Business_Operations BusinessForm = new Business_Operations();
+                Back_End.Program LoginAuthenitcate = new Back_End.Program(usernametxt.Text, passwordtxt.Text, BusinessForm);
+                this.Hide();
+            }
+            //this.Hide();
+            //Business_Operations b = new Business_Operations();
+            //b.ShowDialog();
         }
-
     }
 }
