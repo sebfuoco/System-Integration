@@ -40,7 +40,7 @@
             // extButton
             // 
             this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extButton.Location = new System.Drawing.Point(732, -1);
+            this.extButton.Location = new System.Drawing.Point(751, -1);
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(51, 40);
             this.extButton.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.userSearch.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userSearch.Location = new System.Drawing.Point(475, 191);
             this.userSearch.Name = "userSearch";
-            this.userSearch.Size = new System.Drawing.Size(248, 61);
+            this.userSearch.Size = new System.Drawing.Size(248, 48);
             this.userSearch.TabIndex = 1;
             this.userSearch.Text = "Holiday Search";
             this.userSearch.UseVisualStyleBackColor = true;
@@ -64,7 +64,7 @@
             this.mgrButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mgrButton.Location = new System.Drawing.Point(475, 281);
             this.mgrButton.Name = "mgrButton";
-            this.mgrButton.Size = new System.Drawing.Size(248, 61);
+            this.mgrButton.Size = new System.Drawing.Size(248, 48);
             this.mgrButton.TabIndex = 2;
             this.mgrButton.Text = "Manager";
             this.mgrButton.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(782, 553);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mgrButton);
