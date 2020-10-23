@@ -43,7 +43,7 @@
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(69, 40);
             this.extButton.TabIndex = 0;
-            this.extButton.Text = "Exit Application";
+            this.extButton.Text = "X";
             this.extButton.UseVisualStyleBackColor = true;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
             // 
