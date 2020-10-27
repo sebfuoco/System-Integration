@@ -38,5 +38,12 @@ namespace Front_End
         {
 
         }
+
+        private void Business_Operations_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'holiday_Booking_System_NEWDataSet.CustomerInfo' table. You can move, or remove it, as needed.
+            this.customerInfoTableAdapter.Fill(this.holiday_Booking_System_NEWDataSet.CustomerInfo);
+
+        }
     }
 }

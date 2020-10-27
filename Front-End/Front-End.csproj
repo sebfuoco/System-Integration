@@ -77,6 +77,11 @@
       <DependentUpon>Front-EndForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Front-EndMain.cs" />
+    <Compile Include="Holiday_Booking_System_NEWDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +125,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Holiday_Booking_System_NEWDataSet.xsc">
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Holiday_Booking_System_NEWDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Holiday_Booking_System_NEWDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Holiday_Booking_System_NEWDataSet.xss">
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -138,6 +154,11 @@
       <Project>{61830f17-e67f-40cb-be16-1b2c93fbcf15}</Project>
       <Name>Back-End</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Holiday Booking System NEW.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
