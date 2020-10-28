@@ -66,7 +66,7 @@
             this.mgrButton.Name = "mgrButton";
             this.mgrButton.Size = new System.Drawing.Size(248, 48);
             this.mgrButton.TabIndex = 2;
-            this.mgrButton.Text = "Manager";
+            this.mgrButton.Text = "Admin Log in";
             this.mgrButton.UseVisualStyleBackColor = true;
             this.mgrButton.Click += new System.EventHandler(this.mgrButton_Click);
             // 
