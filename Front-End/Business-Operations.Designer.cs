@@ -30,63 +30,53 @@
         {
             this.components = new System.ComponentModel.Container();
             this.extButton = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.holiday_Booking_System_NEWDataSet = new Front_End.Holiday_Booking_System_NEWDataSet();
             this.customerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerInfoTableAdapter = new Front_End.Holiday_Booking_System_NEWDataSetTableAdapters.CustomerInfoTableAdapter();
+            this.idtxt = new System.Windows.Forms.TextBox();
+            this.titletxt = new System.Windows.Forms.TextBox();
+            this.firstnametxt = new System.Windows.Forms.TextBox();
+            this.surnametxt = new System.Windows.Forms.TextBox();
+            this.gendertxt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.agetxt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Insertbttn = new System.Windows.Forms.Button();
+            this.deletebttn = new System.Windows.Forms.Button();
+            this.updatebttn = new System.Windows.Forms.Button();
+            this.displaybttn = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerTitleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerFirstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerLastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerAgeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.passportNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerAddressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.postCodeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerEmailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerNationalityIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerGenderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.customerDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.basic_Customer_Details = new Front_End.Basic_Customer_Details();
+            this.customerDetailsTableAdapter = new Front_End.Basic_Customer_DetailsTableAdapters.CustomerDetailsTableAdapter();
+            this.searchbttn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.holiday_Booking_System_NEWDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerInfoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDetailsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basic_Customer_Details)).BeginInit();
             this.SuspendLayout();
             // 
             // extButton
             // 
             this.extButton.Location = new System.Drawing.Point(9, 329);
-            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2);
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(104, 27);
             this.extButton.TabIndex = 1;
             this.extButton.Text = "Exit";
             this.extButton.UseVisualStyleBackColor = true;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.customerIDDataGridViewTextBoxColumn,
-            this.customerTitleDataGridViewTextBoxColumn,
-            this.customerFirstNameDataGridViewTextBoxColumn,
-            this.customerLastNameDataGridViewTextBoxColumn,
-            this.customerAgeDataGridViewTextBoxColumn,
-            this.passportNumberDataGridViewTextBoxColumn,
-            this.customerAddressDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.postCodeDataGridViewTextBoxColumn,
-            this.customerContactDataGridViewTextBoxColumn,
-            this.customerEmailDataGridViewTextBoxColumn,
-            this.customerNationalityIDDataGridViewTextBoxColumn,
-            this.customerGenderIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.customerInfoBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(311, 76);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 2;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // holiday_Booking_System_NEWDataSet
             // 
@@ -101,6 +91,159 @@
             // customerInfoTableAdapter
             // 
             this.customerInfoTableAdapter.ClearBeforeFill = true;
+            // 
+            // idtxt
+            // 
+            this.idtxt.Location = new System.Drawing.Point(104, 88);
+            this.idtxt.Name = "idtxt";
+            this.idtxt.Size = new System.Drawing.Size(100, 20);
+            this.idtxt.TabIndex = 2;
+            // 
+            // titletxt
+            // 
+            this.titletxt.Location = new System.Drawing.Point(104, 123);
+            this.titletxt.Name = "titletxt";
+            this.titletxt.Size = new System.Drawing.Size(100, 20);
+            this.titletxt.TabIndex = 3;
+            // 
+            // firstnametxt
+            // 
+            this.firstnametxt.Location = new System.Drawing.Point(104, 157);
+            this.firstnametxt.Name = "firstnametxt";
+            this.firstnametxt.Size = new System.Drawing.Size(100, 20);
+            this.firstnametxt.TabIndex = 4;
+            // 
+            // surnametxt
+            // 
+            this.surnametxt.Location = new System.Drawing.Point(104, 193);
+            this.surnametxt.Name = "surnametxt";
+            this.surnametxt.Size = new System.Drawing.Size(100, 20);
+            this.surnametxt.TabIndex = 5;
+            // 
+            // gendertxt
+            // 
+            this.gendertxt.Location = new System.Drawing.Point(104, 228);
+            this.gendertxt.Name = "gendertxt";
+            this.gendertxt.Size = new System.Drawing.Size(100, 20);
+            this.gendertxt.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(35, 91);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(18, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(35, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Title";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(35, 160);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Firstname";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(35, 193);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Surname";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(35, 231);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Gender";
+            // 
+            // agetxt
+            // 
+            this.agetxt.Location = new System.Drawing.Point(104, 263);
+            this.agetxt.Name = "agetxt";
+            this.agetxt.Size = new System.Drawing.Size(100, 20);
+            this.agetxt.TabIndex = 12;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(35, 266);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(26, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Age";
+            // 
+            // Insertbttn
+            // 
+            this.Insertbttn.Location = new System.Drawing.Point(21, 292);
+            this.Insertbttn.Name = "Insertbttn";
+            this.Insertbttn.Size = new System.Drawing.Size(75, 23);
+            this.Insertbttn.TabIndex = 14;
+            this.Insertbttn.Text = "Insert";
+            this.Insertbttn.UseVisualStyleBackColor = true;
+            this.Insertbttn.Click += new System.EventHandler(this.Insertbttn_Click);
+            // 
+            // deletebttn
+            // 
+            this.deletebttn.Location = new System.Drawing.Point(113, 292);
+            this.deletebttn.Name = "deletebttn";
+            this.deletebttn.Size = new System.Drawing.Size(75, 23);
+            this.deletebttn.TabIndex = 15;
+            this.deletebttn.Text = "Delete";
+            this.deletebttn.UseVisualStyleBackColor = true;
+            this.deletebttn.Click += new System.EventHandler(this.deletebttn_Click);
+            // 
+            // updatebttn
+            // 
+            this.updatebttn.Location = new System.Drawing.Point(205, 292);
+            this.updatebttn.Name = "updatebttn";
+            this.updatebttn.Size = new System.Drawing.Size(75, 23);
+            this.updatebttn.TabIndex = 16;
+            this.updatebttn.Text = "Update";
+            this.updatebttn.UseVisualStyleBackColor = true;
+            this.updatebttn.Click += new System.EventHandler(this.updatebttn_Click);
+            // 
+            // displaybttn
+            // 
+            this.displaybttn.Location = new System.Drawing.Point(296, 292);
+            this.displaybttn.Name = "displaybttn";
+            this.displaybttn.Size = new System.Drawing.Size(75, 23);
+            this.displaybttn.TabIndex = 17;
+            this.displaybttn.Text = "Display";
+            this.displaybttn.UseVisualStyleBackColor = true;
+            this.displaybttn.Click += new System.EventHandler(this.displaybttn_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customerIDDataGridViewTextBoxColumn,
+            this.customerTitleDataGridViewTextBoxColumn,
+            this.customerFirstNameDataGridViewTextBoxColumn,
+            this.customerLastNameDataGridViewTextBoxColumn,
+            this.genderDataGridViewTextBoxColumn,
+            this.customerAgeDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.customerDetailsBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(237, 49);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(655, 230);
+            this.dataGridView1.TabIndex = 18;
             // 
             // customerIDDataGridViewTextBoxColumn
             // 
@@ -126,97 +269,112 @@
             this.customerLastNameDataGridViewTextBoxColumn.HeaderText = "CustomerLastName";
             this.customerLastNameDataGridViewTextBoxColumn.Name = "customerLastNameDataGridViewTextBoxColumn";
             // 
+            // genderDataGridViewTextBoxColumn
+            // 
+            this.genderDataGridViewTextBoxColumn.DataPropertyName = "Gender";
+            this.genderDataGridViewTextBoxColumn.HeaderText = "Gender";
+            this.genderDataGridViewTextBoxColumn.Name = "genderDataGridViewTextBoxColumn";
+            // 
             // customerAgeDataGridViewTextBoxColumn
             // 
             this.customerAgeDataGridViewTextBoxColumn.DataPropertyName = "CustomerAge";
             this.customerAgeDataGridViewTextBoxColumn.HeaderText = "CustomerAge";
             this.customerAgeDataGridViewTextBoxColumn.Name = "customerAgeDataGridViewTextBoxColumn";
             // 
-            // passportNumberDataGridViewTextBoxColumn
+            // customerDetailsBindingSource
             // 
-            this.passportNumberDataGridViewTextBoxColumn.DataPropertyName = "PassportNumber";
-            this.passportNumberDataGridViewTextBoxColumn.HeaderText = "PassportNumber";
-            this.passportNumberDataGridViewTextBoxColumn.Name = "passportNumberDataGridViewTextBoxColumn";
+            this.customerDetailsBindingSource.DataMember = "CustomerDetails";
+            this.customerDetailsBindingSource.DataSource = this.basic_Customer_Details;
             // 
-            // customerAddressDataGridViewTextBoxColumn
+            // basic_Customer_Details
             // 
-            this.customerAddressDataGridViewTextBoxColumn.DataPropertyName = "CustomerAddress";
-            this.customerAddressDataGridViewTextBoxColumn.HeaderText = "CustomerAddress";
-            this.customerAddressDataGridViewTextBoxColumn.Name = "customerAddressDataGridViewTextBoxColumn";
+            this.basic_Customer_Details.DataSetName = "Basic_Customer_Details";
+            this.basic_Customer_Details.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // cityDataGridViewTextBoxColumn
+            // customerDetailsTableAdapter
             // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
+            this.customerDetailsTableAdapter.ClearBeforeFill = true;
             // 
-            // postCodeDataGridViewTextBoxColumn
+            // searchbttn
             // 
-            this.postCodeDataGridViewTextBoxColumn.DataPropertyName = "PostCode";
-            this.postCodeDataGridViewTextBoxColumn.HeaderText = "PostCode";
-            this.postCodeDataGridViewTextBoxColumn.Name = "postCodeDataGridViewTextBoxColumn";
-            // 
-            // customerContactDataGridViewTextBoxColumn
-            // 
-            this.customerContactDataGridViewTextBoxColumn.DataPropertyName = "CustomerContact";
-            this.customerContactDataGridViewTextBoxColumn.HeaderText = "CustomerContact";
-            this.customerContactDataGridViewTextBoxColumn.Name = "customerContactDataGridViewTextBoxColumn";
-            // 
-            // customerEmailDataGridViewTextBoxColumn
-            // 
-            this.customerEmailDataGridViewTextBoxColumn.DataPropertyName = "CustomerEmail";
-            this.customerEmailDataGridViewTextBoxColumn.HeaderText = "CustomerEmail";
-            this.customerEmailDataGridViewTextBoxColumn.Name = "customerEmailDataGridViewTextBoxColumn";
-            // 
-            // customerNationalityIDDataGridViewTextBoxColumn
-            // 
-            this.customerNationalityIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerNationality_ID";
-            this.customerNationalityIDDataGridViewTextBoxColumn.HeaderText = "CustomerNationality_ID";
-            this.customerNationalityIDDataGridViewTextBoxColumn.Name = "customerNationalityIDDataGridViewTextBoxColumn";
-            // 
-            // customerGenderIDDataGridViewTextBoxColumn
-            // 
-            this.customerGenderIDDataGridViewTextBoxColumn.DataPropertyName = "CustomerGender_ID";
-            this.customerGenderIDDataGridViewTextBoxColumn.HeaderText = "CustomerGender_ID";
-            this.customerGenderIDDataGridViewTextBoxColumn.Name = "customerGenderIDDataGridViewTextBoxColumn";
+            this.searchbttn.Location = new System.Drawing.Point(205, 329);
+            this.searchbttn.Name = "searchbttn";
+            this.searchbttn.Size = new System.Drawing.Size(75, 23);
+            this.searchbttn.TabIndex = 19;
+            this.searchbttn.Text = "Search";
+            this.searchbttn.UseVisualStyleBackColor = true;
+            this.searchbttn.Click += new System.EventHandler(this.searchbttn_Click);
             // 
             // Business_Operations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(904, 448);
+            this.Controls.Add(this.searchbttn);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.displaybttn);
+            this.Controls.Add(this.updatebttn);
+            this.Controls.Add(this.deletebttn);
+            this.Controls.Add(this.Insertbttn);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.agetxt);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.gendertxt);
+            this.Controls.Add(this.surnametxt);
+            this.Controls.Add(this.firstnametxt);
+            this.Controls.Add(this.titletxt);
+            this.Controls.Add(this.idtxt);
             this.Controls.Add(this.extButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Business_Operations";
             this.Text = "Business Operations";
             this.Load += new System.EventHandler(this.Business_Operations_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.holiday_Booking_System_NEWDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerInfoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customerDetailsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basic_Customer_Details)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button extButton;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private Holiday_Booking_System_NEWDataSet holiday_Booking_System_NEWDataSet;
         private System.Windows.Forms.BindingSource customerInfoBindingSource;
         private Holiday_Booking_System_NEWDataSetTableAdapters.CustomerInfoTableAdapter customerInfoTableAdapter;
+        private System.Windows.Forms.TextBox idtxt;
+        private System.Windows.Forms.TextBox titletxt;
+        private System.Windows.Forms.TextBox firstnametxt;
+        private System.Windows.Forms.TextBox surnametxt;
+        private System.Windows.Forms.TextBox gendertxt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox agetxt;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Insertbttn;
+        private System.Windows.Forms.Button deletebttn;
+        private System.Windows.Forms.Button updatebttn;
+        private System.Windows.Forms.Button displaybttn;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Basic_Customer_Details basic_Customer_Details;
+        private System.Windows.Forms.BindingSource customerDetailsBindingSource;
+        private Basic_Customer_DetailsTableAdapters.CustomerDetailsTableAdapter customerDetailsTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerTitleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerFirstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerLastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn customerAgeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn passportNumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerAddressDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn postCodeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerContactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerEmailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerNationalityIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerGenderIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button searchbttn;
     }
 }

@@ -52,6 +52,11 @@
     <Compile Include="Availability-Check.Designer.cs">
       <DependentUpon>Availability-Check.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basic_Customer_Details.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Booking-Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +130,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Basic_Customer_Details.xsc">
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
+    </None>
+    <None Include="Basic_Customer_Details.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Basic_Customer_Details.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Basic_Customer_Details.xss">
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
+    </None>
     <None Include="Holiday_Booking_System_NEWDataSet.xsc">
       <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
     </None>
