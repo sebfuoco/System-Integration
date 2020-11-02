@@ -33,10 +33,10 @@ namespace Back_End
                 checkDuplicateDB = "SELECT COUNT(*) FROM CustomerDetails WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
                 deleteDB = "DELETE FROM CustomerDetails WHERE CustomerID BETWEEN 9 AND 15",
                 writeDB = "INSERT INTO CustomerDetails (CustomerTitle, CustomerFirstName, CustomerLastName, Gender, CustomerAge, PassportNumber, Nationality," +
-                        "CustomerAddress, CustomerContact, CustomerEmail) VALUES (@CustomerTitle, @CustomerFirstName, @CustomerLastName, @Gender, @CustomerAge, @PassportNumber, @Nationality, @CustomerAddress," +
-                        "@CustomerContact, @CustomerEmail)",
+                        "CustomerAddress, City, Country, PostCode, CustomerContact, CustomerEmail) VALUES (@CustomerTitle, @CustomerFirstName, @CustomerLastName, @Gender, @CustomerAge, @PassportNumber, " +
+                        "@Nationality, @CustomerAddress, @City, @Country, @PostCode, @CustomerContact, @CustomerEmail)",
                 readDB = "SELECT * FROM CustomerDetails";
-
+            var details = new Dictionary<string, string>();
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
@@ -45,12 +45,13 @@ namespace Back_End
             //primaryDatabase.dummyWrite();
             //primaryDatabase.fetchData();
             primaryDatabase.batchUpdate();
+            dbFunc.getInfo(details);
             // Test database
-            //dbFunc.writeDatabase(writeDB, connectionString);
+            dbFunc.writeDatabase(writeDB, connectionString, details);
             //dbFunc.deleteDatabase(deleteDB, connectionString);
-            dbFunc.editDatabase(editDB, connectionString);
+            //dbFunc.editDatabase(editDB, connectionString, details);
             dbFunc.readDatabase(readDB, connectionString);
-            //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString);
+            //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
         private string passedString;
         //Sing : Class Constructor 
@@ -106,15 +107,33 @@ namespace Back_End
     
     class DatabaseFunctions
     {
-        protected internal void checkDuplicateDatabase(string sql, string connectionString)
+        // gets info from front-end
+        protected internal dynamic getInfo(Dictionary<string, string> details)
+        {
+            details["title"] = "Mr";
+            details["firstName"] = "Bob";
+            details["lastName"] = "Page";
+            details["gender"] = "Male";
+            details["customerAge"] = "22";
+            details["passportNumber"] = "07771243";
+            details["nationality"] = "American";
+            details["customerAddress"] = "3256 Epiphenomenal Avenue";
+            details["city"] = "New York City";
+            details["country"] = "America";
+            details["postCode"] = "10001";
+            details["email"] = "bobpage@gmail.com";
+            details["contactDetails"] = "771014512";
+            return details;
+        }
+
+        protected internal void checkDuplicateDatabase(string sql, string connectionString, Dictionary<string, string> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    string firstName = "Julian", lastName = "Smith";
-                    command.Parameters.AddWithValue("@CustomerFirstName", firstName);
-                    command.Parameters.AddWithValue("@CustomerLastName", lastName);
+                    command.Parameters.AddWithValue("@CustomerFirstName", details["firstName"]);
+                    command.Parameters.AddWithValue("@CustomerLastName", details["lastName"]);
                     conn.Open();
                     using (OleDbDataReader reader = command.ExecuteReader())
                     {
@@ -126,17 +145,16 @@ namespace Back_End
             Console.ReadKey();
         }
 
-        protected internal void editDatabase(string sql, string connectionString)
+        protected internal void editDatabase(string sql, string connectionString, Dictionary<string,string> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    string firstName = "Julian", lastName = "Smith", email = "smithj@hotmail.com";
                     // Update row from email
-                    command.Parameters.AddWithValue("@CustomerFirstName", OleDbType.VarChar).Value = firstName;
-                    command.Parameters.AddWithValue("@CustomerLastName", OleDbType.VarChar).Value = lastName;
-                    command.Parameters.AddWithValue("@CustomerEmail", OleDbType.VarChar).Value = email;
+                    command.Parameters.AddWithValue("@CustomerFirstName", OleDbType.VarChar).Value = details["firstName"];
+                    command.Parameters.AddWithValue("@CustomerLastName", OleDbType.VarChar).Value = details["lastName"];
+                    command.Parameters.AddWithValue("@CustomerEmail", OleDbType.VarChar).Value = details["email"];
                     conn.Open();
                     command.ExecuteNonQuery();
                 }
@@ -156,16 +174,14 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString)
+        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    string title = "Mr", firstName = "Bob", lastName = "Page", gender = "Male", nationality = "American", address = "America",
-                    email = "bobpage@gmail.com", customerAge = "20", passportNumber = "07771243", contactDetails = "771014512"; ;
-                    string[] arr = { "@CustomerTitle", title, "@CustomerFirstName", firstName, "@CustomerLastName", lastName, "@Gender", gender, "@CustomerAge", customerAge,
-                    "@PassportNumber", passportNumber, "@Nationality", nationality, "@CustomerAddress", address, "@CustomerContact", contactDetails, "@CustomerEmail", email };
+                    string[] arr = { "@CustomerTitle", details["title"], "@CustomerFirstName", details["firstName"], "@CustomerLastName", details["lastName"], "@Gender", details["gender"], "@CustomerAge", details["customerAge"],
+                    "@PassportNumber", details["passportNumber"], "@Nationality", details["nationality"], "@CustomerAddress", details["customerAddress"], "@City", details["city"], "@Country", details["country"], "@PostCode", details["postCode"], "@CustomerContact", details["contactDetails"], "@CustomerEmail", details["email"]};
                     conn.Open();
                     // loop through parameters
                     for (int i = 0; i < arr.Length; i += 2)
