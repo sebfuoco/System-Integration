@@ -12,12 +12,6 @@ namespace Back_End
 {
     public class Program
     {
-        //Database connection goes here : Ndey
-        /* IMPORTANT!!!
-         * Data being exchanged between programs must be in file format!
-         * !!!
-        */
-
         //Sing : login database declarations
         System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
         OleDbDataAdapter ad;
@@ -29,28 +23,22 @@ namespace Back_End
         {
             // Primary Database + queries
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
-                editDB = "UPDATE CustomerDetails SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
-                checkDuplicateDB = "SELECT COUNT(*) FROM CustomerDetails WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
-                deleteDB = "DELETE FROM CustomerDetails WHERE CustomerID BETWEEN 9 AND 15",
-                writeDB = "INSERT INTO CustomerDetails (CustomerTitle, CustomerFirstName, CustomerLastName, Gender, CustomerAge, PassportNumber, Nationality," +
-                        "CustomerAddress, City, Country, PostCode, CustomerContact, CustomerEmail) VALUES (@CustomerTitle, @CustomerFirstName, @CustomerLastName, @Gender, @CustomerAge, @PassportNumber, " +
-                        "@Nationality, @CustomerAddress, @City, @Country, @PostCode, @CustomerContact, @CustomerEmail)",
-                readDB = "SELECT * FROM CustomerDetails";
-            var details = new Dictionary<string, string>();
+                editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
+                checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
+                deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 5 AND 15",
+                readDB = "SELECT * FROM Customers";
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            //primaryDatabase.dummyWrite();
-            //primaryDatabase.fetchData();
-            primaryDatabase.batchUpdate();
-            dbFunc.getInfo(details);
+            //primaryDatabase.batchUpdate();
+            var details = dbFunc.createDict();
+            primaryDatabase.fetchData(details);
             // Test database
-            dbFunc.writeDatabase(writeDB, connectionString, details);
             //dbFunc.deleteDatabase(deleteDB, connectionString);
             //dbFunc.editDatabase(editDB, connectionString, details);
-            dbFunc.readDatabase(readDB, connectionString);
+            //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
         private string passedString;
@@ -104,25 +92,48 @@ namespace Back_End
             }
         }
     }
-    
+
     class DatabaseFunctions
     {
-        // gets info from front-end
-        protected internal dynamic getInfo(Dictionary<string, string> details)
+        // store data to send
+        protected internal dynamic createDict()
         {
-            details["title"] = "Mr";
-            details["firstName"] = "Bob";
-            details["lastName"] = "Page";
-            details["gender"] = "Male";
-            details["customerAge"] = "22";
-            details["passportNumber"] = "07771243";
-            details["nationality"] = "American";
-            details["customerAddress"] = "3256 Epiphenomenal Avenue";
-            details["city"] = "New York City";
-            details["country"] = "America";
-            details["postCode"] = "10001";
-            details["email"] = "bobpage@gmail.com";
-            details["contactDetails"] = "771014512";
+            var details = new Dictionary<string, string>();
+            // Customer Test
+            details["CustomerFirstName"] = "Bob";
+            details["CustomerLastName"] = "Page";
+            details["Gender"] = "Male";
+            details["PassportNumber"] = "07771243";
+            details["Nationality"] = "American";
+            details["Address"] = "12 Garden Road, Woking, Surrey";
+            details["PostCode"] = "GU21 2XT";
+            details["ContactNumber"] = "771014512";
+            details["EmailAddress"] = "bobpage@gmail.com";
+            // Flight Test
+            details["FlightNumber"] = "1200";
+            details["HotelID"] = "4000";
+            details["FlightType"] = "Return";
+            details["Departure"] = "UK";
+            details["Arrival"] = "Italy";
+            details["DepartureTime"] = "13/11/2020";
+            details["ArrivalTime"] = "20/11/2020";
+            details["AdultPrice"] = "200.00";
+            details["ChildPrice"] = "130.00";
+            // Hotel Test
+            details["HotelID"] = "4000";
+            details["StarRating"] = "5";
+            details["CheckIn"] = "13/11/2020";
+            details["CheckOut"] = "20/11/2020";
+            details["PricePerNight"] = "32.00";
+            details["Country"] = "Italy";
+            details["NumberPlate"] = "2200";
+            // Cars Test
+            details["Make"] = "Ford";
+            details["Model"] = "Focus";
+            details["CarType"] = "Large";
+            details["GearBox"] = "Automatic";
+            details["Seats"] = "10.00";
+            details["PricePerDay"] = "18.00";
             return details;
         }
 
@@ -174,14 +185,12 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details)
+        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details, string[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    string[] arr = { "@CustomerTitle", details["title"], "@CustomerFirstName", details["firstName"], "@CustomerLastName", details["lastName"], "@Gender", details["gender"], "@CustomerAge", details["customerAge"],
-                    "@PassportNumber", details["passportNumber"], "@Nationality", details["nationality"], "@CustomerAddress", details["customerAddress"], "@City", details["city"], "@Country", details["country"], "@PostCode", details["postCode"], "@CustomerContact", details["contactDetails"], "@CustomerEmail", details["email"]};
                     conn.Open();
                     // loop through parameters
                     for (int i = 0; i < arr.Length; i += 2)
@@ -204,7 +213,7 @@ namespace Back_End
                     OleDbDataReader reader = command.ExecuteReader();
                     while (reader.Read()) // reads all data from query
                     {
-                        Console.WriteLine($"Name: {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+                        Console.WriteLine($"{reader}");
                     }
                 }
             }
@@ -214,27 +223,42 @@ namespace Back_End
 
     class PrimaryDatabase
     {
-        protected internal void dummyWrite()
+        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
+        string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
+            "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
+            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
+            "VALUES (@FlightNumber, @CustomerID, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
+            hotelWriteDB = "INSERT INTO Hotel (HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, NumberPlate, FlightNumber) " +
+            "VALUES (@HotelID, @StarRating, @CheckIn, @CheckOut, @PricePerNight, @Country, @NumberPlate, @FlightNumber)",
+            carsWriteDB = "INSERT INTO Cars (NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
+            "VALUES (@NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)";
+        //Fetch new bookings, gets info from front-end : Seb
+        protected internal void fetchData(Dictionary<string, string> details)
         {
-            if (!File.Exists("bookings.txt")){
-                // Create a file to write to.
-                using (StreamWriter writetext = new StreamWriter("bookings.txt"))
-                {
-                    // test
-                    int price = 100;
-                    string name = "Seb Fuoco", country = "Spain", city = "Barcelona", flightType = "return";
-                    writetext.WriteLine($"{name}|{price}|{country}|{city}|{flightType}");
-                }
-            }
-        }
-        //Fetch new bookings : Seb
-        protected internal void fetchData()
-        {
-            using (StreamReader readtext = new StreamReader("bookings.txt"))
-            {
-                Console.WriteLine(readtext.ReadLine());
-                Console.ReadKey();
-            }
+            string firstName = details["CustomerFirstName"],
+                readCustomerID = "SELECT CustomerID FROM Customers WHERE CustomerFirstName = firstName";
+            var dbFunc = new DatabaseFunctions();
+            string[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
+                    "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
+                details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
+
+            details["CustomerID"] = "4"; // get customer ID
+            //dbFunc.writeDatabase(customerWriteDB, connectionString, details, customers);
+            dbFunc.readDatabase(readCustomerID, connectionString);
+            // Get customerID
+            /*
+            string[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
+                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Destination", details["Destination"],
+                "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
+            details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
+            dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
+            string[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
+                    "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Country"], "@NumberPlate",
+                details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
+            dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
+            string[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
+                "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
+            dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);*/
         }
         //Batch update the secondary database : Seb
         protected internal void batchUpdate()
