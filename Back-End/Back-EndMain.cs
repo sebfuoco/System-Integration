@@ -58,7 +58,7 @@ namespace Back_End
         public Program(string uname, string password)
         {
             //Sing : Login database connection
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database Password=;";
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
             command.Connection = connection;
             //sing : Login - Authenticating admin and normal user.
             authenticateUser(uname, password);
