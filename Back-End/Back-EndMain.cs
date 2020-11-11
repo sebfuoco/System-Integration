@@ -25,7 +25,7 @@ namespace Back_End
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
                 editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
-                deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 5 AND 15",
+                deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 5 AND 1000",
                 readDB = "SELECT * FROM Customers";
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
@@ -185,7 +185,7 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details, string[] arr)
+        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -195,29 +195,34 @@ namespace Back_End
                     // loop through parameters
                     for (int i = 0; i < arr.Length; i += 2)
                     {
-                        command.Parameters.Add(new OleDbParameter(arr[i], OleDbType.VarChar)).Value = arr[i + 1];
+                        command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
                     }
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        protected internal void readDatabase(string sql, string connectionString)
+        protected internal dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, string> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    // Create a command and set its connection  
                     conn.Open();
-                    OleDbDataReader reader = command.ExecuteReader();
-                    while (reader.Read()) // reads all data from query
+                    // loop through parameters
+                    for (int i = 0; i < arr.Length; i += 2)
                     {
-                        Console.WriteLine($"{reader}");
+                        command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
                     }
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(sql2, conn))
+                {
+                    var id = (int)command.ExecuteScalar();
+                    string myId = id.ToString();
+                    return myId;
                 }
             }
-            Console.ReadKey();
         }
     }
 
@@ -236,29 +241,25 @@ namespace Back_End
         protected internal void fetchData(Dictionary<string, string> details)
         {
             string firstName = details["CustomerFirstName"],
-                readCustomerID = "SELECT CustomerID FROM Customers WHERE CustomerFirstName = firstName";
+                readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
-            string[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
+            object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
-
-            details["CustomerID"] = "4"; // get customer ID
-            //dbFunc.writeDatabase(customerWriteDB, connectionString, details, customers);
-            dbFunc.readDatabase(readCustomerID, connectionString);
-            // Get customerID
-            /*
-            string[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
-                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Destination", details["Destination"],
+            details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, details, customers); // get customerID from insert query
+            var myList = new List<KeyValuePair<int, string>>(); // change to list for int and strings
+            object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
+                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
             dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
-            string[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
+            object[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
                     "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Country"], "@NumberPlate",
                 details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
             dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
-            string[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
+            object[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
                 "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
-            dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);*/
+            dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
         }
         //Batch update the secondary database : Seb
         protected internal void batchUpdate()
