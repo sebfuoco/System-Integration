@@ -55,17 +55,17 @@ namespace Back_End
         }
         private string passedString;
         //Sing : Class Constructor 
-        public Program(string uname, string password, Form next)
+        public Program(string uname, string password)
         {
             //Sing : Login database connection
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Users.mdb;Jet OLEDB:Database Password=;";
             command.Connection = connection;
             //sing : Login - Authenticating admin and normal user.
-            authenticateUser(uname, password, next);
+            authenticateUser(uname, password);
         }
 
         //Sing : Login for Front-end.
-        private void authenticateUser(string username, string password, Form nextForm)
+        public bool authenticateUser(string username, string password)
         {
             //Opening a connection to the database
             connection.Open();
@@ -78,29 +78,20 @@ namespace Back_End
             {
                 //Details do not exist in the database
                 connection.Close();
-                MessageBox.Show("Login Invalid. Please try again.");
+                //MessageBox.Show("Login Invalid. Please try again.");
+                return false;
             }
-            else if (dtable.Rows.Count > 0)
+            else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
             {
                 //Data exists in the database, therefore this function checks where admin credientials are used.
-                if (username == "admin" && password == "admin")
-                {
+                
                     connection.Close();
-                    MessageBox.Show("You are an admin user");
-
-                    nextForm.Show();
-                    //admin credentials are used.
-                    //Open admin page 
-                    //Login authenticated
-                }
-                else
-                {
-                    MessageBox.Show("You are a normal user");
-                    //username and password exists in the database
-                    connection.Close();
-                    nextForm.Show();
-                    //normal user authenticated
-                }
+                    return true;
+               
+            }
+            else
+            {
+                return false;
             }
         }
     }

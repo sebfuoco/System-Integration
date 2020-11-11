@@ -13,7 +13,7 @@ namespace Front_End
 {
     public partial class Business_Operations : Form
     {
-        SqlConnection con = new SqlConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C: \Users\giann\Source\Repos\sebfuoco\System - Integration\Front - End\Holiday Booking System NEW.mdb"");
+        //SqlConnection con = new SqlConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C: \Users\giann\Source\Repos\sebfuoco\System - Integration\Front - End\Holiday Booking System NEW.mdb"");
         public Business_Operations()
         {
             InitializeComponent();
@@ -53,12 +53,12 @@ namespace Front_End
 
         private void Insertbttn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into table1 values('"+idtxt.Text+"','"+titletxt.Text+"','"+firstnametxt.Text+"','"+surnametxt.Text+"','"+gendertxt.Text+"','"+agetxt.Text+"')";
-            cmd.ExecuteNonQuery();
-            con.Close();
+          //  con.Open();
+           // SqlCommand cmd = con.CreateCommand();
+           // cmd.CommandType = CommandType.Text;
+           // cmd.CommandText = "insert into table1 values('"+idtxt.Text+"','"+titletxt.Text+"','"+firstnametxt.Text+"','"+surnametxt.Text+"','"+gendertxt.Text+"','"+agetxt.Text+"')";
+          //  cmd.ExecuteNonQuery();
+          //  con.Close();
             idtxt.Text = "";
             titletxt.Text = "";
             firstnametxt.Text = "";
@@ -71,39 +71,39 @@ namespace Front_End
         }
         public void disp_data()
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from table1";
-            cmd.ExecuteNonQuery();
+            //con.Open();
+           // SqlCommand cmd = con.CreateCommand();
+           // cmd.CommandType = CommandType.Text;
+           // cmd.CommandText = "select * from table1";
+          //  cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+         //   SqlDataAdapter da = new SqlDataAdapter(cmd);
+            //da.Fill(dt);
             dataGridView1.DataSource = dt;
             
-            con.Close();
+           // con.Close();
         }
 
         private void deletebttn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from table1 where name='" +idtxt.Text+"'";
-            cmd.ExecuteNonQuery();
-            con.Close();
+            //con.Open();
+            //SqlCommand cmd = con.CreateCommand();
+           // cmd.CommandType = CommandType.Text;
+           // cmd.CommandText = "delete from table1 where name='" +idtxt.Text+"'";
+           // cmd.ExecuteNonQuery();
+           // con.Close();
             disp_data();
             MessageBox.Show("Data Successfully Deleted");
         }
 
         private void updatebttn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "update table1 set name='"+surnametxt.Text+"'where name='" + firstnametxt.Text + "'";
-            cmd.ExecuteNonQuery();
-            con.Close();
+           // con.Open();
+           // SqlCommand cmd = con.CreateCommand();
+          //  cmd.CommandType = CommandType.Text;
+          //  cmd.CommandText = "update table1 set name='"+surnametxt.Text+"'where name='" + firstnametxt.Text + "'";
+           // cmd.ExecuteNonQuery();
+           // con.Close();
             disp_data();
             MessageBox.Show("Data Update Complete");
         }
@@ -115,17 +115,17 @@ namespace Front_End
 
         private void searchbttn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from table1 where name='"+idtxt.Text+"'";
-            cmd.ExecuteNonQuery();
+           // con.Open();
+          //  SqlCommand cmd = con.CreateCommand();
+           // cmd.CommandType = CommandType.Text;
+           // cmd.CommandText = "select * from table1 where name='"+idtxt.Text+"'";
+           // cmd.ExecuteNonQuery();
             DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
+          //  SqlDataAdapter da = new SqlDataAdapter(cmd);
+           // da.Fill(dt);
             dataGridView1.DataSource = dt;
 
-            con.Close();
+           // con.Close();
         }
     }
 }
