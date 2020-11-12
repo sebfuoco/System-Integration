@@ -77,6 +77,11 @@
       <DependentUpon>Front-EndForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Front-EndMain.cs" />
+    <Compile Include="HolidayBookingSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Manager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +125,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="HolidayBookingSystemDataSet1.xsc">
+      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HolidayBookingSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HolidayBookingSystemDataSet1.xss">
+      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,7 +147,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Back-End\Back-End.csproj">

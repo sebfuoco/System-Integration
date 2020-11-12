@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data;
 using System.IO;
+using System.Globalization;
 
 namespace Back_End
 {
@@ -25,20 +26,27 @@ namespace Back_End
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
                 editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
-                deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 5 AND 1000",
-                readDB = "SELECT * FROM Customers";
+                readDB = "SELECT * FROM Customers",
+                deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 3 AND 100",
+                deleteFDB = "DELETE FROM Flights WHERE ID BETWEEN 3 AND 100",
+                deleteHDB = "DELETE FROM Hotel WHERE ID BETWEEN 3 AND 100",
+                deleteCDB = "DELETE FROM Cars WHERE ID BETWEEN 3 AND 100";
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            //primaryDatabase.batchUpdate();
+            primaryDatabase.batchUpdate();
             var details = dbFunc.createDict();
-            primaryDatabase.fetchData(details);
+            //primaryDatabase.fetchData(details);
             // Test database
-            //dbFunc.deleteDatabase(deleteDB, connectionString);
+            /*
+            dbFunc.deleteDatabase(deleteDB, connectionString);
+            dbFunc.deleteDatabase(deleteFDB, connectionString);
+            dbFunc.deleteDatabase(deleteHDB, connectionString);
+            dbFunc.deleteDatabase(deleteCDB, connectionString);*/
             //dbFunc.editDatabase(editDB, connectionString, details);
-            //dbFunc.readDatabase(readDB, connectionString);
+            dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
         private string passedString;
@@ -98,9 +106,10 @@ namespace Back_End
         // store data to send
         protected internal dynamic createDict()
         {
-            var details = new Dictionary<string, string>();
+            //var details = new List<KeyValuePair<int, string>>(); // change to list for int and strings
+            var details = new Dictionary<string, object>();
             // Customer Test
-            details["CustomerFirstName"] = "Bob";
+            details["CustomerFirstName"] = "Bobby";
             details["CustomerLastName"] = "Page";
             details["Gender"] = "Male";
             details["PassportNumber"] = "07771243";
@@ -110,31 +119,37 @@ namespace Back_End
             details["ContactNumber"] = "771014512";
             details["EmailAddress"] = "bobpage@gmail.com";
             // Flight Test
-            details["FlightNumber"] = "1200";
-            details["HotelID"] = "4000";
             details["FlightType"] = "Return";
             details["Departure"] = "UK";
             details["Arrival"] = "Italy";
             details["DepartureTime"] = "13/11/2020";
             details["ArrivalTime"] = "20/11/2020";
-            details["AdultPrice"] = "200.00";
-            details["ChildPrice"] = "130.00";
+            details["AdultPrice"] = 200.00;
+            details["ChildPrice"] = 130.00;
             // Hotel Test
-            details["HotelID"] = "4000";
-            details["StarRating"] = "5";
+            details["StarRating"] = 5;
             details["CheckIn"] = "13/11/2020";
             details["CheckOut"] = "20/11/2020";
-            details["PricePerNight"] = "32.00";
+            details["PricePerNight"] = 32.00;
             details["Country"] = "Italy";
-            details["NumberPlate"] = "2200";
+            details["NumberPlate"] = "22101"; // random
             // Cars Test
             details["Make"] = "Ford";
             details["Model"] = "Focus";
             details["CarType"] = "Large";
             details["GearBox"] = "Automatic";
-            details["Seats"] = "10.00";
-            details["PricePerDay"] = "18.00";
+            details["Seats"] = 10;
+            details["PricePerDay"] = 18.00;
             return details;
+        }
+
+        protected internal dynamic maxID(string connectionString, string sql)
+        {
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+            OleDbCommand maxID = new OleDbCommand(sql, connection);
+            int id = (Int32)maxID.ExecuteScalar();
+            return id;
         }
 
         protected internal void checkDuplicateDatabase(string sql, string connectionString, Dictionary<string, string> details)
@@ -156,7 +171,24 @@ namespace Back_End
             Console.ReadKey();
         }
 
-        protected internal void editDatabase(string sql, string connectionString, Dictionary<string,string> details)
+        protected internal void readDatabase(string sql, string connectionString)
+        {
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand command = new OleDbCommand(sql, conn))
+                {
+                    conn.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+                    while (reader.Read()) // reads all data from query
+                    {
+                        Console.WriteLine($"Name: {reader.GetString(1)} {reader.GetString(2)} {reader.GetString(3)}");
+                    }
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        protected internal void editDatabase(string sql, string connectionString, Dictionary<string,object> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -185,7 +217,7 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, string> details, object[] arr)
+        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, object> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -196,13 +228,14 @@ namespace Back_End
                     for (int i = 0; i < arr.Length; i += 2)
                     {
                         command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
+
                     }
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        protected internal dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, string> details, object[] arr)
+        protected internal dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, object> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -218,9 +251,7 @@ namespace Back_End
                 }
                 using (OleDbCommand command = new OleDbCommand(sql2, conn))
                 {
-                    var id = (int)command.ExecuteScalar();
-                    string myId = id.ToString();
-                    return myId;
+                    return (int)command.ExecuteScalar();
                 }
             }
         }
@@ -231,25 +262,28 @@ namespace Back_End
         string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
         string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
             "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
-            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
-            "VALUES (@FlightNumber, @CustomerID, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
+            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, Country, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
+            "VALUES (@FlightNumber, @CustomerID, @HotelID, @Country, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
             hotelWriteDB = "INSERT INTO Hotel (HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, NumberPlate, FlightNumber) " +
             "VALUES (@HotelID, @StarRating, @CheckIn, @CheckOut, @PricePerNight, @Country, @NumberPlate, @FlightNumber)",
             carsWriteDB = "INSERT INTO Cars (NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
-            "VALUES (@NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)";
+            "VALUES (@NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)",
+            flightID = "SELECT max(FlightNumber) from Flights",
+            hotelID = "SELECT max(HotelID) from Hotel";
         //Fetch new bookings, gets info from front-end : Seb
-        protected internal void fetchData(Dictionary<string, string> details)
+        protected internal void fetchData(Dictionary<string, object> details)
         {
-            string firstName = details["CustomerFirstName"],
-                readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
+            string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
+            // autonumber IDs
+            details["FlightNumber"] = dbFunc.maxID(connectionString, flightID) + 1;
+            details["HotelID"] = dbFunc.maxID(connectionString, hotelID) + 1;
             object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
             details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, details, customers); // get customerID from insert query
-            var myList = new List<KeyValuePair<int, string>>(); // change to list for int and strings
             object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
-                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
+                    "@Country", details["Country"], "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
             dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
@@ -260,6 +294,7 @@ namespace Back_End
             object[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
                 "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
             dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
+            Console.ReadKey();
         }
         //Batch update the secondary database : Seb
         protected internal void batchUpdate()
