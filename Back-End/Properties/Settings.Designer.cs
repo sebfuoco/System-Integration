@@ -33,5 +33,16 @@ namespace Back_End.Properties {
                 return ((string)(this["HolidayBookingSystemConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\bin\\Debug\\HolidayBoo" +
+            "kingSystem.mdb")]
+        public string HolidayBookingSystemConnectionString1 {
+            get {
+                return ((string)(this["HolidayBookingSystemConnectionString1"]));
+            }
+        }
     }
 }
