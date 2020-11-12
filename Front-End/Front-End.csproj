@@ -52,6 +52,11 @@
     <Compile Include="Availability-Check.Designer.cs">
       <DependentUpon>Availability-Check.cs</DependentUpon>
     </Compile>
+    <Compile Include="Basic_Customer_Details.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Booking-Confirmation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,10 +82,10 @@
       <DependentUpon>Front-EndForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Front-EndMain.cs" />
-    <Compile Include="HolidayBookingSystemDataSet1.Designer.cs">
+    <Compile Include="Holiday_Booking_System_NEWDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs">
       <SubType>Form</SubType>
@@ -125,16 +130,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="HolidayBookingSystemDataSet1.xsc">
-      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+    <None Include="Basic_Customer_Details.xsc">
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
     </None>
-    <None Include="HolidayBookingSystemDataSet1.xsd">
+    <None Include="Basic_Customer_Details.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HolidayBookingSystemDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>Basic_Customer_Details.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="HolidayBookingSystemDataSet1.xss">
-      <DependentUpon>HolidayBookingSystemDataSet1.xsd</DependentUpon>
+    <None Include="Basic_Customer_Details.xss">
+      <DependentUpon>Basic_Customer_Details.xsd</DependentUpon>
+    </None>
+    <None Include="Holiday_Booking_System_NEWDataSet.xsc">
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Holiday_Booking_System_NEWDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Holiday_Booking_System_NEWDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Holiday_Booking_System_NEWDataSet.xss">
+      <DependentUpon>Holiday_Booking_System_NEWDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -156,6 +172,11 @@
       <Project>{61830f17-e67f-40cb-be16-1b2c93fbcf15}</Project>
       <Name>Back-End</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Holiday Booking System NEW.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

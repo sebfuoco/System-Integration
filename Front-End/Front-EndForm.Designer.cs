@@ -39,12 +39,15 @@
             // 
             // extButton
             // 
+            this.extButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("extButton.BackgroundImage")));
+            this.extButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.extButton.FlatAppearance.BorderSize = 0;
+            this.extButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.extButton.Location = new System.Drawing.Point(751, -1);
             this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(51, 40);
+            this.extButton.Size = new System.Drawing.Size(49, 41);
             this.extButton.TabIndex = 0;
-            this.extButton.Text = "X";
             this.extButton.UseVisualStyleBackColor = true;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
             // 
@@ -66,7 +69,7 @@
             this.mgrButton.Name = "mgrButton";
             this.mgrButton.Size = new System.Drawing.Size(248, 48);
             this.mgrButton.TabIndex = 2;
-            this.mgrButton.Text = "Manager";
+            this.mgrButton.Text = "Admin Log in";
             this.mgrButton.UseVisualStyleBackColor = true;
             this.mgrButton.Click += new System.EventHandler(this.mgrButton_Click);
             // 
