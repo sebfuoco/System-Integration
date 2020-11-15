@@ -57,38 +57,60 @@ namespace Back_End
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
             command.Connection = connection;
             //sing : Login - Authenticating admin and normal user.
-            authenticateUser(uname, password);
+            //authenticateUser(uname, password);
         }
 
-        //Sing : Login for Front-end.
-        public bool authenticateUser(string username, string password)
+
+        public static class login
         {
-            //Opening a connection to the database
-            connection.Open();
-            //defining the query 
-            ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
-            //Filling the table adaptor 
-            ad.Fill(dtable);
-            //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
-            if (dtable.Rows.Count <= 0)
+
+            //Sing : Login for Front-end.
+            public static bool authenticateUser(string username, string password)
             {
-                //Details do not exist in the database
-                connection.Close();
-                //MessageBox.Show("Login Invalid. Please try again.");
-                return false;
-            }
-            else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
-            {
-                //Data exists in the database, therefore this function checks where admin credientials are used.
-                
+                //Sing : login database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
+
+                //Sing : Login database connection
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
+                command.Connection = connection;
+
+                //Opening a connection to the database
+                connection.Open();
+                //defining the query 
+                ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
+                //Filling the table adaptor 
+                ad.Fill(dtable);
+                //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
+                if (dtable.Rows.Count <= 0)
+                {
+                    //Details do not exist in the database
                     connection.Close();
+                    MessageBox.Show("Login Invalid. Please try again.");
+                    return false;
+
+                }
+                else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
+                {
+                    //Data exists in the database, therefore this function checks where admin credientials are used.
+
+                    connection.Close();
+                    // MessageBox.Show("Login successful!");
+                    //Business_Operations newForm = new Business_Operations();
+                    //newForm.Show();
                     return true;
-               
+                }
+                else
+                {
+                    return false;
+                }
+
             }
-            else
-            {
-                return false;
-            }
+
+
         }
     }
 
