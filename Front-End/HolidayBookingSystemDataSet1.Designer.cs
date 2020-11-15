@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Back_End {
+namespace Front_End {
     
     
     /// <summary>
@@ -336,7 +336,7 @@ namespace Back_End {
         private void InitClass() {
             this.DataSetName = "HolidayBookingSystemDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/HolidayBookingSystemDataSet.xsd";
+            this.Namespace = "http://tempuri.org/HolidayBookingSystemDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCars = new CarsDataTable();
@@ -4235,7 +4235,7 @@ namespace Back_End {
         }
     }
 }
-namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
+namespace Front_End.HolidayBookingSystemDataSetTableAdapters {
     
     
     /// <summary>
@@ -4438,7 +4438,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4974,7 +4975,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5368,7 +5370,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5960,7 +5963,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6592,7 +6596,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6986,7 +6991,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\source\\repos\\System-Int" +
+                "egration\\Back-End\\bin\\Debug\\HolidayBookingSystem.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

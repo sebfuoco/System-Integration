@@ -34,11 +34,7 @@ namespace Front_End
             }
         }
 
-        private void Manager_Load(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void lgnButton_Click(object sender, EventArgs e)
         {
             //Sing : login
@@ -50,12 +46,21 @@ namespace Front_End
             else if (usernametxt.Text == "admin")
             {
                 Business_Operations BusinessForm = new Business_Operations();
-                Back_End.Program LoginAuthenitcate = new Back_End.Program(usernametxt.Text, passwordtxt.Text, BusinessForm);
+                Back_End.Program LoginAuthenitcate = new Back_End.Program(usernametxt.Text, passwordtxt.Text);
+  
+                
+           
                 this.Hide();
             }
+
+
+
             //this.Hide();
             //Business_Operations b = new Business_Operations();
             //b.ShowDialog();
+
+
+
         }
 
         private void extButton_Click(object sender, EventArgs e)

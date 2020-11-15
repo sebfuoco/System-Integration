@@ -45,7 +45,7 @@
             // 
             this.cnlButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cnlButton.Location = new System.Drawing.Point(376, 298);
-            this.cnlButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cnlButton.Margin = new System.Windows.Forms.Padding(2);
             this.cnlButton.Name = "cnlButton";
             this.cnlButton.Size = new System.Drawing.Size(166, 33);
             this.cnlButton.TabIndex = 2;
@@ -57,7 +57,7 @@
             // 
             this.lgnButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lgnButton.Location = new System.Drawing.Point(376, 245);
-            this.lgnButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lgnButton.Margin = new System.Windows.Forms.Padding(2);
             this.lgnButton.Name = "lgnButton";
             this.lgnButton.Size = new System.Drawing.Size(166, 33);
             this.lgnButton.TabIndex = 3;
@@ -84,7 +84,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(22, 85);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(330, 260);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -95,7 +95,7 @@
             // 
             this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.extButton.Location = new System.Drawing.Point(563, -1);
-            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2);
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(38, 32);
             this.extButton.TabIndex = 7;
@@ -154,10 +154,9 @@
             this.Controls.Add(this.lgnButton);
             this.Controls.Add(this.cnlButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Manager";
             this.Text = "Manager";
-            this.Load += new System.EventHandler(this.Manager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
