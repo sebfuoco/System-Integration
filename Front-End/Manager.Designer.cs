@@ -68,7 +68,7 @@
             // usernametxt
             // 
             this.usernametxt.Location = new System.Drawing.Point(503, 178);
-            this.usernametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.usernametxt.Margin = new System.Windows.Forms.Padding(4);
             this.usernametxt.Name = "usernametxt";
             this.usernametxt.Size = new System.Drawing.Size(223, 22);
             this.usernametxt.TabIndex = 4;
@@ -76,7 +76,7 @@
             // passwordtxt
             // 
             this.passwordtxt.Location = new System.Drawing.Point(501, 260);
-            this.passwordtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordtxt.Margin = new System.Windows.Forms.Padding(4);
             this.passwordtxt.Name = "passwordtxt";
             this.passwordtxt.PasswordChar = '*';
             this.passwordtxt.Size = new System.Drawing.Size(223, 22);
@@ -118,7 +118,6 @@
             this.label1.Size = new System.Drawing.Size(243, 34);
             this.label1.TabIndex = 8;
             this.label1.Text = "Manager Login";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
