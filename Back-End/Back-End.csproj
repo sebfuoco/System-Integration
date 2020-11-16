@@ -72,6 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HolidayBookingSystemSecondaryDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -91,6 +96,17 @@
     </None>
     <None Include="HolidayBookingSystemDataSet.xss">
       <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemSecondaryDataSet.xsc">
+      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HolidayBookingSystemSecondaryDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HolidayBookingSystemSecondaryDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HolidayBookingSystemSecondaryDataSet.xss">
+      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

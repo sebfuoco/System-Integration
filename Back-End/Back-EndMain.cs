@@ -122,8 +122,6 @@ namespace Back_End
             details["CheckIn"] = "13/11/2020";
             details["CheckOut"] = "20/11/2020";
             details["PricePerNight"] = 32.00;
-            details["Country"] = "Italy";
-            details["NumberPlate"] = "22101"; // random
             // Cars Test
             details["Make"] = "Ford";
             details["Model"] = "Focus";
@@ -250,11 +248,12 @@ namespace Back_End
 
     class PrimaryDatabase
     {
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
+        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
             "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
-            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, Country, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
-            "VALUES (@FlightNumber, @CustomerID, @HotelID, @Country, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
+            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
+            "VALUES (@FlightNumber, @CustomerID, @HotelID, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
             hotelWriteDB = "INSERT INTO Hotel (HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, NumberPlate, FlightNumber) " +
             "VALUES (@HotelID, @StarRating, @CheckIn, @CheckOut, @PricePerNight, @Country, @NumberPlate, @FlightNumber)",
             carsWriteDB = "INSERT INTO Cars (NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
@@ -264,6 +263,7 @@ namespace Back_End
         //Fetch new bookings, gets info from front-end : Seb
         protected internal void fetchData(Dictionary<string, object> details)
         {
+            details["NumberPlate"] = "22104"; // random
             string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
             // autonumber IDs
@@ -274,12 +274,12 @@ namespace Back_End
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
             details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, details, customers); // get customerID from insert query
             object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
-                    "@Country", details["Country"], "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
+                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
             dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
             object[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
-                    "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Country"], "@NumberPlate",
+                    "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Arrival"], "@NumberPlate",
                 details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
             dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
             object[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
@@ -287,7 +287,7 @@ namespace Back_End
             dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
             Console.ReadKey();
         }
-        //Batch update the secondary database : Seb
+        //Batch update from primary to secondary database : Seb
         protected internal void batchUpdate()
         {
 

@@ -20,9 +20,9 @@ namespace Back_End {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("HolidayBookingSystemDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("HolidayBookingSystemSecondaryDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class HolidayBookingSystemDataSet : global::System.Data.DataSet {
+    public partial class HolidayBookingSystemSecondaryDataSet : global::System.Data.DataSet {
         
         private CarsDataTable tableCars;
         
@@ -50,7 +50,7 @@ namespace Back_End {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public HolidayBookingSystemDataSet() {
+        public HolidayBookingSystemSecondaryDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -61,7 +61,7 @@ namespace Back_End {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected HolidayBookingSystemDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected HolidayBookingSystemSecondaryDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -212,7 +212,7 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            HolidayBookingSystemDataSet cln = ((HolidayBookingSystemDataSet)(base.Clone()));
+            HolidayBookingSystemSecondaryDataSet cln = ((HolidayBookingSystemSecondaryDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -334,9 +334,9 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "HolidayBookingSystemDataSet";
+            this.DataSetName = "HolidayBookingSystemSecondaryDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/HolidayBookingSystemDataSet.xsd";
+            this.Namespace = "http://tempuri.org/HolidayBookingSystemSecondaryDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCars = new CarsDataTable();
@@ -420,7 +420,7 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+            HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -803,7 +803,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1096,7 +1096,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1492,7 +1492,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1738,7 +1738,7 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public FlightsRow AddFlightsRow(int FlightNumber, CustomersRow parentCustomersRowByCustomersFlights, int HotelID, string FlightType, string Departure, string Destination, System.DateTime DepartureTime, System.DateTime ArrivalTime, decimal AdultPrice, decimal ChildPrice) {
+            public FlightsRow AddFlightsRow(int FlightNumber, CustomersRow parentCustomersRowByCustomersFlights, int HotelID, string FlightType, string Departure, string Destination, System.DateTime DepartureTime, System.DateTime ArrivalTime, int AdultPrice, int ChildPrice) {
                 FlightsRow rowFlightsRow = ((FlightsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1818,9 +1818,9 @@ namespace Back_End {
                 base.Columns.Add(this.columnDepartureTime);
                 this.columnArrivalTime = new global::System.Data.DataColumn("ArrivalTime", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArrivalTime);
-                this.columnAdultPrice = new global::System.Data.DataColumn("AdultPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnAdultPrice = new global::System.Data.DataColumn("AdultPrice", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAdultPrice);
-                this.columnChildPrice = new global::System.Data.DataColumn("ChildPrice", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this.columnChildPrice = new global::System.Data.DataColumn("ChildPrice", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnChildPrice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFlightNumber}, true));
@@ -1899,7 +1899,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2193,7 +2193,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2570,7 +2570,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                HolidayBookingSystemDataSet ds = new HolidayBookingSystemDataSet();
+                HolidayBookingSystemSecondaryDataSet ds = new HolidayBookingSystemSecondaryDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3449,10 +3449,10 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal AdultPrice {
+            public int AdultPrice {
                 get {
                     try {
-                        return ((decimal)(this[this.tableFlights.AdultPriceColumn]));
+                        return ((int)(this[this.tableFlights.AdultPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'AdultPrice\' in table \'Flights\' is DBNull.", e);
@@ -3465,10 +3465,10 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal ChildPrice {
+            public int ChildPrice {
                 get {
                     try {
-                        return ((decimal)(this[this.tableFlights.ChildPriceColumn]));
+                        return ((int)(this[this.tableFlights.ChildPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'ChildPrice\' in table \'Flights\' is DBNull.", e);
@@ -4192,7 +4192,7 @@ namespace Back_End {
         }
     }
 }
-namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
+namespace Back_End.HolidayBookingSystemSecondaryDataSetTableAdapters {
     
     
     /// <summary>
@@ -4395,7 +4395,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4413,7 +4413,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.CarsDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.CarsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4426,9 +4426,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.CarsDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.CarsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.CarsDataTable dataTable = new HolidayBookingSystemDataSet.CarsDataTable();
+            HolidayBookingSystemSecondaryDataSet.CarsDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.CarsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4436,14 +4436,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.CarsDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.CarsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Cars");
         }
         
@@ -4931,7 +4931,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4948,7 +4948,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.CarTypeDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.CarTypeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4961,9 +4961,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.CarTypeDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.CarTypeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.CarTypeDataTable dataTable = new HolidayBookingSystemDataSet.CarTypeDataTable();
+            HolidayBookingSystemSecondaryDataSet.CarTypeDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.CarTypeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4971,14 +4971,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.CarTypeDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.CarTypeDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "CarType");
         }
         
@@ -5325,7 +5325,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5343,7 +5343,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.CustomersDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.CustomersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5356,9 +5356,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.CustomersDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.CustomersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.CustomersDataTable dataTable = new HolidayBookingSystemDataSet.CustomersDataTable();
+            HolidayBookingSystemSecondaryDataSet.CustomersDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.CustomersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5366,14 +5366,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.CustomersDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.CustomersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Customers");
         }
         
@@ -5850,9 +5850,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ArrivalTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ArrivalTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AdultPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ChildPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `Flights` (`FlightNumber`, `CustomerID`, `HotelID`, `FlightType`, `De" +
@@ -5867,8 +5867,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Destination", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Destination", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DepartureTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DepartureTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ArrivalTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AdultPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ChildPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = @"UPDATE `Flights` SET `FlightNumber` = ?, `CustomerID` = ?, `HotelID` = ?, `FlightType` = ?, `Departure` = ?, `Destination` = ?, `DepartureTime` = ?, `ArrivalTime` = ?, `AdultPrice` = ?, `ChildPrice` = ? WHERE (((? = 1 AND `ID` IS NULL) OR (`ID` = ?)) AND (`FlightNumber` = ?) AND ((? = 1 AND `CustomerID` IS NULL) OR (`CustomerID` = ?)) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `FlightType` IS NULL) OR (`FlightType` = ?)) AND ((? = 1 AND `Departure` IS NULL) OR (`Departure` = ?)) AND ((? = 1 AND `Destination` IS NULL) OR (`Destination` = ?)) AND ((? = 1 AND `DepartureTime` IS NULL) OR (`DepartureTime` = ?)) AND ((? = 1 AND `ArrivalTime` IS NULL) OR (`ArrivalTime` = ?)) AND ((? = 1 AND `AdultPrice` IS NULL) OR (`AdultPrice` = ?)) AND ((? = 1 AND `ChildPrice` IS NULL) OR (`ChildPrice` = ?)))";
@@ -5881,8 +5881,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Destination", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Destination", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("DepartureTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "DepartureTime", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ArrivalTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AdultPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ChildPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FlightNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FlightNumber", global::System.Data.DataRowVersion.Original, false, null));
@@ -5901,16 +5901,16 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ArrivalTime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ArrivalTime", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ArrivalTime", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AdultPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_AdultPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "AdultPrice", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, true, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ChildPrice", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ChildPrice", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ChildPrice", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5928,7 +5928,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.FlightsDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.FlightsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5941,9 +5941,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.FlightsDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.FlightsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.FlightsDataTable dataTable = new HolidayBookingSystemDataSet.FlightsDataTable();
+            HolidayBookingSystemSecondaryDataSet.FlightsDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.FlightsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5951,14 +5951,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.FlightsDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.FlightsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Flights");
         }
         
@@ -5981,7 +5981,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_FlightNumber, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_HotelID, string Original_FlightType, string Original_Departure, string Original_Destination, global::System.Nullable<global::System.DateTime> Original_DepartureTime, global::System.Nullable<global::System.DateTime> Original_ArrivalTime, global::System.Nullable<decimal> Original_AdultPrice, global::System.Nullable<decimal> Original_ChildPrice) {
+        public virtual int Delete(int Original_ID, int Original_FlightNumber, global::System.Nullable<int> Original_CustomerID, global::System.Nullable<int> Original_HotelID, string Original_FlightType, string Original_Departure, string Original_Destination, global::System.Nullable<global::System.DateTime> Original_DepartureTime, global::System.Nullable<global::System.DateTime> Original_ArrivalTime, global::System.Nullable<int> Original_AdultPrice, global::System.Nullable<int> Original_ChildPrice) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_ID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_FlightNumber));
@@ -6043,7 +6043,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             }
             if ((Original_AdultPrice.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_AdultPrice.Value));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_AdultPrice.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
@@ -6051,7 +6051,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             }
             if ((Original_ChildPrice.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_ChildPrice.Value));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((int)(Original_ChildPrice.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
@@ -6077,7 +6077,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int FlightNumber, global::System.Nullable<int> CustomerID, global::System.Nullable<int> HotelID, string FlightType, string Departure, string Destination, global::System.Nullable<global::System.DateTime> DepartureTime, global::System.Nullable<global::System.DateTime> ArrivalTime, global::System.Nullable<decimal> AdultPrice, global::System.Nullable<decimal> ChildPrice) {
+        public virtual int Insert(int FlightNumber, global::System.Nullable<int> CustomerID, global::System.Nullable<int> HotelID, string FlightType, string Departure, string Destination, global::System.Nullable<global::System.DateTime> DepartureTime, global::System.Nullable<global::System.DateTime> ArrivalTime, global::System.Nullable<int> AdultPrice, global::System.Nullable<int> ChildPrice) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(FlightNumber));
             if ((CustomerID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerID.Value));
@@ -6122,13 +6122,13 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((AdultPrice.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(AdultPrice.Value));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(AdultPrice.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((ChildPrice.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(ChildPrice.Value));
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(ChildPrice.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
@@ -6162,8 +6162,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                     string Destination, 
                     global::System.Nullable<global::System.DateTime> DepartureTime, 
                     global::System.Nullable<global::System.DateTime> ArrivalTime, 
-                    global::System.Nullable<decimal> AdultPrice, 
-                    global::System.Nullable<decimal> ChildPrice, 
+                    global::System.Nullable<int> AdultPrice, 
+                    global::System.Nullable<int> ChildPrice, 
                     int Original_ID, 
                     int Original_FlightNumber, 
                     global::System.Nullable<int> Original_CustomerID, 
@@ -6173,8 +6173,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                     string Original_Destination, 
                     global::System.Nullable<global::System.DateTime> Original_DepartureTime, 
                     global::System.Nullable<global::System.DateTime> Original_ArrivalTime, 
-                    global::System.Nullable<decimal> Original_AdultPrice, 
-                    global::System.Nullable<decimal> Original_ChildPrice) {
+                    global::System.Nullable<int> Original_AdultPrice, 
+                    global::System.Nullable<int> Original_ChildPrice) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(FlightNumber));
             if ((CustomerID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerID.Value));
@@ -6219,13 +6219,13 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((AdultPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(AdultPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(AdultPrice.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             if ((ChildPrice.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(ChildPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ChildPrice.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
@@ -6291,7 +6291,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             }
             if ((Original_AdultPrice.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((decimal)(Original_AdultPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_AdultPrice.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
@@ -6299,7 +6299,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
             }
             if ((Original_ChildPrice.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_ChildPrice.Value));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(Original_ChildPrice.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
@@ -6333,8 +6333,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                     string Destination, 
                     global::System.Nullable<global::System.DateTime> DepartureTime, 
                     global::System.Nullable<global::System.DateTime> ArrivalTime, 
-                    global::System.Nullable<decimal> AdultPrice, 
-                    global::System.Nullable<decimal> ChildPrice, 
+                    global::System.Nullable<int> AdultPrice, 
+                    global::System.Nullable<int> ChildPrice, 
                     int Original_ID, 
                     int Original_FlightNumber, 
                     global::System.Nullable<int> Original_CustomerID, 
@@ -6344,8 +6344,8 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
                     string Original_Destination, 
                     global::System.Nullable<global::System.DateTime> Original_DepartureTime, 
                     global::System.Nullable<global::System.DateTime> Original_ArrivalTime, 
-                    global::System.Nullable<decimal> Original_AdultPrice, 
-                    global::System.Nullable<decimal> Original_ChildPrice) {
+                    global::System.Nullable<int> Original_AdultPrice, 
+                    global::System.Nullable<int> Original_ChildPrice) {
             return this.Update(Original_FlightNumber, CustomerID, HotelID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice, Original_ID, Original_FlightNumber, Original_CustomerID, Original_HotelID, Original_FlightType, Original_Departure, Original_Destination, Original_DepartureTime, Original_ArrivalTime, Original_AdultPrice, Original_ChildPrice);
         }
     }
@@ -6510,7 +6510,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6527,7 +6527,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.GearBoxDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.GearBoxDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6540,9 +6540,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.GearBoxDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.GearBoxDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.GearBoxDataTable dataTable = new HolidayBookingSystemDataSet.GearBoxDataTable();
+            HolidayBookingSystemSecondaryDataSet.GearBoxDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.GearBoxDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6550,14 +6550,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.GearBoxDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.GearBoxDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "GearBox");
         }
         
@@ -6904,7 +6904,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemConnectionString1;
+            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.HolidayBookingSystemSecondaryConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6922,7 +6922,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(HolidayBookingSystemDataSet.HotelDataTable dataTable) {
+        public virtual int Fill(HolidayBookingSystemSecondaryDataSet.HotelDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6935,9 +6935,9 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual HolidayBookingSystemDataSet.HotelDataTable GetData() {
+        public virtual HolidayBookingSystemSecondaryDataSet.HotelDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HolidayBookingSystemDataSet.HotelDataTable dataTable = new HolidayBookingSystemDataSet.HotelDataTable();
+            HolidayBookingSystemSecondaryDataSet.HotelDataTable dataTable = new HolidayBookingSystemSecondaryDataSet.HotelDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6945,14 +6945,14 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet.HotelDataTable dataTable) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet.HotelDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(HolidayBookingSystemDataSet dataSet) {
+        public virtual int Update(HolidayBookingSystemSecondaryDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Hotel");
         }
         
@@ -7486,7 +7486,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(HolidayBookingSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(HolidayBookingSystemSecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -7550,7 +7550,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(HolidayBookingSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(HolidayBookingSystemSecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -7608,7 +7608,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(HolidayBookingSystemDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(HolidayBookingSystemSecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._gearBoxTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.GearBox.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -7690,7 +7690,7 @@ namespace Back_End.HolidayBookingSystemDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(HolidayBookingSystemDataSet dataSet) {
+        public virtual int UpdateAll(HolidayBookingSystemSecondaryDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
