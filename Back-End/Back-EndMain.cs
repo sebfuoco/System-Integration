@@ -46,7 +46,7 @@ namespace Back_End
             dbFunc.deleteDatabase(deleteHDB, connectionString);
             dbFunc.deleteDatabase(deleteCDB, connectionString);*/
             //dbFunc.editDatabase(editDB, connectionString, details);
-            dbFunc.readDatabase(readDB, connectionString);
+            //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
         private string passedString;
@@ -144,8 +144,6 @@ namespace Back_End
             details["CheckIn"] = "13/11/2020";
             details["CheckOut"] = "20/11/2020";
             details["PricePerNight"] = 32.00;
-            details["Country"] = "Italy";
-            details["NumberPlate"] = "22101"; // random
             // Cars Test
             details["Make"] = "Ford";
             details["Model"] = "Focus";
@@ -272,11 +270,12 @@ namespace Back_End
 
     class PrimaryDatabase
     {
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
+        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
             "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
-            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, Country, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
-            "VALUES (@FlightNumber, @CustomerID, @HotelID, @Country, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
+            flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
+            "VALUES (@FlightNumber, @CustomerID, @HotelID, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
             hotelWriteDB = "INSERT INTO Hotel (HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, NumberPlate, FlightNumber) " +
             "VALUES (@HotelID, @StarRating, @CheckIn, @CheckOut, @PricePerNight, @Country, @NumberPlate, @FlightNumber)",
             carsWriteDB = "INSERT INTO Cars (NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
@@ -286,6 +285,7 @@ namespace Back_End
         //Fetch new bookings, gets info from front-end : Seb
         protected internal void fetchData(Dictionary<string, object> details)
         {
+            details["NumberPlate"] = "22104"; // random
             string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
             // autonumber IDs
@@ -296,12 +296,12 @@ namespace Back_End
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
             details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, details, customers); // get customerID from insert query
             object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
-                    "@Country", details["Country"], "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
+                    "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
             dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
             object[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
-                    "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Country"], "@NumberPlate",
+                    "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Arrival"], "@NumberPlate",
                 details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
             dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
             object[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
@@ -309,10 +309,63 @@ namespace Back_End
             dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
             Console.ReadKey();
         }
-        //Batch update the secondary database : Seb
-        protected internal void batchUpdate()
+        //Batch update from primary to secondary database : Seb
+        protected internal void batchDelete()
         {
-
+            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
+                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars" ;
+            using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
+            {
+                conn.Open();
+                using (OleDbCommand command = new OleDbCommand(deleteCustomersDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteFlightsDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteHotelDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteCarsDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }  
+        }
+        protected internal void batchUpdate() // I am lazy, if you want to improve this be my guest
+        {
+            batchDelete();
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
+            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
+            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
+            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
+                {
+                    conn.Open();
+                    sConn.Open();
+                    using (OleDbCommand command = new OleDbCommand(fetchCustomersDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchFlightsDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchHotelDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchCarsDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
         //Update Primary database with new bookings : Sing
         protected internal void updatePrimaryDatabase()
