@@ -313,7 +313,7 @@ namespace Back_End
                 }
             }  
         }
-        protected internal void batchUpdate()
+        protected internal void batchUpdate() // I am lazy, if you want to improve this be my guest
         {
             batchDelete();
             string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
