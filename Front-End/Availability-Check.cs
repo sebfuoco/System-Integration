@@ -59,5 +59,17 @@ namespace Front_End
                 this.Close();
             }
         }
+
+        private void cnlButton_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            main m = new main();
+            m.ShowDialog();
+        }
+
+        private void nxtButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
