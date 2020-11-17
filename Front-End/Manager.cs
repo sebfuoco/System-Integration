@@ -38,18 +38,17 @@ namespace Front_End
         
         private void lgnButton_Click(object sender, EventArgs e)
         {
-            ////Sing : login
-           
-            //This will return true if user is a manager and false if user is not a manager.
-            Back_End.Program.login.authenticateUser(usernametxt.Text, passwordtxt.Text);
-           
 
-            //this.Hide();
-            //Business_Operations b = new Business_Operations();
-            //b.ShowDialog();
-
-
-
+            //FAO Gianni - This will return true if user is a manager and false if user is not a manager.
+            if (Back_End.Program.login.authenticateUser(usernametxt.Text, passwordtxt.Text) == true)
+            {
+                //Open form business operation
+            }
+            else
+            {
+                MessageBox.Show("Username of password is incorrect.");
+            }
+    
         }
 
         private void extButton_Click(object sender, EventArgs e)
