@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Business_Operations));
             this.extButton = new System.Windows.Forms.Button();
             this.holiday_Booking_System_NEWDataSet = new Front_End.Holiday_Booking_System_NEWDataSet();
             this.customerInfoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -95,7 +96,7 @@
             // idtxt
             // 
             this.idtxt.Location = new System.Drawing.Point(139, 108);
-            this.idtxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.idtxt.Margin = new System.Windows.Forms.Padding(4);
             this.idtxt.Name = "idtxt";
             this.idtxt.Size = new System.Drawing.Size(132, 22);
             this.idtxt.TabIndex = 2;
@@ -103,7 +104,7 @@
             // titletxt
             // 
             this.titletxt.Location = new System.Drawing.Point(139, 151);
-            this.titletxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.titletxt.Margin = new System.Windows.Forms.Padding(4);
             this.titletxt.Name = "titletxt";
             this.titletxt.Size = new System.Drawing.Size(132, 22);
             this.titletxt.TabIndex = 3;
@@ -111,7 +112,7 @@
             // firstnametxt
             // 
             this.firstnametxt.Location = new System.Drawing.Point(139, 193);
-            this.firstnametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstnametxt.Margin = new System.Windows.Forms.Padding(4);
             this.firstnametxt.Name = "firstnametxt";
             this.firstnametxt.Size = new System.Drawing.Size(132, 22);
             this.firstnametxt.TabIndex = 4;
@@ -119,7 +120,7 @@
             // surnametxt
             // 
             this.surnametxt.Location = new System.Drawing.Point(139, 238);
-            this.surnametxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surnametxt.Margin = new System.Windows.Forms.Padding(4);
             this.surnametxt.Name = "surnametxt";
             this.surnametxt.Size = new System.Drawing.Size(132, 22);
             this.surnametxt.TabIndex = 5;
@@ -127,7 +128,7 @@
             // gendertxt
             // 
             this.gendertxt.Location = new System.Drawing.Point(139, 281);
-            this.gendertxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gendertxt.Margin = new System.Windows.Forms.Padding(4);
             this.gendertxt.Name = "gendertxt";
             this.gendertxt.Size = new System.Drawing.Size(132, 22);
             this.gendertxt.TabIndex = 6;
@@ -135,6 +136,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(47, 112);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
@@ -145,6 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(47, 151);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
@@ -155,6 +158,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Location = new System.Drawing.Point(47, 197);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
@@ -165,6 +169,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(47, 238);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
@@ -175,6 +180,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(47, 284);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
@@ -185,7 +191,7 @@
             // agetxt
             // 
             this.agetxt.Location = new System.Drawing.Point(139, 324);
-            this.agetxt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.agetxt.Margin = new System.Windows.Forms.Padding(4);
             this.agetxt.Name = "agetxt";
             this.agetxt.Size = new System.Drawing.Size(132, 22);
             this.agetxt.TabIndex = 12;
@@ -193,6 +199,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(47, 327);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
@@ -203,7 +210,7 @@
             // Insertbttn
             // 
             this.Insertbttn.Location = new System.Drawing.Point(28, 359);
-            this.Insertbttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Insertbttn.Margin = new System.Windows.Forms.Padding(4);
             this.Insertbttn.Name = "Insertbttn";
             this.Insertbttn.Size = new System.Drawing.Size(100, 28);
             this.Insertbttn.TabIndex = 14;
@@ -214,7 +221,7 @@
             // deletebttn
             // 
             this.deletebttn.Location = new System.Drawing.Point(151, 359);
-            this.deletebttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deletebttn.Margin = new System.Windows.Forms.Padding(4);
             this.deletebttn.Name = "deletebttn";
             this.deletebttn.Size = new System.Drawing.Size(100, 28);
             this.deletebttn.TabIndex = 15;
@@ -225,7 +232,7 @@
             // updatebttn
             // 
             this.updatebttn.Location = new System.Drawing.Point(273, 359);
-            this.updatebttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.updatebttn.Margin = new System.Windows.Forms.Padding(4);
             this.updatebttn.Name = "updatebttn";
             this.updatebttn.Size = new System.Drawing.Size(100, 28);
             this.updatebttn.TabIndex = 16;
@@ -236,7 +243,7 @@
             // displaybttn
             // 
             this.displaybttn.Location = new System.Drawing.Point(395, 359);
-            this.displaybttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.displaybttn.Margin = new System.Windows.Forms.Padding(4);
             this.displaybttn.Name = "displaybttn";
             this.displaybttn.Size = new System.Drawing.Size(100, 28);
             this.displaybttn.TabIndex = 17;
@@ -257,7 +264,7 @@
             this.customerAgeDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.customerDetailsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(316, 60);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(873, 283);
@@ -328,7 +335,7 @@
             // searchbttn
             // 
             this.searchbttn.Location = new System.Drawing.Point(273, 405);
-            this.searchbttn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchbttn.Margin = new System.Windows.Forms.Padding(4);
             this.searchbttn.Name = "searchbttn";
             this.searchbttn.Size = new System.Drawing.Size(100, 28);
             this.searchbttn.TabIndex = 19;
@@ -340,6 +347,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1205, 551);
             this.Controls.Add(this.searchbttn);
             this.Controls.Add(this.dataGridView1);

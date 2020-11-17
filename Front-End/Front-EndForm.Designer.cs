@@ -29,27 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.extButton = new System.Windows.Forms.Button();
             this.userSearch = new System.Windows.Forms.Button();
             this.mgrButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.extButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // extButton
-            // 
-            this.extButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("extButton.BackgroundImage")));
-            this.extButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.extButton.FlatAppearance.BorderSize = 0;
-            this.extButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extButton.Location = new System.Drawing.Point(751, -1);
-            this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(49, 41);
-            this.extButton.TabIndex = 0;
-            this.extButton.UseVisualStyleBackColor = true;
-            this.extButton.Click += new System.EventHandler(this.extButton_Click);
             // 
             // userSearch
             // 
@@ -75,6 +62,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(29, 105);
             this.pictureBox1.Name = "pictureBox1";
@@ -83,29 +71,58 @@
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
+            // extButton
+            // 
+            this.extButton.BackColor = System.Drawing.Color.Transparent;
+            this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extButton.Location = new System.Drawing.Point(770, -1);
+            this.extButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.extButton.Name = "extButton";
+            this.extButton.Size = new System.Drawing.Size(32, 29);
+            this.extButton.TabIndex = 8;
+            this.extButton.Text = "X";
+            this.extButton.UseVisualStyleBackColor = false;
+            this.extButton.Click += new System.EventHandler(this.extButton_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Century Schoolbook", 17.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
+                | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(227, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(375, 34);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Holiday Booking System";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 428);
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Brush Script MT", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(114, 428);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(339, 34);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Holiday Booking System";
+            this.label1.Size = new System.Drawing.Size(260, 47);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Perfect Get Away";
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.extButton);
             this.Controls.Add(this.mgrButton);
             this.Controls.Add(this.userSearch);
-            this.Controls.Add(this.extButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "main";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Holiday Booking System";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -114,11 +131,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button extButton;
         private System.Windows.Forms.Button userSearch;
         private System.Windows.Forms.Button mgrButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button extButton;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
     }
 }

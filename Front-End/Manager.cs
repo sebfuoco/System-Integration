@@ -35,25 +35,14 @@ namespace Front_End
         }
 
        
+        
         private void lgnButton_Click(object sender, EventArgs e)
         {
-            //Sing : login
-            if (usernametxt.Text == "norm")
-            {
-                //open form for new user.
-
-            }
-            else if (usernametxt.Text == "admin")
-            {
-                Business_Operations BusinessForm = new Business_Operations();
-                Back_End.Program LoginAuthenitcate = new Back_End.Program(usernametxt.Text, passwordtxt.Text);
-  
-                
+            ////Sing : login
            
-                this.Hide();
-            }
-
-
+            //This will return true if user is a manager and false if user is not a manager.
+            Back_End.Program.login.authenticateUser(usernametxt.Text, passwordtxt.Text);
+           
 
             //this.Hide();
             //Business_Operations b = new Business_Operations();
@@ -76,11 +65,6 @@ namespace Front_End
             {
                 this.Close();
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
