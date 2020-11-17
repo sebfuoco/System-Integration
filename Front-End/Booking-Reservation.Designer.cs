@@ -43,14 +43,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.usernametxt = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.firstNametxt = new System.Windows.Forms.TextBox();
+            this.lastNametxt = new System.Windows.Forms.TextBox();
+            this.passportNumbtxt = new System.Windows.Forms.TextBox();
+            this.Nationalitytxt = new System.Windows.Forms.TextBox();
+            this.Addresstxt = new System.Windows.Forms.TextBox();
+            this.postCodetxt = new System.Windows.Forms.TextBox();
+            this.contactNumbertxt = new System.Windows.Forms.TextBox();
+            this.emailtxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,69 +206,69 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Email:";
             // 
-            // usernametxt
+            // firstNametxt
             // 
-            this.usernametxt.Location = new System.Drawing.Point(516, 76);
-            this.usernametxt.Margin = new System.Windows.Forms.Padding(4);
-            this.usernametxt.Name = "usernametxt";
-            this.usernametxt.Size = new System.Drawing.Size(228, 22);
-            this.usernametxt.TabIndex = 22;
+            this.firstNametxt.Location = new System.Drawing.Point(516, 76);
+            this.firstNametxt.Margin = new System.Windows.Forms.Padding(4);
+            this.firstNametxt.Name = "firstNametxt";
+            this.firstNametxt.Size = new System.Drawing.Size(228, 22);
+            this.firstNametxt.TabIndex = 22;
             // 
-            // textBox1
+            // lastNametxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(516, 126);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 22);
-            this.textBox1.TabIndex = 23;
+            this.lastNametxt.Location = new System.Drawing.Point(516, 126);
+            this.lastNametxt.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNametxt.Name = "lastNametxt";
+            this.lastNametxt.Size = new System.Drawing.Size(228, 22);
+            this.lastNametxt.TabIndex = 23;
             // 
-            // textBox2
+            // passportNumbtxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(516, 176);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(228, 22);
-            this.textBox2.TabIndex = 24;
+            this.passportNumbtxt.Location = new System.Drawing.Point(516, 176);
+            this.passportNumbtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.passportNumbtxt.Name = "passportNumbtxt";
+            this.passportNumbtxt.Size = new System.Drawing.Size(228, 22);
+            this.passportNumbtxt.TabIndex = 24;
             // 
-            // textBox3
+            // Nationalitytxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(516, 226);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(228, 22);
-            this.textBox3.TabIndex = 25;
+            this.Nationalitytxt.Location = new System.Drawing.Point(516, 226);
+            this.Nationalitytxt.Margin = new System.Windows.Forms.Padding(4);
+            this.Nationalitytxt.Name = "Nationalitytxt";
+            this.Nationalitytxt.Size = new System.Drawing.Size(228, 22);
+            this.Nationalitytxt.TabIndex = 25;
             // 
-            // textBox4
+            // Addresstxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(516, 276);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(228, 22);
-            this.textBox4.TabIndex = 26;
+            this.Addresstxt.Location = new System.Drawing.Point(516, 276);
+            this.Addresstxt.Margin = new System.Windows.Forms.Padding(4);
+            this.Addresstxt.Name = "Addresstxt";
+            this.Addresstxt.Size = new System.Drawing.Size(228, 22);
+            this.Addresstxt.TabIndex = 26;
             // 
-            // textBox5
+            // postCodetxt
             // 
-            this.textBox5.Location = new System.Drawing.Point(516, 326);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(228, 22);
-            this.textBox5.TabIndex = 27;
+            this.postCodetxt.Location = new System.Drawing.Point(516, 326);
+            this.postCodetxt.Margin = new System.Windows.Forms.Padding(4);
+            this.postCodetxt.Name = "postCodetxt";
+            this.postCodetxt.Size = new System.Drawing.Size(228, 22);
+            this.postCodetxt.TabIndex = 27;
             // 
-            // textBox6
+            // contactNumbertxt
             // 
-            this.textBox6.Location = new System.Drawing.Point(516, 376);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(228, 22);
-            this.textBox6.TabIndex = 28;
+            this.contactNumbertxt.Location = new System.Drawing.Point(516, 376);
+            this.contactNumbertxt.Margin = new System.Windows.Forms.Padding(4);
+            this.contactNumbertxt.Name = "contactNumbertxt";
+            this.contactNumbertxt.Size = new System.Drawing.Size(228, 22);
+            this.contactNumbertxt.TabIndex = 28;
             // 
-            // textBox7
+            // emailtxt
             // 
-            this.textBox7.Location = new System.Drawing.Point(516, 426);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(228, 22);
-            this.textBox7.TabIndex = 29;
+            this.emailtxt.Location = new System.Drawing.Point(516, 426);
+            this.emailtxt.Margin = new System.Windows.Forms.Padding(4);
+            this.emailtxt.Name = "emailtxt";
+            this.emailtxt.Size = new System.Drawing.Size(228, 22);
+            this.emailtxt.TabIndex = 29;
             // 
             // Booking_Reservation
             // 
@@ -276,14 +276,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.usernametxt);
+            this.Controls.Add(this.emailtxt);
+            this.Controls.Add(this.contactNumbertxt);
+            this.Controls.Add(this.postCodetxt);
+            this.Controls.Add(this.Addresstxt);
+            this.Controls.Add(this.Nationalitytxt);
+            this.Controls.Add(this.passportNumbtxt);
+            this.Controls.Add(this.lastNametxt);
+            this.Controls.Add(this.firstNametxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -323,13 +323,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox usernametxt;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox firstNametxt;
+        private System.Windows.Forms.TextBox lastNametxt;
+        private System.Windows.Forms.TextBox passportNumbtxt;
+        private System.Windows.Forms.TextBox Nationalitytxt;
+        private System.Windows.Forms.TextBox Addresstxt;
+        private System.Windows.Forms.TextBox postCodetxt;
+        private System.Windows.Forms.TextBox contactNumbertxt;
+        private System.Windows.Forms.TextBox emailtxt;
     }
 }
