@@ -1,4 +1,4 @@
-﻿0namespace Front_End
+﻿namespace Front_End
 {
     partial class Print_Invoice
     {
