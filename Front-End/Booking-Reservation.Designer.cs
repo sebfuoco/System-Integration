@@ -56,31 +56,31 @@
             // 
             // cnlButton
             // 
-            this.cnlButton.Location = new System.Drawing.Point(12, 555);
+            this.cnlButton.Image = ((System.Drawing.Image)(resources.GetObject("cnlButton.Image")));
+            this.cnlButton.Location = new System.Drawing.Point(12, 537);
             this.cnlButton.Name = "cnlButton";
-            this.cnlButton.Size = new System.Drawing.Size(138, 33);
+            this.cnlButton.Size = new System.Drawing.Size(56, 51);
             this.cnlButton.TabIndex = 2;
-            this.cnlButton.Text = "Cancel";
             this.cnlButton.UseVisualStyleBackColor = true;
             this.cnlButton.Click += new System.EventHandler(this.cnlButton_Click);
             // 
             // nxtButton
             // 
-            this.nxtButton.Location = new System.Drawing.Point(635, 555);
+            this.nxtButton.Image = ((System.Drawing.Image)(resources.GetObject("nxtButton.Image")));
+            this.nxtButton.Location = new System.Drawing.Point(713, 537);
             this.nxtButton.Name = "nxtButton";
-            this.nxtButton.Size = new System.Drawing.Size(138, 33);
+            this.nxtButton.Size = new System.Drawing.Size(66, 51);
             this.nxtButton.TabIndex = 4;
-            this.nxtButton.Text = "Next";
             this.nxtButton.UseVisualStyleBackColor = true;
             this.nxtButton.Click += new System.EventHandler(this.nxtButton_Click);
             // 
             // bckButton
             // 
-            this.bckButton.Location = new System.Drawing.Point(491, 555);
+            this.bckButton.Image = ((System.Drawing.Image)(resources.GetObject("bckButton.Image")));
+            this.bckButton.Location = new System.Drawing.Point(637, 537);
             this.bckButton.Name = "bckButton";
-            this.bckButton.Size = new System.Drawing.Size(138, 33);
+            this.bckButton.Size = new System.Drawing.Size(66, 51);
             this.bckButton.TabIndex = 5;
-            this.bckButton.Text = "Back";
             this.bckButton.UseVisualStyleBackColor = true;
             this.bckButton.Click += new System.EventHandler(this.bckButton_Click);
             // 

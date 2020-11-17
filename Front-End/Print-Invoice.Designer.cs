@@ -28,51 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.prntInvButton = new System.Windows.Forms.Button();
-            this.rtnButtom = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Print_Invoice));
             this.label1 = new System.Windows.Forms.Label();
+            this.extButton = new System.Windows.Forms.Button();
+            this.cnlButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // prntInvButton
-            // 
-            this.prntInvButton.Location = new System.Drawing.Point(731, 506);
-            this.prntInvButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.prntInvButton.Name = "prntInvButton";
-            this.prntInvButton.Size = new System.Drawing.Size(155, 41);
-            this.prntInvButton.TabIndex = 4;
-            this.prntInvButton.Text = "Print Invoice";
-            this.prntInvButton.UseVisualStyleBackColor = true;
-            this.prntInvButton.Click += new System.EventHandler(this.prntInvButton_Click);
-            // 
-            // rtnButtom
-            // 
-            this.rtnButtom.Location = new System.Drawing.Point(14, 506);
-            this.rtnButtom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rtnButtom.Name = "rtnButtom";
-            this.rtnButtom.Size = new System.Drawing.Size(178, 41);
-            this.rtnButtom.TabIndex = 5;
-            this.rtnButtom.Text = "Return to Homepage";
-            this.rtnButtom.UseVisualStyleBackColor = true;
-            this.rtnButtom.Click += new System.EventHandler(this.rtnButtom_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(125, 48);
+            this.label1.Location = new System.Drawing.Point(111, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
+            this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 6;
             this.label1.Text = "label1";
             // 
+            // extButton
+            // 
+            this.extButton.BackColor = System.Drawing.Color.Transparent;
+            this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extButton.Location = new System.Drawing.Point(770, -1);
+            this.extButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.extButton.Name = "extButton";
+            this.extButton.Size = new System.Drawing.Size(32, 29);
+            this.extButton.TabIndex = 22;
+            this.extButton.Text = "X";
+            this.extButton.UseVisualStyleBackColor = false;
+            // 
+            // cnlButton
+            // 
+            this.cnlButton.Image = ((System.Drawing.Image)(resources.GetObject("cnlButton.Image")));
+            this.cnlButton.Location = new System.Drawing.Point(12, 537);
+            this.cnlButton.Name = "cnlButton";
+            this.cnlButton.Size = new System.Drawing.Size(56, 51);
+            this.cnlButton.TabIndex = 21;
+            this.cnlButton.UseVisualStyleBackColor = true;
+            // 
             // Print_Invoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.extButton);
+            this.Controls.Add(this.cnlButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rtnButtom);
-            this.Controls.Add(this.prntInvButton);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Print_Invoice";
             this.Text = "Invoice";
             this.Load += new System.EventHandler(this.Print_Invoice_Load);
@@ -82,9 +83,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button prntInvButton;
-        private System.Windows.Forms.Button rtnButtom;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button extButton;
+        private System.Windows.Forms.Button cnlButton;
     }
 }
