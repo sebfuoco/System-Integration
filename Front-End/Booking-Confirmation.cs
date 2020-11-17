@@ -38,5 +38,10 @@ namespace Front_End
             Booking_Reservation b = new Booking_Reservation();
             b.ShowDialog();
         }
+
+        private void cnlButton_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

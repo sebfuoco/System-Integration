@@ -24,17 +24,11 @@ namespace Front_End
 
         }
 
-        private void rtnButtom_Click(object sender, EventArgs e)
+        private void cnlButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             main m = new main();
             m.ShowDialog();
-        }
-
-        private void prntInvButton_Click(object sender, EventArgs e)
-        {
-            // Code for printing the invoice
-
         }
     }
 }
