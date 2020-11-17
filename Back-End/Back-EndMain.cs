@@ -46,7 +46,7 @@ namespace Back_End
             dbFunc.deleteDatabase(deleteHDB, connectionString);
             dbFunc.deleteDatabase(deleteCDB, connectionString);*/
             //dbFunc.editDatabase(editDB, connectionString, details);
-            dbFunc.readDatabase(readDB, connectionString);
+            //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
         private string passedString;
@@ -288,9 +288,62 @@ namespace Back_End
             Console.ReadKey();
         }
         //Batch update from primary to secondary database : Seb
+        protected internal void batchDelete()
+        {
+            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
+                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars" ;
+            using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
+            {
+                conn.Open();
+                using (OleDbCommand command = new OleDbCommand(deleteCustomersDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteFlightsDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteHotelDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+                using (OleDbCommand command = new OleDbCommand(deleteCarsDB, conn))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }  
+        }
         protected internal void batchUpdate()
         {
-
+            batchDelete();
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
+            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
+            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
+            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
+                {
+                    conn.Open();
+                    sConn.Open();
+                    using (OleDbCommand command = new OleDbCommand(fetchCustomersDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchFlightsDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchHotelDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                    using (OleDbCommand command = new OleDbCommand(fetchCarsDB, conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
         }
         //Update Primary database with new bookings : Sing
         protected internal void updatePrimaryDatabase()
