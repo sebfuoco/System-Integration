@@ -49,17 +49,8 @@ namespace Back_End
             //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
-        private string passedString;
-        //Sing : Class Constructor 
-        public Program(string uname, string password)
-        {
-            //Sing : Login database connection
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
-            command.Connection = connection;
-            //sing : Login - Authenticating admin and normal user.
-            //authenticateUser(uname, password);
-        }
-
+       
+       
 
         public static class login
         {
@@ -89,7 +80,7 @@ namespace Back_End
                 {
                     //Details do not exist in the database
                     connection.Close();
-                    MessageBox.Show("Login Invalid. Please try again.");
+                    
                     return false;
 
                 }
@@ -98,9 +89,7 @@ namespace Back_End
                     //Data exists in the database, therefore this function checks where admin credientials are used.
 
                     connection.Close();
-                    // MessageBox.Show("Login successful!");
-                    //Business_Operations newForm = new Business_Operations();
-                    //newForm.Show();
+             
                     return true;
                 }
                 else
