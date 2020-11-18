@@ -45,6 +45,7 @@
             this.extButton.TabIndex = 16;
             this.extButton.Text = "X";
             this.extButton.UseVisualStyleBackColor = false;
+            this.extButton.Click += new System.EventHandler(this.extButton_Click_1);
             // 
             // nxtButton
             // 
@@ -52,7 +53,7 @@
             this.nxtButton.Location = new System.Drawing.Point(802, 671);
             this.nxtButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nxtButton.Name = "nxtButton";
-            this.nxtButton.Size = new System.Drawing.Size(74, 64);
+            this.nxtButton.Size = new System.Drawing.Size(84, 64);
             this.nxtButton.TabIndex = 14;
             this.nxtButton.UseVisualStyleBackColor = true;
             this.nxtButton.Click += new System.EventHandler(this.nxtButton_Click_1);
@@ -63,10 +64,10 @@
             this.cnlButton.Location = new System.Drawing.Point(14, 671);
             this.cnlButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cnlButton.Name = "cnlButton";
-            this.cnlButton.Size = new System.Drawing.Size(63, 64);
+            this.cnlButton.Size = new System.Drawing.Size(64, 64);
             this.cnlButton.TabIndex = 13;
             this.cnlButton.UseVisualStyleBackColor = true;
-            this.cnlButton.Click += new System.EventHandler(this.cnlButton_Click_1);
+            this.cnlButton.Click += new System.EventHandler(this.cnlButton_Click_2);
             // 
             // Availability_Check
             // 
