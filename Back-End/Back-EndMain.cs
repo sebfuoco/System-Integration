@@ -103,6 +103,7 @@ namespace Back_End
         }
     }
 
+
     class DatabaseFunctions
     {
         // store data to send
@@ -356,35 +357,10 @@ namespace Back_End
                 }
             }
         }
-        //Update Primary database with new bookings : Sing
-        protected internal void updatePrimaryDatabase()
-        {
-            //query("", false);
-        }
-        //Sing : Query Databases Function - Accept query and returns boolean value.
-        protected internal bool query(string query, bool flag)
-        {
-            try
-            {
-                //connection.Open();
-                //command.CommandText = query;
-                //command.ExecuteNonQuery();
-                //connection.Close();
-                return flag = true;
-            }
-            catch (Exception error)
-            {
-                // connection.Close();
-                MessageBox.Show(error.Message.ToString());
-                return flag = false;
-            }
-        }
-        //Query database for information : Sing
-        protected internal void queryDatabase()
-        {
-            //query("", false);
-        }
+      
     }
+
+
     class SecondaryDatabase
     {
         //Batch recovery/resync in case of batch failure : Ndey
@@ -403,4 +379,77 @@ namespace Back_End
 
         }
     }
+
+    //Sing:
+
+    public class DatabaseQuery
+    {
+
+        //Update Primary database with new bookings : Sing
+        public void showBookings()
+        {
+
+            
+                //connection.Open();
+
+                //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
+                //command.CommandText = query;
+                //reader = command.ExecuteReader();
+
+                //string inspection = "";
+
+                //if (reader.HasRows)
+                //{
+                //    while (reader.Read())
+                //    {
+
+                //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
+                //        {
+                //            inspection = reader["Inspection Complete"].ToString();
+                //        }
+                //    }
+                //    reader.Close();
+                //}
+                //connection.Close();
+
+                //if (inspection == "true")
+                //{
+                //    return true;
+                //}
+                //else
+                //{
+                //    return false;
+                //}
+
+
+            
+        }
+
+
+
+
+        //Sing : Query Databases Function - Accept query and returns boolean value.
+        protected internal bool query(string query, bool flag)
+        {
+            try
+            {
+                //connection.Open();
+                //command.CommandText = query;
+                //command.ExecuteNonQuery();
+                //connection.Close();
+                return flag = true;
+            }
+            catch (Exception error)
+            {
+                // connection.Close();
+                MessageBox.Show(error.Message.ToString());
+                return flag = false;
+            }
+        }
+
+
+    }
+
+
+
 }
