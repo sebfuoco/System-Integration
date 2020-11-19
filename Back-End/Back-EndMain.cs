@@ -9,6 +9,7 @@ using System.Data;
 using System.IO;
 using System.Globalization;
 
+// https://stackoverflow.com/questions/108403/solutions-for-insert-or-update-on-sql-server
 namespace Back_End
 {
     public class Program
@@ -60,10 +61,8 @@ namespace Back_End
             //authenticateUser(uname, password);
         }
 
-
         public static class login
         {
-
             //Sing : Login for Front-end.
             public static bool authenticateUser(string username, string password)
             {
@@ -107,10 +106,7 @@ namespace Back_End
                 {
                     return false;
                 }
-
             }
-
-
         }
     }
 
@@ -119,7 +115,6 @@ namespace Back_End
         // store data to send
         protected internal dynamic createDict()
         {
-            //var details = new List<KeyValuePair<int, string>>(); // change to list for int and strings
             var details = new Dictionary<string, object>();
             // Customer Test
             details["CustomerFirstName"] = "Bobby";
@@ -312,57 +307,42 @@ namespace Back_End
         //Batch update from primary to secondary database : Seb
         protected internal void batchDelete()
         {
-            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
-                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars" ;
+            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights",
+                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars";
+            string[] dbList = {deleteCustomersDB, deleteFlightsDB, deleteHotelDB, deleteCarsDB};
+            // Go through all queries in loop
             using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
             {
                 conn.Open();
-                using (OleDbCommand command = new OleDbCommand(deleteCustomersDB, conn))
+                for (int i = 0; i < dbList.Length; i++)
                 {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteFlightsDB, conn))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteHotelDB, conn))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteCarsDB, conn))
-                {
-                    command.ExecuteNonQuery();
+                    using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
                 }
             }  
         }
         protected internal void batchUpdate() // I am lazy, if you want to improve this be my guest
         {
             batchDelete();
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
-            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
-            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
-            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers",
+                fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights",
+                fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel",
+                fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string[] dbList = {fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB};
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
                 {
                     conn.Open();
                     sConn.Open();
-                    using (OleDbCommand command = new OleDbCommand(fetchCustomersDB, conn))
+                    for (int i = 0; i < dbList.Length; i++)
                     {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchFlightsDB, conn))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchHotelDB, conn))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchCarsDB, conn))
-                    {
-                        command.ExecuteNonQuery();
+                        using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
             }
