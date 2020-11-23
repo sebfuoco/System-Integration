@@ -24,6 +24,7 @@ namespace Back_End
         {
             // Primary Database + queries
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+                secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb",
                 editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
                 readDB = "SELECT * FROM Customers",
@@ -31,12 +32,19 @@ namespace Back_End
                 deleteFDB = "DELETE FROM Flights WHERE ID BETWEEN 3 AND 100",
                 deleteHDB = "DELETE FROM Hotel WHERE ID BETWEEN 3 AND 100",
                 deleteCDB = "DELETE FROM Cars WHERE ID BETWEEN 3 AND 100";
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers",
+                fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights",
+                fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel",
+                fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            primaryDatabase.batchUpdate();
+            primaryDatabase.batchUpdate(connectionString, secondaryConnectionString, dbList);
+            //secondaryDatabase.batchRecovery();
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -49,12 +57,9 @@ namespace Back_End
             //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
-       
-       
 
-        public static class login
+ public static class login
         {
-
             //Sing : Login for Front-end.
             public static bool authenticateUser(string username, string password)
             {
@@ -96,20 +101,17 @@ namespace Back_End
                 {
                     return false;
                 }
-
             }
-
-
         }
     }
 
 
+
     class DatabaseFunctions
     {
-        // store data to send
+        // store data to send: TEST fetchData()
         protected internal dynamic createDict()
         {
-            //var details = new List<KeyValuePair<int, string>>(); // change to list for int and strings
             var details = new Dictionary<string, object>();
             // Customer Test
             details["CustomerFirstName"] = "Bobby";
@@ -258,10 +260,8 @@ namespace Back_End
         }
     }
 
-    class PrimaryDatabase
+    public class PrimaryDatabase
     {
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
-            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
             "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
             flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
@@ -273,8 +273,9 @@ namespace Back_End
             flightID = "SELECT max(FlightNumber) from Flights",
             hotelID = "SELECT max(HotelID) from Hotel";
         //Fetch new bookings, gets info from front-end : Seb
-        protected internal void fetchData(Dictionary<string, object> details)
+        public void fetchData(Dictionary<string, object> details)
         {
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
             details["NumberPlate"] = "22104"; // random
             string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
@@ -300,84 +301,42 @@ namespace Back_End
             Console.ReadKey();
         }
         //Batch update from primary to secondary database : Seb
-        protected internal void batchDelete()
+        protected internal void batchDelete(string secondaryConnectionString)
         {
             string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
-                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars" ;
+                deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars";
+            string[] dbList = { deleteCustomersDB, deleteFlightsDB, deleteHotelDB, deleteCarsDB };
             using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
             {
                 conn.Open();
-                using (OleDbCommand command = new OleDbCommand(deleteCustomersDB, conn))
+                for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
                 {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteFlightsDB, conn))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteHotelDB, conn))
-                {
-                    command.ExecuteNonQuery();
-                }
-                using (OleDbCommand command = new OleDbCommand(deleteCarsDB, conn))
-                {
-                    command.ExecuteNonQuery();
+                    using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                    {
+                        command.ExecuteNonQuery();
+                    }
                 }
             }  
         }
-        protected internal void batchUpdate() // I am lazy, if you want to improve this be my guest
+        protected internal void batchUpdate(string connectionString, string secondaryConnectionString, string[] dbList) // Works but can be improved to just update
         {
-            batchDelete();
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
-            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
-            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
-            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            batchDelete(secondaryConnectionString);
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
                 {
                     conn.Open();
                     sConn.Open();
-                    using (OleDbCommand command = new OleDbCommand(fetchCustomersDB, conn))
+                    for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
                     {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchFlightsDB, conn))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchHotelDB, conn))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                    using (OleDbCommand command = new OleDbCommand(fetchCarsDB, conn))
-                    {
-                        command.ExecuteNonQuery();
+                        using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                        {
+                            command.ExecuteNonQuery();
+                        }
                     }
                 }
             }
-        }
-      
-    }
-
-
-    class SecondaryDatabase
-    {
-        //Batch recovery/resync in case of batch failure : Ndey
-        protected internal void batchRecovery()
-        {
-
-        }
-        //Notify front-end of bacth recovery : Avar
-        protected internal void notifyRecovery()
-        {
-
-        }
-        //Send print notification to front-end : Avar
-        protected internal void sendPrintNotifications()
-        {
-
-        }
+        }  
     }
 
     //Sing:
@@ -425,9 +384,6 @@ namespace Back_End
             
         }
 
-
-
-
         //Sing : Query Databases Function - Accept query and returns boolean value.
         protected internal bool query(string query, bool flag)
         {
@@ -449,7 +405,25 @@ namespace Back_End
 
 
     }
-
-
+    class SecondaryDatabase
+    {
+        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
+        //Batch recovery/resync in case of batch failure : Ndey
+        protected internal void batchRecovery()
+        { // improve the batch update query if you want
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystem.mdb.Customers SELECT * FROM HolidayBookingSystemSecondary.mdb.Customers";
+            string fetchFlightsDB = "INSERT INTO HolidayBookingSystem.mdb.Flights SELECT * FROM HolidayBookingSystemSecondary.mdb.Flights";
+            string fetchHotelDB = "INSERT INTO HolidayBookingSystem.mdb.Hotel SELECT * FROM HolidayBookingSystemSecondary.mdb.Hotel";
+            string fetchCarsDB = "INSERT INTO HolidayBookingSystem.mdb.Cars SELECT * FROM HolidayBookingSystemSecondary.mdb.Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+            var primaryDatabase = new PrimaryDatabase();
+            primaryDatabase.batchUpdate(secondaryConnectionString, connectionString, dbList);
+        }
+        //Notify front-end of bacth recovery : Avar
+        protected internal void notifyRecovery()
+        {
+        }
+    }
 
 }
