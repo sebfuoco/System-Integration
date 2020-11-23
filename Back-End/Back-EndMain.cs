@@ -32,12 +32,19 @@ namespace Back_End
                 deleteFDB = "DELETE FROM Flights WHERE ID BETWEEN 3 AND 100",
                 deleteHDB = "DELETE FROM Hotel WHERE ID BETWEEN 3 AND 100",
                 deleteCDB = "DELETE FROM Cars WHERE ID BETWEEN 3 AND 100";
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers",
+                fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights",
+                fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel",
+                fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            primaryDatabase.batchUpdate(connectionString, secondaryConnectionString);
+            primaryDatabase.batchUpdate(connectionString, secondaryConnectionString, dbList);
+            //secondaryDatabase.batchRecovery();
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -304,14 +311,9 @@ namespace Back_End
                 }
             }  
         }
-        protected internal void batchUpdate(string connectionString, string secondaryConnectionString) // Works but can be improved to just update
+        protected internal void batchUpdate(string connectionString, string secondaryConnectionString, string[] dbList) // Works but can be improved to just update
         {
             batchDelete(secondaryConnectionString);
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
-            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
-            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
-            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
-            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
@@ -360,8 +362,13 @@ namespace Back_End
         //Batch recovery/resync in case of batch failure : Ndey
         protected internal void batchRecovery()
         { // improve the batch update query if you want
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystem.mdb.Customers SELECT * FROM HolidayBookingSystemSecondary.mdb.Customers";
+            string fetchFlightsDB = "INSERT INTO HolidayBookingSystem.mdb.Flights SELECT * FROM HolidayBookingSystemSecondary.mdb.Flights";
+            string fetchHotelDB = "INSERT INTO HolidayBookingSystem.mdb.Hotel SELECT * FROM HolidayBookingSystemSecondary.mdb.Hotel";
+            string fetchCarsDB = "INSERT INTO HolidayBookingSystem.mdb.Cars SELECT * FROM HolidayBookingSystemSecondary.mdb.Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             var primaryDatabase = new PrimaryDatabase();
-            primaryDatabase.batchUpdate(secondaryConnectionString, connectionString);
+            primaryDatabase.batchUpdate(secondaryConnectionString, connectionString, dbList);
         }
         //Notify front-end of bacth recovery : Avar
         protected internal void notifyRecovery()
