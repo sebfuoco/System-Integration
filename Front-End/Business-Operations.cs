@@ -11,10 +11,10 @@ using System.Data.SqlClient;
 
 namespace Front_End
 {
-    public partial class Business_Operations : Form
+    public partial class Business_Ops : Form
     {
         //SqlConnection con = new SqlConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source="C: \Users\giann\Source\Repos\sebfuoco\System - Integration\Front - End\Holiday Booking System NEW.mdb"");
-        public Business_Operations()
+        public Business_Ops()
         {
             InitializeComponent();
         }

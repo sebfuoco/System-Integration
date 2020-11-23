@@ -57,48 +57,55 @@ namespace Back_End
             //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
-        private string passedString;
-        //Sing : Class Constructor 
-        public Program(string uname, string password)
-        {
-            //Sing : Login database connection
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
-            command.Connection = connection;
-            //sing : Login - Authenticating admin and normal user.
-            authenticateUser(uname, password);
-        }
 
-        //Sing : Login for Front-end.
-        public bool authenticateUser(string username, string password)
+ public static class login
         {
-            //Opening a connection to the database
-            connection.Open();
-            //defining the query 
-            ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
-            //Filling the table adaptor 
-            ad.Fill(dtable);
-            //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
-            if (dtable.Rows.Count <= 0)
+            //Sing : Login for Front-end.
+            public static bool authenticateUser(string username, string password)
             {
-                //Details do not exist in the database
-                connection.Close();
-                //MessageBox.Show("Login Invalid. Please try again.");
-                return false;
-            }
-            else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
-            {
-                //Data exists in the database, therefore this function checks where admin credientials are used.
-                
+                //Sing : login database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
+
+                //Sing : Login database connection
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
+                command.Connection = connection;
+
+                //Opening a connection to the database
+                connection.Open();
+                //defining the query 
+                ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
+                //Filling the table adaptor 
+                ad.Fill(dtable);
+                //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
+                if (dtable.Rows.Count <= 0)
+                {
+                    //Details do not exist in the database
                     connection.Close();
+                    
+                    return false;
+
+                }
+                else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
+                {
+                    //Data exists in the database, therefore this function checks where admin credientials are used.
+
+                    connection.Close();
+             
                     return true;
-               
-            }
-            else
-            {
-                return false;
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
     }
+
+
 
     class DatabaseFunctions
     {
@@ -329,6 +336,52 @@ namespace Back_End
                     }
                 }
             }
+        }  
+    }
+
+    //Sing:
+
+    public class DatabaseQuery
+    {
+
+        //Update Primary database with new bookings : Sing
+        public void showBookings()
+        {
+
+            
+                //connection.Open();
+
+                //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
+                //command.CommandText = query;
+                //reader = command.ExecuteReader();
+
+                //string inspection = "";
+
+                //if (reader.HasRows)
+                //{
+                //    while (reader.Read())
+                //    {
+
+                //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
+                //        {
+                //            inspection = reader["Inspection Complete"].ToString();
+                //        }
+                //    }
+                //    reader.Close();
+                //}
+                //connection.Close();
+
+                //if (inspection == "true")
+                //{
+                //    return true;
+                //}
+                //else
+                //{
+                //    return false;
+                //}
+
+
+            
         }
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
@@ -349,11 +402,8 @@ namespace Back_End
                 return flag = false;
             }
         }
-        //Query database for information : Sing
-        protected internal void queryDatabase()
-        {
-            //query("", false);
-        }
+
+
     }
     class SecondaryDatabase
     {
@@ -373,12 +423,7 @@ namespace Back_End
         //Notify front-end of bacth recovery : Avar
         protected internal void notifyRecovery()
         {
-
-        }
-        //Send print notification to front-end : Avar
-        protected internal void sendPrintNotifications()
-        {
-
         }
     }
+
 }

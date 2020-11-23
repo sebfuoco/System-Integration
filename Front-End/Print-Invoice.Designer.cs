@@ -28,37 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.prntInvButton = new System.Windows.Forms.Button();
-            this.rtnButtom = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Print_Invoice));
+            this.extButton = new System.Windows.Forms.Button();
+            this.cnlButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // prntInvButton
+            // extButton
             // 
-            this.prntInvButton.Location = new System.Drawing.Point(650, 405);
-            this.prntInvButton.Name = "prntInvButton";
-            this.prntInvButton.Size = new System.Drawing.Size(138, 33);
-            this.prntInvButton.TabIndex = 4;
-            this.prntInvButton.Text = "Print Invoice";
-            this.prntInvButton.UseVisualStyleBackColor = true;
-            this.prntInvButton.Click += new System.EventHandler(this.prntInvButton_Click);
+            this.extButton.BackColor = System.Drawing.Color.Transparent;
+            this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.extButton.Location = new System.Drawing.Point(866, -1);
+            this.extButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.extButton.Name = "extButton";
+            this.extButton.Size = new System.Drawing.Size(36, 36);
+            this.extButton.TabIndex = 22;
+            this.extButton.Text = "X";
+            this.extButton.UseVisualStyleBackColor = false;
             // 
-            // rtnButtom
+            // cnlButton
             // 
-            this.rtnButtom.Location = new System.Drawing.Point(12, 405);
-            this.rtnButtom.Name = "rtnButtom";
-            this.rtnButtom.Size = new System.Drawing.Size(158, 33);
-            this.rtnButtom.TabIndex = 5;
-            this.rtnButtom.Text = "Return to Homepage";
-            this.rtnButtom.UseVisualStyleBackColor = true;
-            this.rtnButtom.Click += new System.EventHandler(this.rtnButtom_Click);
+            this.cnlButton.Image = ((System.Drawing.Image)(resources.GetObject("cnlButton.Image")));
+            this.cnlButton.Location = new System.Drawing.Point(14, 671);
+            this.cnlButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cnlButton.Name = "cnlButton";
+            this.cnlButton.Size = new System.Drawing.Size(63, 64);
+            this.cnlButton.TabIndex = 21;
+            this.cnlButton.UseVisualStyleBackColor = true;
+            this.cnlButton.Click += new System.EventHandler(this.cnlButton_Click);
             // 
             // Print_Invoice
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rtnButtom);
-            this.Controls.Add(this.prntInvButton);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(900, 750);
+            this.Controls.Add(this.extButton);
+            this.Controls.Add(this.cnlButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Print_Invoice";
             this.Text = "Invoice";
             this.Load += new System.EventHandler(this.Print_Invoice_Load);
@@ -67,8 +74,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button prntInvButton;
-        private System.Windows.Forms.Button rtnButtom;
+        private System.Windows.Forms.Button extButton;
+        private System.Windows.Forms.Button cnlButton;
     }
 }
