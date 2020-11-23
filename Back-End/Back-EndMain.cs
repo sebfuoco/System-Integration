@@ -58,7 +58,7 @@ namespace Back_End
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
 
- public static class login
+    public static class login
         {
             //Sing : Login for Front-end.
             public static bool authenticateUser(string username, string password)
@@ -104,8 +104,6 @@ namespace Back_End
             }
         }
     }
-
-
 
     class DatabaseFunctions
     {
@@ -343,12 +341,9 @@ namespace Back_End
 
     public class DatabaseQuery
     {
-
         //Update Primary database with new bookings : Sing
         public void showBookings()
         {
-
-            
                 //connection.Open();
 
                 //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
@@ -378,10 +373,7 @@ namespace Back_End
                 //else
                 //{
                 //    return false;
-                //}
-
-
-            
+                //}         
         }
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
@@ -402,8 +394,6 @@ namespace Back_End
                 return flag = false;
             }
         }
-
-
     }
     class SecondaryDatabase
     {
@@ -424,6 +414,10 @@ namespace Back_End
         protected internal void notifyRecovery()
         {
         }
-    }
+        //Send print notification to front-end : Avar
+        protected internal void sendPrintNotifications()
+        {
 
+        }
+    }
 }
