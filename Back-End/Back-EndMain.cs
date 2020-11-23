@@ -9,7 +9,6 @@ using System.Data;
 using System.IO;
 using System.Globalization;
 
-// https://stackoverflow.com/questions/108403/solutions-for-insert-or-update-on-sql-server
 namespace Back_End
 {
     public class Program
@@ -25,6 +24,7 @@ namespace Back_End
         {
             // Primary Database + queries
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+                secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb",
                 editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
                 readDB = "SELECT * FROM Customers",
@@ -37,7 +37,7 @@ namespace Back_End
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            primaryDatabase.batchUpdate();
+            primaryDatabase.batchUpdate(connectionString, secondaryConnectionString);
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -58,61 +58,44 @@ namespace Back_End
             connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
             command.Connection = connection;
             //sing : Login - Authenticating admin and normal user.
-            //authenticateUser(uname, password);
+            authenticateUser(uname, password);
         }
 
-        public static class login
+        //Sing : Login for Front-end.
+        public bool authenticateUser(string username, string password)
         {
-            //Sing : Login for Front-end.
-            public static bool authenticateUser(string username, string password)
+            //Opening a connection to the database
+            connection.Open();
+            //defining the query 
+            ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
+            //Filling the table adaptor 
+            ad.Fill(dtable);
+            //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
+            if (dtable.Rows.Count <= 0)
             {
-                //Sing : login database declarations
-                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
-                OleDbDataAdapter ad;
-                DataTable dtable = new DataTable();
-                OleDbCommand command = new OleDbCommand();
-                OleDbDataReader reader;
-
-                //Sing : Login database connection
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
-                command.Connection = connection;
-
-                //Opening a connection to the database
-                connection.Open();
-                //defining the query 
-                ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
-                //Filling the table adaptor 
-                ad.Fill(dtable);
-                //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
-                if (dtable.Rows.Count <= 0)
-                {
-                    //Details do not exist in the database
+                //Details do not exist in the database
+                connection.Close();
+                //MessageBox.Show("Login Invalid. Please try again.");
+                return false;
+            }
+            else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
+            {
+                //Data exists in the database, therefore this function checks where admin credientials are used.
+                
                     connection.Close();
-                    MessageBox.Show("Login Invalid. Please try again.");
-                    return false;
-
-                }
-                else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
-                {
-                    //Data exists in the database, therefore this function checks where admin credientials are used.
-
-                    connection.Close();
-                    // MessageBox.Show("Login successful!");
-                    //Business_Operations newForm = new Business_Operations();
-                    //newForm.Show();
                     return true;
-                }
-                else
-                {
-                    return false;
-                }
+               
+            }
+            else
+            {
+                return false;
             }
         }
     }
 
     class DatabaseFunctions
     {
-        // store data to send
+        // store data to send: TEST fetchData()
         protected internal dynamic createDict()
         {
             var details = new Dictionary<string, object>();
@@ -263,10 +246,8 @@ namespace Back_End
         }
     }
 
-    class PrimaryDatabase
+    public class PrimaryDatabase
     {
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
-            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         string customerWriteDB = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
             "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)",
             flightWriteDB = "INSERT INTO Flights (FlightNumber, CustomerID, HotelID, FlightType, Departure, Destination, DepartureTime, ArrivalTime, AdultPrice, ChildPrice)" +
@@ -278,8 +259,9 @@ namespace Back_End
             flightID = "SELECT max(FlightNumber) from Flights",
             hotelID = "SELECT max(HotelID) from Hotel";
         //Fetch new bookings, gets info from front-end : Seb
-        protected internal void fetchData(Dictionary<string, object> details)
+        public void fetchData(Dictionary<string, object> details)
         {
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
             details["NumberPlate"] = "22104"; // random
             string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
@@ -305,16 +287,15 @@ namespace Back_End
             Console.ReadKey();
         }
         //Batch update from primary to secondary database : Seb
-        protected internal void batchDelete()
+        protected internal void batchDelete(string secondaryConnectionString)
         {
-            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights",
+            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
                 deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars";
-            string[] dbList = {deleteCustomersDB, deleteFlightsDB, deleteHotelDB, deleteCarsDB};
-            // Go through all queries in loop
+            string[] dbList = { deleteCustomersDB, deleteFlightsDB, deleteHotelDB, deleteCarsDB };
             using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
             {
                 conn.Open();
-                for (int i = 0; i < dbList.Length; i++)
+                for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
                 {
                     using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
                     {
@@ -323,21 +304,21 @@ namespace Back_End
                 }
             }  
         }
-        protected internal void batchUpdate() // I am lazy, if you want to improve this be my guest
+        protected internal void batchUpdate(string connectionString, string secondaryConnectionString) // Works but can be improved to just update
         {
-            batchDelete();
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers",
-                fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights",
-                fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel",
-                fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
-            string[] dbList = {fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB};
+            batchDelete(secondaryConnectionString);
+            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers";
+            string fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights";
+            string fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel";
+            string fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
                 {
                     conn.Open();
                     sConn.Open();
-                    for (int i = 0; i < dbList.Length; i++)
+                    for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
                     {
                         using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
                         {
@@ -347,11 +328,7 @@ namespace Back_End
                 }
             }
         }
-        //Update Primary database with new bookings : Sing
-        protected internal void updatePrimaryDatabase()
-        {
-            //query("", false);
-        }
+
         //Sing : Query Databases Function - Accept query and returns boolean value.
         protected internal bool query(string query, bool flag)
         {
@@ -378,10 +355,13 @@ namespace Back_End
     }
     class SecondaryDatabase
     {
+        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
+            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         //Batch recovery/resync in case of batch failure : Ndey
         protected internal void batchRecovery()
-        {
-
+        { // improve the batch update query if you want
+            var primaryDatabase = new PrimaryDatabase();
+            primaryDatabase.batchUpdate(secondaryConnectionString, connectionString);
         }
         //Notify front-end of bacth recovery : Avar
         protected internal void notifyRecovery()
