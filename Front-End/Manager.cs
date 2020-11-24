@@ -31,6 +31,7 @@ namespace Front_End
             else if (result == DialogResult.Yes)
             {
                 this.Close();
+
             }
         }
 
