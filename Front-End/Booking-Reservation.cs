@@ -51,5 +51,20 @@ namespace Front_End
             Availability_Check a = new Availability_Check();
             a.ShowDialog();
         }
+
+        private void extButton_Click(object sender, EventArgs e)
+        {
+            const string text = "Do you want to exit?";
+            const string caption = "EXIT";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
