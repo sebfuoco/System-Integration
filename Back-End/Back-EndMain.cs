@@ -58,6 +58,27 @@ namespace Back_End
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
 
+
+    public static class calculations
+    {
+
+        public static void calculateSpacesLeft(string flightNum)
+        {
+
+            //Database Connection
+
+            //Query:
+            //SELECT FlightNumber FROM Flights WHERE FlightNumber = BookingQueryInputFlightNumber. 
+            //Get number of flights equal to BookingQueryInputFlightNumber.
+
+            //NumberOfSpacesLeft = 10 - NumberOfFlights
+
+            //Display NumberOfSpacesLeft
+
+
+        }
+
+    }
     public static class login
         {
             //Sing : Login for Front-end.

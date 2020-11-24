@@ -61,22 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Back-EndMain.cs" />
-    <Compile Include="Business Operations.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Business Operations.Designer.cs">
-      <DependentUpon>Business Operations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HolidayBookingSystemDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="HolidayBookingSystemSecondaryDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -86,28 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="HolidayBookingSystemDataSet.xsc">
-      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="HolidayBookingSystemDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HolidayBookingSystemDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HolidayBookingSystemDataSet.xss">
-      <DependentUpon>HolidayBookingSystemDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="HolidayBookingSystemSecondaryDataSet.xsc">
-      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="HolidayBookingSystemSecondaryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>HolidayBookingSystemSecondaryDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="HolidayBookingSystemSecondaryDataSet.xss">
-      <DependentUpon>HolidayBookingSystemSecondaryDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
