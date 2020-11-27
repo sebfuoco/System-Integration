@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Business_Ops));
             System.Windows.Forms.Label customerIDLabel;
             System.Windows.Forms.Label customerFirstNameLabel;
             System.Windows.Forms.Label customerLastNameLabel;
@@ -40,23 +39,24 @@
             System.Windows.Forms.Label postCodeLabel;
             System.Windows.Forms.Label contactNumberLabel;
             System.Windows.Forms.Label emailAddressLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Business_Ops));
             this.extButton = new System.Windows.Forms.Button();
             this.manager_Database = new Front_End.Manager_Database();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new Front_End.Manager_DatabaseTableAdapters.CustomersTableAdapter();
             this.tableAdapterManager = new Front_End.Manager_DatabaseTableAdapters.TableAdapterManager();
             this.customersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.customersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.customersDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -96,10 +96,120 @@
             ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
+            // customerIDLabel
+            // 
+            customerIDLabel.AutoSize = true;
+            customerIDLabel.BackColor = System.Drawing.Color.Transparent;
+            customerIDLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerIDLabel.Location = new System.Drawing.Point(88, 35);
+            customerIDLabel.Name = "customerIDLabel";
+            customerIDLabel.Size = new System.Drawing.Size(124, 21);
+            customerIDLabel.TabIndex = 20;
+            customerIDLabel.Text = "Customer ID:";
+            // 
+            // customerFirstNameLabel
+            // 
+            customerFirstNameLabel.AutoSize = true;
+            customerFirstNameLabel.BackColor = System.Drawing.Color.Transparent;
+            customerFirstNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerFirstNameLabel.Location = new System.Drawing.Point(15, 70);
+            customerFirstNameLabel.Name = "customerFirstNameLabel";
+            customerFirstNameLabel.Size = new System.Drawing.Size(197, 21);
+            customerFirstNameLabel.TabIndex = 21;
+            customerFirstNameLabel.Text = "Customer First Name:";
+            // 
+            // customerLastNameLabel
+            // 
+            customerLastNameLabel.AutoSize = true;
+            customerLastNameLabel.BackColor = System.Drawing.Color.Transparent;
+            customerLastNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerLastNameLabel.Location = new System.Drawing.Point(20, 102);
+            customerLastNameLabel.Name = "customerLastNameLabel";
+            customerLastNameLabel.Size = new System.Drawing.Size(193, 21);
+            customerLastNameLabel.TabIndex = 22;
+            customerLastNameLabel.Text = "Customer Last Name:";
+            // 
+            // genderLabel
+            // 
+            genderLabel.AutoSize = true;
+            genderLabel.BackColor = System.Drawing.Color.Transparent;
+            genderLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            genderLabel.Location = new System.Drawing.Point(136, 136);
+            genderLabel.Name = "genderLabel";
+            genderLabel.Size = new System.Drawing.Size(76, 21);
+            genderLabel.TabIndex = 23;
+            genderLabel.Text = "Gender:";
+            // 
+            // passportNumberLabel
+            // 
+            passportNumberLabel.AutoSize = true;
+            passportNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            passportNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passportNumberLabel.Location = new System.Drawing.Point(51, 174);
+            passportNumberLabel.Name = "passportNumberLabel";
+            passportNumberLabel.Size = new System.Drawing.Size(162, 21);
+            passportNumberLabel.TabIndex = 24;
+            passportNumberLabel.Text = "Passport Number:";
+            // 
+            // nationalityLabel
+            // 
+            nationalityLabel.AutoSize = true;
+            nationalityLabel.BackColor = System.Drawing.Color.Transparent;
+            nationalityLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nationalityLabel.Location = new System.Drawing.Point(97, 210);
+            nationalityLabel.Name = "nationalityLabel";
+            nationalityLabel.Size = new System.Drawing.Size(115, 21);
+            nationalityLabel.TabIndex = 25;
+            nationalityLabel.Text = "Nationality:";
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.BackColor = System.Drawing.Color.Transparent;
+            addressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            addressLabel.Location = new System.Drawing.Point(131, 247);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(82, 21);
+            addressLabel.TabIndex = 26;
+            addressLabel.Text = "Address:";
+            // 
+            // postCodeLabel
+            // 
+            postCodeLabel.AutoSize = true;
+            postCodeLabel.BackColor = System.Drawing.Color.Transparent;
+            postCodeLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            postCodeLabel.Location = new System.Drawing.Point(113, 283);
+            postCodeLabel.Name = "postCodeLabel";
+            postCodeLabel.Size = new System.Drawing.Size(99, 21);
+            postCodeLabel.TabIndex = 27;
+            postCodeLabel.Text = "Post Code:";
+            // 
+            // contactNumberLabel
+            // 
+            contactNumberLabel.AutoSize = true;
+            contactNumberLabel.BackColor = System.Drawing.Color.Transparent;
+            contactNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            contactNumberLabel.Location = new System.Drawing.Point(60, 318);
+            contactNumberLabel.Name = "contactNumberLabel";
+            contactNumberLabel.Size = new System.Drawing.Size(153, 21);
+            contactNumberLabel.TabIndex = 28;
+            contactNumberLabel.Text = "Contact Number:";
+            // 
+            // emailAddressLabel
+            // 
+            emailAddressLabel.AutoSize = true;
+            emailAddressLabel.BackColor = System.Drawing.Color.Transparent;
+            emailAddressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            emailAddressLabel.Location = new System.Drawing.Point(72, 354);
+            emailAddressLabel.Name = "emailAddressLabel";
+            emailAddressLabel.Size = new System.Drawing.Size(141, 21);
+            emailAddressLabel.TabIndex = 29;
+            emailAddressLabel.Text = "Email Address:";
+            // 
             // extButton
             // 
             this.extButton.Location = new System.Drawing.Point(11, 400);
-            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2);
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(104, 27);
             this.extButton.TabIndex = 1;
@@ -157,6 +267,31 @@
             this.customersBindingNavigator.TabIndex = 20;
             this.customersBindingNavigator.Text = "bindingNavigator1";
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            // 
             // bindingNavigatorMoveFirstItem
             // 
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -190,16 +325,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -222,26 +350,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // customersBindingNavigatorSaveItem
             // 
@@ -254,7 +364,9 @@
             // 
             // customersDataGridView
             // 
+            this.customersDataGridView.AllowUserToOrderColumns = true;
             this.customersDataGridView.AutoGenerateColumns = false;
+            this.customersDataGridView.BackgroundColor = System.Drawing.Color.Gold;
             this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -268,6 +380,7 @@
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
             this.customersDataGridView.DataSource = this.customersBindingSource;
+            this.customersDataGridView.GridColor = System.Drawing.SystemColors.AppWorkspace;
             this.customersDataGridView.Location = new System.Drawing.Point(346, 72);
             this.customersDataGridView.Name = "customersDataGridView";
             this.customersDataGridView.Size = new System.Drawing.Size(639, 220);
@@ -333,17 +446,6 @@
             this.dataGridViewTextBoxColumn10.HeaderText = "EmailAddress";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
-            // customerIDLabel
-            // 
-            customerIDLabel.AutoSize = true;
-            customerIDLabel.BackColor = System.Drawing.Color.Transparent;
-            customerIDLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerIDLabel.Location = new System.Drawing.Point(88, 35);
-            customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(124, 21);
-            customerIDLabel.TabIndex = 20;
-            customerIDLabel.Text = "Customer ID:";
-            // 
             // customerIDTextBox
             // 
             this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
@@ -351,17 +453,6 @@
             this.customerIDTextBox.Name = "customerIDTextBox";
             this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerIDTextBox.TabIndex = 21;
-            // 
-            // customerFirstNameLabel
-            // 
-            customerFirstNameLabel.AutoSize = true;
-            customerFirstNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerFirstNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerFirstNameLabel.Location = new System.Drawing.Point(15, 70);
-            customerFirstNameLabel.Name = "customerFirstNameLabel";
-            customerFirstNameLabel.Size = new System.Drawing.Size(197, 21);
-            customerFirstNameLabel.TabIndex = 21;
-            customerFirstNameLabel.Text = "Customer First Name:";
             // 
             // customerFirstNameTextBox
             // 
@@ -371,17 +462,6 @@
             this.customerFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerFirstNameTextBox.TabIndex = 22;
             // 
-            // customerLastNameLabel
-            // 
-            customerLastNameLabel.AutoSize = true;
-            customerLastNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerLastNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerLastNameLabel.Location = new System.Drawing.Point(20, 102);
-            customerLastNameLabel.Name = "customerLastNameLabel";
-            customerLastNameLabel.Size = new System.Drawing.Size(193, 21);
-            customerLastNameLabel.TabIndex = 22;
-            customerLastNameLabel.Text = "Customer Last Name:";
-            // 
             // customerLastNameTextBox
             // 
             this.customerLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerLastName", true));
@@ -389,17 +469,6 @@
             this.customerLastNameTextBox.Name = "customerLastNameTextBox";
             this.customerLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerLastNameTextBox.TabIndex = 23;
-            // 
-            // genderLabel
-            // 
-            genderLabel.AutoSize = true;
-            genderLabel.BackColor = System.Drawing.Color.Transparent;
-            genderLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            genderLabel.Location = new System.Drawing.Point(136, 136);
-            genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(76, 21);
-            genderLabel.TabIndex = 23;
-            genderLabel.Text = "Gender:";
             // 
             // genderTextBox
             // 
@@ -409,17 +478,6 @@
             this.genderTextBox.Size = new System.Drawing.Size(100, 20);
             this.genderTextBox.TabIndex = 24;
             // 
-            // passportNumberLabel
-            // 
-            passportNumberLabel.AutoSize = true;
-            passportNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            passportNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passportNumberLabel.Location = new System.Drawing.Point(51, 174);
-            passportNumberLabel.Name = "passportNumberLabel";
-            passportNumberLabel.Size = new System.Drawing.Size(162, 21);
-            passportNumberLabel.TabIndex = 24;
-            passportNumberLabel.Text = "Passport Number:";
-            // 
             // passportNumberTextBox
             // 
             this.passportNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "PassportNumber", true));
@@ -427,17 +485,6 @@
             this.passportNumberTextBox.Name = "passportNumberTextBox";
             this.passportNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.passportNumberTextBox.TabIndex = 25;
-            // 
-            // nationalityLabel
-            // 
-            nationalityLabel.AutoSize = true;
-            nationalityLabel.BackColor = System.Drawing.Color.Transparent;
-            nationalityLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nationalityLabel.Location = new System.Drawing.Point(97, 210);
-            nationalityLabel.Name = "nationalityLabel";
-            nationalityLabel.Size = new System.Drawing.Size(115, 21);
-            nationalityLabel.TabIndex = 25;
-            nationalityLabel.Text = "Nationality:";
             // 
             // nationalityTextBox
             // 
@@ -447,17 +494,6 @@
             this.nationalityTextBox.Size = new System.Drawing.Size(100, 20);
             this.nationalityTextBox.TabIndex = 26;
             // 
-            // addressLabel
-            // 
-            addressLabel.AutoSize = true;
-            addressLabel.BackColor = System.Drawing.Color.Transparent;
-            addressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addressLabel.Location = new System.Drawing.Point(131, 247);
-            addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(82, 21);
-            addressLabel.TabIndex = 26;
-            addressLabel.Text = "Address:";
-            // 
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
@@ -465,17 +501,6 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 27;
-            // 
-            // postCodeLabel
-            // 
-            postCodeLabel.AutoSize = true;
-            postCodeLabel.BackColor = System.Drawing.Color.Transparent;
-            postCodeLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            postCodeLabel.Location = new System.Drawing.Point(113, 283);
-            postCodeLabel.Name = "postCodeLabel";
-            postCodeLabel.Size = new System.Drawing.Size(99, 21);
-            postCodeLabel.TabIndex = 27;
-            postCodeLabel.Text = "Post Code:";
             // 
             // postCodeTextBox
             // 
@@ -485,17 +510,6 @@
             this.postCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.postCodeTextBox.TabIndex = 28;
             // 
-            // contactNumberLabel
-            // 
-            contactNumberLabel.AutoSize = true;
-            contactNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            contactNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            contactNumberLabel.Location = new System.Drawing.Point(60, 318);
-            contactNumberLabel.Name = "contactNumberLabel";
-            contactNumberLabel.Size = new System.Drawing.Size(153, 21);
-            contactNumberLabel.TabIndex = 28;
-            contactNumberLabel.Text = "Contact Number:";
-            // 
             // contactNumberTextBox
             // 
             this.contactNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ContactNumber", true));
@@ -503,17 +517,6 @@
             this.contactNumberTextBox.Name = "contactNumberTextBox";
             this.contactNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumberTextBox.TabIndex = 29;
-            // 
-            // emailAddressLabel
-            // 
-            emailAddressLabel.AutoSize = true;
-            emailAddressLabel.BackColor = System.Drawing.Color.Transparent;
-            emailAddressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            emailAddressLabel.Location = new System.Drawing.Point(72, 354);
-            emailAddressLabel.Name = "emailAddressLabel";
-            emailAddressLabel.Size = new System.Drawing.Size(141, 21);
-            emailAddressLabel.TabIndex = 29;
-            emailAddressLabel.Text = "Email Address:";
             // 
             // emailAddressTextBox
             // 
@@ -552,7 +555,7 @@
             this.Controls.Add(this.customersDataGridView);
             this.Controls.Add(this.customersBindingNavigator);
             this.Controls.Add(this.extButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Business_Ops";
             this.Text = "Business Operations";
             this.Load += new System.EventHandler(this.Business_Ops_Load);
