@@ -62,23 +62,48 @@ namespace Back_End
         public static class calculations
         {
 
-            public static void calculateSpacesLeft(string flightNum)
+            public static int calculateSpacesLeft(string flightNum)
             {
 
-                //Database Connection
+                //Sing :  Database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
 
-                //Query:
-                //SELECT FlightNumber FROM Flights WHERE FlightNumber = BookingQueryInputFlightNumber. 
-                //Get number of flights equal to BookingQueryInputFlightNumber.
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                command.Connection = connection;
 
-                //NumberOfSpacesLeft = 10 - NumberOfFlights
+                connection.Open();
 
-                //Display NumberOfSpacesLeft
+                string query = "select * from Flights where [FlightNumber] =" + flightNum;
+                command.CommandText = query;
+                reader = command.ExecuteReader();
 
+                int counter = 0;
+                int numberOfSpace = 20;
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        if (reader["FlightNumber"].ToString() == flightNum.ToString())
+                        {
+                            counter = counter + 1;
+                        }
+                    }
+                    reader.Close();
+                }
+                connection.Close();
+
+                return (numberOfSpace - counter);
 
             }
 
         }
+
         public static class login
         {
             //Sing : Login for Front-end.
