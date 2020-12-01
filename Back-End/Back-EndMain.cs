@@ -59,27 +59,52 @@ namespace Back_End
         }
 
 
-    public static class calculations
-    {
-
-        public static void calculateSpacesLeft(string flightNum)
+        public static class calculations
         {
 
-            //Database Connection
+            public static int calculateSpacesLeft(string flightNum)
+            {
 
-            //Query:
-            //SELECT FlightNumber FROM Flights WHERE FlightNumber = BookingQueryInputFlightNumber. 
-            //Get number of flights equal to BookingQueryInputFlightNumber.
+                //Sing :  Database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
 
-            //NumberOfSpacesLeft = 10 - NumberOfFlights
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                command.Connection = connection;
 
-            //Display NumberOfSpacesLeft
+                connection.Open();
 
+                string query = "select * from Flights where [FlightNumber] =" + flightNum;
+                command.CommandText = query;
+                reader = command.ExecuteReader();
+
+                int counter = 0;
+                int numberOfSpace = 20;
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        if (reader["FlightNumber"].ToString() == flightNum.ToString())
+                        {
+                            counter = counter + 1;
+                        }
+                    }
+                    reader.Close();
+                }
+                connection.Close();
+
+                return (numberOfSpace - counter);
+
+            }
 
         }
 
-    }
-    public static class login
+        public static class login
         {
             //Sing : Login for Front-end.
             public static bool authenticateUser(string username, string password)
@@ -106,7 +131,7 @@ namespace Back_End
                 {
                     //Details do not exist in the database
                     connection.Close();
-                    
+
                     return false;
 
                 }
@@ -115,7 +140,7 @@ namespace Back_End
                     //Data exists in the database, therefore this function checks where admin credientials are used.
 
                     connection.Close();
-             
+
                     return true;
                 }
                 else
@@ -210,7 +235,7 @@ namespace Back_End
             }
         }
 
-        protected internal void editDatabase(string sql, string connectionString, Dictionary<string,object> details)
+        protected internal void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -322,7 +347,7 @@ namespace Back_End
         //Batch update from primary to secondary database : Seb
         protected internal void batchDelete(string secondaryConnectionString)
         {
-            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights", 
+            string deleteCustomersDB = "DELETE FROM Customers", deleteFlightsDB = "DELETE FROM Flights",
                 deleteHotelDB = "DELETE FROM Hotel", deleteCarsDB = "DELETE FROM Cars";
             string[] dbList = { deleteCustomersDB, deleteFlightsDB, deleteHotelDB, deleteCarsDB };
             using (OleDbConnection conn = new OleDbConnection(secondaryConnectionString))
@@ -335,7 +360,7 @@ namespace Back_End
                         command.ExecuteNonQuery();
                     }
                 }
-            }  
+            }
         }
         protected internal void batchUpdate(string connectionString, string secondaryConnectionString, string[] dbList) // Works but can be improved to just update
         {
@@ -355,7 +380,7 @@ namespace Back_End
                     }
                 }
             }
-        }  
+        }
     }
 
     //Sing:
@@ -365,36 +390,36 @@ namespace Back_End
         //Update Primary database with new bookings : Sing
         public void showBookings()
         {
-                //connection.Open();
+            //connection.Open();
 
-                //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
-                //command.CommandText = query;
-                //reader = command.ExecuteReader();
+            //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
+            //command.CommandText = query;
+            //reader = command.ExecuteReader();
 
-                //string inspection = "";
+            //string inspection = "";
 
-                //if (reader.HasRows)
-                //{
-                //    while (reader.Read())
-                //    {
+            //if (reader.HasRows)
+            //{
+            //    while (reader.Read())
+            //    {
 
-                //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
-                //        {
-                //            inspection = reader["Inspection Complete"].ToString();
-                //        }
-                //    }
-                //    reader.Close();
-                //}
-                //connection.Close();
+            //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
+            //        {
+            //            inspection = reader["Inspection Complete"].ToString();
+            //        }
+            //    }
+            //    reader.Close();
+            //}
+            //connection.Close();
 
-                //if (inspection == "true")
-                //{
-                //    return true;
-                //}
-                //else
-                //{
-                //    return false;
-                //}         
+            //if (inspection == "true")
+            //{
+            //    return true;
+            //}
+            //else
+            //{
+            //    return false;
+            //}         
         }
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
