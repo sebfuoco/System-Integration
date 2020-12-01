@@ -8,7 +8,7 @@ using System.Data.OleDb;
 using System.Data;
 using System.IO;
 using System.Globalization;
-
+    
 namespace Back_End
 {
     public class Program
@@ -23,8 +23,8 @@ namespace Back_End
         public static void Main(string[] args)
         {
             // Primary Database + queries
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
-                secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb",
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
+                secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb",
                 editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
                 readDB = "SELECT * FROM Customers",
@@ -33,18 +33,18 @@ namespace Back_End
                 deleteHDB = "DELETE FROM Hotel WHERE ID BETWEEN 3 AND 100",
                 deleteCDB = "DELETE FROM Cars WHERE ID BETWEEN 3 AND 100";
             // batch update queries
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Customers SELECT * FROM HolidayBookingSystem.mdb.Customers",
-                fetchFlightsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Flights SELECT * FROM HolidayBookingSystem.mdb.Flights",
-                fetchHotelDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Hotel SELECT * FROM HolidayBookingSystem.mdb.Hotel",
-                fetchCarsDB = "INSERT INTO HolidayBookingSystemSecondary.mdb.Cars SELECT * FROM HolidayBookingSystem.mdb.Cars";
+            string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
             string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
             // tests
-            primaryDatabase.batchUpdate(connectionString, secondaryConnectionString, dbList);
-            //secondaryDatabase.batchRecovery();
+            bool query = primaryDatabase.batchUpdate(dbList, false);
+            //bool squery = secondaryDatabase.batchRecovery();
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -57,7 +57,6 @@ namespace Back_End
             //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
-
 
         public static class calculations
         {
@@ -161,12 +160,12 @@ namespace Back_End
             details["CustomerFirstName"] = "Bobby";
             details["CustomerLastName"] = "Page";
             details["Gender"] = "Male";
-            details["PassportNumber"] = "07771243";
+            details["PassportNumber"] = "07771243"; //unique
             details["Nationality"] = "American";
             details["Address"] = "12 Garden Road, Woking, Surrey";
             details["PostCode"] = "GU21 2XT";
             details["ContactNumber"] = "771014512";
-            details["EmailAddress"] = "bobpage@gmail.com";
+            details["EmailAddress"] = "bobpage@gmail.com"; //unique
             // Flight Test
             details["FlightType"] = "Return";
             details["Departure"] = "UK";
@@ -182,11 +181,13 @@ namespace Back_End
             details["PricePerNight"] = 32.00;
             // Cars Test
             details["Make"] = "Ford";
-            details["Model"] = "Focus";
-            details["CarType"] = "Large";
-            details["GearBox"] = "Automatic";
-            details["Seats"] = 10;
+            details["CarID"] = 2;
+            details["Model"] = "Fiesta";
+            details["CarType"] = "Small";
+            details["GearBox"] = "Manual";
+            details["Seats"] = 5;
             details["PricePerDay"] = 18.00;
+            details["NumberPlate"] = "BV10 XWY"; // unique
             return details;
         }
 
@@ -275,7 +276,6 @@ namespace Back_End
                     for (int i = 0; i < arr.Length; i += 2)
                     {
                         command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
-
                     }
                     command.ExecuteNonQuery();
                 }
@@ -312,20 +312,18 @@ namespace Back_End
             "VALUES (@FlightNumber, @CustomerID, @HotelID, @FlightType, @Departure, @Destination, @DepartureTime, @ArrivalTime, @AdultPrice, @ChildPrice)",
             hotelWriteDB = "INSERT INTO Hotel (HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, NumberPlate, FlightNumber) " +
             "VALUES (@HotelID, @StarRating, @CheckIn, @CheckOut, @PricePerNight, @Country, @NumberPlate, @FlightNumber)",
-            carsWriteDB = "INSERT INTO Cars (NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
-            "VALUES (@NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)",
-            flightID = "SELECT max(FlightNumber) from Flights",
-            hotelID = "SELECT max(HotelID) from Hotel";
+            carsWriteDB = "INSERT INTO Cars (CarID, NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
+            "VALUES (@CarID, @NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)";
         //Fetch new bookings, gets info from front-end : Seb
-        public void fetchData(Dictionary<string, object> details)
+        public dynamic fetchData(Dictionary<string, object> details)
         {
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb";
-            details["NumberPlate"] = "22104"; // random
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
+                   secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
             string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             var dbFunc = new DatabaseFunctions();
-            // autonumber IDs
-            details["FlightNumber"] = dbFunc.maxID(connectionString, flightID) + 1;
-            details["HotelID"] = dbFunc.maxID(connectionString, hotelID) + 1;
+            // test ID
+            //details["FlightNumber"] = 1200;
+            //details["HotelID"] = 4510;
             object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
@@ -335,14 +333,14 @@ namespace Back_End
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
             dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
-            object[] hotel = {"@HotelID", details["HotelID"], "@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
+            object[] hotel = {"@HotelID", details["HotelID"],"@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
                     "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Arrival"], "@NumberPlate",
                 details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
             dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
-            object[] cars = {"@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
+            object[] cars = {"@CarID", details["CarID"], "@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
                 "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
             dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
-            Console.ReadKey();
+            return true;
         }
         //Batch update from primary to secondary database : Seb
         protected internal void batchDelete(string secondaryConnectionString)
@@ -362,8 +360,14 @@ namespace Back_End
                 }
             }
         }
-        protected internal void batchUpdate(string connectionString, string secondaryConnectionString, string[] dbList) // Works but can be improved to just update
+        public dynamic batchUpdate(string[] dbList, bool recover) // Works but can be improved to just update
         {
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
+               secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
+            if (recover == true) {
+                connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
+                secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
+            }
             batchDelete(secondaryConnectionString);
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -380,11 +384,11 @@ namespace Back_End
                     }
                 }
             }
+            return true;
         }
     }
 
     //Sing:
-
     public class DatabaseQuery
     {
         //Update Primary database with new bookings : Sing
@@ -441,20 +445,19 @@ namespace Back_End
             }
         }
     }
-    class SecondaryDatabase
+    public class SecondaryDatabase
     {
-        string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystem.mdb",
-            secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=HolidayBookingSystemSecondary.mdb";
         //Batch recovery/resync in case of batch failure : Ndey
-        protected internal void batchRecovery()
+        public dynamic batchRecovery()
         { // improve the batch update query if you want
-            string fetchCustomersDB = "INSERT INTO HolidayBookingSystem.mdb.Customers SELECT * FROM HolidayBookingSystemSecondary.mdb.Customers";
-            string fetchFlightsDB = "INSERT INTO HolidayBookingSystem.mdb.Flights SELECT * FROM HolidayBookingSystemSecondary.mdb.Flights";
-            string fetchHotelDB = "INSERT INTO HolidayBookingSystem.mdb.Hotel SELECT * FROM HolidayBookingSystemSecondary.mdb.Hotel";
-            string fetchCarsDB = "INSERT INTO HolidayBookingSystem.mdb.Cars SELECT * FROM HolidayBookingSystemSecondary.mdb.Cars";
+            string fetchCustomersDB = "INSERT INTO PrimaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO PrimaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO PrimaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO PrimaryDB.mdb.Cars SELECT * FROM Cars";
             string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             var primaryDatabase = new PrimaryDatabase();
-            primaryDatabase.batchUpdate(secondaryConnectionString, connectionString, dbList);
+            bool query = primaryDatabase.batchUpdate(dbList, true);
+            return true;
         }
         //Notify front-end of bacth recovery : Avar
         protected internal void notifyRecovery()
