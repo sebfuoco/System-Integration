@@ -56,5 +56,10 @@ namespace Front_End
         {
 
         }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
