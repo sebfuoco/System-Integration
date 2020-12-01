@@ -290,7 +290,7 @@ namespace Back_End
             carsWriteDB = "INSERT INTO Cars (CarID, NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, PricePerDay) " +
             "VALUES (@CarID, @NumberPlate, @HotelID, @Make, @Model, @CarType, @GearBox, @Seats, @PricePerDay)";
         //Fetch new bookings, gets info from front-end : Seb
-        public void fetchData(Dictionary<string, object> details)
+        public dynamic fetchData(Dictionary<string, object> details)
         {
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
                    secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
@@ -315,7 +315,7 @@ namespace Back_End
             object[] cars = {"@CarID", details["CarID"], "@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
                 "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
             dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
-            Console.ReadKey();
+            return true;
         }
         //Batch update from primary to secondary database : Seb
         protected internal void batchDelete(string secondaryConnectionString)
