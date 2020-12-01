@@ -391,50 +391,92 @@ namespace Back_End
     //Sing:
     public class DatabaseQuery
     {
-        //Update Primary database with new bookings : Sing
-        public void showBookings()
+
+        struct flightDetails
         {
-            //connection.Open();
+            public string flightNumber;
+            public string flightType;
+            public string destination;
+            public string departure;
+            public string arrival;
+            public string adultPrice;
+            public string childPrice;
+        }
 
-            //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
-            //command.CommandText = query;
-            //reader = command.ExecuteReader();
+        struct cars
+        {
+            public string numPlate;
+            public string HotelID;
+            public string carMake;
+            public string carModel;
+            public string carType;
+            public string gearBox;
+            public string seats;
 
-            //string inspection = "";
+        }
 
-            //if (reader.HasRows)
-            //{
-            //    while (reader.Read())
-            //    {
+        struct hotel
+        {
+            public string rating;
+            public string checkIn;
+            public string checkOut;
+            public string pricePerNight;
+        }
 
-            //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
-            //        {
-            //            inspection = reader["Inspection Complete"].ToString();
-            //        }
-            //    }
-            //    reader.Close();
-            //}
-            //connection.Close();
 
-            //if (inspection == "true")
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}         
+        //Update Primary database with new bookings : Sing
+        public void showBookings(string flightNum)
+        {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            connection.Open();
+
+            string query = "select * from ServiceTable where [ID] =" + flightNum;
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            flightDetails flight = new flightDetails();
+
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["ID"].ToString() == flightNum)
+                    {
+                        flight.flightNumber = flightNum;
+                        flight.flightType = reader["FlightType"].ToString();
+                        flight.destination = reader["Destination"].ToString();
+                        flight.departure = reader["DepartureTime"].ToString();
+                        flight.arrival = reader["ArrivalTime"].ToString();
+                        flight.adultPrice = reader["AdultPrice"].ToString();
+                        flight.childPrice = reader["ChildPrice"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+           
         }
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
         protected internal bool query(string query, bool flag)
         {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+
             try
             {
-                //connection.Open();
-                //command.CommandText = query;
-                //command.ExecuteNonQuery();
-                //connection.Close();
+                connection.Open();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                connection.Close();
                 return flag = true;
             }
             catch (Exception error)
