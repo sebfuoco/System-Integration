@@ -463,9 +463,49 @@ namespace Back_End
         protected internal void notifyRecovery()
         {
         }
-        //Send print notification to front-end : Avar
-        protected internal void sendPrintNotifications()
+
+         struct customerDetails
         {
+            public string fname;
+            string sname;
+            string address;
+        }
+
+
+        //Send print notification to front-end : Avar
+        protected internal void sendPrintNotifications(string customerID)
+        {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+            command.Connection = connection;
+
+            connection.Open();
+
+            string query = "SELECT * from Customers where [ID] =" + customerID;
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            customerDetails details = new customerDetails();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["ID"].ToString() == customerID)
+                    {
+                        details.fname = reader["CustomerFirstName"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+
 
         }
     }
