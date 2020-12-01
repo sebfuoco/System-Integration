@@ -20,18 +20,11 @@ namespace Front_End
             InitializeComponent();
         }
 
-        private void nxtButton_Click(object sender, EventArgs e)
-        {
-            // Please put a condition here that will notify the user that they have to choose at least 1 selection
-            this.Hide();
-            Booking_Reservation b = new Booking_Reservation();
-            b.ShowDialog();
-        }
 
         private void nxtButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Booking_Confirmation a = new Booking_Confirmation();
+            Booking_Reservation a = new Booking_Reservation();
             a.ShowDialog();
         }
 

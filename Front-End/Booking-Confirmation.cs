@@ -20,18 +20,6 @@ namespace Front_End
             InitializeComponent();
         }
 
-        private void nxtButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Print_Invoice p = new Print_Invoice();
-            p.ShowDialog();
-        }
-
-        private void cnlButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bckButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -39,9 +27,43 @@ namespace Front_End
             b.ShowDialog();
         }
 
-        private void cnlButton_Click_1(object sender, EventArgs e)
+        private void cnlButton_Click(object sender, EventArgs e)
         {
+            const string text = "Are you sure want to cancel? This will delete your progress.";
+            const string caption = "CANCEL";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                main m = new main();
+                m.ShowDialog();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
+        private void extButton_Click(object sender, EventArgs e)
+        {
+            const string text = "Do you want to exit?";
+            const string caption = "EXIT";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void nxtButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Print_Invoice a = new Print_Invoice();
+            a.ShowDialog();
         }
     }
 }
