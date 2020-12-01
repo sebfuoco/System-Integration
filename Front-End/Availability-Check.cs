@@ -59,5 +59,29 @@ namespace Front_End
                 this.Close();
             }
         }
-    }
+
+        private void Copyb_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Avaoutput.Text);
+            sb.AppendLine(Seatoutput.Text);
+            Clipboard.SetText(sb.ToString());
+
+        }
+
+        private void Avaoutput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Seatoutput_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+		private void Printb_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

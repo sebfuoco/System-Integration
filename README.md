@@ -4,6 +4,6 @@
 
 ## Back end
 >IMPORTANT:
-Store the database "HolidayBookingSystem.mdb" in the bin\Debug directory of the project. Make a copy called "HolidayBookingSystemSecondary.mdb" in the same directory.
+Store the database "PrimaryDB.mdb" and "SecondaryDB.mdb" in the bin\Debug directory of the project.
 ## Architecture Design
 ![](https://i.imgur.com/wIaupDO.png)
