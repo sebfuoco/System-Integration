@@ -70,5 +70,10 @@ namespace Front_End
         {
 
         }
+
+        private void Print_Invoice_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

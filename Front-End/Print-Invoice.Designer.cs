@@ -32,8 +32,9 @@
             // 
             // Print_Invoice
             // 
-            this.ClientSize = new System.Drawing.Size(734, 534);
+            this.ClientSize = new System.Drawing.Size(823, 534);
             this.Name = "Print_Invoice";
+            this.Load += new System.EventHandler(this.Print_Invoice_Load);
             this.ResumeLayout(false);
 
         }
