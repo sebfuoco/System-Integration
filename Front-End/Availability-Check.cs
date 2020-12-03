@@ -26,14 +26,17 @@ namespace Front_End
         OleDbCommand command = new OleDbCommand();
         OleDbDataReader reader;
         
-        try {
-            connection.open();
+        //try {
+        //    connection.open();
            
-        using(OleDbDataReader reader = command.ExecuteReader()) {  
-                        Console.WriteLine("");  
-                        while (reader.Read()) {  
-                            Console.WriteLine("{0} {1}", reader["Name"].ToString(), reader["Address"].ToString());  
-            
+        //using(OleDbDataReader reader = command.ExecuteReader()) {  
+        //                Console.WriteLine("");  
+        //                while (reader.Read()) {  
+        //                    Console.WriteLine("{0} {1}", reader["Name"].ToString(), reader["Address"].ToString());  
+        //                                        }
+        //                            }
+        //    }
+
         public Availability_Check()
         {
             InitializeComponent();
