@@ -61,7 +61,7 @@ namespace Back_End
         public static class calculations
         {
 
-            public static int calculateSpacesLeft(string flightNum)
+            public static int calculateSpacesLeft(string flightNum, string date)
             {
 
                 //Sing :  Database declarations
@@ -76,7 +76,7 @@ namespace Back_End
 
                 connection.Open();
 
-                string query = "select * from Flights where [FlightNumber] =" + flightNum;
+                string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -113,7 +113,7 @@ namespace Back_End
                 OleDbDataAdapter ad;
                 DataTable dtable = new DataTable();
                 OleDbCommand command = new OleDbCommand();
-                OleDbDataReader reader;
+                //OleDbDataReader reader;
 
                 //Sing : Login database connection
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
@@ -425,7 +425,7 @@ namespace Back_End
 
 
         //Update Primary database with new bookings : Sing
-        public void showBookings(string flightNum)
+        public void showFlights(string flightNum)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
@@ -434,13 +434,11 @@ namespace Back_End
 
             connection.Open();
 
-            string query = "select * from ServiceTable where [ID] =" + flightNum;
+            string query = "select * from Flights where [FlightNumber] =" + flightNum;
             command.CommandText = query;
             reader = command.ExecuteReader();
 
             flightDetails flight = new flightDetails();
-
-
 
             if (reader.HasRows)
             {
@@ -462,8 +460,13 @@ namespace Back_End
             }
             connection.Close();
 
+            //Display flight data on front-end
            
         }
+
+
+
+
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
         protected internal bool query(string query, bool flag)
