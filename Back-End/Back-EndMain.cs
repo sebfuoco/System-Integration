@@ -61,7 +61,7 @@ namespace Back_End
         public static class calculations
         {
 
-            public static int calculateSpacesLeft(string flightNum, string date)
+            public static string calculateSpacesLeft(string flightNum, string date)
             {
 
                 //Sing :  Database declarations
@@ -96,9 +96,47 @@ namespace Back_End
                     reader.Close();
                 }
                 connection.Close();
+                int result = numberOfSpace - counter;
+                return result.ToString();
 
-                return (numberOfSpace - counter);
+            }
 
+
+            public static string getFlightID(string destination)
+            {
+                //Sing :  Database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
+
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                command.Connection = connection;
+
+                connection.Open();
+
+                string query = "select FlightNumber from Flights where [Destination] =" + destination;
+                command.CommandText = query;
+                reader = command.ExecuteReader();
+
+                string flightnum ="";
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        if (reader["Destination"].ToString() == destination.ToString())
+                        {
+                            flightnum = reader["FlightNumber"].ToString();
+                        }
+                    }
+                    reader.Close();
+                }
+                connection.Close();
+
+                return flightnum;
             }
 
         }

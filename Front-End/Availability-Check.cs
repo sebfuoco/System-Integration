@@ -113,12 +113,14 @@ namespace Front_End
 
         private void Check_Click_1(object sender, EventArgs e)
         {
-            Back_End.Program.calculations.calculateSpacesLeft(
+            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+            string date = DateTimePicker1.Text.ToString();
+            Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
         }
 
         private void Locationinput_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            Locationinput.Items.add
+            
         }
 
         private void Cardetails_Enter(object sender, EventArgs e)
