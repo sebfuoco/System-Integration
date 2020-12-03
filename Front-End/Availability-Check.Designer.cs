@@ -46,7 +46,6 @@
             this.Cardetails = new System.Windows.Forms.GroupBox();
             this.Hoteldetails = new System.Windows.Forms.GroupBox();
             this.Locationinput = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // extButton
@@ -213,15 +212,6 @@
             this.Locationinput.Text = "Please select one";
             this.Locationinput.SelectedIndexChanged += new System.EventHandler(this.Locationinput_SelectedIndexChanged_1);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(388, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "button test";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Availability_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,7 +219,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(600, 487);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.Locationinput);
             this.Controls.Add(this.Hoteldetails);
             this.Controls.Add(this.Cardetails);
@@ -275,6 +264,5 @@
         private System.Windows.Forms.GroupBox Cardetails;
         private System.Windows.Forms.GroupBox Hoteldetails;
         private System.Windows.Forms.ComboBox Locationinput;
-        private System.Windows.Forms.Button button1;
     }
 }
