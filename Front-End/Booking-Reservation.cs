@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,13 @@ namespace Front_End
 
         private void nxtButton_Click(object sender, EventArgs e)
         {
-            // Please add a condition that will stop/notify that all boxes must be filled in
+            Connection.con.Open();
+            string save = "Insert into Customers(CustomerFirstName, CustomerLastname, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress)VALUES(" + firstNametxtbox + ", '" + lastNametxtbox + "', '" + gendertxtbox + "', " + passportNumbtxtbox + ", '" + Nationalitytxtbox + "', '" + Addresstxtbox + "', , '" + postCodetxtbox + "', , '" + contactNumbertxtbox + "', , '" + emailtxtbox + "')";
+            OleDbCommand command = new OleDbCommand(save, Connection.con);
+            command.ExecuteNonQuery();
+            MessageBox.Show("Booking Reserved");
+            Connection.con.Close();
+
             this.Hide();
             Booking_Confirmation b = new Booking_Confirmation();
             b.ShowDialog();
