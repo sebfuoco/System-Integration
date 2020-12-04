@@ -150,7 +150,7 @@ namespace Back_End
         }
     }
 
-    class DatabaseFunctions
+    public class DatabaseFunctions
     {
         // store data to send: TEST fetchData()
         protected internal dynamic createDict()
@@ -236,7 +236,7 @@ namespace Back_End
             }
         }
 
-        protected internal void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
+        public void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -265,7 +265,7 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, object> details, object[] arr)
+        public void writeDatabase(string sql, string connectionString, Dictionary<string, object> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -282,7 +282,7 @@ namespace Back_End
             }
         }
 
-        protected internal dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, object> details, object[] arr)
+        public dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, object> details, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
