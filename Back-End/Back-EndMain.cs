@@ -61,7 +61,7 @@ namespace Back_End
         public static class calculations
         {
 
-            public static int calculateSpacesLeft(string flightNum)
+            public static string calculateSpacesLeft(string flightNum, string date)
             {
 
                 //Sing :  Database declarations
@@ -76,7 +76,7 @@ namespace Back_End
 
                 connection.Open();
 
-                string query = "select * from Flights where [FlightNumber] =" + flightNum;
+                string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -96,9 +96,47 @@ namespace Back_End
                     reader.Close();
                 }
                 connection.Close();
+                int result = numberOfSpace - counter;
+                return result.ToString();
 
-                return (numberOfSpace - counter);
+            }
 
+
+            public static string getFlightID(string destination)
+            {
+                //Sing :  Database declarations
+                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                OleDbDataAdapter ad;
+                DataTable dtable = new DataTable();
+                OleDbCommand command = new OleDbCommand();
+                OleDbDataReader reader;
+
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                command.Connection = connection;
+
+                connection.Open();
+
+                string query = "select FlightNumber from Flights where [Destination] =" + destination;
+                command.CommandText = query;
+                reader = command.ExecuteReader();
+
+                string flightnum ="";
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+
+                        if (reader["Destination"].ToString() == destination.ToString())
+                        {
+                            flightnum = reader["FlightNumber"].ToString();
+                        }
+                    }
+                    reader.Close();
+                }
+                connection.Close();
+
+                return flightnum;
             }
 
         }
@@ -113,7 +151,7 @@ namespace Back_End
                 OleDbDataAdapter ad;
                 DataTable dtable = new DataTable();
                 OleDbCommand command = new OleDbCommand();
-                OleDbDataReader reader;
+                //OleDbDataReader reader;
 
                 //Sing : Login database connection
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
@@ -391,50 +429,96 @@ namespace Back_End
     //Sing:
     public class DatabaseQuery
     {
-        //Update Primary database with new bookings : Sing
-        public void showBookings()
+
+        struct flightDetails
         {
-            //connection.Open();
-
-            //string query = "select * from ServiceTable where [ID] =" + Admin.ServiceID;
-            //command.CommandText = query;
-            //reader = command.ExecuteReader();
-
-            //string inspection = "";
-
-            //if (reader.HasRows)
-            //{
-            //    while (reader.Read())
-            //    {
-
-            //        if (reader["ID"].ToString() == Admin.ServiceID.ToString())
-            //        {
-            //            inspection = reader["Inspection Complete"].ToString();
-            //        }
-            //    }
-            //    reader.Close();
-            //}
-            //connection.Close();
-
-            //if (inspection == "true")
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}         
+            public string flightNumber;
+            public string flightType;
+            public string destination;
+            public string departure;
+            public string arrival;
+            public string adultPrice;
+            public string childPrice;
         }
+
+        struct cars
+        {
+            public string numPlate;
+            public string HotelID;
+            public string carMake;
+            public string carModel;
+            public string carType;
+            public string gearBox;
+            public string seats;
+
+        }
+
+        struct hotel
+        {
+            public string rating;
+            public string checkIn;
+            public string checkOut;
+            public string pricePerNight;
+        }
+
+
+        //Update Primary database with new bookings : Sing
+        public void showFlights(string flightNum)
+        {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            connection.Open();
+
+            string query = "select * from Flights where [FlightNumber] =" + flightNum;
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            flightDetails flight = new flightDetails();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["ID"].ToString() == flightNum)
+                    {
+                        flight.flightNumber = flightNum;
+                        flight.flightType = reader["FlightType"].ToString();
+                        flight.destination = reader["Destination"].ToString();
+                        flight.departure = reader["DepartureTime"].ToString();
+                        flight.arrival = reader["ArrivalTime"].ToString();
+                        flight.adultPrice = reader["AdultPrice"].ToString();
+                        flight.childPrice = reader["ChildPrice"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+            //Display flight data on front-end
+           
+        }
+
+
+
+
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
         protected internal bool query(string query, bool flag)
         {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+
             try
             {
-                //connection.Open();
-                //command.CommandText = query;
-                //command.ExecuteNonQuery();
-                //connection.Close();
+                connection.Open();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                connection.Close();
                 return flag = true;
             }
             catch (Exception error)
@@ -463,9 +547,49 @@ namespace Back_End
         protected internal void notifyRecovery()
         {
         }
-        //Send print notification to front-end : Avar
-        protected internal void sendPrintNotifications()
+
+         struct customerDetails
         {
+            public string fname;
+            string sname;
+            string address;
+        }
+
+
+        //Send print notification to front-end : Avar
+        protected internal void sendPrintNotifications(string customerID)
+        {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+            command.Connection = connection;
+
+            connection.Open();
+
+            string query = "SELECT * from Customers where [ID] =" + customerID;
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            customerDetails details = new customerDetails();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["ID"].ToString() == customerID)
+                    {
+                        details.fname = reader["CustomerFirstName"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+
 
         }
     }

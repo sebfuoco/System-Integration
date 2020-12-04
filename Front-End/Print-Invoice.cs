@@ -50,5 +50,16 @@ namespace Front_End
                 this.Close();
             }
         }
+
+
+        private void Print_Invoice_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

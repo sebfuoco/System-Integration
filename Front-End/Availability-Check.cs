@@ -3,18 +3,40 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 // Availability Check/Query
 // This form will check and allow user to select items for reservation
 
 namespace Front_End
 {
+
     public partial class Availability_Check : Form
     {
+
+        //Sing : login database declarations
+        System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+        OleDbDataAdapter ad;
+        DataTable dtable = new DataTable();
+        OleDbCommand command = new OleDbCommand();
+        OleDbDataReader reader;
+        
+        //try {
+        //    connection.open();
+           
+        //using(OleDbDataReader reader = command.ExecuteReader()) {  
+        //                Console.WriteLine("");  
+        //                while (reader.Read()) {  
+        //                    Console.WriteLine("{0} {1}", reader["Name"].ToString(), reader["Address"].ToString());  
+        //                                        }
+        //                            }
+        //    }
+
         public Availability_Check()
         {
             InitializeComponent();
@@ -65,6 +87,9 @@ namespace Front_End
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(Avaoutput.Text);
             sb.AppendLine(Seatoutput.Text);
+            sb.AppendLine(Flightdetails.Text);
+            sb.AppendLine(Cardetails.Text);
+            sb.AppendLine(Hoteldetails.Text);
             Clipboard.SetText(sb.ToString());
 
         }
@@ -79,9 +104,36 @@ namespace Front_End
 
         }
 
-		private void Printb_Click(object sender, EventArgs e)
-		{
+        private void Printb_Click(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+
+        private void Flightdetails_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Check_Click_1(object sender, EventArgs e)
+        {
+            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+            string date = DateTimePicker1.Text.ToString();
+            Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
+        }
+
+        private void Locationinput_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Cardetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hoteldetails_Enter(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
