@@ -259,3 +259,11 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Back-End/SecondaryDBDataSet.xss
+/Back-End/SecondaryDBDataSet.xsd
+/Back-End/SecondaryDBDataSet.xsc
+/Back-End/SecondaryDBDataSet.Designer.cs
+/Back-End/PrimaryDBDataSet.xss
+/Back-End/PrimaryDBDataSet.xsd
+/Back-End/PrimaryDBDataSet.xsc
+/Back-End/PrimaryDBDataSet.Designer.cs
