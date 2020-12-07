@@ -90,6 +90,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Schoolbook", 17.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
             this.label2.Location = new System.Drawing.Point(209, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(375, 34);
@@ -121,6 +122,7 @@
             this.Controls.Add(this.mgrButton);
             this.Controls.Add(this.userSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Holiday Booking System";
