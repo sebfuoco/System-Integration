@@ -189,7 +189,7 @@ namespace Back_End
         }
     }
 
-    class DatabaseFunctions
+    public class DatabaseFunctions
     {
         // store data to send: TEST fetchData()
         public  dynamic createDict()
