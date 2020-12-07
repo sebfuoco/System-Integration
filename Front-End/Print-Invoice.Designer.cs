@@ -40,7 +40,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.fnameLbl = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -190,14 +190,14 @@
             this.label32.TabIndex = 5;
             this.label32.Text = "INVOICE TO ";
             // 
-            // label33
+            // fnameLbl
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(575, 190);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(86, 20);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "First Name";
+            this.fnameLbl.AutoSize = true;
+            this.fnameLbl.Location = new System.Drawing.Point(575, 190);
+            this.fnameLbl.Name = "fnameLbl";
+            this.fnameLbl.Size = new System.Drawing.Size(86, 20);
+            this.fnameLbl.TabIndex = 6;
+            this.fnameLbl.Text = "First Name";
             // 
             // label34
             // 
@@ -330,7 +330,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(170, 0);
+            this.label46.Location = new System.Drawing.Point(170, 9);
             this.label46.Name = "label46";
             this.label46.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label46.Size = new System.Drawing.Size(395, 25);
@@ -353,7 +353,7 @@
             this.Controls.Add(this.label36);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label34);
-            this.Controls.Add(this.label33);
+            this.Controls.Add(this.fnameLbl);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.groupBox2);
@@ -409,7 +409,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label fnameLbl;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;

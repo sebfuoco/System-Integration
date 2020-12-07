@@ -14,9 +14,23 @@ namespace Front_End
 {
     public partial class Print_Invoice : Form
     {
-        public Print_Invoice()
+
+        //Customer Details
+  
+             string fname;
+             string sname;
+
+        //Flight Details
+
+        //Hotel Details
+        
+
+
+        public Print_Invoice(string firstname, string surname)
         {
             InitializeComponent();
+            fname = firstname;
+            sname = surname;
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
@@ -34,6 +48,7 @@ namespace Front_End
             {
                 this.Close();
             }
+            
         }
 
         private void extButton_Click(object sender, EventArgs e)
@@ -54,7 +69,7 @@ namespace Front_End
 
         private void Print_Invoice_Load(object sender, EventArgs e)
         {
-
+            fnameLbl.Text = fname;
         }
 
         private void label23_Click(object sender, EventArgs e)

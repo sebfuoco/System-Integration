@@ -45,6 +45,7 @@ namespace Front_End
             this.Hide();
             Booking_Confirmation b = new Booking_Confirmation();
             b.ShowDialog();
+
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
