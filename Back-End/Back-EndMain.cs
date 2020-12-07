@@ -42,9 +42,10 @@ namespace Back_End
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
             var secondaryDatabase = new SecondaryDatabase();
+            //bool checkRecovery = SecondaryDatabase.recoveryProgress;
             // tests
-            bool query = primaryDatabase.batchUpdate(dbList, false);
-            //bool squery = secondaryDatabase.batchRecovery();
+            //bool query = primaryDatabase.batchUpdate(dbList, false);
+            bool squery = secondaryDatabase.batchRecovery();
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -188,7 +189,7 @@ namespace Back_End
         }
     }
 
-   public class DatabaseFunctions
+    class DatabaseFunctions
     {
         // store data to send: TEST fetchData()
         public  dynamic createDict()
@@ -531,9 +532,12 @@ namespace Back_End
     }
     public class SecondaryDatabase
     {
+        public static bool recoveryProgress = false; // the Name property with hidden backing field
+        
         //Batch recovery/resync in case of batch failure : Ndey
         public dynamic batchRecovery()
         { // improve the batch update query if you want
+            recoveryProgress = true;
             string fetchCustomersDB = "INSERT INTO PrimaryDB.mdb.Customers SELECT * FROM Customers",
                 fetchFlightsDB = "INSERT INTO PrimaryDB.mdb.Flights SELECT * FROM Flights",
                 fetchHotelDB = "INSERT INTO PrimaryDB.mdb.Hotel SELECT * FROM Hotel",
@@ -541,6 +545,7 @@ namespace Back_End
             string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
             var primaryDatabase = new PrimaryDatabase();
             bool query = primaryDatabase.batchUpdate(dbList, true);
+            recoveryProgress = false;
             return true;
         }
         //Notify front-end of bacth recovery : Avar
