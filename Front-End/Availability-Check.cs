@@ -77,11 +77,56 @@ namespace Front_End
         private void Copyb_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(label4.Text);
             sb.AppendLine(Avaoutput.Text);
+            sb.AppendLine(label1.Text);
             sb.AppendLine(Seatoutput.Text);
+            //flight details
             sb.AppendLine(Flightdetails.Text);
+            sb.AppendLine(label5.Text);
+            sb.AppendLine(Flightnum.Text);
+            sb.AppendLine(label6.Text);
+            sb.AppendLine(Flighttype.Text);
+            sb.AppendLine(label7.Text);
+            sb.AppendLine(Departure.Text);
+            sb.AppendLine(label8.Text);
+            sb.AppendLine(Destination.Text);
+            sb.AppendLine(label10.Text);
+            sb.AppendLine(Departuretime.Text);
+            sb.AppendLine(label9.Text);
+            sb.AppendLine(Arrivaltime.Text);
+            sb.AppendLine(label11.Text);
+            sb.AppendLine(Adultprice.Text);
+            sb.AppendLine(label12.Text);
+            sb.AppendLine(Childprice.Text);
+            //Car hire details
             sb.AppendLine(Cardetails.Text);
+            sb.AppendLine(Carhireinput.Text);
+            sb.AppendLine(label17.Text);
+            sb.AppendLine(Cartype.Text);
+            sb.AppendLine(label18.Text);
+            sb.AppendLine(Numplate.Text);
+            sb.AppendLine(label19.Text);
+            sb.AppendLine(Make.Text);
+            sb.AppendLine(label20.Text);
+            sb.AppendLine(Model.Text);
+            sb.AppendLine(label21.Text);
+            sb.AppendLine(Gearbox.Text);
+            sb.AppendLine(label22.Text);
+            sb.AppendLine(Seats.Text);
+            sb.AppendLine(label23.Text);
+            sb.AppendLine(Priceperday.Text);
+            //hotel details
             sb.AppendLine(Hoteldetails.Text);
+            sb.AppendLine(Hotelinput.Text);
+            sb.AppendLine(label13.Text);
+            sb.AppendLine(Starrating.Text);
+            sb.AppendLine(label14.Text);
+            sb.AppendLine(Checkin.Text);
+            sb.AppendLine(label15.Text);
+            sb.AppendLine(Checkout.Text);
+            sb.AppendLine(label16.Text);
+            sb.AppendLine(Pricepernight.Text);
             Clipboard.SetText(sb.ToString());
 
         }
@@ -132,7 +177,7 @@ namespace Front_End
         {
 
             {
-                
+              //destnation check to database  
                 OleDbCommand command = new OleDbCommand();
 
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
@@ -150,6 +195,37 @@ namespace Front_End
 
 
             }
+
+            {
+                //
+                //OleDbCommand command = new OleDbCommand();
+
+                //connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                //command.Connection = connection;
+
+                //connection.Open();
+
+                //string query = "SELECT Destination FROM Flights";
+                //command.CommandText = query;
+
+                //OleDbDataReader reader = command.ExecuteReader();
+
+                //while (reader.Read())
+                    //Locationinput.Items.Add(reader["Destination"].ToString());
+
+
+            }
+
+        }
+
+        private void Carhireinput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hotelinput_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
