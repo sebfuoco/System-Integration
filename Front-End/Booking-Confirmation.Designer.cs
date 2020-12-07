@@ -89,6 +89,7 @@
             this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Booking_Confirmation";
             this.Text = "Booking Confirmation";
             this.ResumeLayout(false);

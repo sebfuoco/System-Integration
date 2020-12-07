@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Back_End;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,12 +27,20 @@ namespace Front_End
 
         private void nxtButton_Click(object sender, EventArgs e)
         {
-            Connection.con.Open();
-            string save = "Insert into Customers(CustomerFirstName, CustomerLastname, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress)VALUES(" + firstNametxtbox + ", '" + lastNametxtbox + "', '" + gendertxtbox + "', " + passportNumbtxtbox + ", '" + Nationalitytxtbox + "', '" + Addresstxtbox + "', , '" + postCodetxtbox + "', , '" + contactNumbertxtbox + "', , '" + emailtxtbox + "')";
-            OleDbCommand command = new OleDbCommand(save, Connection.con);
-            command.ExecuteNonQuery();
+            //KEVIN
             MessageBox.Show("Booking Reserved");
-            Connection.con.Close();
+
+            string cString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
+            string save = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
+            "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)";
+
+
+            object[] customers = {"@CustomerFirstName", firstNametxtbox.Text, "@CustomerLastName", lastNametxtbox.Text, "@Gender", gendertxtbox.Text,
+                    "@PassportNumber", passportNumbtxtbox.Text, "@Nationality", Nationalitytxtbox.Text, "@Address", Addresstxtbox.Text, "@PostCode",
+                postCodetxtbox.Text, "@ContactNumber", contactNumbertxtbox.Text, "@EmailAddress", emailtxtbox.Text};
+
+            var dbFunc = new DatabaseFunctions();
+            dbFunc.writeDatabase(save, cString,customers);
 
             this.Hide();
             Booking_Confirmation b = new Booking_Confirmation();
