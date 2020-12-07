@@ -16,9 +16,12 @@ namespace Front_End
 {
     public partial class Booking_Reservation : Form
     {
+       
         public Booking_Reservation()
         {
             InitializeComponent();
+          
+
         }
 
         private void nxtButton_Click(object sender, EventArgs e)

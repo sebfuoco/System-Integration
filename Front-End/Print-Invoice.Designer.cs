@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label22 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -60,16 +59,6 @@
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(339, 315);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(155, 37);
-            this.label22.TabIndex = 1;
-            this.label22.Text = "INVOICE";
             // 
             // groupBox1
             // 
@@ -281,7 +270,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(9, 407);
+            this.label41.Location = new System.Drawing.Point(9, 384);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(137, 22);
             this.label41.TabIndex = 14;
@@ -291,7 +280,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(9, 363);
+            this.label42.Location = new System.Drawing.Point(9, 340);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(114, 22);
             this.label42.TabIndex = 15;
@@ -301,7 +290,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(9, 449);
+            this.label43.Location = new System.Drawing.Point(9, 426);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(112, 22);
             this.label43.TabIndex = 16;
@@ -311,7 +300,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(575, 449);
+            this.label44.Location = new System.Drawing.Point(575, 426);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(85, 25);
             this.label44.TabIndex = 17;
@@ -321,7 +310,7 @@
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(665, 449);
+            this.label45.Location = new System.Drawing.Point(665, 426);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(75, 25);
             this.label45.TabIndex = 18;
@@ -341,7 +330,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(171, 10);
+            this.label46.Location = new System.Drawing.Point(170, 0);
             this.label46.Name = "label46";
             this.label46.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label46.Size = new System.Drawing.Size(395, 25);
@@ -368,7 +357,6 @@
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label22);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Print_Invoice";
             this.Load += new System.EventHandler(this.Print_Invoice_Load);
@@ -409,7 +397,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
