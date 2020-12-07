@@ -28,20 +28,6 @@ namespace Front_End
 
         public OleDbCommand cmd { get; private set; }
 
-        //try {
-        //    connection.open();
-
-        //using(OleDbDataReader reader = command.ExecuteReader()) {  
-        //                Console.WriteLine("");  
-        //                while (reader.Read()) {  
-        //                    Console.WriteLine("{0} {1}", reader["Name"].ToString(), reader["Address"].ToString());  
-        //                                        }
-        //                            }
-        //    }
-
-
-
-
 
         public Availability_Check()
         {
@@ -129,20 +115,6 @@ namespace Front_End
 
         private void Locationinput_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            // string source = @"Data Source=Primary.mbd;Inital Catalog=Test;Integrated Security=true";
-            // SqlConnection con = new SqlConnection(source);
-            // con,open();
-
-            // String sqlSelectQuery = "SELECT Destination FROM Flights  = " + int.Parse(Locationinput_SelectedIndexChanged_1);
-            // SqlCommand cmd = new SqlCommand(sqlSelectQuery, con);
-            // SqlDataReader dr = cmd.ExecuteReader();
-            // if (dr.Read())
-
-
-            //SqlConneection con = new SqlConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\dev20\source\repos\System-Integration\Front-End\Primary.mdb");
-            //con.open();
-
-            // SqlCommand cmd = new SqlCommand("select Destination from Flights where = "+ int.Parse(Locationinput_SelectedIndexChanged_1);
 
         }
 
@@ -160,34 +132,24 @@ namespace Front_End
         {
 
             {
+                
+                OleDbCommand command = new OleDbCommand();
+
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                command.Connection = connection;
+
+                connection.Open();
+
                 string query = "SELECT Destination FROM Flights";
                 command.CommandText = query;
-                reader = command.ExecuteReader();
+
+                OleDbDataReader reader = command.ExecuteReader();
+
                 while (reader.Read())
-                    Locationinput.Items.Add(reader("Destination").ToString());
+                    Locationinput.Items.Add(reader["Destination"].ToString());
 
 
-                string Sql = "SELECT Destination FROM Flights";
-                cmd = new OleDbCommand(Sql, connection);
-                OleDbDataReader rdr = cmd.ExecuteReader;
-                while (reader.Read())
-                    Locationinput.Items.Add(reader("Destination").ToString());
             }
-
-
-
-
-            //string Sql = "SELECT Destination FROM Flights";
-
-            // connection.Open();
-            // SqlCommand cmd = new SqlCommand(Sql, conn);
-            // SqlDataReader DR = cmd.ExecuteReader();
-
-            // while (DR.Read())
-            //  {
-            //      Locationinput.Items.Add(DR[0]);
-
-            //  }
         }
     }
 }
