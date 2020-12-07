@@ -43,18 +43,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Flightdetails = new System.Windows.Forms.GroupBox();
-            this.Cardetails = new System.Windows.Forms.GroupBox();
-            this.Hoteldetails = new System.Windows.Forms.GroupBox();
-            this.Locationinput = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Cardetails = new System.Windows.Forms.GroupBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Hoteldetails = new System.Windows.Forms.GroupBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.Locationinput = new System.Windows.Forms.ComboBox();
+            this.Carhireinput = new System.Windows.Forms.ComboBox();
+            this.Hotelinput = new System.Windows.Forms.ComboBox();
             this.Flightdetails.SuspendLayout();
             this.Cardetails.SuspendLayout();
             this.Hoteldetails.SuspendLayout();
@@ -189,7 +191,7 @@
             this.Flightdetails.Controls.Add(this.textBox3);
             this.Flightdetails.Controls.Add(this.textBox2);
             this.Flightdetails.Controls.Add(this.textBox1);
-            this.Flightdetails.Location = new System.Drawing.Point(9, 164);
+            this.Flightdetails.Location = new System.Drawing.Point(22, 164);
             this.Flightdetails.Name = "Flightdetails";
             this.Flightdetails.Size = new System.Drawing.Size(176, 100);
             this.Flightdetails.TabIndex = 31;
@@ -197,12 +199,33 @@
             this.Flightdetails.Text = "Flight Details";
             this.Flightdetails.Enter += new System.EventHandler(this.Flightdetails_Enter_1);
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(0, 71);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 34;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(0, 45);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 34;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 34;
+            // 
             // Cardetails
             // 
             this.Cardetails.Controls.Add(this.textBox6);
             this.Cardetails.Controls.Add(this.textBox5);
             this.Cardetails.Controls.Add(this.textBox4);
-            this.Cardetails.Location = new System.Drawing.Point(204, 164);
+            this.Cardetails.Location = new System.Drawing.Point(22, 299);
             this.Cardetails.Name = "Cardetails";
             this.Cardetails.Size = new System.Drawing.Size(176, 100);
             this.Cardetails.TabIndex = 32;
@@ -210,18 +233,60 @@
             this.Cardetails.Text = "Car Hire Details";
             this.Cardetails.Enter += new System.EventHandler(this.Cardetails_Enter);
             // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(0, 71);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.TabIndex = 34;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(0, 45);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 35;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(0, 19);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.TabIndex = 34;
+            // 
             // Hoteldetails
             // 
             this.Hoteldetails.Controls.Add(this.textBox9);
             this.Hoteldetails.Controls.Add(this.textBox8);
             this.Hoteldetails.Controls.Add(this.textBox7);
-            this.Hoteldetails.Location = new System.Drawing.Point(394, 164);
+            this.Hoteldetails.Location = new System.Drawing.Point(251, 299);
             this.Hoteldetails.Name = "Hoteldetails";
             this.Hoteldetails.Size = new System.Drawing.Size(176, 100);
             this.Hoteldetails.TabIndex = 32;
             this.Hoteldetails.TabStop = false;
             this.Hoteldetails.Text = "Hotel Details";
             this.Hoteldetails.Enter += new System.EventHandler(this.Hoteldetails_Enter);
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(0, 71);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.TabIndex = 34;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Location = new System.Drawing.Point(0, 45);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.TabIndex = 34;
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(0, 19);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.TabIndex = 0;
             // 
             // Locationinput
             // 
@@ -233,68 +298,23 @@
             this.Locationinput.Text = "Please select one";
             this.Locationinput.SelectedIndexChanged += new System.EventHandler(this.Locationinput_SelectedIndexChanged_1);
             // 
-            // textBox1
+            // Carhireinput
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 34;
+            this.Carhireinput.FormattingEnabled = true;
+            this.Carhireinput.Location = new System.Drawing.Point(22, 272);
+            this.Carhireinput.Name = "Carhireinput";
+            this.Carhireinput.Size = new System.Drawing.Size(121, 21);
+            this.Carhireinput.TabIndex = 34;
+            this.Carhireinput.Text = "Please select one";
             // 
-            // textBox2
+            // Hotelinput
             // 
-            this.textBox2.Location = new System.Drawing.Point(0, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 34;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(0, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 34;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(0, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 34;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(0, 45);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 35;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(0, 71);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 34;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(0, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 0;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(0, 45);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 34;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(0, 71);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 34;
+            this.Hotelinput.FormattingEnabled = true;
+            this.Hotelinput.Location = new System.Drawing.Point(251, 272);
+            this.Hotelinput.Name = "Hotelinput";
+            this.Hotelinput.Size = new System.Drawing.Size(121, 21);
+            this.Hotelinput.TabIndex = 35;
+            this.Hotelinput.Text = "Please select one";
             // 
             // Availability_Check
             // 
@@ -303,6 +323,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(600, 487);
+            this.Controls.Add(this.Hotelinput);
+            this.Controls.Add(this.Carhireinput);
             this.Controls.Add(this.Locationinput);
             this.Controls.Add(this.Hoteldetails);
             this.Controls.Add(this.Cardetails);
@@ -324,6 +346,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Availability_Check";
             this.Text = "Availability Check";
+            this.Load += new System.EventHandler(this.Availability_Check_Load);
             this.Flightdetails.ResumeLayout(false);
             this.Flightdetails.PerformLayout();
             this.Cardetails.ResumeLayout(false);
@@ -363,5 +386,7 @@
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox Carhireinput;
+        private System.Windows.Forms.ComboBox Hotelinput;
     }
 }
