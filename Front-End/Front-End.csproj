@@ -77,7 +77,6 @@
     <Compile Include="Business-Operations.Designer.cs">
       <DependentUpon>Business-Operations.cs</DependentUpon>
     </Compile>
-    <Compile Include="Connection.cs" />
     <Compile Include="Front-EndForm.cs">
       <SubType>Form</SubType>
     </Compile>

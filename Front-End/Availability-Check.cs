@@ -123,7 +123,21 @@ namespace Front_End
 
         private void Locationinput_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+           // string source = @"Data Source=Primary.mbd;Inital Catalog=Test;Integrated Security=true";
+           // SqlConnection con = new SqlConnection(source);
+           // con,open();
+
+           // String sqlSelectQuery = "select Destination from Flights where ID = " + int.Parse(Locationinput_SelectedIndexChanged_1);
+           // SqlCommand cmd = new SqlCommand(sqlSelectQuery, con);
+           // SqlDataReader dr = cmd.ExecuteReader();
+           // if (dr.Read())
             
+
+            //SqlConneection con = new SqlConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\dev20\source\repos\System-Integration\Front-End\Primary.mdb");
+            //con.open();
+
+            // SqlCommand cmd = new SqlCommand("select Destination from Flights where = "+ int.Parse(Locationinput_SelectedIndexChanged_1);
+
         }
 
         private void Cardetails_Enter(object sender, EventArgs e)
