@@ -188,10 +188,10 @@ namespace Back_End
         }
     }
 
-    class DatabaseFunctions
+   public class DatabaseFunctions
     {
         // store data to send: TEST fetchData()
-        protected internal dynamic createDict()
+        public  dynamic createDict()
         {
             var details = new Dictionary<string, object>();
             // Customer Test
@@ -229,7 +229,7 @@ namespace Back_End
             return details;
         }
 
-        protected internal dynamic maxID(string connectionString, string sql)
+        public dynamic maxID(string connectionString, string sql)
         {
             OleDbConnection connection = new OleDbConnection(connectionString);
             connection.Open();
@@ -238,7 +238,7 @@ namespace Back_End
             return id;
         }
 
-        protected internal void checkDuplicateDatabase(string sql, string connectionString, Dictionary<string, string> details)
+        public void checkDuplicateDatabase(string sql, string connectionString, Dictionary<string, string> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -257,7 +257,7 @@ namespace Back_End
             Console.ReadKey();
         }
 
-        protected internal void readDatabase(string sql, string connectionString)
+        public void readDatabase(string sql, string connectionString)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -274,7 +274,7 @@ namespace Back_End
             }
         }
 
-        protected internal void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
+        public void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -290,7 +290,7 @@ namespace Back_End
             }
         }
 
-        protected internal void deleteDatabase(string sql, string connectionString)
+        public void deleteDatabase(string sql, string connectionString)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -303,7 +303,7 @@ namespace Back_End
             }
         }
 
-        protected internal void writeDatabase(string sql, string connectionString, Dictionary<string, object> details, object[] arr)
+        public void writeDatabase(string sql, string connectionString, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -320,7 +320,7 @@ namespace Back_End
             }
         }
 
-        protected internal dynamic writeIDDatabase(string sql, string sql2, string connectionString, Dictionary<string, object> details, object[] arr)
+        public dynamic writeIDDatabase(string sql, string sql2, string connectionString, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
@@ -365,19 +365,19 @@ namespace Back_End
             object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
-            details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, details, customers); // get customerID from insert query
+            details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, customers); // get customerID from insert query
             object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
                     "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
             details["AdultPrice"], "@ChildPrice", details["ChildPrice"]};
-            dbFunc.writeDatabase(flightWriteDB, connectionString, details, flights);
+            dbFunc.writeDatabase(flightWriteDB, connectionString, flights);
             object[] hotel = {"@HotelID", details["HotelID"],"@StarRating", details["StarRating"], "@CheckIn", details["CheckIn"],
                     "@CheckOut", details["CheckOut"], "@PricePerNight", details["PricePerNight"], "@Country", details["Arrival"], "@NumberPlate",
                 details["NumberPlate"], "@FlightNumber", details["FlightNumber"]};
-            dbFunc.writeDatabase(hotelWriteDB, connectionString, details, hotel);
+            dbFunc.writeDatabase(hotelWriteDB, connectionString, hotel);
             object[] cars = {"@CarID", details["CarID"], "@NumberPlate", details["NumberPlate"], "@HotelID", details["HotelID"], "@Make", details["Make"], "@Model", details["Model"],
                 "@CarType", details["CarType"], "@GearBox", details["GearBox"], "@Seats", details["Seats"], "@PricePerDay", details["PricePerDay"]};
-            dbFunc.writeDatabase(carsWriteDB, connectionString, details, cars);
+            dbFunc.writeDatabase(carsWriteDB, connectionString, cars);
             return true;
         }
         //Batch update from primary to secondary database : Seb
