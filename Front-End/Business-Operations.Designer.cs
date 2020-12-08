@@ -56,6 +56,7 @@
             this.hotelTableAdapter = new Front_End.PrimaryDBDataSetTableAdapters.HotelTableAdapter();
             this.flightsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).BeginInit();
             this.customersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -68,13 +69,18 @@
             // 
             // extButton
             // 
-            this.extButton.Location = new System.Drawing.Point(11, 593);
+            this.extButton.BackColor = System.Drawing.Color.Transparent;
+            this.extButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.extButton.FlatAppearance.BorderSize = 5;
+            this.extButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.extButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.extButton.Location = new System.Drawing.Point(11, 618);
             this.extButton.Margin = new System.Windows.Forms.Padding(2);
             this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(104, 27);
+            this.extButton.Size = new System.Drawing.Size(162, 60);
             this.extButton.TabIndex = 1;
             this.extButton.Text = "Exit";
-            this.extButton.UseVisualStyleBackColor = true;
+            this.extButton.UseVisualStyleBackColor = false;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
             // 
             // customersBindingNavigator
@@ -267,6 +273,21 @@
             this.hotelBindingSource.DataMember = "Hotel";
             this.hotelBindingSource.DataSource = this.primaryDBDataSet;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button1.FlatAppearance.BorderSize = 5;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.button1.Location = new System.Drawing.Point(12, 433);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 123);
+            this.button1.TabIndex = 21;
+            this.button1.Text = "Sync";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // Business_Ops
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,6 +295,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1475, 706);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.customersBindingNavigator);
             this.Controls.Add(this.extButton);
             this.DoubleBuffered = true;
@@ -323,5 +345,6 @@
         private System.Windows.Forms.BindingSource flightsBindingSource;
         private PrimaryDBDataSetTableAdapters.HotelTableAdapter hotelTableAdapter;
         private System.Windows.Forms.BindingSource hotelBindingSource;
+        private System.Windows.Forms.Button button1;
     }
 }
