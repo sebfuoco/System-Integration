@@ -613,7 +613,7 @@
             this.dataGridViewTextBoxColumn30,
             this.dataGridViewTextBoxColumn31});
             this.flightsDataGridView.DataSource = this.flightsBindingSource1;
-            this.flightsDataGridView.Location = new System.Drawing.Point(368, 479);
+            this.flightsDataGridView.Location = new System.Drawing.Point(368, 490);
             this.flightsDataGridView.Name = "flightsDataGridView";
             this.flightsDataGridView.Size = new System.Drawing.Size(645, 266);
             this.flightsDataGridView.TabIndex = 22;
