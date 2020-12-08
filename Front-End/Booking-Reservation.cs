@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,27 +25,27 @@ namespace Front_End
           
 
         }
-
+        double mynum = 0;
         private void nxtButton_Click(object sender, EventArgs e)
         {
-            if (firstNametxtbox.Text == "")
+            if (!Regex.IsMatch(firstNametxtbox.Text, @"^[a-zA-Z0 ]+$"))
             {
-                MessageBox.Show("First name can not be empty");
+                MessageBox.Show("First name can not be empty or contains numbers and symbol");
             }
 
-            else if (lastNametxtbox.Text == "")
+            else if (!Regex.IsMatch(lastNametxtbox.Text, @"^[a-zA-Z0 ]+$"))
             {
-                MessageBox.Show("Last name can not be empty");
+                MessageBox.Show("Last name can not be empty or contains numbers and symbol");
             }
 
-            else if (gendertxtbox.Text == "")
+            else if (!Regex.IsMatch(gendertxtbox.Text, @"^[a-zA-Z0 ]+$"))
             {
-                MessageBox.Show("Gender can not be empty");
+                MessageBox.Show("Gender can not be empty or contains numbers and symbol");
             }
 
-            else if (passportNumbtxtbox.Text == "")
+            else if (!Regex.IsMatch(passportNumbtxtbox.Text, @"^[a-zA-Z0-9 ]+$"))
             {
-                MessageBox.Show("Passport number can not be empty");
+                MessageBox.Show("Passport number can not be empty or contains symbol");
             }
 
             else if (Nationalitytxtbox.Text == "")
@@ -57,19 +58,19 @@ namespace Front_End
                 MessageBox.Show("Address can not be empty");
             }
 
-            else if (postCodetxtbox.Text == "")
+            else if (!Regex.IsMatch(postCodetxtbox.Text, @"^[a-zA-Z0-9 ]{7,8}\b+$"))
             {
-                MessageBox.Show("Post code can not be empty");
+                MessageBox.Show("Post code can not be empty or contains symbols");
+            }
+  
+            else if (!Double.TryParse(contactNumbertxtbox.Text, out mynum))
+            {
+                MessageBox.Show("Contact number can not be empty or it must not contain letters or symbols");
             }
 
-            else if (contactNumbertxtbox.Text == "")
+            else if (!Regex.IsMatch(emailtxtbox.Text, @"^[a-zA-Z0-9 ]+$"))
             {
-                MessageBox.Show("Contact number can not be empty");
-            }
-
-            else if (emailtxtbox.Text == "")
-            {
-                MessageBox.Show("Email Address can not be empty");
+                MessageBox.Show("Must be a valid email address");
             }
             else
             //KEVIN
