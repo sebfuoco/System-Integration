@@ -98,6 +98,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Manager_Database.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PrimaryDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Print-Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +162,17 @@
     <None Include="Manager_Database.xss">
       <DependentUpon>Manager_Database.xsd</DependentUpon>
     </None>
+    <None Include="PrimaryDBDataSet.xsc">
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrimaryDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrimaryDBDataSet.xss">
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,6 +197,9 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="Primary.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PrimaryDB.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

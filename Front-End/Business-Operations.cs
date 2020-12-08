@@ -46,6 +46,12 @@ namespace Front_End
 
         private void Business_Ops_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'primaryDBDataSet.Hotel' table. You can move, or remove it, as needed.
+            this.hotelTableAdapter.Fill(this.primaryDBDataSet.Hotel);
+            // TODO: This line of code loads data into the 'primaryDBDataSet.Flights' table. You can move, or remove it, as needed.
+            this.flightsTableAdapter.Fill(this.primaryDBDataSet.Flights);
+            // TODO: This line of code loads data into the 'primaryDBDataSet.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter1.Fill(this.primaryDBDataSet.Customers);
             // TODO: This line of code loads data into the 'manager_Database.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.manager_Database.Customers);
 

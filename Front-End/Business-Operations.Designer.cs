@@ -41,12 +41,10 @@
             System.Windows.Forms.Label emailAddressLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Business_Ops));
             this.extButton = new System.Windows.Forms.Button();
-            this.manager_Database = new Front_End.Manager_Database();
-            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.customersTableAdapter = new Front_End.Manager_DatabaseTableAdapters.CustomersTableAdapter();
-            this.tableAdapterManager = new Front_End.Manager_DatabaseTableAdapters.TableAdapterManager();
             this.customersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.manager_Database = new Front_End.Manager_Database();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -58,7 +56,27 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.customersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.customersDataGridView = new System.Windows.Forms.DataGridView();
+            this.customersTableAdapter = new Front_End.Manager_DatabaseTableAdapters.CustomersTableAdapter();
+            this.tableAdapterManager = new Front_End.Manager_DatabaseTableAdapters.TableAdapterManager();
+            this.primaryDBDataSet = new Front_End.PrimaryDBDataSet();
+            this.customersBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.customersTableAdapter1 = new Front_End.PrimaryDBDataSetTableAdapters.CustomersTableAdapter();
+            this.tableAdapterManager1 = new Front_End.PrimaryDBDataSetTableAdapters.TableAdapterManager();
+            this.flightsTableAdapter = new Front_End.PrimaryDBDataSetTableAdapters.FlightsTableAdapter();
+            this.hotelTableAdapter = new Front_End.PrimaryDBDataSetTableAdapters.HotelTableAdapter();
+            this.customersDataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flightsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.flightsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +87,18 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDTextBox = new System.Windows.Forms.TextBox();
             this.customerFirstNameTextBox = new System.Windows.Forms.TextBox();
             this.customerLastNameTextBox = new System.Windows.Forms.TextBox();
@@ -89,153 +119,139 @@
             postCodeLabel = new System.Windows.Forms.Label();
             contactNumberLabel = new System.Windows.Forms.Label();
             emailAddressLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.manager_Database)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).BeginInit();
             this.customersBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manager_Database)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.primaryDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // customerIDLabel
             // 
             customerIDLabel.AutoSize = true;
             customerIDLabel.BackColor = System.Drawing.Color.Transparent;
-            customerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerIDLabel.Location = new System.Drawing.Point(88, 35);
+            customerIDLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerIDLabel.Location = new System.Drawing.Point(62, 50);
             customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(130, 24);
-            customerIDLabel.TabIndex = 20;
+            customerIDLabel.Size = new System.Drawing.Size(91, 14);
+            customerIDLabel.TabIndex = 30;
             customerIDLabel.Text = "Customer ID:";
             // 
             // customerFirstNameLabel
             // 
             customerFirstNameLabel.AutoSize = true;
             customerFirstNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerFirstNameLabel.Location = new System.Drawing.Point(15, 70);
+            customerFirstNameLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerFirstNameLabel.Location = new System.Drawing.Point(23, 87);
             customerFirstNameLabel.Name = "customerFirstNameLabel";
-            customerFirstNameLabel.Size = new System.Drawing.Size(212, 24);
-            customerFirstNameLabel.TabIndex = 21;
+            customerFirstNameLabel.Size = new System.Drawing.Size(144, 14);
+            customerFirstNameLabel.TabIndex = 31;
             customerFirstNameLabel.Text = "Customer First Name:";
             // 
             // customerLastNameLabel
             // 
             customerLastNameLabel.AutoSize = true;
             customerLastNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerLastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerLastNameLabel.Location = new System.Drawing.Point(20, 102);
+            customerLastNameLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerLastNameLabel.Location = new System.Drawing.Point(22, 122);
             customerLastNameLabel.Name = "customerLastNameLabel";
-            customerLastNameLabel.Size = new System.Drawing.Size(209, 24);
-            customerLastNameLabel.TabIndex = 22;
+            customerLastNameLabel.Size = new System.Drawing.Size(142, 14);
+            customerLastNameLabel.TabIndex = 32;
             customerLastNameLabel.Text = "Customer Last Name:";
             // 
             // genderLabel
             // 
             genderLabel.AutoSize = true;
             genderLabel.BackColor = System.Drawing.Color.Transparent;
-            genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            genderLabel.Location = new System.Drawing.Point(136, 136);
+            genderLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            genderLabel.Location = new System.Drawing.Point(85, 161);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(86, 24);
-            genderLabel.TabIndex = 23;
+            genderLabel.Size = new System.Drawing.Size(57, 14);
+            genderLabel.TabIndex = 33;
             genderLabel.Text = "Gender:";
             // 
             // passportNumberLabel
             // 
             passportNumberLabel.AutoSize = true;
             passportNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            passportNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passportNumberLabel.Location = new System.Drawing.Point(51, 174);
+            passportNumberLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passportNumberLabel.Location = new System.Drawing.Point(39, 196);
             passportNumberLabel.Name = "passportNumberLabel";
-            passportNumberLabel.Size = new System.Drawing.Size(177, 24);
-            passportNumberLabel.TabIndex = 24;
+            passportNumberLabel.Size = new System.Drawing.Size(118, 14);
+            passportNumberLabel.TabIndex = 34;
             passportNumberLabel.Text = "Passport Number:";
             // 
             // nationalityLabel
             // 
             nationalityLabel.AutoSize = true;
             nationalityLabel.BackColor = System.Drawing.Color.Transparent;
-            nationalityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nationalityLabel.Location = new System.Drawing.Point(97, 210);
+            nationalityLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nationalityLabel.Location = new System.Drawing.Point(71, 228);
             nationalityLabel.Name = "nationalityLabel";
-            nationalityLabel.Size = new System.Drawing.Size(112, 24);
-            nationalityLabel.TabIndex = 25;
+            nationalityLabel.Size = new System.Drawing.Size(85, 14);
+            nationalityLabel.TabIndex = 35;
             nationalityLabel.Text = "Nationality:";
             // 
             // addressLabel
             // 
             addressLabel.AutoSize = true;
             addressLabel.BackColor = System.Drawing.Color.Transparent;
-            addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addressLabel.Location = new System.Drawing.Point(131, 247);
+            addressLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            addressLabel.Location = new System.Drawing.Point(82, 263);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(93, 24);
-            addressLabel.TabIndex = 26;
+            addressLabel.Size = new System.Drawing.Size(62, 14);
+            addressLabel.TabIndex = 36;
             addressLabel.Text = "Address:";
             // 
             // postCodeLabel
             // 
             postCodeLabel.AutoSize = true;
             postCodeLabel.BackColor = System.Drawing.Color.Transparent;
-            postCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            postCodeLabel.Location = new System.Drawing.Point(113, 283);
+            postCodeLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            postCodeLabel.Location = new System.Drawing.Point(71, 301);
             postCodeLabel.Name = "postCodeLabel";
-            postCodeLabel.Size = new System.Drawing.Size(112, 24);
-            postCodeLabel.TabIndex = 27;
+            postCodeLabel.Size = new System.Drawing.Size(76, 14);
+            postCodeLabel.TabIndex = 37;
             postCodeLabel.Text = "Post Code:";
             // 
             // contactNumberLabel
             // 
             contactNumberLabel.AutoSize = true;
             contactNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            contactNumberLabel.Location = new System.Drawing.Point(60, 318);
+            contactNumberLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            contactNumberLabel.Location = new System.Drawing.Point(43, 338);
             contactNumberLabel.Name = "contactNumberLabel";
-            contactNumberLabel.Size = new System.Drawing.Size(167, 24);
-            contactNumberLabel.TabIndex = 28;
+            contactNumberLabel.Size = new System.Drawing.Size(115, 14);
+            contactNumberLabel.TabIndex = 38;
             contactNumberLabel.Text = "Contact Number:";
             // 
             // emailAddressLabel
             // 
             emailAddressLabel.AutoSize = true;
             emailAddressLabel.BackColor = System.Drawing.Color.Transparent;
-            emailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            emailAddressLabel.Location = new System.Drawing.Point(72, 354);
+            emailAddressLabel.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            emailAddressLabel.Location = new System.Drawing.Point(54, 376);
             emailAddressLabel.Name = "emailAddressLabel";
-            emailAddressLabel.Size = new System.Drawing.Size(151, 24);
-            emailAddressLabel.TabIndex = 29;
+            emailAddressLabel.Size = new System.Drawing.Size(103, 14);
+            emailAddressLabel.TabIndex = 39;
             emailAddressLabel.Text = "Email Address:";
             // 
             // extButton
             // 
-            this.extButton.Location = new System.Drawing.Point(11, 400);
-            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.extButton.Location = new System.Drawing.Point(11, 593);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2);
             this.extButton.Name = "extButton";
             this.extButton.Size = new System.Drawing.Size(104, 27);
             this.extButton.TabIndex = 1;
             this.extButton.Text = "Exit";
             this.extButton.UseVisualStyleBackColor = true;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
-            // 
-            // manager_Database
-            // 
-            this.manager_Database.DataSetName = "Manager_Database";
-            this.manager_Database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // customersBindingSource
-            // 
-            this.customersBindingSource.DataMember = "Customers";
-            this.customersBindingSource.DataSource = this.manager_Database;
-            // 
-            // customersTableAdapter
-            // 
-            this.customersTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
-            this.tableAdapterManager.UpdateOrder = Front_End.Manager_DatabaseTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // customersBindingNavigator
             // 
@@ -265,7 +281,7 @@
             this.customersBindingNavigator.Name = "customersBindingNavigator";
             this.customersBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.customersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customersBindingNavigator.Size = new System.Drawing.Size(1325, 31);
+            this.customersBindingNavigator.Size = new System.Drawing.Size(1475, 31);
             this.customersBindingNavigator.TabIndex = 20;
             this.customersBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -277,6 +293,16 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            // 
+            // customersBindingSource
+            // 
+            this.customersBindingSource.DataMember = "Customers";
+            this.customersBindingSource.DataSource = this.manager_Database;
+            // 
+            // manager_Database
+            // 
+            this.manager_Database.DataSetName = "Manager_Database";
+            this.manager_Database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bindingNavigatorCountItem
             // 
@@ -364,13 +390,140 @@
             this.customersBindingNavigatorSaveItem.Text = "Save Data";
             this.customersBindingNavigatorSaveItem.Click += new System.EventHandler(this.customersBindingNavigatorSaveItem_Click);
             // 
-            // customersDataGridView
+            // customersTableAdapter
             // 
-            this.customersDataGridView.AllowUserToOrderColumns = true;
-            this.customersDataGridView.AutoGenerateColumns = false;
-            this.customersDataGridView.BackgroundColor = System.Drawing.Color.Gold;
-            this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customersTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
+            this.tableAdapterManager.UpdateOrder = Front_End.Manager_DatabaseTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // primaryDBDataSet
+            // 
+            this.primaryDBDataSet.DataSetName = "PrimaryDBDataSet";
+            this.primaryDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // customersBindingSource1
+            // 
+            this.customersBindingSource1.DataMember = "Customers";
+            this.customersBindingSource1.DataSource = this.primaryDBDataSet;
+            // 
+            // customersTableAdapter1
+            // 
+            this.customersTableAdapter1.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager1
+            // 
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.CarsTableAdapter = null;
+            this.tableAdapterManager1.CarTypeTableAdapter = null;
+            this.tableAdapterManager1.CustomersTableAdapter = this.customersTableAdapter1;
+            this.tableAdapterManager1.FlightsTableAdapter = this.flightsTableAdapter;
+            this.tableAdapterManager1.GearBoxTableAdapter = null;
+            this.tableAdapterManager1.HotelTableAdapter = this.hotelTableAdapter;
+            this.tableAdapterManager1.UpdateOrder = Front_End.PrimaryDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // flightsTableAdapter
+            // 
+            this.flightsTableAdapter.ClearBeforeFill = true;
+            // 
+            // hotelTableAdapter
+            // 
+            this.hotelTableAdapter.ClearBeforeFill = true;
+            // 
+            // customersDataGridView1
+            // 
+            this.customersDataGridView1.AutoGenerateColumns = false;
+            this.customersDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customersDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.dataGridViewTextBoxColumn14,
+            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17,
+            this.dataGridViewTextBoxColumn18,
+            this.dataGridViewTextBoxColumn19,
+            this.dataGridViewTextBoxColumn20});
+            this.customersDataGridView1.DataSource = this.customersBindingSource1;
+            this.customersDataGridView1.Location = new System.Drawing.Point(316, 50);
+            this.customersDataGridView1.Name = "customersDataGridView1";
+            this.customersDataGridView1.Size = new System.Drawing.Size(643, 340);
+            this.customersDataGridView1.TabIndex = 30;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "CustomerID";
+            this.dataGridViewTextBoxColumn11.HeaderText = "CustomerID";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "CustomerFirstName";
+            this.dataGridViewTextBoxColumn12.HeaderText = "CustomerFirstName";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "CustomerLastName";
+            this.dataGridViewTextBoxColumn13.HeaderText = "CustomerLastName";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Gender";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Gender";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "PassportNumber";
+            this.dataGridViewTextBoxColumn15.HeaderText = "PassportNumber";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Nationality";
+            this.dataGridViewTextBoxColumn16.HeaderText = "Nationality";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Address";
+            this.dataGridViewTextBoxColumn17.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "PostCode";
+            this.dataGridViewTextBoxColumn18.HeaderText = "PostCode";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "ContactNumber";
+            this.dataGridViewTextBoxColumn19.HeaderText = "ContactNumber";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "EmailAddress";
+            this.dataGridViewTextBoxColumn20.HeaderText = "EmailAddress";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            // 
+            // flightsBindingSource
+            // 
+            this.flightsBindingSource.DataMember = "Flights";
+            this.flightsBindingSource.DataSource = this.primaryDBDataSet;
+            // 
+            // flightsDataGridView
+            // 
+            this.flightsDataGridView.AutoGenerateColumns = false;
+            this.flightsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.flightsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -380,181 +533,245 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-            this.customersDataGridView.DataSource = this.customersBindingSource;
-            this.customersDataGridView.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.customersDataGridView.Location = new System.Drawing.Point(346, 72);
-            this.customersDataGridView.Name = "customersDataGridView";
-            this.customersDataGridView.RowHeadersWidth = 62;
-            this.customersDataGridView.Size = new System.Drawing.Size(639, 220);
-            this.customersDataGridView.TabIndex = 20;
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn21});
+            this.flightsDataGridView.DataSource = this.flightsBindingSource;
+            this.flightsDataGridView.Location = new System.Drawing.Point(316, 418);
+            this.flightsDataGridView.Name = "flightsDataGridView";
+            this.flightsDataGridView.Size = new System.Drawing.Size(542, 220);
+            this.flightsDataGridView.TabIndex = 30;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CustomerID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CustomerID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerFirstName";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerFirstName";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FlightNumber";
+            this.dataGridViewTextBoxColumn2.HeaderText = "FlightNumber";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerLastName";
-            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerLastName";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "CustomerID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "CustomerID";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 150;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Gender";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Gender";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "HotelID";
+            this.dataGridViewTextBoxColumn4.HeaderText = "HotelID";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 150;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "PassportNumber";
-            this.dataGridViewTextBoxColumn5.HeaderText = "PassportNumber";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "FlightType";
+            this.dataGridViewTextBoxColumn5.HeaderText = "FlightType";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Width = 150;
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Nationality";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Nationality";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Departure";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Departure";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.Width = 150;
             // 
             // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Destination";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Destination";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 150;
             // 
             // dataGridViewTextBoxColumn8
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "PostCode";
-            this.dataGridViewTextBoxColumn8.HeaderText = "PostCode";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "DepartureTime";
+            this.dataGridViewTextBoxColumn8.HeaderText = "DepartureTime";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.Width = 150;
             // 
             // dataGridViewTextBoxColumn9
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ContactNumber";
-            this.dataGridViewTextBoxColumn9.HeaderText = "ContactNumber";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ArrivalTime";
+            this.dataGridViewTextBoxColumn9.HeaderText = "ArrivalTime";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 150;
             // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "EmailAddress";
-            this.dataGridViewTextBoxColumn10.HeaderText = "EmailAddress";
-            this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "AdultPrice";
+            this.dataGridViewTextBoxColumn10.HeaderText = "AdultPrice";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "ChildPrice";
+            this.dataGridViewTextBoxColumn21.HeaderText = "ChildPrice";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            // 
+            // hotelBindingSource
+            // 
+            this.hotelBindingSource.DataMember = "Hotel";
+            this.hotelBindingSource.DataSource = this.primaryDBDataSet;
+            // 
+            // hotelDataGridView
+            // 
+            this.hotelDataGridView.AutoGenerateColumns = false;
+            this.hotelDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.hotelDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn25,
+            this.dataGridViewTextBoxColumn26,
+            this.dataGridViewTextBoxColumn27,
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30});
+            this.hotelDataGridView.DataSource = this.hotelBindingSource;
+            this.hotelDataGridView.Location = new System.Drawing.Point(1009, 207);
+            this.hotelDataGridView.Name = "hotelDataGridView";
+            this.hotelDataGridView.Size = new System.Drawing.Size(444, 220);
+            this.hotelDataGridView.TabIndex = 30;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn22.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "HotelID";
+            this.dataGridViewTextBoxColumn23.HeaderText = "HotelID";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "StarRating";
+            this.dataGridViewTextBoxColumn24.HeaderText = "StarRating";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "CheckIn";
+            this.dataGridViewTextBoxColumn25.HeaderText = "CheckIn";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.DataPropertyName = "CheckOut";
+            this.dataGridViewTextBoxColumn26.HeaderText = "CheckOut";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            this.dataGridViewTextBoxColumn27.DataPropertyName = "PricePerNight";
+            this.dataGridViewTextBoxColumn27.HeaderText = "PricePerNight";
+            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Country";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Country";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "NumberPlate";
+            this.dataGridViewTextBoxColumn29.HeaderText = "NumberPlate";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "FlightNumber";
+            this.dataGridViewTextBoxColumn30.HeaderText = "FlightNumber";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             // 
             // customerIDTextBox
             // 
-            this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
-            this.customerIDTextBox.Location = new System.Drawing.Point(218, 35);
+            this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "CustomerID", true));
+            this.customerIDTextBox.Location = new System.Drawing.Point(172, 49);
             this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerIDTextBox.TabIndex = 21;
+            this.customerIDTextBox.Size = new System.Drawing.Size(119, 20);
+            this.customerIDTextBox.TabIndex = 31;
             // 
             // customerFirstNameTextBox
             // 
-            this.customerFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerFirstName", true));
-            this.customerFirstNameTextBox.Location = new System.Drawing.Point(218, 70);
+            this.customerFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "CustomerFirstName", true));
+            this.customerFirstNameTextBox.Location = new System.Drawing.Point(172, 86);
             this.customerFirstNameTextBox.Name = "customerFirstNameTextBox";
-            this.customerFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerFirstNameTextBox.TabIndex = 22;
+            this.customerFirstNameTextBox.Size = new System.Drawing.Size(119, 20);
+            this.customerFirstNameTextBox.TabIndex = 32;
             // 
             // customerLastNameTextBox
             // 
-            this.customerLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerLastName", true));
-            this.customerLastNameTextBox.Location = new System.Drawing.Point(219, 103);
+            this.customerLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "CustomerLastName", true));
+            this.customerLastNameTextBox.Location = new System.Drawing.Point(172, 119);
             this.customerLastNameTextBox.Name = "customerLastNameTextBox";
-            this.customerLastNameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerLastNameTextBox.TabIndex = 23;
+            this.customerLastNameTextBox.Size = new System.Drawing.Size(119, 20);
+            this.customerLastNameTextBox.TabIndex = 33;
             // 
             // genderTextBox
             // 
-            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(218, 139);
+            this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "Gender", true));
+            this.genderTextBox.Location = new System.Drawing.Point(172, 158);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(100, 20);
-            this.genderTextBox.TabIndex = 24;
+            this.genderTextBox.Size = new System.Drawing.Size(119, 20);
+            this.genderTextBox.TabIndex = 34;
             // 
             // passportNumberTextBox
             // 
-            this.passportNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "PassportNumber", true));
-            this.passportNumberTextBox.Location = new System.Drawing.Point(219, 174);
+            this.passportNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "PassportNumber", true));
+            this.passportNumberTextBox.Location = new System.Drawing.Point(172, 193);
             this.passportNumberTextBox.Name = "passportNumberTextBox";
-            this.passportNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passportNumberTextBox.TabIndex = 25;
+            this.passportNumberTextBox.Size = new System.Drawing.Size(119, 20);
+            this.passportNumberTextBox.TabIndex = 35;
             // 
             // nationalityTextBox
             // 
-            this.nationalityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Nationality", true));
-            this.nationalityTextBox.Location = new System.Drawing.Point(218, 210);
+            this.nationalityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "Nationality", true));
+            this.nationalityTextBox.Location = new System.Drawing.Point(172, 227);
             this.nationalityTextBox.Name = "nationalityTextBox";
-            this.nationalityTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nationalityTextBox.TabIndex = 26;
+            this.nationalityTextBox.Size = new System.Drawing.Size(119, 20);
+            this.nationalityTextBox.TabIndex = 36;
             // 
             // addressTextBox
             // 
-            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(219, 247);
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "Address", true));
+            this.addressTextBox.Location = new System.Drawing.Point(172, 262);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
-            this.addressTextBox.TabIndex = 27;
+            this.addressTextBox.Size = new System.Drawing.Size(119, 20);
+            this.addressTextBox.TabIndex = 37;
             // 
             // postCodeTextBox
             // 
-            this.postCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "PostCode", true));
-            this.postCodeTextBox.Location = new System.Drawing.Point(218, 283);
+            this.postCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "PostCode", true));
+            this.postCodeTextBox.Location = new System.Drawing.Point(172, 300);
             this.postCodeTextBox.Name = "postCodeTextBox";
-            this.postCodeTextBox.Size = new System.Drawing.Size(100, 20);
-            this.postCodeTextBox.TabIndex = 28;
+            this.postCodeTextBox.Size = new System.Drawing.Size(119, 20);
+            this.postCodeTextBox.TabIndex = 38;
             // 
             // contactNumberTextBox
             // 
-            this.contactNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ContactNumber", true));
-            this.contactNumberTextBox.Location = new System.Drawing.Point(219, 318);
+            this.contactNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "ContactNumber", true));
+            this.contactNumberTextBox.Location = new System.Drawing.Point(172, 335);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
-            this.contactNumberTextBox.Size = new System.Drawing.Size(100, 20);
-            this.contactNumberTextBox.TabIndex = 29;
+            this.contactNumberTextBox.Size = new System.Drawing.Size(119, 20);
+            this.contactNumberTextBox.TabIndex = 39;
             // 
             // emailAddressTextBox
             // 
-            this.emailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "EmailAddress", true));
-            this.emailAddressTextBox.Location = new System.Drawing.Point(219, 354);
+            this.emailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource1, "EmailAddress", true));
+            this.emailAddressTextBox.Location = new System.Drawing.Point(172, 375);
             this.emailAddressTextBox.Name = "emailAddressTextBox";
-            this.emailAddressTextBox.Size = new System.Drawing.Size(100, 20);
-            this.emailAddressTextBox.TabIndex = 30;
+            this.emailAddressTextBox.Size = new System.Drawing.Size(119, 20);
+            this.emailAddressTextBox.TabIndex = 40;
             // 
             // Business_Ops
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1325, 647);
+            this.ClientSize = new System.Drawing.Size(1475, 695);
             this.Controls.Add(emailAddressLabel);
             this.Controls.Add(this.emailAddressTextBox);
             this.Controls.Add(contactNumberLabel);
@@ -575,19 +792,27 @@
             this.Controls.Add(this.customerFirstNameTextBox);
             this.Controls.Add(customerIDLabel);
             this.Controls.Add(this.customerIDTextBox);
-            this.Controls.Add(this.customersDataGridView);
+            this.Controls.Add(this.hotelDataGridView);
+            this.Controls.Add(this.flightsDataGridView);
+            this.Controls.Add(this.customersDataGridView1);
             this.Controls.Add(this.customersBindingNavigator);
             this.Controls.Add(this.extButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Business_Ops";
             this.Text = "Business Operations";
             this.Load += new System.EventHandler(this.Business_Ops_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.manager_Database)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).EndInit();
             this.customersBindingNavigator.ResumeLayout(false);
             this.customersBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.manager_Database)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.primaryDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.flightsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -613,7 +838,25 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton customersBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView customersDataGridView;
+        private PrimaryDBDataSet primaryDBDataSet;
+        private System.Windows.Forms.BindingSource customersBindingSource1;
+        private PrimaryDBDataSetTableAdapters.CustomersTableAdapter customersTableAdapter1;
+        private PrimaryDBDataSetTableAdapters.TableAdapterManager tableAdapterManager1;
+        private PrimaryDBDataSetTableAdapters.FlightsTableAdapter flightsTableAdapter;
+        private System.Windows.Forms.DataGridView customersDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.BindingSource flightsBindingSource;
+        private PrimaryDBDataSetTableAdapters.HotelTableAdapter hotelTableAdapter;
+        private System.Windows.Forms.DataGridView flightsDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -624,6 +867,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.BindingSource hotelBindingSource;
+        private System.Windows.Forms.DataGridView hotelDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.TextBox customerIDTextBox;
         private System.Windows.Forms.TextBox customerFirstNameTextBox;
         private System.Windows.Forms.TextBox customerLastNameTextBox;
