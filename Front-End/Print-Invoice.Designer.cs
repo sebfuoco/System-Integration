@@ -46,17 +46,17 @@
             this.phonenumLbl = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
+            this.dateLbl = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
+            this.totalLbl = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
             this.destiLbl = new System.Windows.Forms.Label();
-            this.cardetail = new System.Windows.Forms.Label();
+            this.cardetailLbl = new System.Windows.Forms.Label();
             this.locatLbl = new System.Windows.Forms.Label();
             this.htlpriLbl = new System.Windows.Forms.Label();
             this.carpriceLbl = new System.Windows.Forms.Label();
@@ -96,7 +96,6 @@
             this.label23.Size = new System.Drawing.Size(167, 25);
             this.label23.TabIndex = 3;
             this.label23.Text = "Palm Escapes...\r\n";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // groupBox2
             // 
@@ -142,7 +141,6 @@
             this.label29.Size = new System.Drawing.Size(65, 25);
             this.label29.TabIndex = 8;
             this.label29.Text = "Email";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // label28
             // 
@@ -252,15 +250,15 @@
             this.label38.TabIndex = 11;
             this.label38.Text = "Invoice Date";
             // 
-            // label39
+            // dateLbl
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(9, 277);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(68, 22);
-            this.label39.TabIndex = 12;
-            this.label39.Text = "label39";
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLbl.Location = new System.Drawing.Point(9, 277);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(68, 22);
+            this.dateLbl.TabIndex = 12;
+            this.dateLbl.Text = "label39";
             // 
             // label40
             // 
@@ -268,9 +266,9 @@
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(9, 217);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(68, 22);
+            this.label40.Size = new System.Drawing.Size(20, 22);
             this.label40.TabIndex = 13;
-            this.label40.Text = "label40";
+            this.label40.Text = "1";
             // 
             // label41
             // 
@@ -312,15 +310,15 @@
             this.label44.TabIndex = 17;
             this.label44.Text = "TOTAL:";
             // 
-            // label45
+            // totalLbl
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(665, 426);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(75, 25);
-            this.label45.TabIndex = 18;
-            this.label45.Text = "label45";
+            this.totalLbl.AutoSize = true;
+            this.totalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLbl.Location = new System.Drawing.Point(665, 426);
+            this.totalLbl.Name = "totalLbl";
+            this.totalLbl.Size = new System.Drawing.Size(75, 25);
+            this.totalLbl.TabIndex = 18;
+            this.totalLbl.Text = "label45";
             // 
             // panel3
             // 
@@ -351,13 +349,13 @@
             this.destiLbl.Size = new System.Drawing.Size(0, 20);
             this.destiLbl.TabIndex = 20;
             // 
-            // cardetail
+            // cardetailLbl
             // 
-            this.cardetail.AutoSize = true;
-            this.cardetail.Location = new System.Drawing.Point(176, 384);
-            this.cardetail.Name = "cardetail";
-            this.cardetail.Size = new System.Drawing.Size(0, 20);
-            this.cardetail.TabIndex = 21;
+            this.cardetailLbl.AutoSize = true;
+            this.cardetailLbl.Location = new System.Drawing.Point(176, 384);
+            this.cardetailLbl.Name = "cardetailLbl";
+            this.cardetailLbl.Size = new System.Drawing.Size(0, 20);
+            this.cardetailLbl.TabIndex = 21;
             // 
             // locatLbl
             // 
@@ -401,16 +399,16 @@
             this.Controls.Add(this.carpriceLbl);
             this.Controls.Add(this.htlpriLbl);
             this.Controls.Add(this.locatLbl);
-            this.Controls.Add(this.cardetail);
+            this.Controls.Add(this.cardetailLbl);
             this.Controls.Add(this.destiLbl);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.label45);
+            this.Controls.Add(this.totalLbl);
             this.Controls.Add(this.label44);
             this.Controls.Add(this.label43);
             this.Controls.Add(this.label42);
             this.Controls.Add(this.label41);
             this.Controls.Add(this.label40);
-            this.Controls.Add(this.label39);
+            this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.phonenumLbl);
@@ -478,17 +476,17 @@
         private System.Windows.Forms.Label phonenumLbl;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label totalLbl;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label destiLbl;
-        private System.Windows.Forms.Label cardetail;
+        private System.Windows.Forms.Label cardetailLbl;
         private System.Windows.Forms.Label locatLbl;
         private System.Windows.Forms.Label htlpriLbl;
         private System.Windows.Forms.Label carpriceLbl;
