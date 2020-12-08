@@ -100,11 +100,10 @@
             // 
             customerIDLabel.AutoSize = true;
             customerIDLabel.BackColor = System.Drawing.Color.Transparent;
-            customerIDLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerIDLabel.Location = new System.Drawing.Point(132, 54);
-            customerIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerIDLabel.Location = new System.Drawing.Point(88, 35);
             customerIDLabel.Name = "customerIDLabel";
-            customerIDLabel.Size = new System.Drawing.Size(182, 31);
+            customerIDLabel.Size = new System.Drawing.Size(130, 24);
             customerIDLabel.TabIndex = 20;
             customerIDLabel.Text = "Customer ID:";
             // 
@@ -112,11 +111,10 @@
             // 
             customerFirstNameLabel.AutoSize = true;
             customerFirstNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerFirstNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerFirstNameLabel.Location = new System.Drawing.Point(22, 108);
-            customerFirstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerFirstNameLabel.Location = new System.Drawing.Point(15, 70);
             customerFirstNameLabel.Name = "customerFirstNameLabel";
-            customerFirstNameLabel.Size = new System.Drawing.Size(289, 31);
+            customerFirstNameLabel.Size = new System.Drawing.Size(212, 24);
             customerFirstNameLabel.TabIndex = 21;
             customerFirstNameLabel.Text = "Customer First Name:";
             // 
@@ -124,11 +122,10 @@
             // 
             customerLastNameLabel.AutoSize = true;
             customerLastNameLabel.BackColor = System.Drawing.Color.Transparent;
-            customerLastNameLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            customerLastNameLabel.Location = new System.Drawing.Point(30, 157);
-            customerLastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            customerLastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            customerLastNameLabel.Location = new System.Drawing.Point(20, 102);
             customerLastNameLabel.Name = "customerLastNameLabel";
-            customerLastNameLabel.Size = new System.Drawing.Size(283, 31);
+            customerLastNameLabel.Size = new System.Drawing.Size(209, 24);
             customerLastNameLabel.TabIndex = 22;
             customerLastNameLabel.Text = "Customer Last Name:";
             // 
@@ -136,11 +133,10 @@
             // 
             genderLabel.AutoSize = true;
             genderLabel.BackColor = System.Drawing.Color.Transparent;
-            genderLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            genderLabel.Location = new System.Drawing.Point(204, 209);
-            genderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            genderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            genderLabel.Location = new System.Drawing.Point(136, 136);
             genderLabel.Name = "genderLabel";
-            genderLabel.Size = new System.Drawing.Size(113, 31);
+            genderLabel.Size = new System.Drawing.Size(86, 24);
             genderLabel.TabIndex = 23;
             genderLabel.Text = "Gender:";
             // 
@@ -148,11 +144,10 @@
             // 
             passportNumberLabel.AutoSize = true;
             passportNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            passportNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            passportNumberLabel.Location = new System.Drawing.Point(76, 268);
-            passportNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            passportNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            passportNumberLabel.Location = new System.Drawing.Point(51, 174);
             passportNumberLabel.Name = "passportNumberLabel";
-            passportNumberLabel.Size = new System.Drawing.Size(238, 31);
+            passportNumberLabel.Size = new System.Drawing.Size(177, 24);
             passportNumberLabel.TabIndex = 24;
             passportNumberLabel.Text = "Passport Number:";
             // 
@@ -160,11 +155,10 @@
             // 
             nationalityLabel.AutoSize = true;
             nationalityLabel.BackColor = System.Drawing.Color.Transparent;
-            nationalityLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nationalityLabel.Location = new System.Drawing.Point(146, 323);
-            nationalityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            nationalityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nationalityLabel.Location = new System.Drawing.Point(97, 210);
             nationalityLabel.Name = "nationalityLabel";
-            nationalityLabel.Size = new System.Drawing.Size(166, 31);
+            nationalityLabel.Size = new System.Drawing.Size(112, 24);
             nationalityLabel.TabIndex = 25;
             nationalityLabel.Text = "Nationality:";
             // 
@@ -172,11 +166,10 @@
             // 
             addressLabel.AutoSize = true;
             addressLabel.BackColor = System.Drawing.Color.Transparent;
-            addressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            addressLabel.Location = new System.Drawing.Point(196, 380);
-            addressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            addressLabel.Location = new System.Drawing.Point(131, 247);
             addressLabel.Name = "addressLabel";
-            addressLabel.Size = new System.Drawing.Size(120, 31);
+            addressLabel.Size = new System.Drawing.Size(93, 24);
             addressLabel.TabIndex = 26;
             addressLabel.Text = "Address:";
             // 
@@ -184,11 +177,10 @@
             // 
             postCodeLabel.AutoSize = true;
             postCodeLabel.BackColor = System.Drawing.Color.Transparent;
-            postCodeLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            postCodeLabel.Location = new System.Drawing.Point(170, 435);
-            postCodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            postCodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            postCodeLabel.Location = new System.Drawing.Point(113, 283);
             postCodeLabel.Name = "postCodeLabel";
-            postCodeLabel.Size = new System.Drawing.Size(145, 31);
+            postCodeLabel.Size = new System.Drawing.Size(112, 24);
             postCodeLabel.TabIndex = 27;
             postCodeLabel.Text = "Post Code:";
             // 
@@ -196,11 +188,10 @@
             // 
             contactNumberLabel.AutoSize = true;
             contactNumberLabel.BackColor = System.Drawing.Color.Transparent;
-            contactNumberLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            contactNumberLabel.Location = new System.Drawing.Point(90, 489);
-            contactNumberLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            contactNumberLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            contactNumberLabel.Location = new System.Drawing.Point(60, 318);
             contactNumberLabel.Name = "contactNumberLabel";
-            contactNumberLabel.Size = new System.Drawing.Size(225, 31);
+            contactNumberLabel.Size = new System.Drawing.Size(167, 24);
             contactNumberLabel.TabIndex = 28;
             contactNumberLabel.Text = "Contact Number:";
             // 
@@ -208,19 +199,19 @@
             // 
             emailAddressLabel.AutoSize = true;
             emailAddressLabel.BackColor = System.Drawing.Color.Transparent;
-            emailAddressLabel.Font = new System.Drawing.Font("Modern No. 20", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            emailAddressLabel.Location = new System.Drawing.Point(108, 545);
-            emailAddressLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            emailAddressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            emailAddressLabel.Location = new System.Drawing.Point(72, 354);
             emailAddressLabel.Name = "emailAddressLabel";
-            emailAddressLabel.Size = new System.Drawing.Size(207, 31);
+            emailAddressLabel.Size = new System.Drawing.Size(151, 24);
             emailAddressLabel.TabIndex = 29;
             emailAddressLabel.Text = "Email Address:";
             // 
             // extButton
             // 
-            this.extButton.Location = new System.Drawing.Point(16, 615);
+            this.extButton.Location = new System.Drawing.Point(11, 400);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(156, 42);
+            this.extButton.Size = new System.Drawing.Size(104, 27);
             this.extButton.TabIndex = 1;
             this.extButton.Text = "Exit";
             this.extButton.UseVisualStyleBackColor = true;
@@ -272,9 +263,9 @@
             this.customersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
             this.customersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customersBindingNavigator.Name = "customersBindingNavigator";
-            this.customersBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.customersBindingNavigator.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.customersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customersBindingNavigator.Size = new System.Drawing.Size(1592, 38);
+            this.customersBindingNavigator.Size = new System.Drawing.Size(1325, 31);
             this.customersBindingNavigator.TabIndex = 20;
             this.customersBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -284,13 +275,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(54, 33);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 28);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -300,7 +291,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -309,7 +300,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -318,13 +309,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -332,14 +323,14 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(73, 31);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Current position";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -347,7 +338,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -356,20 +347,20 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(34, 33);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(28, 28);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 38);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // customersBindingNavigatorSaveItem
             // 
             this.customersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.customersBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("customersBindingNavigatorSaveItem.Image")));
             this.customersBindingNavigatorSaveItem.Name = "customersBindingNavigatorSaveItem";
-            this.customersBindingNavigatorSaveItem.Size = new System.Drawing.Size(34, 33);
+            this.customersBindingNavigatorSaveItem.Size = new System.Drawing.Size(28, 28);
             this.customersBindingNavigatorSaveItem.Text = "Save Data";
             this.customersBindingNavigatorSaveItem.Click += new System.EventHandler(this.customersBindingNavigatorSaveItem_Click);
             // 
@@ -392,11 +383,10 @@
             this.dataGridViewTextBoxColumn10});
             this.customersDataGridView.DataSource = this.customersBindingSource;
             this.customersDataGridView.GridColor = System.Drawing.SystemColors.AppWorkspace;
-            this.customersDataGridView.Location = new System.Drawing.Point(519, 111);
-            this.customersDataGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.customersDataGridView.Location = new System.Drawing.Point(346, 72);
             this.customersDataGridView.Name = "customersDataGridView";
             this.customersDataGridView.RowHeadersWidth = 62;
-            this.customersDataGridView.Size = new System.Drawing.Size(958, 338);
+            this.customersDataGridView.Size = new System.Drawing.Size(639, 220);
             this.customersDataGridView.TabIndex = 20;
             // 
             // dataGridViewTextBoxColumn1
@@ -482,99 +472,89 @@
             // customerIDTextBox
             // 
             this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
-            this.customerIDTextBox.Location = new System.Drawing.Point(327, 54);
-            this.customerIDTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.customerIDTextBox.Location = new System.Drawing.Point(218, 35);
             this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(148, 26);
+            this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerIDTextBox.TabIndex = 21;
             // 
             // customerFirstNameTextBox
             // 
             this.customerFirstNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerFirstName", true));
-            this.customerFirstNameTextBox.Location = new System.Drawing.Point(327, 108);
-            this.customerFirstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.customerFirstNameTextBox.Location = new System.Drawing.Point(218, 70);
             this.customerFirstNameTextBox.Name = "customerFirstNameTextBox";
-            this.customerFirstNameTextBox.Size = new System.Drawing.Size(148, 26);
+            this.customerFirstNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerFirstNameTextBox.TabIndex = 22;
             // 
             // customerLastNameTextBox
             // 
             this.customerLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerLastName", true));
-            this.customerLastNameTextBox.Location = new System.Drawing.Point(328, 158);
-            this.customerLastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.customerLastNameTextBox.Location = new System.Drawing.Point(219, 103);
             this.customerLastNameTextBox.Name = "customerLastNameTextBox";
-            this.customerLastNameTextBox.Size = new System.Drawing.Size(148, 26);
+            this.customerLastNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.customerLastNameTextBox.TabIndex = 23;
             // 
             // genderTextBox
             // 
             this.genderTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Gender", true));
-            this.genderTextBox.Location = new System.Drawing.Point(327, 214);
-            this.genderTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.genderTextBox.Location = new System.Drawing.Point(218, 139);
             this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(148, 26);
+            this.genderTextBox.Size = new System.Drawing.Size(100, 20);
             this.genderTextBox.TabIndex = 24;
             // 
             // passportNumberTextBox
             // 
             this.passportNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "PassportNumber", true));
-            this.passportNumberTextBox.Location = new System.Drawing.Point(328, 268);
-            this.passportNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.passportNumberTextBox.Location = new System.Drawing.Point(219, 174);
             this.passportNumberTextBox.Name = "passportNumberTextBox";
-            this.passportNumberTextBox.Size = new System.Drawing.Size(148, 26);
+            this.passportNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.passportNumberTextBox.TabIndex = 25;
             // 
             // nationalityTextBox
             // 
             this.nationalityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Nationality", true));
-            this.nationalityTextBox.Location = new System.Drawing.Point(327, 323);
-            this.nationalityTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nationalityTextBox.Location = new System.Drawing.Point(218, 210);
             this.nationalityTextBox.Name = "nationalityTextBox";
-            this.nationalityTextBox.Size = new System.Drawing.Size(148, 26);
+            this.nationalityTextBox.Size = new System.Drawing.Size(100, 20);
             this.nationalityTextBox.TabIndex = 26;
             // 
             // addressTextBox
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
-            this.addressTextBox.Location = new System.Drawing.Point(328, 380);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.addressTextBox.Location = new System.Drawing.Point(219, 247);
             this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(148, 26);
+            this.addressTextBox.Size = new System.Drawing.Size(100, 20);
             this.addressTextBox.TabIndex = 27;
             // 
             // postCodeTextBox
             // 
             this.postCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "PostCode", true));
-            this.postCodeTextBox.Location = new System.Drawing.Point(327, 435);
-            this.postCodeTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.postCodeTextBox.Location = new System.Drawing.Point(218, 283);
             this.postCodeTextBox.Name = "postCodeTextBox";
-            this.postCodeTextBox.Size = new System.Drawing.Size(148, 26);
+            this.postCodeTextBox.Size = new System.Drawing.Size(100, 20);
             this.postCodeTextBox.TabIndex = 28;
             // 
             // contactNumberTextBox
             // 
             this.contactNumberTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ContactNumber", true));
-            this.contactNumberTextBox.Location = new System.Drawing.Point(328, 489);
-            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.contactNumberTextBox.Location = new System.Drawing.Point(219, 318);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
-            this.contactNumberTextBox.Size = new System.Drawing.Size(148, 26);
+            this.contactNumberTextBox.Size = new System.Drawing.Size(100, 20);
             this.contactNumberTextBox.TabIndex = 29;
             // 
             // emailAddressTextBox
             // 
             this.emailAddressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "EmailAddress", true));
-            this.emailAddressTextBox.Location = new System.Drawing.Point(328, 545);
-            this.emailAddressTextBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.emailAddressTextBox.Location = new System.Drawing.Point(219, 354);
             this.emailAddressTextBox.Name = "emailAddressTextBox";
-            this.emailAddressTextBox.Size = new System.Drawing.Size(148, 26);
+            this.emailAddressTextBox.Size = new System.Drawing.Size(100, 20);
             this.emailAddressTextBox.TabIndex = 30;
             // 
             // Business_Ops
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1592, 689);
+            this.ClientSize = new System.Drawing.Size(1325, 647);
             this.Controls.Add(emailAddressLabel);
             this.Controls.Add(this.emailAddressTextBox);
             this.Controls.Add(contactNumberLabel);
@@ -598,6 +578,7 @@
             this.Controls.Add(this.customersDataGridView);
             this.Controls.Add(this.customersBindingNavigator);
             this.Controls.Add(this.extButton);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Business_Ops";
             this.Text = "Business Operations";
             this.Load += new System.EventHandler(this.Business_Ops_Load);
