@@ -281,7 +281,11 @@ namespace Front_End
 
         private void Hotelinput_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            var hotelDetails = Back_End.DatabaseQuery.getHotelDetails(Hotelinput.Text);
+            Starrating.Text = hotelDetails.rating;
+            Checkin.Text = hotelDetails.checkIn;
+            Checkout.Text = hotelDetails.checkOut;
+            Pricepernight.Text = hotelDetails.pricePerNight;
         }
 
         private void label3_Click(object sender, EventArgs e)
