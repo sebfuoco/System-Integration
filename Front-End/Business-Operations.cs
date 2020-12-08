@@ -47,6 +47,12 @@ namespace Front_End
 
         private void Business_Ops_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'primaryDB.Flights' table. You can move, or remove it, as needed.
+            this.flightsTableAdapter1.Fill(this.primaryDB.Flights);
+            // TODO: This line of code loads data into the 'primaryDB.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter2.Fill(this.primaryDB.Customers);
+            // TODO: This line of code loads data into the 'primaryDB.Hotel' table. You can move, or remove it, as needed.
+            this.hotelTableAdapter1.Fill(this.primaryDB.Hotel);
             // TODO: This line of code loads data into the 'primaryDBDataSet.Hotel' table. You can move, or remove it, as needed.
             this.hotelTableAdapter.Fill(this.primaryDBDataSet.Hotel);
             // TODO: This line of code loads data into the 'primaryDBDataSet.Flights' table. You can move, or remove it, as needed.
@@ -96,6 +102,11 @@ namespace Front_End
             {
                 // fail
             }
+        }
+
+        private void customerFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
