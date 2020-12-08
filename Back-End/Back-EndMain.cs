@@ -62,7 +62,7 @@ namespace Back_End
         public static class calculations
         {
 
-            public static string calculateSpacesLeft(string flightNum, string date)
+            public static string calculateSpacesLeft(string flightNum, string flightdate)
             {
 
                 //Sing :  Database declarations
@@ -77,7 +77,7 @@ namespace Back_End
 
                 connection.Open();
 
-                string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
+                string query = "select * from Flights where FlightNumber =" + Int32.Parse(flightNum);
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -89,7 +89,7 @@ namespace Back_End
                     while (reader.Read())
                     {
 
-                        if (reader["FlightNumber"].ToString() == flightNum.ToString())
+                        if (reader["FlightNumber"].ToString() == flightNum.ToString() && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                         {
                             counter += 1;
                         }
@@ -480,7 +480,7 @@ namespace Back_End
 
 
         // Sing
-        public static flightDetails getFlightDetails(string flightNum, string date)
+        public static flightDetails getFlightDetails(string flightNum, string flightdate)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
@@ -493,7 +493,7 @@ namespace Back_End
 
             connection.Open();
 
-            string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
+            string query = "SELECT * FROM Flights WHERE FlightNumber =" + Int32.Parse(flightNum);
             command.CommandText = query;
             reader = command.ExecuteReader();
 
@@ -504,7 +504,7 @@ namespace Back_End
                 while (reader.Read())
                 {
 
-                    if (reader["FlightNumber"].ToString() == flightNum)
+                    if (reader["FlightNumber"].ToString() == flightNum && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                     {
                         flight.flightNumber = flightNum;
                         flight.flightType = reader["FlightType"].ToString();
@@ -533,7 +533,10 @@ namespace Back_End
            
         }
 
+        //public static cars getCarDetails()
+        //{
 
+        //}
 
 
 
