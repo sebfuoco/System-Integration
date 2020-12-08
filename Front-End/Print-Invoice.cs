@@ -15,42 +15,24 @@ namespace Front_End
     public partial class Print_Invoice : Form
     {
 
-        //Customer Details
-  
-             string fname;
-             string sname;
-             string addr;
-             string phonenum;
-
-        //Flight Details
-
-        string desti;
-        string fliprice;
-
-        //Hotel Details
-
-        string locat;
-        string htlpri;
-
-        //CarHire Details
-
-        string cardetails;
-        string carpri;
-        
-
-
-        public Print_Invoice(string firstname, string surname,string address,string phonenumber,string destination,string flightprice,string hotellocation,string hotelprice,string carhirePrice)
+       
+        public Print_Invoice(string date,string firstname, string surname,string address,string phonenumber,string destination,string flightprice,
+                             string carDetails,string carhirePrice,string hotellocation,string hotelprice,string total)
         {
             InitializeComponent();
+
+            dateLbl.Text = date;
             fnameLbl.Text = firstname;
             snameLbl.Text = surname;
             addrLbl.Text = address;
             phonenumLbl.Text = phonenumber;
             destiLbl.Text = destination;
-            fliprice = flightprice;
+            flipriceLbl.Text = flightprice;
+            cardetailLbl.Text = carDetails;
             carpriceLbl.Text = carhirePrice;
             locatLbl.Text = hotellocation;
-            htlpri = hotelprice;
+            htlpriLbl.Text = hotelprice;
+            totalLbl.Text = total;
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
@@ -86,20 +68,26 @@ namespace Front_End
             }
         }
 
-
         private void Print_Invoice_Load(object sender, EventArgs e)
         {
-            fnameLbl.Text = fname;
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
 
         }
 
-        private void label29_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            const string text = "Confirmation Complete!";
+            const string caption = "CANCEL";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                main m = new main();
+                m.ShowDialog();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
