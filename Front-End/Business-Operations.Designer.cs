@@ -293,9 +293,14 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderSize = 5;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.button2.Location = new System.Drawing.Point(182, 490);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 123);
+            this.button2.Size = new System.Drawing.Size(180, 123);
             this.button2.TabIndex = 22;
             this.button2.Text = "Recovery";
             this.button2.UseVisualStyleBackColor = false;
