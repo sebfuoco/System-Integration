@@ -575,7 +575,46 @@ namespace Back_End
             
         }
     
+        public static hotel getHotelDetails(string hotelName)
+        {
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
 
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
+
+            connection.Open();
+
+            string query = "SELECT * FROM Hotel WHERE HotelName ='" + hotelName + "'";
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            hotel hotelDetails = new hotel();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["HotelName"].ToString() == hotelName)
+                    {
+                        hotelDetails.rating = reader["StarRating"].ToString();
+                        hotelDetails.checkIn = reader["CheckIn"].ToString();
+                        hotelDetails.checkOut = reader["CheckOut"].ToString();
+                        hotelDetails.pricePerNight = reader["PricePerNight"].ToString();
+                        
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+
+            return hotelDetails;
+
+        }
 
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
