@@ -123,12 +123,13 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(224, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 20);
+            this.label2.Size = new System.Drawing.Size(218, 29);
             this.label2.TabIndex = 18;
             this.label2.Text = "Availability Check";
             // 
             // DateTimePicker1
             // 
+            this.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePicker1.Location = new System.Drawing.Point(161, 26);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -188,7 +189,7 @@
             this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(124, 460);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(350, 18);
+            this.label3.Size = new System.Drawing.Size(541, 29);
             this.label3.TabIndex = 27;
             this.label3.Text = "Results may not be represintitive of live sever";
             this.label3.Click += new System.EventHandler(this.label3_Click);
@@ -634,7 +635,7 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(191, 416);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(56, 16);
+            this.label24.Size = new System.Drawing.Size(80, 25);
             this.label24.TabIndex = 35;
             this.label24.Text = "Total =";
             // 
