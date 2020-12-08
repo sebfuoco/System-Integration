@@ -19,11 +19,6 @@ namespace Front_End
             InitializeComponent();
         }
 
-        private void bckButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cnlButton_Click(object sender, EventArgs e)
         {
 

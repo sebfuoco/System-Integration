@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Booking_Confirmation));
             this.extButton = new System.Windows.Forms.Button();
-            this.bckButton = new System.Windows.Forms.Button();
             this.nxtButton = new System.Windows.Forms.Button();
             this.cnlButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -47,16 +46,6 @@
             this.extButton.Text = "X";
             this.extButton.UseVisualStyleBackColor = false;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
-            // 
-            // bckButton
-            // 
-            this.bckButton.Image = ((System.Drawing.Image)(resources.GetObject("bckButton.Image")));
-            this.bckButton.Location = new System.Drawing.Point(637, 537);
-            this.bckButton.Name = "bckButton";
-            this.bckButton.Size = new System.Drawing.Size(75, 51);
-            this.bckButton.TabIndex = 19;
-            this.bckButton.UseVisualStyleBackColor = true;
-            this.bckButton.Click += new System.EventHandler(this.bckButton_Click);
             // 
             // nxtButton
             // 
@@ -85,7 +74,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.extButton);
-            this.Controls.Add(this.bckButton);
             this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -99,7 +87,6 @@
         #endregion
 
         private System.Windows.Forms.Button extButton;
-        private System.Windows.Forms.Button bckButton;
         private System.Windows.Forms.Button nxtButton;
         private System.Windows.Forms.Button cnlButton;
     }
