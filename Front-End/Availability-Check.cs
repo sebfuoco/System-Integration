@@ -227,5 +227,10 @@ namespace Front_End
         {
 
         }
-    }
+
+		private void label24_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }
