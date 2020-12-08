@@ -27,25 +27,71 @@ namespace Front_End
 
         private void nxtButton_Click(object sender, EventArgs e)
         {
+            if (firstNametxtbox.Text == "")
+            {
+                MessageBox.Show("First name can not be empty");
+            }
+
+            else if (lastNametxtbox.Text == "")
+            {
+                MessageBox.Show("Last name can not be empty");
+            }
+
+            else if (gendertxtbox.Text == "")
+            {
+                MessageBox.Show("Gender can not be empty");
+            }
+
+            else if (passportNumbtxtbox.Text == "")
+            {
+                MessageBox.Show("Passport number can not be empty");
+            }
+
+            else if (Nationalitytxtbox.Text == "")
+            {
+                MessageBox.Show("Nationality can not be empty");
+            }
+
+            else if (Addresstxtbox.Text == "")
+            {
+                MessageBox.Show("Address can not be empty");
+            }
+
+            else if (postCodetxtbox.Text == "")
+            {
+                MessageBox.Show("Post code can not be empty");
+            }
+
+            else if (contactNumbertxtbox.Text == "")
+            {
+                MessageBox.Show("Contact number can not be empty");
+            }
+
+            else if (emailtxtbox.Text == "")
+            {
+                MessageBox.Show("Email Address can not be empty");
+            }
+            else
             //KEVIN
-            MessageBox.Show("Booking Reserved");
+            {
+                MessageBox.Show("Booking Reserved");
 
-            string cString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
-            string save = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
-            "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)";
+                string cString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
+                string save = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
+                "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)";
 
 
-            object[] customers = {"@CustomerFirstName", firstNametxtbox.Text, "@CustomerLastName", lastNametxtbox.Text, "@Gender", gendertxtbox.Text,
-                    "@PassportNumber", passportNumbtxtbox.Text, "@Nationality", Nationalitytxtbox.Text, "@Address", Addresstxtbox.Text, "@PostCode",
-                postCodetxtbox.Text, "@ContactNumber", contactNumbertxtbox.Text, "@EmailAddress", emailtxtbox.Text};
+                object[] customers = {"@CustomerFirstName", firstNametxtbox.Text, "@CustomerLastName", lastNametxtbox.Text, "@Gender", gendertxtbox.Text,
+                        "@PassportNumber", passportNumbtxtbox.Text, "@Nationality", Nationalitytxtbox.Text, "@Address", Addresstxtbox.Text, "@PostCode",
+                    postCodetxtbox.Text, "@ContactNumber", contactNumbertxtbox.Text, "@EmailAddress", emailtxtbox.Text};
 
-            var dbFunc = new DatabaseFunctions();
-            dbFunc.writeDatabase(save, cString,customers);
+                var dbFunc = new DatabaseFunctions();
+                dbFunc.writeDatabase(save, cString, customers);
 
-            this.Hide();
-            Booking_Confirmation b = new Booking_Confirmation();
-            b.ShowDialog();
-
+                this.Hide();
+                Booking_Confirmation b = new Booking_Confirmation();
+                b.ShowDialog();
+            }
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
