@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace Front_End
           
 
         }
-
+        double mynum = 0;
         private void nxtButton_Click(object sender, EventArgs e)
         {
             if (firstNametxtbox.Text == "")
@@ -61,15 +62,15 @@ namespace Front_End
             {
                 MessageBox.Show("Post code can not be empty");
             }
-
-            else if (contactNumbertxtbox.Text == "")
+  
+            else if (!Double.TryParse(contactNumbertxtbox.Text, out mynum))
             {
-                MessageBox.Show("Contact number can not be empty");
+                MessageBox.Show("Contact number can not be empty or it must not contain any alpha numeric characters");
             }
 
-            else if (emailtxtbox.Text == "")
+            else if (!Regex.IsMatch(emailtxtbox.Text, @"^[a-zA-Z0-9 ]+$"))
             {
-                MessageBox.Show("Email Address can not be empty");
+                MessageBox.Show("Must be a valid email address");
             }
             else
             //KEVIN
