@@ -560,11 +560,23 @@ namespace Back_End
             return true;
         }
         //Notify front-end of bacth recovery : Avar
-        protected internal void notifyRecovery()
+        public static void notifyRecovery()
         {
+
+            if (SecondaryDatabase.recoveryProgress == true)
+            {
+            
+                MessageBox.Show("Holiday search might not be upto date");
+
+            }
+            //var secondaryDatabase = new SecondaryDatabase();
+            //bool checkRecovery = SecondaryDatabase.recoveryProgress;
+            //string message = "Holiday search might not be upto date";
+            //string title = "Batch Recovery in progress";
+            //MessageBox.Show(message, title);
         }
 
-         struct customerDetails
+        struct customerDetails
         {
             public string fname;
             string sname;
@@ -604,6 +616,7 @@ namespace Back_End
                 reader.Close();
             }
             connection.Close();
+
 
 
 

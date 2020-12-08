@@ -175,6 +175,8 @@ namespace Front_End
 
         private void Availability_Check_Load(object sender, EventArgs e)
         {
+            //check for recovery Avar
+            Back_End.SecondaryDatabase.notifyRecovery();
 
             {
               //destnation check to database  
@@ -228,9 +230,9 @@ namespace Front_End
 
         }
 
-		private void label24_Click(object sender, EventArgs e)
-		{
+        private void label3_Click(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+    }
 }
