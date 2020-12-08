@@ -84,10 +84,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Flightdetails.SuspendLayout();
             this.Cardetails.SuspendLayout();
             this.Hoteldetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // nxtButton
@@ -119,7 +121,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(224, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(218, 29);
+            this.label2.Size = new System.Drawing.Size(148, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "Availability Check";
             // 
@@ -189,6 +191,7 @@
             // Flightdetails
             // 
             this.Flightdetails.BackColor = System.Drawing.Color.Transparent;
+            this.Flightdetails.Controls.Add(this.numericUpDown1);
             this.Flightdetails.Controls.Add(this.Adultprice);
             this.Flightdetails.Controls.Add(this.Childprice);
             this.Flightdetails.Controls.Add(this.label12);
@@ -453,12 +456,12 @@
             // 
             // Carinput
             // 
+            this.Carinput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Carinput.FormattingEnabled = true;
             this.Carinput.Location = new System.Drawing.Point(6, 18);
             this.Carinput.Name = "Carinput";
             this.Carinput.Size = new System.Drawing.Size(121, 21);
             this.Carinput.TabIndex = 34;
-            this.Carinput.Text = "Please select one";
             this.Carinput.SelectedIndexChanged += new System.EventHandler(this.Carhireinput_SelectedIndexChanged);
             // 
             // Make
@@ -497,12 +500,12 @@
             // 
             // Hotelinput
             // 
+            this.Hotelinput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Hotelinput.FormattingEnabled = true;
             this.Hotelinput.Location = new System.Drawing.Point(6, 18);
             this.Hotelinput.Name = "Hotelinput";
             this.Hotelinput.Size = new System.Drawing.Size(121, 21);
             this.Hotelinput.TabIndex = 35;
-            this.Hotelinput.Text = "Please select one";
             this.Hotelinput.SelectedIndexChanged += new System.EventHandler(this.Hotelinput_SelectedIndexChanged);
             // 
             // Pricepernight
@@ -571,12 +574,12 @@
             // 
             // Locationinput
             // 
+            this.Locationinput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Locationinput.FormattingEnabled = true;
             this.Locationinput.Location = new System.Drawing.Point(30, 26);
             this.Locationinput.Name = "Locationinput";
             this.Locationinput.Size = new System.Drawing.Size(121, 21);
             this.Locationinput.TabIndex = 33;
-            this.Locationinput.Text = "Please select one";
             this.Locationinput.SelectedIndexChanged += new System.EventHandler(this.Locationinput_SelectedIndexChanged_1);
             // 
             // groupBox1
@@ -604,7 +607,7 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(191, 416);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(80, 25);
+            this.label24.Size = new System.Drawing.Size(56, 16);
             this.label24.TabIndex = 35;
             this.label24.Text = "Total =";
             // 
@@ -614,6 +617,13 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 36;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(311, 67);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 37;
             // 
             // Availability_Check
             // 
@@ -647,6 +657,7 @@
             this.Hoteldetails.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -708,5 +719,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

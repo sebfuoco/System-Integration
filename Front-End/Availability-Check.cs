@@ -246,31 +246,13 @@ namespace Front_End
 
             }
 
-            {
-                //
-                //OleDbCommand command = new OleDbCommand();
-
-                //connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
-                //command.Connection = connection;
-
-                //connection.Open();
-
-                //string query = "SELECT Destination FROM Flights";
-                //command.CommandText = query;
-
-                //OleDbDataReader reader = command.ExecuteReader();
-
-                //while (reader.Read())
-                    //Locationinput.Items.Add(reader["Destination"].ToString());
-
-
-            }
+           
 
         }
 
         private void Carhireinput_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+ 
         }
 
         private void Hotelinput_SelectedIndexChanged(object sender, EventArgs e)
