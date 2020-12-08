@@ -188,7 +188,7 @@ namespace Front_End
               //destnation check to database  
                 OleDbCommand command = new OleDbCommand();
 
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
                 command.Connection = connection;
 
                 connection.Open();
@@ -201,12 +201,35 @@ namespace Front_End
                 while (reader.Read())
                     Locationinput.Items.Add(reader["Destination"].ToString());
 
-                //string query = "SELECT CarType FROM Cars";
-                //command.CommandText = query;
+                connection.Close();
 
+                //car rental 
 
-                //while (reader.Read())
-                //Carinput.Items.Add(reader["CarType"].ToString());
+                connection.Open();
+
+                string query2 = "SELECT CarRentalCompany FROM Cars";
+                command.CommandText = query2;
+
+                OleDbDataReader reader2 = command.ExecuteReader();
+
+                while (reader2.Read())
+                Carinput.Items.Add(reader2["CarRentalCompany"].ToString());
+
+                connection.Close();
+
+                //hotel selection
+
+                connection.Open();
+
+                string query3 = "SELECT HotelName FROM Hotel";
+                command.CommandText = query3;
+
+                OleDbDataReader reader3 = command.ExecuteReader();
+
+                while (reader3.Read())
+                    Hotelinput.Items.Add(reader3["HotelName"].ToString());
+
+                connection.Close();
 
             }
 
