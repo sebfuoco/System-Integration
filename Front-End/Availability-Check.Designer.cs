@@ -67,10 +67,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Carhireinput = new System.Windows.Forms.ComboBox();
+            this.Carinput = new System.Windows.Forms.ComboBox();
             this.Make = new System.Windows.Forms.TextBox();
-            this.Cartype = new System.Windows.Forms.TextBox();
             this.Numplate = new System.Windows.Forms.TextBox();
             this.Hoteldetails = new System.Windows.Forms.GroupBox();
             this.Hotelinput = new System.Windows.Forms.ComboBox();
@@ -357,10 +355,8 @@
             this.Cardetails.Controls.Add(this.label20);
             this.Cardetails.Controls.Add(this.label19);
             this.Cardetails.Controls.Add(this.label18);
-            this.Cardetails.Controls.Add(this.label17);
-            this.Cardetails.Controls.Add(this.Carhireinput);
+            this.Cardetails.Controls.Add(this.Carinput);
             this.Cardetails.Controls.Add(this.Make);
-            this.Cardetails.Controls.Add(this.Cartype);
             this.Cardetails.Controls.Add(this.Numplate);
             this.Cardetails.Location = new System.Drawing.Point(74, 242);
             this.Cardetails.Name = "Cardetails";
@@ -372,21 +368,21 @@
             // 
             // Priceperday
             // 
-            this.Priceperday.Location = new System.Drawing.Point(151, 108);
+            this.Priceperday.Location = new System.Drawing.Point(151, 119);
             this.Priceperday.Name = "Priceperday";
             this.Priceperday.Size = new System.Drawing.Size(83, 20);
             this.Priceperday.TabIndex = 48;
             // 
             // Seats
             // 
-            this.Seats.Location = new System.Drawing.Point(151, 67);
+            this.Seats.Location = new System.Drawing.Point(151, 70);
             this.Seats.Name = "Seats";
             this.Seats.Size = new System.Drawing.Size(83, 20);
             this.Seats.TabIndex = 47;
             // 
             // Gearbox
             // 
-            this.Gearbox.Location = new System.Drawing.Point(151, 32);
+            this.Gearbox.Location = new System.Drawing.Point(62, 70);
             this.Gearbox.Name = "Gearbox";
             this.Gearbox.Size = new System.Drawing.Size(83, 20);
             this.Gearbox.TabIndex = 46;
@@ -394,7 +390,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(159, 93);
+            this.label23.Location = new System.Drawing.Point(158, 103);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(72, 13);
             this.label23.TabIndex = 45;
@@ -412,7 +408,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(166, 16);
+            this.label21.Location = new System.Drawing.Point(7, 74);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(47, 13);
             this.label21.TabIndex = 43;
@@ -446,30 +442,21 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 70);
+            this.label18.Location = new System.Drawing.Point(7, 52);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(71, 13);
             this.label18.TabIndex = 39;
             this.label18.Text = "Number Plate";
             // 
-            // label17
+            // Carinput
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 45);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(50, 13);
-            this.label17.TabIndex = 38;
-            this.label17.Text = "Car Type";
-            // 
-            // Carhireinput
-            // 
-            this.Carhireinput.FormattingEnabled = true;
-            this.Carhireinput.Location = new System.Drawing.Point(6, 18);
-            this.Carhireinput.Name = "Carhireinput";
-            this.Carhireinput.Size = new System.Drawing.Size(121, 21);
-            this.Carhireinput.TabIndex = 34;
-            this.Carhireinput.Text = "Please select one";
-            this.Carhireinput.SelectedIndexChanged += new System.EventHandler(this.Carhireinput_SelectedIndexChanged);
+            this.Carinput.FormattingEnabled = true;
+            this.Carinput.Location = new System.Drawing.Point(6, 18);
+            this.Carinput.Name = "Carinput";
+            this.Carinput.Size = new System.Drawing.Size(121, 21);
+            this.Carinput.TabIndex = 34;
+            this.Carinput.Text = "Please select one";
+            this.Carinput.SelectedIndexChanged += new System.EventHandler(this.Carhireinput_SelectedIndexChanged);
             // 
             // Make
             // 
@@ -478,18 +465,11 @@
             this.Make.Size = new System.Drawing.Size(83, 20);
             this.Make.TabIndex = 34;
             // 
-            // Cartype
-            // 
-            this.Cartype.Location = new System.Drawing.Point(62, 41);
-            this.Cartype.Name = "Cartype";
-            this.Cartype.Size = new System.Drawing.Size(83, 20);
-            this.Cartype.TabIndex = 35;
-            // 
             // Numplate
             // 
-            this.Numplate.Location = new System.Drawing.Point(78, 67);
+            this.Numplate.Location = new System.Drawing.Point(77, 47);
             this.Numplate.Name = "Numplate";
-            this.Numplate.Size = new System.Drawing.Size(67, 20);
+            this.Numplate.Size = new System.Drawing.Size(92, 20);
             this.Numplate.TabIndex = 34;
             // 
             // Hoteldetails
@@ -686,12 +666,11 @@
         private System.Windows.Forms.TextBox Flighttype;
         private System.Windows.Forms.TextBox Flightnum;
         private System.Windows.Forms.TextBox Make;
-        private System.Windows.Forms.TextBox Cartype;
         private System.Windows.Forms.TextBox Numplate;
         private System.Windows.Forms.TextBox Checkout;
         private System.Windows.Forms.TextBox Checkin;
         private System.Windows.Forms.TextBox Starrating;
-        private System.Windows.Forms.ComboBox Carhireinput;
+        private System.Windows.Forms.ComboBox Carinput;
         private System.Windows.Forms.ComboBox Hotelinput;
         private System.Windows.Forms.TextBox Adultprice;
         private System.Windows.Forms.TextBox Childprice;
@@ -716,7 +695,6 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox Pricepernight;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
