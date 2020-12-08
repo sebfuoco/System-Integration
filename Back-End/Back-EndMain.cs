@@ -112,12 +112,12 @@ namespace Back_End
                 OleDbCommand command = new OleDbCommand();
                 OleDbDataReader reader;
 
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
                 command.Connection = connection;
 
                 connection.Open();
 
-                string query = "select FlightNumber from Flights where [Destination] =" + destination;
+                string query = "select FlightNumber from Flights where Destination = '" + destination + "'";
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -128,7 +128,7 @@ namespace Back_End
                     while (reader.Read())
                     {
 
-                        if (reader["Destination"].ToString() == destination.ToString())
+                        if (reader["Destination"].ToString() == destination)
                         {
                             flightnum = reader["FlightNumber"].ToString();
                         }
