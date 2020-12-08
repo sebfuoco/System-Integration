@@ -106,7 +106,7 @@ namespace Front_End
             sb.AppendLine(Childprice.Text);
             //Car hire details
             sb.AppendLine(Cardetails.Text);
-            sb.AppendLine(Carinput.Text);
+            //sb.AppendLine(Carinput.Text);
             sb.AppendLine(label18.Text);
             sb.AppendLine(Numplate.Text);
             sb.AppendLine(label19.Text);
