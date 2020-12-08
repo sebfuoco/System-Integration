@@ -67,7 +67,7 @@
             // nxtButton
             // 
             this.nxtButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold);
-            this.nxtButton.Location = new System.Drawing.Point(654, 537);
+            this.nxtButton.Location = new System.Drawing.Point(664, 537);
             this.nxtButton.Name = "nxtButton";
             this.nxtButton.Size = new System.Drawing.Size(134, 51);
             this.nxtButton.TabIndex = 4;
@@ -100,12 +100,12 @@
             // 
             this.extButton.BackColor = System.Drawing.Color.Transparent;
             this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extButton.Location = new System.Drawing.Point(770, -1);
+            this.extButton.Location = new System.Drawing.Point(665, 1);
             this.extButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(32, 29);
+            this.extButton.Size = new System.Drawing.Size(134, 51);
             this.extButton.TabIndex = 12;
-            this.extButton.Text = "X";
+            this.extButton.Text = "Exit";
             this.extButton.UseVisualStyleBackColor = false;
             this.extButton.Click += new System.EventHandler(this.extButton_Click);
             // 
