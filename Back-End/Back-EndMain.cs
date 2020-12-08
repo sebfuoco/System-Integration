@@ -91,7 +91,7 @@ namespace Back_End
 
                         if (reader["FlightNumber"].ToString() == flightNum.ToString())
                         {
-                            counter = counter + 1;
+                            counter += 1;
                         }
                     }
                     reader.Close();
@@ -151,6 +151,11 @@ namespace Back_End
 
             }
 
+            public static string spacesTaken(string spacesLeft)
+            {
+                int space = 20 - Int32.Parse(spacesLeft);
+                return space.ToString();
+            }
         }
 
         public static class login
