@@ -82,7 +82,6 @@
             this.Starrating = new System.Windows.Forms.TextBox();
             this.Locationinput = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Flightdetails.SuspendLayout();
@@ -231,6 +230,8 @@
             // label12
             // 
             this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.DarkGray;
+            this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(304, 48);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 13);
@@ -240,6 +241,8 @@
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.DarkGray;
+            this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(304, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 13);
@@ -618,6 +621,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 487);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label24);
@@ -628,6 +632,7 @@
             this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
             this.Controls.Add(this.groupBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
@@ -701,7 +706,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox1;
     }
