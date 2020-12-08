@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
+
 // Availability Check/Query
 // This form will check and allow user to select items for reservation
 
@@ -146,10 +147,6 @@ namespace Front_End
 
         }
 
-        private void Printb_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Flightdetails_Enter_1(object sender, EventArgs e)
         {
@@ -162,8 +159,19 @@ namespace Front_End
             string date = DateTimePicker1.Text.ToString();
             Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
             Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
+
+            var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID);
+            Flightnum.Text = flightDetails.flightNumber;
+            Destination.Text = flightDetails.destination;
+            Flighttype.Text = flightDetails.flightType;
+            Departuretime.Text = flightDetails.departure;
+            Departure.Text = flightDetails.departure;
+            Arrivaltime.Text = flightDetails.arrival;
+            Adultprice.Text = flightDetails.adultPrice;
+            Childprice.Text = flightDetails.childPrice;
         }
 
+      
         private void Locationinput_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 

@@ -444,10 +444,10 @@ namespace Back_End
     }
 
     //Sing:
-    public class DatabaseQuery
+    public static class DatabaseQuery
     {
 
-        struct flightDetails
+       public struct flightDetails
         {
             public string flightNumber;
             public string flightType;
@@ -479,13 +479,17 @@ namespace Back_End
         }
 
 
-        //Update Primary database with new bookings : Sing
-        public void showFlights(string flightNum)
+        // Sing
+        public static flightDetails getFlightDetails(string flightNum)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
             OleDbCommand command = new OleDbCommand();
             OleDbDataReader reader;
+
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
 
             connection.Open();
 
@@ -500,7 +504,7 @@ namespace Back_End
                 while (reader.Read())
                 {
 
-                    if (reader["ID"].ToString() == flightNum)
+                    if (reader["FlightNumber"].ToString() == flightNum)
                     {
                         flight.flightNumber = flightNum;
                         flight.flightType = reader["FlightType"].ToString();
@@ -515,6 +519,7 @@ namespace Back_End
             }
             connection.Close();
 
+            return flight;
             //Display flight data on front-end
            
         }
@@ -524,7 +529,7 @@ namespace Back_End
 
 
         //Sing : Query Databases Function - Accept query and returns boolean value.
-        protected internal bool query(string query, bool flag)
+        public static bool query(string query, bool flag)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
