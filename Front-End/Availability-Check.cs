@@ -252,7 +252,13 @@ namespace Front_End
 
         private void Carhireinput_SelectedIndexChanged(object sender, EventArgs e)
         {
- 
+            var carDetails = Back_End.DatabaseQuery.getCarDetails(Carinput.Text);
+            Numplate.Text = carDetails.numPlate;
+            Gearbox.Text = carDetails.gearBox;
+            Make.Text = carDetails.carMake;
+            Seats.Text = carDetails.seats;
+            Model.Text = carDetails.carModel;
+            Priceperday.Text = carDetails.pricePerDay;
         }
 
         private void Hotelinput_SelectedIndexChanged(object sender, EventArgs e)

@@ -62,7 +62,7 @@ namespace Back_End
         public static class calculations
         {
 
-            public static string calculateSpacesLeft(string flightNum, string date)
+            public static string calculateSpacesLeft(string flightNum, string flightdate)
             {
 
                 //Sing :  Database declarations
@@ -77,7 +77,7 @@ namespace Back_End
 
                 connection.Open();
 
-                string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
+                string query = "select * from Flights where FlightNumber =" + Int32.Parse(flightNum);
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -89,7 +89,7 @@ namespace Back_End
                     while (reader.Read())
                     {
 
-                        if (reader["FlightNumber"].ToString() == flightNum.ToString())
+                        if (reader["FlightNumber"].ToString() == flightNum.ToString() && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                         {
                             counter += 1;
                         }
@@ -458,19 +458,19 @@ namespace Back_End
             public string childPrice;
         }
 
-        struct cars
+        public struct cars
         {
             public string numPlate;
-            public string HotelID;
             public string carMake;
             public string carModel;
             public string carType;
             public string gearBox;
             public string seats;
+            public string pricePerDay;
 
         }
 
-        struct hotel
+       public  struct hotel
         {
             public string rating;
             public string checkIn;
@@ -480,7 +480,7 @@ namespace Back_End
 
 
         // Sing
-        public static flightDetails getFlightDetails(string flightNum, string date)
+        public static flightDetails getFlightDetails(string flightNum, string flightdate)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
@@ -493,7 +493,7 @@ namespace Back_End
 
             connection.Open();
 
-            string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
+            string query = "SELECT * FROM Flights WHERE FlightNumber =" + Int32.Parse(flightNum);
             command.CommandText = query;
             reader = command.ExecuteReader();
 
@@ -504,7 +504,7 @@ namespace Back_End
                 while (reader.Read())
                 {
 
-                    if (reader["FlightNumber"].ToString() == flightNum)
+                    if (reader["FlightNumber"].ToString() == flightNum && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                     {
                         flight.flightNumber = flightNum;
                         flight.flightType = reader["FlightType"].ToString();
@@ -528,12 +528,53 @@ namespace Back_End
                 //Display flight data on front-end
                 return flight;
             }
-            
-           
            
         }
 
+        public static cars getCarDetails(string carHire)
+        {
 
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
+
+            connection.Open();
+
+            string query = "SELECT * FROM Cars WHERE CarRentalCompany ='" + carHire + "'";
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            cars carDetails = new cars();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["CarRentalCompany"].ToString() == carHire)
+                    {
+                        carDetails.numPlate = reader["NumberPlate"].ToString();
+                        carDetails.carMake = reader["Make"].ToString();
+                        carDetails.carModel = reader["Model"].ToString();
+                        carDetails.carType = reader["CarType"].ToString();
+                        carDetails.gearBox = reader["GearBox"].ToString();
+                        carDetails.seats = reader["Seats"].ToString();
+                        carDetails.pricePerDay = reader["pricePerDay"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+           
+            return carDetails;
+            
+        }
+    
 
 
 
@@ -559,7 +600,9 @@ namespace Back_End
                 return flag = false;
             }
         }
+
     }
+
     public class SecondaryDatabase
     {
         public static bool recoveryProgress = false; // the Name property with hidden backing field
@@ -642,3 +685,4 @@ namespace Back_End
         }
     }
 }
+
