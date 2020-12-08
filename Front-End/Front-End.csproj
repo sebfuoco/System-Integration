@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -97,6 +97,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Manager_Database.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrimaryDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
     </Compile>
     <Compile Include="PrimaryDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -161,6 +166,17 @@
     </None>
     <None Include="Manager_Database.xss">
       <DependentUpon>Manager_Database.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDB.xsc">
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrimaryDB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrimaryDB.xss">
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
     </None>
     <None Include="PrimaryDBDataSet.xsc">
       <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>

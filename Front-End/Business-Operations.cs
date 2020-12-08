@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Back_End;
 
 namespace Front_End
 {
@@ -46,6 +47,12 @@ namespace Front_End
 
         private void Business_Ops_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'primaryDB.Flights' table. You can move, or remove it, as needed.
+            this.flightsTableAdapter1.Fill(this.primaryDB.Flights);
+            // TODO: This line of code loads data into the 'primaryDB.Customers' table. You can move, or remove it, as needed.
+            this.customersTableAdapter2.Fill(this.primaryDB.Customers);
+            // TODO: This line of code loads data into the 'primaryDB.Hotel' table. You can move, or remove it, as needed.
+            this.hotelTableAdapter1.Fill(this.primaryDB.Hotel);
             // TODO: This line of code loads data into the 'primaryDBDataSet.Hotel' table. You can move, or remove it, as needed.
             this.hotelTableAdapter.Fill(this.primaryDBDataSet.Hotel);
             // TODO: This line of code loads data into the 'primaryDBDataSet.Flights' table. You can move, or remove it, as needed.
@@ -54,6 +61,51 @@ namespace Front_End
             this.customersTableAdapter1.Fill(this.primaryDBDataSet.Customers);
             // TODO: This line of code loads data into the 'manager_Database.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.manager_Database.Customers);
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+
+            var primaryDatabase = new PrimaryDatabase();
+            bool query = primaryDatabase.batchUpdate(dbList, false);
+
+            if (query == true)
+            {
+                // success
+            }
+            else
+            {
+                // fail
+            }
+            
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var secondaryDatabase = new SecondaryDatabase();
+            bool query = secondaryDatabase.batchRecovery();
+
+            if (query == true)
+            {
+                // success
+            }
+            else
+            {
+                // fail
+            }
+        }
+
+        private void customerFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

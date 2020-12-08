@@ -28,6 +28,19 @@ namespace Front_End
 
         public OleDbCommand cmd { get; private set; }
 
+       // public Print_Invoice(string firstname, string surname, string address, string phonenumber, string destination, string flightprice, string hotellocation, string hotelprice, string carhirePrice)
+       // {
+       //     InitializeComponent();
+       //     fnameLbl.Text = firstname;
+       //     snameLbl.Text = surname;
+       //     addrLbl.Text = address;
+       //     phonenumLbl.Text = phonenumber;
+       //     destiLbl.Text = destination;
+        //    fliprice = flightprice;
+        //    carpriceLbl.Text = carhirePrice;
+        //    locatLbl.Text = hotellocation;
+       //     htlpri = hotelprice;
+        //}
 
         public Availability_Check()
         {
@@ -93,9 +106,7 @@ namespace Front_End
             sb.AppendLine(Childprice.Text);
             //Car hire details
             sb.AppendLine(Cardetails.Text);
-            sb.AppendLine(Carhireinput.Text);
-            sb.AppendLine(label17.Text);
-            sb.AppendLine(Cartype.Text);
+            sb.AppendLine(Carinput.Text);
             sb.AppendLine(label18.Text);
             sb.AppendLine(Numplate.Text);
             sb.AppendLine(label19.Text);
@@ -190,6 +201,12 @@ namespace Front_End
                 while (reader.Read())
                     Locationinput.Items.Add(reader["Destination"].ToString());
 
+                //string query = "SELECT CarType FROM Cars";
+                //command.CommandText = query;
+
+
+                //while (reader.Read())
+                //Carinput.Items.Add(reader["CarType"].ToString());
 
             }
 
