@@ -19,18 +19,38 @@ namespace Front_End
   
              string fname;
              string sname;
+             string addr;
+             string phonenum;
 
         //Flight Details
 
+        string desti;
+        string fliprice;
+
         //Hotel Details
+
+        string locat;
+        string htlpri;
+
+        //CarHire Details
+
+        string cardetails;
+        string carpri;
         
 
 
-        public Print_Invoice(string firstname, string surname)
+        public Print_Invoice(string firstname, string surname,string address,string phonenumber,string destination,string flightprice,string hotellocation,string hotelprice,string carhirePrice)
         {
             InitializeComponent();
-            fname = firstname;
-            sname = surname;
+            fnameLbl.Text = firstname;
+            snameLbl.Text = surname;
+            addrLbl.Text = address;
+            phonenumLbl.Text = phonenumber;
+            destiLbl.Text = destination;
+            fliprice = flightprice;
+            carpriceLbl.Text = carhirePrice;
+            locatLbl.Text = hotellocation;
+            htlpri = hotelprice;
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
