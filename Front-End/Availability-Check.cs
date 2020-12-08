@@ -67,6 +67,8 @@ namespace Front_End
         private void Copyb_Click(object sender, EventArgs e)
         {
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Locationinput.Text);
+            sb.AppendLine(DateTimePicker1.Text);
             sb.AppendLine(label4.Text);
             sb.AppendLine(Avaoutput.Text);
             sb.AppendLine(label1.Text);
@@ -117,8 +119,10 @@ namespace Front_End
             sb.AppendLine(Checkout.Text);
             sb.AppendLine(label16.Text);
             sb.AppendLine(Pricepernight.Text);
+            //total
+            sb.AppendLine(label24.Text);
+            sb.AppendLine(textBox1.Text);
             Clipboard.SetText(sb.ToString());
-
         }
 
         private void Avaoutput_TextChanged(object sender, EventArgs e)
