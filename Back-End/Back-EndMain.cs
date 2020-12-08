@@ -112,12 +112,12 @@ namespace Back_End
                 OleDbCommand command = new OleDbCommand();
                 OleDbDataReader reader;
 
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
                 command.Connection = connection;
 
                 connection.Open();
 
-                string query = "select FlightNumber from Flights where [Destination] =" + destination;
+                string query = "select FlightNumber from Flights where Destination = '" + destination + "'";
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
@@ -128,7 +128,7 @@ namespace Back_End
                     while (reader.Read())
                     {
 
-                        if (reader["Destination"].ToString() == destination.ToString())
+                        if (reader["Destination"].ToString() == destination)
                         {
                             flightnum = reader["FlightNumber"].ToString();
                         }
@@ -138,6 +138,17 @@ namespace Back_End
                 connection.Close();
 
                 return flightnum;
+            }
+
+            public static int calculateTotolPrice(string flightPrice, string carPricePerDay, int carNumberOfDays, string hotelPricePerNight, int hotelNumberOfNights )
+            {
+                int totalCarPice = Int32.Parse(carPricePerDay) * carNumberOfDays;
+                int totalHotelPrice = Int32.Parse(hotelPricePerNight) * hotelNumberOfNights;
+
+                int total = totalCarPice + totalHotelPrice + Int32.Parse(flightPrice);
+
+                return total;
+
             }
 
         }
