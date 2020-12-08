@@ -458,19 +458,19 @@ namespace Back_End
             public string childPrice;
         }
 
-        struct cars
+        public struct cars
         {
             public string numPlate;
-            public string HotelID;
             public string carMake;
             public string carModel;
             public string carType;
             public string gearBox;
             public string seats;
+            public string pricePerDay;
 
         }
 
-        struct hotel
+       public  struct hotel
         {
             public string rating;
             public string checkIn;
@@ -528,15 +528,53 @@ namespace Back_End
                 //Display flight data on front-end
                 return flight;
             }
-            
-           
            
         }
 
-        //public static cars getCarDetails()
-        //{
+        public static cars getCarDetails(string carHire)
+        {
 
-        //}
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
+
+            connection.Open();
+
+            string query = "SELECT * FROM Cars WHERE CarRentalCompany ='" + carHire + "'";
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            cars carDetails = new cars();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["CarRentalCompany"].ToString() == carHire)
+                    {
+                        carDetails.numPlate = reader["NumberPlate"].ToString();
+                        carDetails.carMake = reader["Make"].ToString();
+                        carDetails.carModel = reader["Model"].ToString();
+                        carDetails.carType = reader["CarType"].ToString();
+                        carDetails.gearBox = reader["GearBox"].ToString();
+                        carDetails.seats = reader["Seats"].ToString();
+                        carDetails.pricePerDay = reader["pricePerDay"].ToString();
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+           
+            return carDetails;
+            
+        }
+    
 
 
 
@@ -562,7 +600,9 @@ namespace Back_End
                 return flag = false;
             }
         }
+
     }
+
     public class SecondaryDatabase
     {
         public static bool recoveryProgress = false; // the Name property with hidden backing field
@@ -645,3 +685,4 @@ namespace Back_End
         }
     }
 }
+
