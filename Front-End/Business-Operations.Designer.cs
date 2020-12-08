@@ -57,6 +57,7 @@
             this.flightsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).BeginInit();
             this.customersBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
@@ -287,6 +288,23 @@
             this.button1.TabIndex = 21;
             this.button1.Text = "Sync";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.button2.FlatAppearance.BorderSize = 5;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.button2.Location = new System.Drawing.Point(182, 490);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(180, 123);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "Recovery";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Business_Ops
             // 
@@ -295,6 +313,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1475, 706);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.customersBindingNavigator);
             this.Controls.Add(this.extButton);
@@ -346,5 +365,6 @@
         private PrimaryDBDataSetTableAdapters.HotelTableAdapter hotelTableAdapter;
         private System.Windows.Forms.BindingSource hotelBindingSource;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
