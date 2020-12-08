@@ -140,6 +140,17 @@ namespace Back_End
                 return flightnum;
             }
 
+            public static int calculateTotolPrice(string flightPrice, string carPricePerDay, int carNumberOfDays, string hotelPricePerNight, int hotelNumberOfNights )
+            {
+                int totalCarPice = Int32.Parse(carPricePerDay) * carNumberOfDays;
+                int totalHotelPrice = Int32.Parse(hotelPricePerNight) * hotelNumberOfNights;
+
+                int total = totalCarPice + totalHotelPrice + Int32.Parse(flightPrice);
+
+                return total;
+
+            }
+
         }
 
         public static class login
