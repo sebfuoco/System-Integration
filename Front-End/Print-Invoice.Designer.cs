@@ -41,9 +41,9 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.fnameLbl = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.snameLbl = new System.Windows.Forms.Label();
+            this.addrLbl = new System.Windows.Forms.Label();
+            this.phonenumLbl = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
@@ -55,6 +55,12 @@
             this.label45 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label46 = new System.Windows.Forms.Label();
+            this.destiLbl = new System.Windows.Forms.Label();
+            this.cardetail = new System.Windows.Forms.Label();
+            this.locatLbl = new System.Windows.Forms.Label();
+            this.htlpriLbl = new System.Windows.Forms.Label();
+            this.carpriceLbl = new System.Windows.Forms.Label();
+            this.flipriceLbl = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -193,38 +199,38 @@
             // fnameLbl
             // 
             this.fnameLbl.AutoSize = true;
-            this.fnameLbl.Location = new System.Drawing.Point(575, 190);
+            this.fnameLbl.Location = new System.Drawing.Point(576, 190);
             this.fnameLbl.Name = "fnameLbl";
             this.fnameLbl.Size = new System.Drawing.Size(86, 20);
             this.fnameLbl.TabIndex = 6;
             this.fnameLbl.Text = "First Name";
             // 
-            // label34
+            // snameLbl
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(575, 222);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(86, 20);
-            this.label34.TabIndex = 7;
-            this.label34.Text = "Last Name";
+            this.snameLbl.AutoSize = true;
+            this.snameLbl.Location = new System.Drawing.Point(575, 222);
+            this.snameLbl.Name = "snameLbl";
+            this.snameLbl.Size = new System.Drawing.Size(86, 20);
+            this.snameLbl.TabIndex = 7;
+            this.snameLbl.Text = "Last Name";
             // 
-            // label35
+            // addrLbl
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(575, 257);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(68, 20);
-            this.label35.TabIndex = 8;
-            this.label35.Text = "Address";
+            this.addrLbl.AutoSize = true;
+            this.addrLbl.Location = new System.Drawing.Point(575, 257);
+            this.addrLbl.Name = "addrLbl";
+            this.addrLbl.Size = new System.Drawing.Size(68, 20);
+            this.addrLbl.TabIndex = 8;
+            this.addrLbl.Text = "Address";
             // 
-            // label36
+            // phonenumLbl
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(575, 292);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(115, 20);
-            this.label36.TabIndex = 9;
-            this.label36.Text = "Phone Number";
+            this.phonenumLbl.AutoSize = true;
+            this.phonenumLbl.Location = new System.Drawing.Point(575, 292);
+            this.phonenumLbl.Name = "phonenumLbl";
+            this.phonenumLbl.Size = new System.Drawing.Size(115, 20);
+            this.phonenumLbl.TabIndex = 9;
+            this.phonenumLbl.Text = "Phone Number";
             // 
             // label37
             // 
@@ -270,7 +276,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(9, 384);
+            this.label41.Location = new System.Drawing.Point(9, 382);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(137, 22);
             this.label41.TabIndex = 14;
@@ -337,9 +343,66 @@
             this.label46.TabIndex = 20;
             this.label46.Text = "Thank You for Booking with Palm Escapes...";
             // 
+            // destiLbl
+            // 
+            this.destiLbl.AutoSize = true;
+            this.destiLbl.Location = new System.Drawing.Point(176, 342);
+            this.destiLbl.Name = "destiLbl";
+            this.destiLbl.Size = new System.Drawing.Size(0, 20);
+            this.destiLbl.TabIndex = 20;
+            // 
+            // cardetail
+            // 
+            this.cardetail.AutoSize = true;
+            this.cardetail.Location = new System.Drawing.Point(176, 384);
+            this.cardetail.Name = "cardetail";
+            this.cardetail.Size = new System.Drawing.Size(0, 20);
+            this.cardetail.TabIndex = 21;
+            // 
+            // locatLbl
+            // 
+            this.locatLbl.AutoSize = true;
+            this.locatLbl.Location = new System.Drawing.Point(176, 426);
+            this.locatLbl.Name = "locatLbl";
+            this.locatLbl.Size = new System.Drawing.Size(0, 20);
+            this.locatLbl.TabIndex = 22;
+            // 
+            // htlpriLbl
+            // 
+            this.htlpriLbl.AutoSize = true;
+            this.htlpriLbl.Location = new System.Drawing.Point(366, 426);
+            this.htlpriLbl.Name = "htlpriLbl";
+            this.htlpriLbl.Size = new System.Drawing.Size(60, 20);
+            this.htlpriLbl.TabIndex = 23;
+            this.htlpriLbl.Text = "label22";
+            // 
+            // carpriceLbl
+            // 
+            this.carpriceLbl.AutoSize = true;
+            this.carpriceLbl.Location = new System.Drawing.Point(366, 386);
+            this.carpriceLbl.Name = "carpriceLbl";
+            this.carpriceLbl.Size = new System.Drawing.Size(60, 20);
+            this.carpriceLbl.TabIndex = 24;
+            this.carpriceLbl.Text = "label34";
+            // 
+            // flipriceLbl
+            // 
+            this.flipriceLbl.AutoSize = true;
+            this.flipriceLbl.Location = new System.Drawing.Point(366, 342);
+            this.flipriceLbl.Name = "flipriceLbl";
+            this.flipriceLbl.Size = new System.Drawing.Size(60, 20);
+            this.flipriceLbl.TabIndex = 25;
+            this.flipriceLbl.Text = "label35";
+            // 
             // Print_Invoice
             // 
             this.ClientSize = new System.Drawing.Size(823, 534);
+            this.Controls.Add(this.flipriceLbl);
+            this.Controls.Add(this.carpriceLbl);
+            this.Controls.Add(this.htlpriLbl);
+            this.Controls.Add(this.locatLbl);
+            this.Controls.Add(this.cardetail);
+            this.Controls.Add(this.destiLbl);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.label44);
@@ -350,9 +413,9 @@
             this.Controls.Add(this.label39);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.label37);
-            this.Controls.Add(this.label36);
-            this.Controls.Add(this.label35);
-            this.Controls.Add(this.label34);
+            this.Controls.Add(this.phonenumLbl);
+            this.Controls.Add(this.addrLbl);
+            this.Controls.Add(this.snameLbl);
             this.Controls.Add(this.fnameLbl);
             this.Controls.Add(this.label32);
             this.Controls.Add(this.label31);
@@ -410,9 +473,9 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label fnameLbl;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label snameLbl;
+        private System.Windows.Forms.Label addrLbl;
+        private System.Windows.Forms.Label phonenumLbl;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
@@ -424,5 +487,11 @@
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label destiLbl;
+        private System.Windows.Forms.Label cardetail;
+        private System.Windows.Forms.Label locatLbl;
+        private System.Windows.Forms.Label htlpriLbl;
+        private System.Windows.Forms.Label carpriceLbl;
+        private System.Windows.Forms.Label flipriceLbl;
     }
 }
