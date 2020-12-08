@@ -85,11 +85,13 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.Flightdetails.SuspendLayout();
             this.Cardetails.SuspendLayout();
             this.Hoteldetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
             // 
             // nxtButton
@@ -191,6 +193,7 @@
             // Flightdetails
             // 
             this.Flightdetails.BackColor = System.Drawing.Color.Transparent;
+            this.Flightdetails.Controls.Add(this.numericUpDown2);
             this.Flightdetails.Controls.Add(this.numericUpDown1);
             this.Flightdetails.Controls.Add(this.Adultprice);
             this.Flightdetails.Controls.Add(this.Childprice);
@@ -218,14 +221,15 @@
             // 
             // Adultprice
             // 
-            this.Adultprice.Location = new System.Drawing.Point(368, 19);
+            this.Adultprice.Location = new System.Drawing.Point(307, 22);
             this.Adultprice.Name = "Adultprice";
             this.Adultprice.Size = new System.Drawing.Size(79, 20);
             this.Adultprice.TabIndex = 48;
+            this.Adultprice.TextChanged += new System.EventHandler(this.Adultprice_TextChanged);
             // 
             // Childprice
             // 
-            this.Childprice.Location = new System.Drawing.Point(367, 45);
+            this.Childprice.Location = new System.Drawing.Point(307, 71);
             this.Childprice.Name = "Childprice";
             this.Childprice.Size = new System.Drawing.Size(79, 20);
             this.Childprice.TabIndex = 47;
@@ -235,7 +239,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.DarkGray;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(304, 48);
+            this.label12.Location = new System.Drawing.Point(319, 52);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(57, 13);
             this.label12.TabIndex = 46;
@@ -246,7 +250,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.DarkGray;
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(304, 22);
+            this.label11.Location = new System.Drawing.Point(319, 6);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 45;
@@ -620,10 +624,49 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(311, 67);
+            this.numericUpDown1.Location = new System.Drawing.Point(393, 23);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
             this.numericUpDown1.TabIndex = 37;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(392, 72);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            19,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown2.TabIndex = 49;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // Availability_Check
             // 
@@ -658,6 +701,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,5 +764,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
     }
 }

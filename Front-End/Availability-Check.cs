@@ -275,5 +275,20 @@ namespace Front_End
         {
 
         }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Adultprice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
