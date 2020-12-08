@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Back_End;
 
 namespace Front_End
 {
@@ -55,6 +56,46 @@ namespace Front_End
             // TODO: This line of code loads data into the 'manager_Database.Customers' table. You can move, or remove it, as needed.
             this.customersTableAdapter.Fill(this.manager_Database.Customers);
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+
+            var primaryDatabase = new PrimaryDatabase();
+            bool query = primaryDatabase.batchUpdate(dbList, false);
+
+            if (query == true)
+            {
+                // success
+            }
+            else
+            {
+                // fail
+            }
+            
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var secondaryDatabase = new SecondaryDatabase();
+            bool query = secondaryDatabase.batchRecovery();
+
+            if (query == true)
+            {
+                // success
+            }
+            else
+            {
+                // fail
+            }
         }
     }
 }
