@@ -157,10 +157,8 @@ namespace Front_End
         {
             string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
             string date = DateTimePicker1.Text.ToString();
-            Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
-            Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
-
-            var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID);
+           
+            var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID,date);
             Flightnum.Text = flightDetails.flightNumber;
             Destination.Text = flightDetails.destination;
             Flighttype.Text = flightDetails.flightType;
@@ -169,6 +167,13 @@ namespace Front_End
             Arrivaltime.Text = flightDetails.arrival;
             Adultprice.Text = flightDetails.adultPrice;
             Childprice.Text = flightDetails.childPrice;
+
+              
+            if (Flightnum.Text != "")
+            {
+                Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
+                Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
+            }
         }
 
       

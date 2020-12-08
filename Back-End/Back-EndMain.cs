@@ -480,7 +480,7 @@ namespace Back_End
 
 
         // Sing
-        public static flightDetails getFlightDetails(string flightNum)
+        public static flightDetails getFlightDetails(string flightNum, string date)
         {
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
@@ -493,7 +493,7 @@ namespace Back_End
 
             connection.Open();
 
-            string query = "select * from Flights where [FlightNumber] =" + flightNum;
+            string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
             command.CommandText = query;
             reader = command.ExecuteReader();
 
@@ -518,9 +518,18 @@ namespace Back_End
                 reader.Close();
             }
             connection.Close();
-
-            return flight;
-            //Display flight data on front-end
+            if (flight.departure == null)
+            {
+                MessageBox.Show("No availability found for this date.");
+                return flight;
+            }
+            else
+            {
+                //Display flight data on front-end
+                return flight;
+            }
+            
+           
            
         }
 
