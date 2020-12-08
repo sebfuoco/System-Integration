@@ -19,16 +19,19 @@ namespace Front_End
             InitializeComponent();
         }
 
+        // connect to homepage
         private void cnlButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        // exit code
         private void extButton_Click(object sender, EventArgs e)
         {
 
         }
 
+        // connect to invoice
         private void nxtButton_Click(object sender, EventArgs e)
         {
 
