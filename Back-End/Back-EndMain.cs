@@ -91,7 +91,7 @@ namespace Back_End
 
                         if (reader["FlightNumber"].ToString() == flightNum.ToString())
                         {
-                            counter = counter + 1;
+                            counter += 1;
                         }
                     }
                     reader.Close();
@@ -104,7 +104,7 @@ namespace Back_End
 
 
             public static string getFlightID(string destination)
-            {
+            { 
                 //Sing :  Database declarations
                 System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
                 OleDbDataAdapter ad;
@@ -117,18 +117,18 @@ namespace Back_End
 
                 connection.Open();
 
-                string query = "select FlightNumber from Flights where Destination = '" + destination + "'";
+                string query = "select * from Flights where [Destination] = '" + destination + "'";
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
-                string flightnum ="";
+                string flightnum = "";
 
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
 
-                        if (reader["Destination"].ToString() == destination)
+                        if (reader["Destination"].ToString() == destination.ToString())
                         {
                             flightnum = reader["FlightNumber"].ToString();
                         }
@@ -151,6 +151,11 @@ namespace Back_End
 
             }
 
+            public static string spacesTaken(string spacesLeft)
+            {
+                int space = 20 - Int32.Parse(spacesLeft);
+                return space.ToString();
+            }
         }
 
         public static class login
