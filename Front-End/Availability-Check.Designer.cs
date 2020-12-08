@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.DateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Check = new System.Windows.Forms.Button();
-            this.Printb = new System.Windows.Forms.Button();
             this.Copyb = new System.Windows.Forms.Button();
             this.Avaoutput = new System.Windows.Forms.TextBox();
             this.Seatoutput = new System.Windows.Forms.TextBox();
@@ -85,9 +84,14 @@
             this.Checkin = new System.Windows.Forms.TextBox();
             this.Starrating = new System.Windows.Forms.TextBox();
             this.Locationinput = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.label24 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Flightdetails.SuspendLayout();
             this.Cardetails.SuspendLayout();
             this.Hoteldetails.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nxtButton
@@ -116,24 +120,24 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(248, 9);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(224, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.Size = new System.Drawing.Size(148, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "Availability Check";
             // 
             // DateTimePicker1
             // 
-            this.DateTimePicker1.CustomFormat = "";
-            this.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePicker1.Location = new System.Drawing.Point(278, 56);
+            this.DateTimePicker1.Location = new System.Drawing.Point(161, 26);
             this.DateTimePicker1.Name = "DateTimePicker1";
             this.DateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.DateTimePicker1.TabIndex = 19;
+            this.DateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
             // Check
             // 
-            this.Check.Location = new System.Drawing.Point(403, 82);
+            this.Check.Location = new System.Drawing.Point(372, 24);
             this.Check.Name = "Check";
             this.Check.Size = new System.Drawing.Size(75, 23);
             this.Check.TabIndex = 20;
@@ -141,19 +145,9 @@
             this.Check.UseVisualStyleBackColor = true;
             this.Check.Click += new System.EventHandler(this.Check_Click_1);
             // 
-            // Printb
-            // 
-            this.Printb.Location = new System.Drawing.Point(422, 121);
-            this.Printb.Name = "Printb";
-            this.Printb.Size = new System.Drawing.Size(75, 23);
-            this.Printb.TabIndex = 21;
-            this.Printb.Text = "Print";
-            this.Printb.UseVisualStyleBackColor = true;
-            this.Printb.Click += new System.EventHandler(this.Printb_Click);
-            // 
             // Copyb
             // 
-            this.Copyb.Location = new System.Drawing.Point(341, 121);
+            this.Copyb.Location = new System.Drawing.Point(361, 413);
             this.Copyb.Name = "Copyb";
             this.Copyb.Size = new System.Drawing.Size(75, 23);
             this.Copyb.TabIndex = 22;
@@ -163,7 +157,7 @@
             // 
             // Avaoutput
             // 
-            this.Avaoutput.Location = new System.Drawing.Point(125, 123);
+            this.Avaoutput.Location = new System.Drawing.Point(134, 75);
             this.Avaoutput.Name = "Avaoutput";
             this.Avaoutput.Size = new System.Drawing.Size(100, 20);
             this.Avaoutput.TabIndex = 24;
@@ -171,7 +165,7 @@
             // 
             // Seatoutput
             // 
-            this.Seatoutput.Location = new System.Drawing.Point(235, 123);
+            this.Seatoutput.Location = new System.Drawing.Point(240, 75);
             this.Seatoutput.Name = "Seatoutput";
             this.Seatoutput.Size = new System.Drawing.Size(100, 20);
             this.Seatoutput.TabIndex = 25;
@@ -180,7 +174,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(257, 106);
+            this.label1.Location = new System.Drawing.Point(264, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 26;
@@ -189,7 +183,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(184, 451);
+            this.label3.Location = new System.Drawing.Point(191, 465);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(219, 13);
             this.label3.TabIndex = 27;
@@ -199,7 +193,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(148, 106);
+            this.label4.Location = new System.Drawing.Point(158, 59);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 28;
@@ -224,7 +218,7 @@
             this.Flightdetails.Controls.Add(this.Departure);
             this.Flightdetails.Controls.Add(this.Flighttype);
             this.Flightdetails.Controls.Add(this.Flightnum);
-            this.Flightdetails.Location = new System.Drawing.Point(74, 149);
+            this.Flightdetails.Location = new System.Drawing.Point(0, 100);
             this.Flightdetails.Name = "Flightdetails";
             this.Flightdetails.Size = new System.Drawing.Size(456, 100);
             this.Flightdetails.TabIndex = 31;
@@ -378,7 +372,7 @@
             this.Cardetails.Controls.Add(this.Make);
             this.Cardetails.Controls.Add(this.Cartype);
             this.Cardetails.Controls.Add(this.Numplate);
-            this.Cardetails.Location = new System.Drawing.Point(74, 271);
+            this.Cardetails.Location = new System.Drawing.Point(74, 242);
             this.Cardetails.Name = "Cardetails";
             this.Cardetails.Size = new System.Drawing.Size(248, 145);
             this.Cardetails.TabIndex = 32;
@@ -520,7 +514,7 @@
             this.Hoteldetails.Controls.Add(this.Checkout);
             this.Hoteldetails.Controls.Add(this.Checkin);
             this.Hoteldetails.Controls.Add(this.Starrating);
-            this.Hoteldetails.Location = new System.Drawing.Point(346, 271);
+            this.Hoteldetails.Location = new System.Drawing.Point(347, 242);
             this.Hoteldetails.Name = "Hoteldetails";
             this.Hoteldetails.Size = new System.Drawing.Size(183, 145);
             this.Hoteldetails.TabIndex = 32;
@@ -605,12 +599,48 @@
             // Locationinput
             // 
             this.Locationinput.FormattingEnabled = true;
-            this.Locationinput.Location = new System.Drawing.Point(151, 55);
+            this.Locationinput.Location = new System.Drawing.Point(30, 26);
             this.Locationinput.Name = "Locationinput";
             this.Locationinput.Size = new System.Drawing.Size(121, 21);
             this.Locationinput.TabIndex = 33;
             this.Locationinput.Text = "Please select one";
             this.Locationinput.SelectedIndexChanged += new System.EventHandler(this.Locationinput_SelectedIndexChanged_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.Locationinput);
+            this.groupBox1.Controls.Add(this.DateTimePicker1);
+            this.groupBox1.Controls.Add(this.Check);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.Flightdetails);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.Seatoutput);
+            this.groupBox1.Controls.Add(this.Avaoutput);
+            this.groupBox1.Location = new System.Drawing.Point(74, 30);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(456, 197);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Flight Check";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.BackColor = System.Drawing.Color.Transparent;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(191, 416);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(56, 16);
+            this.label24.TabIndex = 35;
+            this.label24.Text = "Total =";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(253, 415);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 36;
             // 
             // Availability_Check
             // 
@@ -619,23 +649,17 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(600, 487);
-            this.Controls.Add(this.Locationinput);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.Hoteldetails);
             this.Controls.Add(this.Cardetails);
-            this.Controls.Add(this.Flightdetails);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Seatoutput);
-            this.Controls.Add(this.Avaoutput);
             this.Controls.Add(this.Copyb);
-            this.Controls.Add(this.Printb);
-            this.Controls.Add(this.Check);
-            this.Controls.Add(this.DateTimePicker1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Availability_Check";
@@ -647,6 +671,8 @@
             this.Cardetails.PerformLayout();
             this.Hoteldetails.ResumeLayout(false);
             this.Hoteldetails.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -658,7 +684,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker DateTimePicker1;
         private System.Windows.Forms.Button Check;
-        private System.Windows.Forms.Button Printb;
         private System.Windows.Forms.Button Copyb;
         private System.Windows.Forms.TextBox Avaoutput;
         private System.Windows.Forms.TextBox Seatoutput;
@@ -709,5 +734,9 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
