@@ -53,17 +53,15 @@
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.totalLbl = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label46 = new System.Windows.Forms.Label();
             this.destiLbl = new System.Windows.Forms.Label();
             this.cardetailLbl = new System.Windows.Forms.Label();
             this.locatLbl = new System.Windows.Forms.Label();
             this.htlpriLbl = new System.Windows.Forms.Label();
             this.carpriceLbl = new System.Windows.Forms.Label();
             this.flipriceLbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -320,27 +318,6 @@
             this.totalLbl.TabIndex = 18;
             this.totalLbl.Text = "label45";
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel3.Controls.Add(this.label46);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(50, 483);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(724, 45);
-            this.panel3.TabIndex = 19;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(170, 9);
-            this.label46.Name = "label46";
-            this.label46.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label46.Size = new System.Drawing.Size(395, 25);
-            this.label46.TabIndex = 20;
-            this.label46.Text = "Thank You for Booking with Palm Escapes...";
-            // 
             // destiLbl
             // 
             this.destiLbl.AutoSize = true;
@@ -392,16 +369,27 @@
             this.flipriceLbl.TabIndex = 25;
             this.flipriceLbl.Text = "label35";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(44, 483);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(696, 39);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Thank You for Booking with Palm Escapes...";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Print_Invoice
             // 
             this.ClientSize = new System.Drawing.Size(823, 534);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.flipriceLbl);
             this.Controls.Add(this.carpriceLbl);
             this.Controls.Add(this.htlpriLbl);
             this.Controls.Add(this.locatLbl);
             this.Controls.Add(this.cardetailLbl);
             this.Controls.Add(this.destiLbl);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.totalLbl);
             this.Controls.Add(this.label44);
             this.Controls.Add(this.label43);
@@ -425,8 +413,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -483,13 +469,12 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label totalLbl;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label destiLbl;
         private System.Windows.Forms.Label cardetailLbl;
         private System.Windows.Forms.Label locatLbl;
         private System.Windows.Forms.Label htlpriLbl;
         private System.Windows.Forms.Label carpriceLbl;
         private System.Windows.Forms.Label flipriceLbl;
+        private System.Windows.Forms.Button button1;
     }
 }
