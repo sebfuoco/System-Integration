@@ -43,5 +43,15 @@ namespace Front_End.Properties {
                 return ((string)(this["PrimaryConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\PrimaryDB.mdb")]
+        public string PrimaryDBConnectionString {
+            get {
+                return ((string)(this["PrimaryDBConnectionString"]));
+            }
+        }
     }
 }
