@@ -41,9 +41,10 @@
             // userSearch
             // 
             this.userSearch.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userSearch.Location = new System.Drawing.Point(475, 191);
+            this.userSearch.Location = new System.Drawing.Point(356, 155);
+            this.userSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.userSearch.Name = "userSearch";
-            this.userSearch.Size = new System.Drawing.Size(248, 48);
+            this.userSearch.Size = new System.Drawing.Size(186, 39);
             this.userSearch.TabIndex = 1;
             this.userSearch.Text = "Holiday Search";
             this.userSearch.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@
             // mgrButton
             // 
             this.mgrButton.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mgrButton.Location = new System.Drawing.Point(475, 281);
+            this.mgrButton.Location = new System.Drawing.Point(356, 228);
+            this.mgrButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mgrButton.Name = "mgrButton";
-            this.mgrButton.Size = new System.Drawing.Size(248, 48);
+            this.mgrButton.Size = new System.Drawing.Size(186, 39);
             this.mgrButton.TabIndex = 2;
             this.mgrButton.Text = "Admin Log in";
             this.mgrButton.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(86, -1);
+            this.pictureBox1.Location = new System.Drawing.Point(64, -1);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(88, 103);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -75,10 +78,10 @@
             // 
             this.extButton.BackColor = System.Drawing.Color.Transparent;
             this.extButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.extButton.Location = new System.Drawing.Point(770, -1);
-            this.extButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.extButton.Location = new System.Drawing.Point(578, -1);
+            this.extButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.extButton.Name = "extButton";
-            this.extButton.Size = new System.Drawing.Size(32, 29);
+            this.extButton.Size = new System.Drawing.Size(24, 24);
             this.extButton.TabIndex = 8;
             this.extButton.Text = "X";
             this.extButton.UseVisualStyleBackColor = false;
@@ -91,9 +94,10 @@
             this.label2.Font = new System.Drawing.Font("Century Schoolbook", 17.25F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(209, 9);
+            this.label2.Location = new System.Drawing.Point(157, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(375, 34);
+            this.label2.Size = new System.Drawing.Size(452, 40);
             this.label2.TabIndex = 9;
             this.label2.Text = "Holiday Booking System";
             // 
@@ -102,27 +106,29 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Brush Script MT", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(35, 364);
+            this.label1.Location = new System.Drawing.Point(26, 296);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(260, 47);
+            this.label1.Size = new System.Drawing.Size(304, 55);
             this.label1.TabIndex = 10;
             this.label1.Text = "Perfect Get Away";
             // 
             // main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.ClientSize = new System.Drawing.Size(600, 488);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.extButton);
             this.Controls.Add(this.mgrButton);
             this.Controls.Add(this.userSearch);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Holiday Booking System";
