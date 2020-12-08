@@ -227,5 +227,10 @@ namespace Front_End
         {
 
         }
+
+        private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
