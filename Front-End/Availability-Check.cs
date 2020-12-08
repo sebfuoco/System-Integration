@@ -44,17 +44,7 @@ namespace Front_End
 
         private void extButton_Click_1(object sender, EventArgs e)
         {
-            const string text = "Do you want to exit?";
-            const string caption = "EXIT";
-            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            else if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+
         }
 
         private void cnlButton_Click_2(object sender, EventArgs e)

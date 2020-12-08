@@ -213,7 +213,7 @@
             // firstNametxtbox
             // 
             this.firstNametxtbox.Location = new System.Drawing.Point(516, 76);
-            this.firstNametxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstNametxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.firstNametxtbox.Name = "firstNametxtbox";
             this.firstNametxtbox.Size = new System.Drawing.Size(228, 22);
             this.firstNametxtbox.TabIndex = 22;
@@ -221,7 +221,7 @@
             // lastNametxtbox
             // 
             this.lastNametxtbox.Location = new System.Drawing.Point(516, 126);
-            this.lastNametxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastNametxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.lastNametxtbox.Name = "lastNametxtbox";
             this.lastNametxtbox.Size = new System.Drawing.Size(228, 22);
             this.lastNametxtbox.TabIndex = 23;
@@ -229,7 +229,7 @@
             // passportNumbtxtbox
             // 
             this.passportNumbtxtbox.Location = new System.Drawing.Point(517, 215);
-            this.passportNumbtxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passportNumbtxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.passportNumbtxtbox.Name = "passportNumbtxtbox";
             this.passportNumbtxtbox.Size = new System.Drawing.Size(228, 22);
             this.passportNumbtxtbox.TabIndex = 24;
@@ -237,7 +237,7 @@
             // Nationalitytxtbox
             // 
             this.Nationalitytxtbox.Location = new System.Drawing.Point(517, 265);
-            this.Nationalitytxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Nationalitytxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.Nationalitytxtbox.Name = "Nationalitytxtbox";
             this.Nationalitytxtbox.Size = new System.Drawing.Size(228, 22);
             this.Nationalitytxtbox.TabIndex = 25;
@@ -245,7 +245,7 @@
             // Addresstxtbox
             // 
             this.Addresstxtbox.Location = new System.Drawing.Point(517, 315);
-            this.Addresstxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Addresstxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.Addresstxtbox.Name = "Addresstxtbox";
             this.Addresstxtbox.Size = new System.Drawing.Size(228, 22);
             this.Addresstxtbox.TabIndex = 26;
@@ -253,7 +253,7 @@
             // postCodetxtbox
             // 
             this.postCodetxtbox.Location = new System.Drawing.Point(516, 356);
-            this.postCodetxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.postCodetxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.postCodetxtbox.Name = "postCodetxtbox";
             this.postCodetxtbox.Size = new System.Drawing.Size(228, 22);
             this.postCodetxtbox.TabIndex = 27;
@@ -261,7 +261,7 @@
             // contactNumbertxtbox
             // 
             this.contactNumbertxtbox.Location = new System.Drawing.Point(516, 408);
-            this.contactNumbertxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.contactNumbertxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.contactNumbertxtbox.Name = "contactNumbertxtbox";
             this.contactNumbertxtbox.Size = new System.Drawing.Size(228, 22);
             this.contactNumbertxtbox.TabIndex = 28;
@@ -269,7 +269,7 @@
             // emailtxtbox
             // 
             this.emailtxtbox.Location = new System.Drawing.Point(516, 462);
-            this.emailtxtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emailtxtbox.Margin = new System.Windows.Forms.Padding(4);
             this.emailtxtbox.Name = "emailtxtbox";
             this.emailtxtbox.Size = new System.Drawing.Size(228, 22);
             this.emailtxtbox.TabIndex = 29;
@@ -323,7 +323,7 @@
             this.Controls.Add(this.bckButton);
             this.Controls.Add(this.nxtButton);
             this.Controls.Add(this.cnlButton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Booking_Reservation";
             this.Text = "Booking Reservation";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
