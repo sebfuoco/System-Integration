@@ -72,5 +72,22 @@ namespace Front_End
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            const string text = "Are you sure want to go to the main page?";
+            const string caption = "CANCEL";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                main m = new main();
+                m.ShowDialog();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
     }
 }
