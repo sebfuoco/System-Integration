@@ -71,6 +71,7 @@ namespace Front_End
 
         private void recovery_Click(object sender, EventArgs e)
         {
+            // batch recovery query: Seb + Gianni
             var secondaryDatabase = new SecondaryDatabase();
             bool query = secondaryDatabase.batchRecovery();
 
@@ -86,7 +87,7 @@ namespace Front_End
 
         private void sync_Click(object sender, EventArgs e)
         {
-            // batch update queries
+            // batch update queries: Seb + Gianni
             string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
                 fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
                 fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
