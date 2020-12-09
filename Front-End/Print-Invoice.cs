@@ -121,5 +121,10 @@ namespace Front_End
             totalLbl.Text = invoiceDetails.totalPrice;
 
         }
+
+        private void printInvoiceBtn_Click(object sender, EventArgs e)
+        {
+            Back_End.printFunction.printInvoice(invoiceDetails.invoiceDate, invoiceDetails.fname, invoiceDetails.sname, invoiceDetails.customerAddress, invoiceDetails.customerPhone, invoiceDetails.flightDestination, invoiceDetails.flightTotalPrice, invoiceDetails.hireDetails, invoiceDetails.carHirePrice, invoiceDetails.hotelDetails, invoiceDetails.hotelTotalPrice, invoiceDetails.totalPrice);
+        }
     }
 }

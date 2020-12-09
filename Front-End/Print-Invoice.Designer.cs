@@ -60,6 +60,7 @@
             this.carpriceLbl = new System.Windows.Forms.Label();
             this.flipriceLbl = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.printInvoiceBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -380,9 +381,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // printInvoiceBtn
+            // 
+            this.printInvoiceBtn.Location = new System.Drawing.Point(184, 426);
+            this.printInvoiceBtn.Name = "printInvoiceBtn";
+            this.printInvoiceBtn.Size = new System.Drawing.Size(75, 23);
+            this.printInvoiceBtn.TabIndex = 27;
+            this.printInvoiceBtn.Text = "Print Invoice";
+            this.printInvoiceBtn.UseVisualStyleBackColor = true;
+            this.printInvoiceBtn.Click += new System.EventHandler(this.printInvoiceBtn_Click);
+            // 
             // Print_Invoice
             // 
             this.ClientSize = new System.Drawing.Size(823, 534);
+            this.Controls.Add(this.printInvoiceBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flipriceLbl);
             this.Controls.Add(this.carpriceLbl);
@@ -476,5 +488,6 @@
         private System.Windows.Forms.Label carpriceLbl;
         private System.Windows.Forms.Label flipriceLbl;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button printInvoiceBtn;
     }
 }
