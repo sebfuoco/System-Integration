@@ -135,6 +135,7 @@ namespace Front_End
             sb.AppendLine(Checkout.Text);
             sb.AppendLine(label16.Text);
             sb.AppendLine(Pricepernight.Text);
+            sb.AppendLine(numericUpDown4.Text);
             //total
             sb.AppendLine(label24.Text);
             sb.AppendLine(textBox1.Text);
@@ -308,12 +309,76 @@ namespace Front_End
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-           
+            //Sing : Get flightID
+            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+            string date = DateTimePicker1.Text.ToString();
+            //Sing: Display flight Details 
+            var flightDetails = Back_End.DatabaseQuery.getFlightDetails(flightID, date);
+
+            //times price by value in numericupdown
+
+            decimal x = numericUpDown2.Value;
+
+            string strprice = flightDetails.childPrice;
+            decimal price = Convert.ToDecimal(strprice);
+
+            decimal total = x * price;
+
+            Childprice.Text = total.ToString();
         }
 
         private void Adultprice_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void Childprice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Priceperday_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+
+            var carDetails = Back_End.DatabaseQuery.getCarDetails(Carinput.Text);
+
+            Priceperday.Text = carDetails.pricePerDay;
+
+            //times price by value in numericupdown
+
+            decimal x = numericUpDown3.Value;
+
+            string strprice = carDetails.pricePerDay;
+            decimal price = Convert.ToDecimal(strprice);
+
+            decimal total = x * price;
+
+            Priceperday.Text = total.ToString();
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+
+            var hotelDetails = Back_End.DatabaseQuery.getHotelDetails(Hotelinput.Text);
+
+            Pricepernight.Text = hotelDetails.pricePerNight;
+
+            //times price by value in numericupdown
+
+            decimal x = numericUpDown4.Value;
+
+            string strprice = hotelDetails.pricePerNight;
+            decimal price = Convert.ToDecimal(strprice);
+
+            decimal total = x * price;
+
+            Pricepernight.Text = total.ToString();
+
         }
     }
 }
