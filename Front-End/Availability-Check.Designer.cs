@@ -87,8 +87,9 @@
             this.Locationinput = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Total = new System.Windows.Forms.TextBox();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.Caculate = new System.Windows.Forms.Button();
             this.Flightdetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -688,12 +689,13 @@
             this.label24.TabIndex = 35;
             this.label24.Text = "Total =";
             // 
-            // textBox1
+            // Total
             // 
-            this.textBox1.Location = new System.Drawing.Point(253, 415);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 36;
+            this.Total.Location = new System.Drawing.Point(253, 415);
+            this.Total.Name = "Total";
+            this.Total.Size = new System.Drawing.Size(100, 20);
+            this.Total.TabIndex = 36;
+            this.Total.TextChanged += new System.EventHandler(this.Total_TextChanged);
             // 
             // numericUpDown4
             // 
@@ -713,6 +715,16 @@
             0});
             this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
+            // Caculate
+            // 
+            this.Caculate.Location = new System.Drawing.Point(265, 436);
+            this.Caculate.Name = "Caculate";
+            this.Caculate.Size = new System.Drawing.Size(75, 23);
+            this.Caculate.TabIndex = 37;
+            this.Caculate.Text = "Caculate";
+            this.Caculate.UseVisualStyleBackColor = true;
+            this.Caculate.Click += new System.EventHandler(this.Caculate_Click);
+            // 
             // Availability_Check
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,7 +733,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(600, 487);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Caculate);
+            this.Controls.Add(this.Total);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.Hoteldetails);
             this.Controls.Add(this.Cardetails);
@@ -809,11 +822,12 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Total;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.Button Caculate;
     }
 }

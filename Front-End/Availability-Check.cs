@@ -138,7 +138,7 @@ namespace Front_End
             sb.AppendLine(numericUpDown4.Text);
             //total
             sb.AppendLine(label24.Text);
-            sb.AppendLine(textBox1.Text);
+            sb.AppendLine(Total.Text);
             Clipboard.SetText(sb.ToString());
         }
 
@@ -378,6 +378,24 @@ namespace Front_End
             decimal total = x * price;
 
             Pricepernight.Text = total.ToString();
+
+        }
+
+        private void Caculate_Click(object sender, EventArgs e)
+        {
+
+            int num1, num2, num3, num4, res;
+            num1 = Convert.ToInt32(Adultprice.Text);
+            num2 = Convert.ToInt32(Childprice.Text);
+            num3 = Convert.ToInt32(Priceperday.Text);
+            num4 = Convert.ToInt32(Pricepernight.Text);
+            res = num1 + num2 + num3 + num4;
+            Total.Text = Convert.ToString(res);
+
+        }
+
+        private void Total_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
