@@ -124,7 +124,15 @@ namespace Front_End
 
         private void printInvoiceBtn_Click(object sender, EventArgs e)
         {
-            Back_End.printFunction.printInvoice(invoiceDetails.invoiceDate, invoiceDetails.fname, invoiceDetails.sname, invoiceDetails.customerAddress, invoiceDetails.customerPhone, invoiceDetails.flightDestination, invoiceDetails.flightTotalPrice, invoiceDetails.hireDetails, invoiceDetails.carHirePrice, invoiceDetails.hotelDetails, invoiceDetails.hotelTotalPrice, invoiceDetails.totalPrice);
+            try {
+                Back_End.printFunction.printInvoice(invoiceDetails.invoiceDate, invoiceDetails.fname, invoiceDetails.sname, invoiceDetails.customerAddress, invoiceDetails.customerPhone, invoiceDetails.flightDestination, invoiceDetails.flightTotalPrice, invoiceDetails.hireDetails, invoiceDetails.carHirePrice, invoiceDetails.hotelDetails, invoiceDetails.hotelTotalPrice, invoiceDetails.totalPrice);
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not retrieve invoice");
+            }
         }
+
     }
 }

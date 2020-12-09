@@ -123,11 +123,7 @@ namespace Front_End
                 MessageBox.Show("Must be a valid email address");
             }
             else
-            
             {
-                // MessageBox.Show("Booking Reserved");
-
-
                 // Connects to the database
                 string cString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
 
@@ -139,14 +135,20 @@ namespace Front_End
                 object[] customers = {"@CustomerFirstName", firstNametxtbox.Text, "@CustomerLastName", lastNametxtbox.Text, "@Gender", gendertxtbox.Text,
                         "@PassportNumber", passportNumbtxtbox.Text, "@Nationality", Nationalitytxtbox.Text, "@Address", Addresstxtbox.Text, "@PostCode",
                     postCodetxtbox.Text, "@ContactNumber", contactNumbertxtbox.Text, "@EmailAddress", emailtxtbox.Text};
-
-                // Function to write to database using the variables
-                var dbFunc = new DatabaseFunctions();
-                dbFunc.writeDatabase(save, cString, customers);
-
-                this.Hide();
-                Booking_Confirmation b = new Booking_Confirmation();
-                b.ShowDialog();
+                try
+                {
+                    // Function to write to database using the variables
+                    var dbFunc = new DatabaseFunctions();
+                    dbFunc.writeDatabase(save, cString, customers);
+                    MessageBox.Show("Booking Reserved");
+                    this.Hide();
+                    Booking_Confirmation b = new Booking_Confirmation();
+                    b.ShowDialog();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("An error occurred. Please contact the system administrator");
+                }
             }
         }
 

@@ -174,40 +174,47 @@ namespace Back_End
             //Entering username: admin and password: admin will return true.
             public static bool authenticateUser(string username, string password)
             {
-                //Sing : login database declarations
-                System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
-                OleDbDataAdapter ad;
-                DataTable dtable = new DataTable();
-                OleDbCommand command = new OleDbCommand();
-
-                //Sing : Login database connection
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
-                command.Connection = connection;
-
-                //Sing:Opening a connection to the database
-                connection.Open();
-                //Sing: defining the query 
-                ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
-                //Filling the table adaptor 
-                ad.Fill(dtable);
-                //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
-                if (dtable.Rows.Count <= 0)
+                try // in case database connection fails.
                 {
-                    //Details do not exist in the database
-                    connection.Close();
+                    //Sing : login database declarations
+                    System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+                    OleDbDataAdapter ad;
+                    DataTable dtable = new DataTable();
+                    OleDbCommand command = new OleDbCommand();
 
-                    return false;
+                    //Sing : Login database connection
+                    connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
+                    command.Connection = connection;
 
+                    //Sing:Opening a connection to the database
+                    connection.Open();
+                    //Sing: defining the query 
+                    ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
+                    //Filling the table adaptor 
+                    ad.Fill(dtable);
+                    //If statement for log in authenticaion - Checks if username and password is present in the Accounts table. Also checks whether admin details have been entered. 
+                    if (dtable.Rows.Count <= 0)
+                    {
+                        //Details do not exist in the database
+                        connection.Close();
+
+                        return false;
+
+                    }
+                    else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
+                    {
+                        //Data exists in the database, therefore return true as admin credentials have been entered. 
+
+                        connection.Close();
+
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
-                {
-                    //Data exists in the database, therefore return true as admin credentials have been entered. 
-
-                    connection.Close();
-
-                    return true;
-                }
-                else
+                catch (Exception)
                 {
                     return false;
                 }
@@ -433,23 +440,29 @@ namespace Back_End
                 connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
                 secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
             }
-            batchDelete(secondaryConnectionString);
-            using (OleDbConnection conn = new OleDbConnection(connectionString))
-            {
-                using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
+            try {
+                batchDelete(secondaryConnectionString);
+                using (OleDbConnection conn = new OleDbConnection(connectionString))
                 {
-                    conn.Open();
-                    sConn.Open();
-                    for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
+                    using (OleDbConnection sConn = new OleDbConnection(secondaryConnectionString))
                     {
-                        using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                        conn.Open();
+                        sConn.Open();
+                        for (int i = 0; i < dbList.Length; i++) // Go through all queries in loop
                         {
-                            command.ExecuteNonQuery();
+                            using (OleDbCommand command = new OleDbCommand(dbList[i], conn))
+                            {
+                                command.ExecuteNonQuery();
+                            }
                         }
                     }
                 }
+                return true;
             }
-            return true;
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 
@@ -673,17 +686,24 @@ namespace Back_End
         
         //Batch recovery/resync in case of batch failure : Ndey
         public dynamic batchRecovery()
-        { // improve the batch update query if you want
-            recoveryProgress = true;
-            string fetchCustomersDB = "INSERT INTO PrimaryDB.mdb.Customers SELECT * FROM Customers",
-                fetchFlightsDB = "INSERT INTO PrimaryDB.mdb.Flights SELECT * FROM Flights",
-                fetchHotelDB = "INSERT INTO PrimaryDB.mdb.Hotel SELECT * FROM Hotel",
-                fetchCarsDB = "INSERT INTO PrimaryDB.mdb.Cars SELECT * FROM Cars";
-            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
-            var primaryDatabase = new PrimaryDatabase();
-            bool query = primaryDatabase.batchUpdate(dbList, true);
-            recoveryProgress = false;
-            return true;
+        {
+            try
+            {
+                recoveryProgress = true;
+                string fetchCustomersDB = "INSERT INTO PrimaryDB.mdb.Customers SELECT * FROM Customers",
+                    fetchFlightsDB = "INSERT INTO PrimaryDB.mdb.Flights SELECT * FROM Flights",
+                    fetchHotelDB = "INSERT INTO PrimaryDB.mdb.Hotel SELECT * FROM Hotel",
+                    fetchCarsDB = "INSERT INTO PrimaryDB.mdb.Cars SELECT * FROM Cars";
+                string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+                var primaryDatabase = new PrimaryDatabase();
+                bool query = primaryDatabase.batchUpdate(dbList, true);
+                recoveryProgress = false;
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         //Notify front-end of bacth recovery : Avar
         public static void notifyRecovery()
@@ -708,7 +728,6 @@ namespace Back_End
             string sname;
             string address;
         }
-
 
         //Send print notification to front-end : Avar
         protected internal void sendPrintNotifications(string customerID)
