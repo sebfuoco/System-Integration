@@ -40,6 +40,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Flightdetails = new System.Windows.Forms.GroupBox();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.Adultprice = new System.Windows.Forms.TextBox();
             this.Childprice = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -84,14 +86,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.Flightdetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.Cardetails.SuspendLayout();
             this.Hoteldetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // nxtButton
@@ -218,6 +221,42 @@
             this.Flightdetails.TabStop = false;
             this.Flightdetails.Text = "Flight Details";
             this.Flightdetails.Enter += new System.EventHandler(this.Flightdetails_Enter_1);
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(392, 72);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            19,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown2.TabIndex = 49;
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(393, 23);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
+            this.numericUpDown1.TabIndex = 37;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // Adultprice
             // 
@@ -355,6 +394,8 @@
             // Cardetails
             // 
             this.Cardetails.BackColor = System.Drawing.Color.Transparent;
+            this.Cardetails.Controls.Add(this.label3);
+            this.Cardetails.Controls.Add(this.numericUpDown3);
             this.Cardetails.Controls.Add(this.Priceperday);
             this.Cardetails.Controls.Add(this.Seats);
             this.Cardetails.Controls.Add(this.Gearbox);
@@ -378,21 +419,21 @@
             // 
             // Priceperday
             // 
-            this.Priceperday.Location = new System.Drawing.Point(151, 119);
+            this.Priceperday.Location = new System.Drawing.Point(154, 73);
             this.Priceperday.Name = "Priceperday";
             this.Priceperday.Size = new System.Drawing.Size(83, 20);
             this.Priceperday.TabIndex = 48;
             // 
             // Seats
             // 
-            this.Seats.Location = new System.Drawing.Point(151, 70);
+            this.Seats.Location = new System.Drawing.Point(154, 34);
             this.Seats.Name = "Seats";
             this.Seats.Size = new System.Drawing.Size(83, 20);
             this.Seats.TabIndex = 47;
             // 
             // Gearbox
             // 
-            this.Gearbox.Location = new System.Drawing.Point(62, 70);
+            this.Gearbox.Location = new System.Drawing.Point(61, 69);
             this.Gearbox.Name = "Gearbox";
             this.Gearbox.Size = new System.Drawing.Size(83, 20);
             this.Gearbox.TabIndex = 46;
@@ -400,7 +441,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(158, 103);
+            this.label23.Location = new System.Drawing.Point(158, 57);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(72, 13);
             this.label23.TabIndex = 45;
@@ -409,7 +450,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(175, 55);
+            this.label22.Location = new System.Drawing.Point(176, 18);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(34, 13);
             this.label22.TabIndex = 44;
@@ -426,7 +467,7 @@
             // 
             // Model
             // 
-            this.Model.Location = new System.Drawing.Point(62, 119);
+            this.Model.Location = new System.Drawing.Point(61, 119);
             this.Model.Name = "Model";
             this.Model.Size = new System.Drawing.Size(83, 20);
             this.Model.TabIndex = 42;
@@ -452,11 +493,11 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(7, 52);
+            this.label18.Location = new System.Drawing.Point(6, 42);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(71, 13);
+            this.label18.Size = new System.Drawing.Size(47, 26);
             this.label18.TabIndex = 39;
-            this.label18.Text = "Number Plate";
+            this.label18.Text = "Number \r\nPlate";
             // 
             // Carinput
             // 
@@ -470,16 +511,16 @@
             // 
             // Make
             // 
-            this.Make.Location = new System.Drawing.Point(62, 93);
+            this.Make.Location = new System.Drawing.Point(61, 94);
             this.Make.Name = "Make";
             this.Make.Size = new System.Drawing.Size(83, 20);
             this.Make.TabIndex = 34;
             // 
             // Numplate
             // 
-            this.Numplate.Location = new System.Drawing.Point(77, 47);
+            this.Numplate.Location = new System.Drawing.Point(61, 44);
             this.Numplate.Name = "Numplate";
-            this.Numplate.Size = new System.Drawing.Size(92, 20);
+            this.Numplate.Size = new System.Drawing.Size(83, 20);
             this.Numplate.TabIndex = 34;
             // 
             // Hoteldetails
@@ -622,51 +663,31 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 36;
             // 
-            // numericUpDown1
+            // numericUpDown3
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(393, 23);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.numericUpDown3.Location = new System.Drawing.Point(179, 115);
+            this.numericUpDown3.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown1.TabIndex = 37;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(35, 20);
+            this.numericUpDown3.TabIndex = 37;
+            this.numericUpDown3.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // numericUpDown2
+            // label3
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(392, 72);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            19,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(38, 20);
-            this.numericUpDown2.TabIndex = 49;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(158, 99);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 13);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Days Needed";
             // 
             // Availability_Check
             // 
@@ -694,14 +715,15 @@
             this.Load += new System.EventHandler(this.Availability_Check_Load);
             this.Flightdetails.ResumeLayout(false);
             this.Flightdetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.Cardetails.ResumeLayout(false);
             this.Cardetails.PerformLayout();
             this.Hoteldetails.ResumeLayout(false);
             this.Hoteldetails.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,5 +787,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
     }
 }

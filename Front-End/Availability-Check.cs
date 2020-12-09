@@ -102,9 +102,11 @@ namespace Front_End
             sb.AppendLine(label9.Text);
             sb.AppendLine(Arrivaltime.Text);
             sb.AppendLine(label11.Text);
-            sb.AppendLine(Adultprice.Text);
+            sb.AppendLine(Adultprice.Text); 
+            sb.AppendLine(numericUpDown1.Text);
             sb.AppendLine(label12.Text);
             sb.AppendLine(Childprice.Text);
+            sb.AppendLine(numericUpDown2.Text);
             //Car hire details
             sb.AppendLine(Cardetails.Text);
             sb.AppendLine(Carinput.Text);
@@ -120,6 +122,8 @@ namespace Front_End
             sb.AppendLine(Seats.Text);
             sb.AppendLine(label23.Text);
             sb.AppendLine(Priceperday.Text);
+            sb.AppendLine(label3.Text);
+            sb.AppendLine(numericUpDown3.Text);
             //hotel details
             sb.AppendLine(Hoteldetails.Text);
             sb.AppendLine(Hotelinput.Text);
