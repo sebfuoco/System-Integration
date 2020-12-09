@@ -64,7 +64,27 @@ namespace Front_End
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void customerFirstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void recovery_Click(object sender, EventArgs e)
+        {
+            var secondaryDatabase = new SecondaryDatabase();
+            bool query = secondaryDatabase.batchRecovery();
+
+            if (query == true)
+            {
+                MessageBox.Show("System recovery is compeleted.");
+            }
+            else
+            {
+                MessageBox.Show("System recovery has already completed.");
+            }
+        }
+
+        private void sync_Click(object sender, EventArgs e)
         {
             // batch update queries
             string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
@@ -78,35 +98,12 @@ namespace Front_End
 
             if (query == true)
             {
-                // success
+                MessageBox.Show("Sync Completed");
             }
             else
             {
-                // fail
+                MessageBox.Show("Sync unsuccessful. Please contact your system administrator.");
             }
-            
-
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            var secondaryDatabase = new SecondaryDatabase();
-            bool query = secondaryDatabase.batchRecovery();
-
-            if (query == true)
-            {
-                // success
-            }
-            else
-            {
-                // fail
-            }
-        }
-
-        private void customerFirstNameTextBox_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
