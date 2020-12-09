@@ -20,20 +20,6 @@ namespace Front_End
 {
     public partial class Booking_Reservation : Form
     {
-        // Passing values from the previous page to another page. Commented out because the other booking-confirmation.cs does not have a place holder
-        // public Print_Invoice(string firstname, string surname, string address, string phonenumber, string destination, string flightprice, string hotellocation, string hotelprice, string carhirePrice)
-        // {
-        //     InitializeComponent();
-        //     firstNametxtbox.Text = firstname;
-        //     lastNametxtbox.Text = surname;
-        //     Addresstxtbox.Text = address;
-        //     contactNumbertxtbox.Text = phonenumber;
-        //     destiLbl.Text = destination;
-        //    fliprice = flightprice;
-        //    carpriceLbl.Text = carhirePrice;
-        //    locatLbl.Text = hotellocation;
-        //     htlpri = hotelprice;
-        //}
 
         //Booking Details Structure:
         struct bookingDetails
@@ -74,7 +60,7 @@ namespace Front_End
             booking.totalPrice = total;
 
         }
-        double mynum = 0;
+
         private void nxtButton_Click(object sender, EventArgs e)
         {
             // Basic validation which will notify the user if they have added invalid characters
