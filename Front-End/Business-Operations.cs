@@ -80,7 +80,7 @@ namespace Front_End
             }
             else
             {
-                MessageBox.Show("System recovery has already completed.");
+                MessageBox.Show("System recovery has already completed or sync unsuccessful.");
             }
         }
 

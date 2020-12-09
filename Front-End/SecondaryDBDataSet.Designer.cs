@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Back_End {
+namespace Front_End {
     
     
     /// <summary>
@@ -20,9 +20,9 @@ namespace Back_End {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("SecondaryDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("SecondaryDBDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class SecondaryDataSet : global::System.Data.DataSet {
+    public partial class SecondaryDBDataSet : global::System.Data.DataSet {
         
         private CarsDataTable tableCars;
         
@@ -50,7 +50,7 @@ namespace Back_End {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public SecondaryDataSet() {
+        public SecondaryDBDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -61,7 +61,7 @@ namespace Back_End {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected SecondaryDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected SecondaryDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -212,7 +212,7 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            SecondaryDataSet cln = ((SecondaryDataSet)(base.Clone()));
+            SecondaryDBDataSet cln = ((SecondaryDBDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -334,9 +334,9 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "SecondaryDataSet";
+            this.DataSetName = "SecondaryDBDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/SecondaryDataSet.xsd";
+            this.Namespace = "http://tempuri.org/SecondaryDBDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCars = new CarsDataTable();
@@ -420,7 +420,7 @@ namespace Back_End {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            SecondaryDataSet ds = new SecondaryDataSet();
+            SecondaryDBDataSet ds = new SecondaryDBDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -493,6 +493,8 @@ namespace Back_End {
             
             private global::System.Data.DataColumn columnCarID;
             
+            private global::System.Data.DataColumn columnCarRentalCompany;
+            
             private global::System.Data.DataColumn columnNumberPlate;
             
             private global::System.Data.DataColumn columnHotelID;
@@ -555,6 +557,14 @@ namespace Back_End {
             public global::System.Data.DataColumn CarIDColumn {
                 get {
                     return this.columnCarID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CarRentalCompanyColumn {
+                get {
+                    return this.columnCarRentalCompany;
                 }
             }
             
@@ -659,11 +669,12 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public CarsRow AddCarsRow(int CarID, string NumberPlate, HotelRow parentHotelRowByHotelCars, string Make, string Model, string CarType, string GearBox, int Seats, decimal PricePerDay) {
+            public CarsRow AddCarsRow(int CarID, string CarRentalCompany, string NumberPlate, HotelRow parentHotelRowByHotelCars, string Make, string Model, string CarType, string GearBox, int Seats, decimal PricePerDay) {
                 CarsRow rowCarsRow = ((CarsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         CarID,
+                        CarRentalCompany,
                         NumberPlate,
                         null,
                         Make,
@@ -673,7 +684,7 @@ namespace Back_End {
                         Seats,
                         PricePerDay};
                 if ((parentHotelRowByHotelCars != null)) {
-                    columnValuesArray[3] = parentHotelRowByHotelCars[1];
+                    columnValuesArray[4] = parentHotelRowByHotelCars[1];
                 }
                 rowCarsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCarsRow);
@@ -706,6 +717,7 @@ namespace Back_End {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnCarID = base.Columns["CarID"];
+                this.columnCarRentalCompany = base.Columns["CarRentalCompany"];
                 this.columnNumberPlate = base.Columns["NumberPlate"];
                 this.columnHotelID = base.Columns["HotelID"];
                 this.columnMake = base.Columns["Make"];
@@ -723,6 +735,8 @@ namespace Back_End {
                 base.Columns.Add(this.columnID);
                 this.columnCarID = new global::System.Data.DataColumn("CarID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCarID);
+                this.columnCarRentalCompany = new global::System.Data.DataColumn("CarRentalCompany", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCarRentalCompany);
                 this.columnNumberPlate = new global::System.Data.DataColumn("NumberPlate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNumberPlate);
                 this.columnHotelID = new global::System.Data.DataColumn("HotelID", typeof(int), null, global::System.Data.MappingType.Element);
@@ -746,6 +760,7 @@ namespace Back_End {
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnCarRentalCompany.MaxLength = 255;
                 this.columnNumberPlate.MaxLength = 255;
                 this.columnMake.MaxLength = 255;
                 this.columnModel.MaxLength = 255;
@@ -818,7 +833,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1111,7 +1126,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1507,7 +1522,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1914,7 +1929,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2208,7 +2223,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2278,6 +2293,8 @@ namespace Back_End {
             
             private global::System.Data.DataColumn columnHotelID;
             
+            private global::System.Data.DataColumn columnHotelName;
+            
             private global::System.Data.DataColumn columnStarRating;
             
             private global::System.Data.DataColumn columnCheckIn;
@@ -2338,6 +2355,14 @@ namespace Back_End {
             public global::System.Data.DataColumn HotelIDColumn {
                 get {
                     return this.columnHotelID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn HotelNameColumn {
+                get {
+                    return this.columnHotelName;
                 }
             }
             
@@ -2434,11 +2459,12 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public HotelRow AddHotelRow(int HotelID, int StarRating, System.DateTime CheckIn, System.DateTime CheckOut, decimal PricePerNight, string Country, string NumberPlate, FlightsRow parentFlightsRowByFlightsHotel) {
+            public HotelRow AddHotelRow(int HotelID, string HotelName, int StarRating, System.DateTime CheckIn, System.DateTime CheckOut, decimal PricePerNight, string Country, string NumberPlate, FlightsRow parentFlightsRowByFlightsHotel) {
                 HotelRow rowHotelRow = ((HotelRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         HotelID,
+                        HotelName,
                         StarRating,
                         CheckIn,
                         CheckOut,
@@ -2447,7 +2473,7 @@ namespace Back_End {
                         NumberPlate,
                         null};
                 if ((parentFlightsRowByFlightsHotel != null)) {
-                    columnValuesArray[8] = parentFlightsRowByFlightsHotel[1];
+                    columnValuesArray[9] = parentFlightsRowByFlightsHotel[1];
                 }
                 rowHotelRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowHotelRow);
@@ -2480,6 +2506,7 @@ namespace Back_End {
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
                 this.columnHotelID = base.Columns["HotelID"];
+                this.columnHotelName = base.Columns["HotelName"];
                 this.columnStarRating = base.Columns["StarRating"];
                 this.columnCheckIn = base.Columns["CheckIn"];
                 this.columnCheckOut = base.Columns["CheckOut"];
@@ -2496,6 +2523,8 @@ namespace Back_End {
                 base.Columns.Add(this.columnID);
                 this.columnHotelID = new global::System.Data.DataColumn("HotelID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHotelID);
+                this.columnHotelName = new global::System.Data.DataColumn("HotelName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHotelName);
                 this.columnStarRating = new global::System.Data.DataColumn("StarRating", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnStarRating);
                 this.columnCheckIn = new global::System.Data.DataColumn("CheckIn", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -2517,6 +2546,7 @@ namespace Back_End {
                 this.columnID.AutoIncrementStep = -1;
                 this.columnID.AllowDBNull = false;
                 this.columnID.Unique = true;
+                this.columnHotelName.MaxLength = 255;
                 this.columnCountry.MaxLength = 255;
                 this.columnNumberPlate.MaxLength = 255;
             }
@@ -2586,7 +2616,7 @@ namespace Back_End {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                SecondaryDataSet ds = new SecondaryDataSet();
+                SecondaryDBDataSet ds = new SecondaryDBDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2683,6 +2713,22 @@ namespace Back_End {
                 }
                 set {
                     this[this.tableCars.CarIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CarRentalCompany {
+                get {
+                    try {
+                        return ((string)(this[this.tableCars.CarRentalCompanyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CarRentalCompany\' in table \'Cars\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCars.CarRentalCompanyColumn] = value;
                 }
             }
             
@@ -2835,6 +2881,18 @@ namespace Back_End {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetCarIDNull() {
                 this[this.tableCars.CarIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCarRentalCompanyNull() {
+                return this.IsNull(this.tableCars.CarRentalCompanyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCarRentalCompanyNull() {
+                this[this.tableCars.CarRentalCompanyColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3802,6 +3860,22 @@ namespace Back_End {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string HotelName {
+                get {
+                    try {
+                        return ((string)(this[this.tableHotel.HotelNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HotelName\' in table \'Hotel\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableHotel.HotelNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int StarRating {
                 get {
                     try {
@@ -3933,6 +4007,18 @@ namespace Back_End {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetHotelIDNull() {
                 this[this.tableHotel.HotelIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsHotelNameNull() {
+                return this.IsNull(this.tableHotel.HotelNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetHotelNameNull() {
+                this[this.tableHotel.HotelNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4236,7 +4322,7 @@ namespace Back_End {
         }
     }
 }
-namespace Back_End.SecondaryDataSetTableAdapters {
+namespace Front_End.SecondaryDBDataSetTableAdapters {
     
     
     /// <summary>
@@ -4362,6 +4448,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             tableMapping.DataSetTable = "Cars";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("CarID", "CarID");
+            tableMapping.ColumnMappings.Add("CarRentalCompany", "CarRentalCompany");
             tableMapping.ColumnMappings.Add("NumberPlate", "NumberPlate");
             tableMapping.ColumnMappings.Add("HotelID", "HotelID");
             tableMapping.ColumnMappings.Add("Make", "Make");
@@ -4373,11 +4460,13 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Cars` WHERE ((`ID` = ?) AND ((? = 1 AND `CarID` IS NULL) OR (`CarID` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `Make` IS NULL) OR (`Make` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `CarType` IS NULL) OR (`CarType` = ?)) AND ((? = 1 AND `GearBox` IS NULL) OR (`GearBox` = ?)) AND ((? = 1 AND `Seats` IS NULL) OR (`Seats` = ?)) AND ((? = 1 AND `PricePerDay` IS NULL) OR (`PricePerDay` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Cars` WHERE ((`ID` = ?) AND ((? = 1 AND `CarID` IS NULL) OR (`CarID` = ?)) AND ((? = 1 AND `CarRentalCompany` IS NULL) OR (`CarRentalCompany` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `Make` IS NULL) OR (`Make` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `CarType` IS NULL) OR (`CarType` = ?)) AND ((? = 1 AND `GearBox` IS NULL) OR (`GearBox` = ?)) AND ((? = 1 AND `Seats` IS NULL) OR (`Seats` = ?)) AND ((? = 1 AND `PricePerDay` IS NULL) OR (`PricePerDay` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CarRentalCompany", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CarRentalCompany", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NumberPlate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumberPlate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, true, null));
@@ -4396,10 +4485,12 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_PricePerDay", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PricePerDay", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Cars` (`CarID`, `NumberPlate`, `HotelID`, `Make`, `Model`, `CarType`" +
-                ", `GearBox`, `Seats`, `PricePerDay`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Cars` (`CarID`, `CarRentalCompany`, `NumberPlate`, `HotelID`, `Make`" +
+                ", `Model`, `CarType`, `GearBox`, `Seats`, `PricePerDay`) VALUES (?, ?, ?, ?, ?, " +
+                "?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CarRentalCompany", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumberPlate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Make", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Make", global::System.Data.DataRowVersion.Current, false, null));
@@ -4410,9 +4501,10 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("PricePerDay", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "PricePerDay", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Cars` SET `CarID` = ?, `NumberPlate` = ?, `HotelID` = ?, `Make` = ?, `Model` = ?, `CarType` = ?, `GearBox` = ?, `Seats` = ?, `PricePerDay` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `CarID` IS NULL) OR (`CarID` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `Make` IS NULL) OR (`Make` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `CarType` IS NULL) OR (`CarType` = ?)) AND ((? = 1 AND `GearBox` IS NULL) OR (`GearBox` = ?)) AND ((? = 1 AND `Seats` IS NULL) OR (`Seats` = ?)) AND ((? = 1 AND `PricePerDay` IS NULL) OR (`PricePerDay` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Cars` SET `CarID` = ?, `CarRentalCompany` = ?, `NumberPlate` = ?, `HotelID` = ?, `Make` = ?, `Model` = ?, `CarType` = ?, `GearBox` = ?, `Seats` = ?, `PricePerDay` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `CarID` IS NULL) OR (`CarID` = ?)) AND ((? = 1 AND `CarRentalCompany` IS NULL) OR (`CarRentalCompany` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `Make` IS NULL) OR (`Make` = ?)) AND ((? = 1 AND `Model` IS NULL) OR (`Model` = ?)) AND ((? = 1 AND `CarType` IS NULL) OR (`CarType` = ?)) AND ((? = 1 AND `GearBox` IS NULL) OR (`GearBox` = ?)) AND ((? = 1 AND `Seats` IS NULL) OR (`Seats` = ?)) AND ((? = 1 AND `PricePerDay` IS NULL) OR (`PricePerDay` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CarRentalCompany", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("NumberPlate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Make", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Make", global::System.Data.DataRowVersion.Current, false, null));
@@ -4424,6 +4516,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CarID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CarRentalCompany", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_CarRentalCompany", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CarRentalCompany", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_NumberPlate", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_NumberPlate", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "NumberPlate", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, true, null));
@@ -4446,7 +4540,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4455,8 +4550,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, CarID, NumberPlate, HotelID, Make, Model, CarType, GearBox, Seats, Pri" +
-                "cePerDay FROM Cars";
+            this._commandCollection[0].CommandText = "SELECT ID, CarID, CarRentalCompany, NumberPlate, HotelID, Make, Model, CarType, G" +
+                "earBox, Seats, PricePerDay FROM Cars";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4464,7 +4559,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.CarsDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.CarsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4477,9 +4572,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.CarsDataTable GetData() {
+        public virtual SecondaryDBDataSet.CarsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.CarsDataTable dataTable = new SecondaryDataSet.CarsDataTable();
+            SecondaryDBDataSet.CarsDataTable dataTable = new SecondaryDBDataSet.CarsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4487,14 +4582,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.CarsDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.CarsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Cars");
         }
         
@@ -4517,72 +4612,80 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_CarID, string Original_NumberPlate, global::System.Nullable<int> Original_HotelID, string Original_Make, string Original_Model, string Original_CarType, string Original_GearBox, global::System.Nullable<int> Original_Seats, global::System.Nullable<decimal> Original_PricePerDay) {
+        public virtual int Delete(int Original_ID, int Original_CarID, string Original_CarRentalCompany, string Original_NumberPlate, global::System.Nullable<int> Original_HotelID, string Original_Make, string Original_Model, string Original_CarType, string Original_GearBox, global::System.Nullable<int> Original_Seats, global::System.Nullable<decimal> Original_PricePerDay) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_CarID));
+            if ((Original_CarRentalCompany == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_CarRentalCompany));
+            }
             if ((Original_NumberPlate == null)) {
                 throw new global::System.ArgumentNullException("Original_NumberPlate");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_NumberPlate));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_NumberPlate));
             }
             if ((Original_HotelID.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_HotelID.Value));
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((int)(Original_HotelID.Value));
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Make == null)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Make));
-            }
-            if ((Original_Model == null)) {
+            if ((Original_Make == null)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Model));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Make));
             }
-            if ((Original_CarType == null)) {
+            if ((Original_Model == null)) {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_CarType));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Model));
             }
-            if ((Original_GearBox == null)) {
+            if ((Original_CarType == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_GearBox));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_CarType));
             }
-            if ((Original_Seats.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Seats.Value));
-            }
-            else {
+            if ((Original_GearBox == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
             }
-            if ((Original_PricePerDay.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_GearBox));
+            }
+            if ((Original_Seats.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[18].Value = ((decimal)(Original_PricePerDay.Value));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_Seats.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
+            }
+            if ((Original_PricePerDay.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[20].Value = ((decimal)(Original_PricePerDay.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4604,55 +4707,61 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int CarID, string NumberPlate, global::System.Nullable<int> HotelID, string Make, string Model, string CarType, string GearBox, global::System.Nullable<int> Seats, global::System.Nullable<decimal> PricePerDay) {
+        public virtual int Insert(int CarID, string CarRentalCompany, string NumberPlate, global::System.Nullable<int> HotelID, string Make, string Model, string CarType, string GearBox, global::System.Nullable<int> Seats, global::System.Nullable<decimal> PricePerDay) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(CarID));
+            if ((CarRentalCompany == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CarRentalCompany));
+            }
             if ((NumberPlate == null)) {
                 throw new global::System.ArgumentNullException("NumberPlate");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(NumberPlate));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(NumberPlate));
             }
             if ((HotelID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(HotelID.Value));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((int)(HotelID.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Make == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Make));
-            }
-            if ((Model == null)) {
+            if ((Make == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Model));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Make));
             }
-            if ((CarType == null)) {
+            if ((Model == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(CarType));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Model));
             }
-            if ((GearBox == null)) {
+            if ((CarType == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(GearBox));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(CarType));
             }
-            if ((Seats.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Seats.Value));
-            }
-            else {
+            if ((GearBox == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((PricePerDay.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((decimal)(PricePerDay.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(GearBox));
+            }
+            if ((Seats.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Seats.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            if ((PricePerDay.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((decimal)(PricePerDay.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4676,6 +4785,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int CarID, 
+                    string CarRentalCompany, 
                     string NumberPlate, 
                     global::System.Nullable<int> HotelID, 
                     string Make, 
@@ -4686,6 +4796,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
                     global::System.Nullable<decimal> PricePerDay, 
                     int Original_ID, 
                     int Original_CarID, 
+                    string Original_CarRentalCompany, 
                     string Original_NumberPlate, 
                     global::System.Nullable<int> Original_HotelID, 
                     string Original_Make, 
@@ -4695,119 +4806,133 @@ namespace Back_End.SecondaryDataSetTableAdapters {
                     global::System.Nullable<int> Original_Seats, 
                     global::System.Nullable<decimal> Original_PricePerDay) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CarID));
+            if ((CarRentalCompany == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(CarRentalCompany));
+            }
             if ((NumberPlate == null)) {
                 throw new global::System.ArgumentNullException("NumberPlate");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(NumberPlate));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(NumberPlate));
             }
             if ((HotelID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(HotelID.Value));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(HotelID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Make == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Make));
-            }
-            if ((Model == null)) {
+            if ((Make == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Model));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Make));
             }
-            if ((CarType == null)) {
+            if ((Model == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(CarType));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Model));
             }
-            if ((GearBox == null)) {
+            if ((CarType == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(GearBox));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(CarType));
             }
-            if ((Seats.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Seats.Value));
-            }
-            else {
+            if ((GearBox == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((PricePerDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((decimal)(PricePerDay.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(GearBox));
+            }
+            if ((Seats.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Seats.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_CarID));
+            if ((PricePerDay.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((decimal)(PricePerDay.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_CarID));
+            if ((Original_CarRentalCompany == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_CarRentalCompany));
+            }
             if ((Original_NumberPlate == null)) {
                 throw new global::System.ArgumentNullException("Original_NumberPlate");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_NumberPlate));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_NumberPlate));
             }
             if ((Original_HotelID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_HotelID.Value));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((int)(Original_HotelID.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             if ((Original_Make == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Make));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Make));
             }
             if ((Original_Model == null)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Model));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Model));
             }
             if ((Original_CarType == null)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_CarType));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_CarType));
             }
             if ((Original_GearBox == null)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_GearBox));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_GearBox));
             }
             if ((Original_Seats.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Seats.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Seats.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_PricePerDay.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((decimal)(Original_PricePerDay.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_PricePerDay.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4986,7 +5111,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5003,7 +5129,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.CarTypeDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.CarTypeDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5016,9 +5142,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.CarTypeDataTable GetData() {
+        public virtual SecondaryDBDataSet.CarTypeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.CarTypeDataTable dataTable = new SecondaryDataSet.CarTypeDataTable();
+            SecondaryDBDataSet.CarTypeDataTable dataTable = new SecondaryDBDataSet.CarTypeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5026,14 +5152,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.CarTypeDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.CarTypeDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "CarType");
         }
         
@@ -5380,7 +5506,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5398,7 +5525,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.CustomersDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.CustomersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5411,9 +5538,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.CustomersDataTable GetData() {
+        public virtual SecondaryDBDataSet.CustomersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.CustomersDataTable dataTable = new SecondaryDataSet.CustomersDataTable();
+            SecondaryDBDataSet.CustomersDataTable dataTable = new SecondaryDBDataSet.CustomersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5421,14 +5548,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.CustomersDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.CustomersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Customers");
         }
         
@@ -5965,7 +6092,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5983,7 +6111,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.FlightsDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.FlightsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5996,9 +6124,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.FlightsDataTable GetData() {
+        public virtual SecondaryDBDataSet.FlightsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.FlightsDataTable dataTable = new SecondaryDataSet.FlightsDataTable();
+            SecondaryDBDataSet.FlightsDataTable dataTable = new SecondaryDBDataSet.FlightsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6006,14 +6134,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.FlightsDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.FlightsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Flights");
         }
         
@@ -6537,7 +6665,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6554,7 +6683,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.GearBoxDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.GearBoxDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6567,9 +6696,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.GearBoxDataTable GetData() {
+        public virtual SecondaryDBDataSet.GearBoxDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.GearBoxDataTable dataTable = new SecondaryDataSet.GearBoxDataTable();
+            SecondaryDBDataSet.GearBoxDataTable dataTable = new SecondaryDBDataSet.GearBoxDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6577,14 +6706,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.GearBoxDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.GearBoxDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "GearBox");
         }
         
@@ -6854,6 +6983,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             tableMapping.DataSetTable = "Hotel";
             tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("HotelID", "HotelID");
+            tableMapping.ColumnMappings.Add("HotelName", "HotelName");
             tableMapping.ColumnMappings.Add("StarRating", "StarRating");
             tableMapping.ColumnMappings.Add("CheckIn", "CheckIn");
             tableMapping.ColumnMappings.Add("CheckOut", "CheckOut");
@@ -6864,11 +6994,13 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Hotel` WHERE ((`ID` = ?) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `StarRating` IS NULL) OR (`StarRating` = ?)) AND ((? = 1 AND `CheckIn` IS NULL) OR (`CheckIn` = ?)) AND ((? = 1 AND `CheckOut` IS NULL) OR (`CheckOut` = ?)) AND ((? = 1 AND `PricePerNight` IS NULL) OR (`PricePerNight` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `FlightNumber` IS NULL) OR (`FlightNumber` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Hotel` WHERE ((`ID` = ?) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `HotelName` IS NULL) OR (`HotelName` = ?)) AND ((? = 1 AND `StarRating` IS NULL) OR (`StarRating` = ?)) AND ((? = 1 AND `CheckIn` IS NULL) OR (`CheckIn` = ?)) AND ((? = 1 AND `CheckOut` IS NULL) OR (`CheckOut` = ?)) AND ((? = 1 AND `PricePerNight` IS NULL) OR (`PricePerNight` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `FlightNumber` IS NULL) OR (`FlightNumber` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HotelName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CheckIn", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckIn", global::System.Data.DataRowVersion.Original, true, null));
@@ -6885,10 +7017,12 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_FlightNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FlightNumber", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Hotel` (`HotelID`, `StarRating`, `CheckIn`, `CheckOut`, `PricePerNig" +
-                "ht`, `Country`, `NumberPlate`, `FlightNumber`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Hotel` (`HotelID`, `HotelName`, `StarRating`, `CheckIn`, `CheckOut`," +
+                " `PricePerNight`, `Country`, `NumberPlate`, `FlightNumber`) VALUES (?, ?, ?, ?, " +
+                "?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CheckIn", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckIn", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CheckOut", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckOut", global::System.Data.DataRowVersion.Current, false, null));
@@ -6898,9 +7032,10 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("FlightNumber", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "FlightNumber", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Hotel` SET `HotelID` = ?, `StarRating` = ?, `CheckIn` = ?, `CheckOut` = ?, `PricePerNight` = ?, `Country` = ?, `NumberPlate` = ?, `FlightNumber` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `StarRating` IS NULL) OR (`StarRating` = ?)) AND ((? = 1 AND `CheckIn` IS NULL) OR (`CheckIn` = ?)) AND ((? = 1 AND `CheckOut` IS NULL) OR (`CheckOut` = ?)) AND ((? = 1 AND `PricePerNight` IS NULL) OR (`PricePerNight` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `FlightNumber` IS NULL) OR (`FlightNumber` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Hotel` SET `HotelID` = ?, `HotelName` = ?, `StarRating` = ?, `CheckIn` = ?, `CheckOut` = ?, `PricePerNight` = ?, `Country` = ?, `NumberPlate` = ?, `FlightNumber` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `HotelID` IS NULL) OR (`HotelID` = ?)) AND ((? = 1 AND `HotelName` IS NULL) OR (`HotelName` = ?)) AND ((? = 1 AND `StarRating` IS NULL) OR (`StarRating` = ?)) AND ((? = 1 AND `CheckIn` IS NULL) OR (`CheckIn` = ?)) AND ((? = 1 AND `CheckOut` IS NULL) OR (`CheckOut` = ?)) AND ((? = 1 AND `PricePerNight` IS NULL) OR (`PricePerNight` = ?)) AND ((? = 1 AND `Country` IS NULL) OR (`Country` = ?)) AND ((? = 1 AND `NumberPlate` IS NULL) OR (`NumberPlate` = ?)) AND ((? = 1 AND `FlightNumber` IS NULL) OR (`FlightNumber` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("HotelName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CheckIn", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckIn", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("CheckOut", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckOut", global::System.Data.DataRowVersion.Current, false, null));
@@ -6911,6 +7046,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HotelID", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelID", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_HotelName", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_HotelName", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "HotelName", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_StarRating", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "StarRating", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_CheckIn", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "CheckIn", global::System.Data.DataRowVersion.Original, true, null));
@@ -6931,7 +7068,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::Back_End.Properties.Settings.Default.SecondaryConnectionString;
+            this._connection.ConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\Users\\seb\\Source\\Repos\\System-Int" +
+                "egration\\Back-End\\SecondaryDB.mdb";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6940,8 +7078,8 @@ namespace Back_End.SecondaryDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, HotelID, StarRating, CheckIn, CheckOut, PricePerNight, Country, Number" +
-                "Plate, FlightNumber FROM Hotel";
+            this._commandCollection[0].CommandText = "SELECT ID, HotelID, HotelName, StarRating, CheckIn, CheckOut, PricePerNight, Coun" +
+                "try, NumberPlate, FlightNumber FROM Hotel";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6949,7 +7087,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(SecondaryDataSet.HotelDataTable dataTable) {
+        public virtual int Fill(SecondaryDBDataSet.HotelDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6962,9 +7100,9 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual SecondaryDataSet.HotelDataTable GetData() {
+        public virtual SecondaryDBDataSet.HotelDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            SecondaryDataSet.HotelDataTable dataTable = new SecondaryDataSet.HotelDataTable();
+            SecondaryDBDataSet.HotelDataTable dataTable = new SecondaryDBDataSet.HotelDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -6972,14 +7110,14 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet.HotelDataTable dataTable) {
+        public virtual int Update(SecondaryDBDataSet.HotelDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(SecondaryDataSet dataSet) {
+        public virtual int Update(SecondaryDBDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Hotel");
         }
         
@@ -7002,65 +7140,73 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_HotelID, global::System.Nullable<int> Original_StarRating, global::System.Nullable<global::System.DateTime> Original_CheckIn, global::System.Nullable<global::System.DateTime> Original_CheckOut, global::System.Nullable<decimal> Original_PricePerNight, string Original_Country, string Original_NumberPlate, global::System.Nullable<int> Original_FlightNumber) {
+        public virtual int Delete(int Original_ID, int Original_HotelID, string Original_HotelName, global::System.Nullable<int> Original_StarRating, global::System.Nullable<global::System.DateTime> Original_CheckIn, global::System.Nullable<global::System.DateTime> Original_CheckOut, global::System.Nullable<decimal> Original_PricePerNight, string Original_Country, string Original_NumberPlate, global::System.Nullable<int> Original_FlightNumber) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_HotelID));
-            if ((Original_StarRating.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_StarRating.Value));
-            }
-            else {
+            if ((Original_HotelName == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Original_CheckIn.HasValue == true)) {
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_HotelName));
+            }
+            if ((Original_StarRating.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_CheckIn.Value));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_StarRating.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((Original_CheckOut.HasValue == true)) {
+            if ((Original_CheckIn.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_CheckOut.Value));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((System.DateTime)(Original_CheckIn.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_PricePerNight.HasValue == true)) {
+            if ((Original_CheckOut.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((decimal)(Original_PricePerNight.Value));
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((System.DateTime)(Original_CheckOut.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
-            if ((Original_Country == null)) {
+            if ((Original_PricePerNight.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[12].Value = ((decimal)(Original_PricePerNight.Value));
+            }
+            else {
                 this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_Country));
-            }
-            if ((Original_NumberPlate == null)) {
+            if ((Original_Country == null)) {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_NumberPlate));
+                this.Adapter.DeleteCommand.Parameters[14].Value = ((string)(Original_Country));
             }
-            if ((Original_FlightNumber.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_FlightNumber.Value));
-            }
-            else {
+            if ((Original_NumberPlate == null)) {
                 this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[16].Value = ((string)(Original_NumberPlate));
+            }
+            if ((Original_FlightNumber.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[18].Value = ((int)(Original_FlightNumber.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7082,49 +7228,55 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int HotelID, global::System.Nullable<int> StarRating, global::System.Nullable<global::System.DateTime> CheckIn, global::System.Nullable<global::System.DateTime> CheckOut, global::System.Nullable<decimal> PricePerNight, string Country, string NumberPlate, global::System.Nullable<int> FlightNumber) {
+        public virtual int Insert(int HotelID, string HotelName, global::System.Nullable<int> StarRating, global::System.Nullable<global::System.DateTime> CheckIn, global::System.Nullable<global::System.DateTime> CheckOut, global::System.Nullable<decimal> PricePerNight, string Country, string NumberPlate, global::System.Nullable<int> FlightNumber) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(HotelID));
-            if ((StarRating.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(StarRating.Value));
-            }
-            else {
+            if ((HotelName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((CheckIn.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((System.DateTime)(CheckIn.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(HotelName));
+            }
+            if ((StarRating.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((int)(StarRating.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((CheckOut.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(CheckOut.Value));
+            if ((CheckIn.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTime)(CheckIn.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((PricePerNight.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(PricePerNight.Value));
+            if ((CheckOut.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(CheckOut.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Country == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((PricePerNight.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(PricePerNight.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Country));
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((NumberPlate == null)) {
+            if ((Country == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(NumberPlate));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Country));
             }
-            if ((FlightNumber.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(FlightNumber.Value));
+            if ((NumberPlate == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(NumberPlate));
+            }
+            if ((FlightNumber.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(FlightNumber.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7148,6 +7300,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
                     int HotelID, 
+                    string HotelName, 
                     global::System.Nullable<int> StarRating, 
                     global::System.Nullable<global::System.DateTime> CheckIn, 
                     global::System.Nullable<global::System.DateTime> CheckOut, 
@@ -7157,6 +7310,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
                     global::System.Nullable<int> FlightNumber, 
                     int Original_ID, 
                     int Original_HotelID, 
+                    string Original_HotelName, 
                     global::System.Nullable<int> Original_StarRating, 
                     global::System.Nullable<global::System.DateTime> Original_CheckIn, 
                     global::System.Nullable<global::System.DateTime> Original_CheckOut, 
@@ -7165,106 +7319,120 @@ namespace Back_End.SecondaryDataSetTableAdapters {
                     string Original_NumberPlate, 
                     global::System.Nullable<int> Original_FlightNumber) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(HotelID));
-            if ((StarRating.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(StarRating.Value));
-            }
-            else {
+            if ((HotelName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((CheckIn.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((System.DateTime)(CheckIn.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(HotelName));
+            }
+            if ((StarRating.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(StarRating.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
-            if ((CheckOut.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(CheckOut.Value));
+            if ((CheckIn.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((System.DateTime)(CheckIn.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((PricePerNight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(PricePerNight.Value));
+            if ((CheckOut.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(CheckOut.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((Country == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            if ((PricePerNight.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(PricePerNight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Country));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((NumberPlate == null)) {
+            if ((Country == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(NumberPlate));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Country));
             }
-            if ((FlightNumber.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(FlightNumber.Value));
-            }
-            else {
+            if ((NumberPlate == null)) {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_HotelID));
-            if ((Original_StarRating.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_StarRating.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(NumberPlate));
+            }
+            if ((FlightNumber.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(FlightNumber.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_ID));
+            this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_HotelID));
+            if ((Original_HotelName == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_HotelName));
+            }
+            if ((Original_StarRating.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Original_StarRating.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             if ((Original_CheckIn.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_CheckIn.Value));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((System.DateTime)(Original_CheckIn.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
             }
             if ((Original_CheckOut.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((System.DateTime)(Original_CheckOut.Value));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((System.DateTime)(Original_CheckOut.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
             }
             if ((Original_PricePerNight.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((decimal)(Original_PricePerNight.Value));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((decimal)(Original_PricePerNight.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
             }
             if ((Original_Country == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Country));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((string)(Original_Country));
             }
             if ((Original_NumberPlate == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_NumberPlate));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_NumberPlate));
             }
             if ((Original_FlightNumber.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_FlightNumber.Value));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_FlightNumber.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -7489,7 +7657,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateUpdatedRows(SecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(SecondaryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -7553,7 +7721,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateInsertedRows(SecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(SecondaryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._customersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Customers.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -7611,7 +7779,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private int UpdateDeletedRows(SecondaryDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(SecondaryDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._gearBoxTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.GearBox.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -7693,7 +7861,7 @@ namespace Back_End.SecondaryDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public virtual int UpdateAll(SecondaryDataSet dataSet) {
+        public virtual int UpdateAll(SecondaryDBDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
