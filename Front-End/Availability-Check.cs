@@ -286,17 +286,17 @@ namespace Front_End
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            Adultprice.Text = "hello1";
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-
+            Childprice.Text = "hello2";
         }
 
         private void Adultprice_TextChanged(object sender, EventArgs e)
         {
-
+            Adultprice.Text = "hello";
         }
     }
 }
