@@ -337,8 +337,9 @@ namespace Back_End
             }
         }
 
-        public dynamic writeIDDatabase(string sql, string sql2, string connectionString, object[] arr)
+        public dynamic writeIDDatabase(string sql, string connectionString, object[] arr)
         {
+            string sql2 = "SELECT @@IDENTITY AS CustomerID FROM Customers";
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
@@ -372,9 +373,7 @@ namespace Back_End
         //Fetch new bookings, gets info from front-end : Seb
         public dynamic fetchData(Dictionary<string, object> details)
         {
-            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
-                   secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb";
-            string readCustomerID = "SELECT @@IDENTITY AS CustomerID FROM Customers";
+            string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
             var dbFunc = new DatabaseFunctions();
             // test ID
             //details["FlightNumber"] = 1200;
@@ -382,7 +381,7 @@ namespace Back_End
             object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
-            details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, readCustomerID, connectionString, customers); // get customerID from insert query
+            details["CustomerID"] = dbFunc.writeIDDatabase(customerWriteDB, connectionString, customers); // get customerID from insert query
             object[] flights = {"@FlightNumber", details["FlightNumber"], "@CustomerID", details["CustomerID"], "@HotelID", details["HotelID"],
                     "@FlightType", details["FlightType"], "@Departure", details["Departure"], "@Arrival", details["Arrival"],
                 "@DepartureTime", details["DepartureTime"], "@ArrivalTime", details["ArrivalTime"], "@AdultPrice",
@@ -644,7 +643,7 @@ namespace Back_End
 
     public class SecondaryDatabase
     {
-        public static bool recoveryProgress = false; // the Name property with hidden backing field
+        public static bool recoveryProgress = false;
         
         //Batch recovery/resync in case of batch failure : Ndey
         public dynamic batchRecovery()
@@ -693,7 +692,7 @@ namespace Back_End
             OleDbCommand command = new OleDbCommand();
             OleDbDataReader reader;
 
-            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
             command.Connection = connection;
 
             connection.Open();
