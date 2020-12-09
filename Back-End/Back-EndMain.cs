@@ -458,6 +458,19 @@ namespace Back_End
         public static void printInvoice(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
                              string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
         {
+
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+
+            var primaryDatabase = new PrimaryDatabase();
+            bool query = primaryDatabase.batchUpdate(dbList, false);
+
+            MessageBox.Show("Your booking has been confirmed.");
+
             MessageBox.Show("Date: " + date + "\n" + "Firstname: " + firstname + "\n" + "Surname: " + surname + "\n" + "Phone Number: " + phonenumber + "\n" + "Address: " + address + "\n" + "Destination: " + destination + "\n" + "Fight Price" + flightprice + "\n" + "Car hire: " + carDetails + "\n" + "Car Price: " + carhirePrice + "\n" + "Hotel Location: " + hotellocation + "\n" + "Hotel Price: " + hotelprice + "\n" + "Total Price: " + total);
         }
     }

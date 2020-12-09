@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Print_Invoice));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -61,13 +62,16 @@
             this.flipriceLbl = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.printInvoiceBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Location = new System.Drawing.Point(-5, 16);
@@ -175,10 +179,10 @@
             // 
             this.label31.AutoSize = true;
             this.label31.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.Location = new System.Drawing.Point(9, 154);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(177, 22);
+            this.label31.Size = new System.Drawing.Size(198, 25);
             this.label31.TabIndex = 4;
             this.label31.Text = "INVOICE DETAILS";
             // 
@@ -186,10 +190,10 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(575, 154);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(129, 22);
+            this.label32.Size = new System.Drawing.Size(144, 25);
             this.label32.TabIndex = 5;
             this.label32.Text = "INVOICE TO ";
             // 
@@ -232,70 +236,70 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.Location = new System.Drawing.Point(9, 190);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(134, 22);
+            this.label37.Size = new System.Drawing.Size(148, 25);
             this.label37.TabIndex = 10;
             this.label37.Text = "Invoice Number";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(9, 250);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(109, 22);
+            this.label38.Size = new System.Drawing.Size(120, 25);
             this.label38.TabIndex = 11;
             this.label38.Text = "Invoice Date";
             // 
             // dateLbl
             // 
             this.dateLbl.AutoSize = true;
-            this.dateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLbl.Location = new System.Drawing.Point(9, 277);
             this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(68, 22);
+            this.dateLbl.Size = new System.Drawing.Size(75, 25);
             this.dateLbl.TabIndex = 12;
             this.dateLbl.Text = "label39";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(9, 217);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(20, 22);
+            this.label40.Size = new System.Drawing.Size(23, 25);
             this.label40.TabIndex = 13;
             this.label40.Text = "1";
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.Location = new System.Drawing.Point(9, 382);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(137, 22);
+            this.label41.Size = new System.Drawing.Size(148, 25);
             this.label41.TabIndex = 14;
             this.label41.Text = "Car Hire Details";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.Location = new System.Drawing.Point(9, 340);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(114, 22);
+            this.label42.Size = new System.Drawing.Size(123, 25);
             this.label42.TabIndex = 15;
             this.label42.Text = "Flight Details";
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(9, 426);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(112, 22);
+            this.label43.Size = new System.Drawing.Size(121, 25);
             this.label43.TabIndex = 16;
             this.label43.Text = "Hotel Details";
             // 
@@ -373,23 +377,36 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(44, 483);
+            this.button1.Location = new System.Drawing.Point(3, 483);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(696, 39);
+            this.button1.Size = new System.Drawing.Size(278, 39);
             this.button1.TabIndex = 26;
-            this.button1.Text = "Thank You for Booking with Palm Escapes...";
+            this.button1.Text = "Go back to Homepage";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // printInvoiceBtn
             // 
-            this.printInvoiceBtn.Location = new System.Drawing.Point(184, 426);
+            this.printInvoiceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.printInvoiceBtn.Location = new System.Drawing.Point(653, 483);
             this.printInvoiceBtn.Name = "printInvoiceBtn";
-            this.printInvoiceBtn.Size = new System.Drawing.Size(75, 23);
+            this.printInvoiceBtn.Size = new System.Drawing.Size(152, 39);
             this.printInvoiceBtn.TabIndex = 27;
             this.printInvoiceBtn.Text = "Print Invoice";
             this.printInvoiceBtn.UseVisualStyleBackColor = true;
             this.printInvoiceBtn.Click += new System.EventHandler(this.printInvoiceBtn_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(171, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(91, 115);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 28;
+            this.pictureBox1.TabStop = false;
             // 
             // Print_Invoice
             // 
@@ -425,6 +442,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,5 +507,6 @@
         private System.Windows.Forms.Label flipriceLbl;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button printInvoiceBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
