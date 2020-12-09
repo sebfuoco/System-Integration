@@ -35,10 +35,43 @@ namespace Front_End
         //     htlpri = hotelprice;
         //}
 
-        public Booking_Reservation()
+        //Booking Details Structure:
+        struct bookingDetails
+        {
+            public string bookingDate;
+            public string fname;
+            public string sname;
+            public string customerAddress;
+            public string customerPhone;
+            public string flightDestination;
+            public string flightTotalPrice;
+            public string carHirePrice;
+            public string hireDetails;
+            public string hotelDetails;
+            public string hotelTotalPrice;
+            public string totalPrice;
+
+        }
+        //Instatiate bookingDetails
+        bookingDetails booking = new bookingDetails();
+
+        public Booking_Reservation(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
+                             string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
         {
             InitializeComponent();
-          
+            //Assign data from the previous form to the structure
+            booking.bookingDate = date;
+            booking.fname = firstname;
+            booking.sname = surname;
+            booking.customerPhone = phonenumber;
+            booking.customerAddress = address;
+            booking.flightDestination = destination;
+            booking.flightTotalPrice = flightprice;
+            booking.hireDetails = carDetails;
+            booking.carHirePrice = carhirePrice;
+            booking.hotelDetails = hotellocation;
+            booking.hotelTotalPrice = hotelprice;
+            booking.totalPrice = total;
 
         }
         double mynum = 0;
