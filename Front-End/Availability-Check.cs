@@ -286,17 +286,34 @@ namespace Front_End
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            Adultprice.Text = "hello1";
+
+            //Sing : Get flightID
+            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+            string date = DateTimePicker1.Text.ToString();
+            //Sing: Display flight Details 
+            var flightDetails = Back_End.DatabaseQuery.getFlightDetails(flightID, date);
+
+            //times price by value in numericupdown
+
+            decimal x = numericUpDown1.Value;
+
+            string strprice = flightDetails.adultPrice;
+            decimal price = Convert.ToDecimal(strprice);
+
+            decimal total = x * price;
+
+            Adultprice.Text = total.ToString();
+
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            Childprice.Text = "hello2";
+           
         }
 
         private void Adultprice_TextChanged(object sender, EventArgs e)
         {
-            Adultprice.Text = "hello";
+           
         }
     }
 }

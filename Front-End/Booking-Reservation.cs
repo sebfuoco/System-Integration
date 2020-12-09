@@ -41,7 +41,11 @@ namespace Front_End
         //Instatiate bookingDetails
         bookingDetails booking = new bookingDetails();
 
-        public Booking_Reservation(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
+        public Booking_Reservation()
+        {
+        }
+
+            public Booking_Reservation(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
                              string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
         {
             InitializeComponent();
