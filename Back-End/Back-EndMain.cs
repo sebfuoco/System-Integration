@@ -357,7 +357,8 @@ namespace Back_End
                 }
             }
         }
-    }
+    
+   }
 
     public class PrimaryDatabase
     {
@@ -723,5 +724,15 @@ namespace Back_End
 
         }
     }
+
+    public static class printFunction
+    {
+        public static void printInvoice(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
+                             string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
+        {
+           MessageBox.Show("Date: " + date + "\n" +"Firstname: " + firstname + "\n"+"Surname: " + surname + "\n" + "Phone Number: " + phonenumber + "\n"+"Address: " + address + "\n"+"Destination: " + destination + "\n"+"Fight Price" + flightprice + "\n"+"Car hire: " + carDetails + "\n" +"Car Price: " + carhirePrice + "\n" +"Hotel Location: " + hotellocation + "\n" +"Hotel Price: " + hotelprice + "\n" +"Total Price: " + total); 
+        } 
+    }
+
 }
 
