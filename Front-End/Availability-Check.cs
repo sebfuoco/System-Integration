@@ -159,9 +159,10 @@ namespace Front_End
 
         private void Check_Click_1(object sender, EventArgs e)
         {
+            //Sing : Get flightID
             string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
             string date = DateTimePicker1.Text.ToString();
-           
+           //Sing: Display flight Details 
             var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID,date);
             Flightnum.Text = flightDetails.flightNumber;
             Destination.Text = flightDetails.destination;
@@ -172,7 +173,7 @@ namespace Front_End
             Adultprice.Text = flightDetails.adultPrice;
             Childprice.Text = flightDetails.childPrice;
 
-              
+            //Sing: Check availability  
             if (Flightnum.Text != "")
             {
                 Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
@@ -256,6 +257,7 @@ namespace Front_End
 
         private void Carhireinput_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Sing: display car hire details
             var carDetails = Back_End.DatabaseQuery.getCarDetails(Carinput.Text);
             Numplate.Text = carDetails.numPlate;
             Gearbox.Text = carDetails.gearBox;
@@ -267,6 +269,7 @@ namespace Front_End
 
         private void Hotelinput_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Sing: Display hotel details
             var hotelDetails = Back_End.DatabaseQuery.getHotelDetails(Hotelinput.Text);
             Starrating.Text = hotelDetails.rating;
             Checkin.Text = hotelDetails.checkIn;
@@ -274,10 +277,7 @@ namespace Front_End
             Pricepernight.Text = hotelDetails.pricePerNight;
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
