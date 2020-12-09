@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
@@ -95,6 +98,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Manager_Database.xsd</DependentUpon>
     </Compile>
+    <Compile Include="PrimaryDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PrimaryDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Print-Invoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +115,11 @@
       <DependentUpon>Print-Invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecondaryDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Availability-Check.resx">
       <DependentUpon>Availability-Check.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +172,28 @@
     <None Include="Manager_Database.xss">
       <DependentUpon>Manager_Database.xsd</DependentUpon>
     </None>
+    <None Include="PrimaryDB.xsc">
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDB.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrimaryDB.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrimaryDB.xss">
+      <DependentUpon>PrimaryDB.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDBDataSet.xsc">
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PrimaryDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PrimaryDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PrimaryDBDataSet.xss">
+      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -163,6 +203,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="SecondaryDBDataSet.xsc">
+      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SecondaryDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SecondaryDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SecondaryDBDataSet.xss">
+      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -176,7 +227,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo.ico" />
     <Content Include="Primary.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PrimaryDB.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

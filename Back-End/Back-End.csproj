@@ -48,7 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -61,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Back-EndMain.cs" />
-    <Compile Include="PrimaryDataSet.Designer.cs">
+    <Compile Include="PrimaryDBDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PrimaryDataSet.xsd</DependentUpon>
+      <DependentUpon>PrimaryDBDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -72,41 +74,41 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SecondaryDataSet.Designer.cs">
+    <Compile Include="SecondaryDBDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SecondaryDataSet.xsd</DependentUpon>
+      <DependentUpon>SecondaryDBDataSet1.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="PrimaryDataSet.xsc">
-      <DependentUpon>PrimaryDataSet.xsd</DependentUpon>
+    <None Include="PrimaryDBDataSet1.xsc">
+      <DependentUpon>PrimaryDBDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="PrimaryDataSet.xsd">
+    <None Include="PrimaryDBDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PrimaryDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>PrimaryDBDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="PrimaryDataSet.xss">
-      <DependentUpon>PrimaryDataSet.xsd</DependentUpon>
+    <None Include="PrimaryDBDataSet1.xss">
+      <DependentUpon>PrimaryDBDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="SecondaryDataSet.xsc">
-      <DependentUpon>SecondaryDataSet.xsd</DependentUpon>
+    <None Include="SecondaryDBDataSet1.xsc">
+      <DependentUpon>SecondaryDBDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="SecondaryDataSet.xsd">
+    <None Include="SecondaryDBDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SecondaryDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>SecondaryDBDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="SecondaryDataSet.xss">
-      <DependentUpon>SecondaryDataSet.xsd</DependentUpon>
+    <None Include="SecondaryDBDataSet1.xss">
+      <DependentUpon>SecondaryDBDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +124,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Primary.mdb" />
-    <Content Include="Secondary.mdb" />
+    <Content Include="PrimaryDB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SecondaryDB.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

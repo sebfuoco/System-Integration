@@ -59,10 +59,12 @@ namespace Back_End
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
         }
 
+        //Sing: Class declaration for calculations
         public static class calculations
         {
-
-            public static string calculateSpacesLeft(string flightNum, string date)
+            //Sing:Function to calculate the spaces left based on the fight number and the flight date.
+            //This function returns a string value of the number of spaces.
+            public static string calculateSpacesLeft(string flightNum, string flightdate)
             {
 
                 //Sing :  Database declarations
@@ -71,27 +73,27 @@ namespace Back_End
                 DataTable dtable = new DataTable();
                 OleDbCommand command = new OleDbCommand();
                 OleDbDataReader reader;
-
+                //Connection string for database location
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
                 command.Connection = connection;
-
+                
                 connection.Open();
-
-                string query = "select * from Flights where [FlightNumber] =" + flightNum + " AND [DepartureTime] =" + date;
+                //SQL query to the database
+                string query = "select * from Flights where FlightNumber =" + Int32.Parse(flightNum);
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
                 int counter = 0;
                 int numberOfSpace = 20;
-
+                //Find the number of records with the flightID
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
 
-                        if (reader["FlightNumber"].ToString() == flightNum.ToString())
+                        if (reader["FlightNumber"].ToString() == flightNum.ToString() && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                         {
-                            counter = counter + 1;
+                            counter += 1;
                         }
                     }
                     reader.Close();
@@ -102,27 +104,28 @@ namespace Back_End
 
             }
 
-
+            //Sing: Function to retrieve the flightID from the database.
+            //Returns the flightID as a string value.
             public static string getFlightID(string destination)
-            {
+            { 
                 //Sing :  Database declarations
                 System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
                 OleDbDataAdapter ad;
                 DataTable dtable = new DataTable();
                 OleDbCommand command = new OleDbCommand();
                 OleDbDataReader reader;
-
-                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=Primary.mdb";
+                //Database connection location string.
+                connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
                 command.Connection = connection;
 
                 connection.Open();
-
-                string query = "select FlightNumber from Flights where [Destination] =" + destination;
+                //SQL Query to the database
+                string query = "select * from Flights where [Destination] = '" + destination + "'";
                 command.CommandText = query;
                 reader = command.ExecuteReader();
 
-                string flightnum ="";
-
+                string flightnum = "";
+                //Finds the flight number based on the destination in the database.
                 if (reader.HasRows)
                 {
                     while (reader.Read())
@@ -136,15 +139,39 @@ namespace Back_End
                     reader.Close();
                 }
                 connection.Close();
-
+                //Returns the flight number.
                 return flightnum;
             }
 
+            //Sing: Function to calculate the total price of a booking based on the flight price, car hire price, number of days for car rental,
+            //hotel price and number of nights.
+            //Returns and integer value for the total price
+            public static int calculateTotolPrice(string flightPrice, string carPricePerDay, int carNumberOfDays, string hotelPricePerNight, int hotelNumberOfNights )
+            {
+                int totalCarPice = Int32.Parse(carPricePerDay) * carNumberOfDays;
+                int totalHotelPrice = Int32.Parse(hotelPricePerNight) * hotelNumberOfNights;
+
+                int total = totalCarPice + totalHotelPrice + Int32.Parse(flightPrice);
+
+                return total;
+
+            }
+
+            //Sing: Function to find the number of spaces left based on the number of spaces taken.
+            //returns and string value for the number of spaces left.
+            public static string spacesTaken(string spacesLeft)
+            {
+                int space = 20 - Int32.Parse(spacesLeft);
+                return space.ToString();
+            }
         }
 
+        //Sing: Class declaration for the login class
         public static class login
         {
             //Sing : Login for Front-end.
+            //Function to authenticate a user based on credentials entered.
+            //Entering username: admin and password: admin will return true.
             public static bool authenticateUser(string username, string password)
             {
                 //Sing : login database declarations
@@ -152,15 +179,14 @@ namespace Back_End
                 OleDbDataAdapter ad;
                 DataTable dtable = new DataTable();
                 OleDbCommand command = new OleDbCommand();
-                //OleDbDataReader reader;
 
                 //Sing : Login database connection
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=User.mdb;Jet OLEDB:Database Password=;";
                 command.Connection = connection;
 
-                //Opening a connection to the database
+                //Sing:Opening a connection to the database
                 connection.Open();
-                //defining the query 
+                //Sing: defining the query 
                 ad = new OleDbDataAdapter("select * from Accounts where username ='" + username + "'and password='" + password + "'", connection);
                 //Filling the table adaptor 
                 ad.Fill(dtable);
@@ -175,7 +201,7 @@ namespace Back_End
                 }
                 else if (dtable.Rows.Count > 0 && username == "admin" && password == "admin")
                 {
-                    //Data exists in the database, therefore this function checks where admin credientials are used.
+                    //Data exists in the database, therefore return true as admin credentials have been entered. 
 
                     connection.Close();
 
@@ -342,7 +368,8 @@ namespace Back_End
                 }
             }
         }
-    }
+    
+   }
 
     public class PrimaryDatabase
     {
@@ -426,11 +453,33 @@ namespace Back_End
         }
     }
 
-    //Sing:
-    public class DatabaseQuery
+    public static class printFunction
     {
+        public static void printInvoice(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
+                             string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
+        {
 
-        struct flightDetails
+            // batch update queries
+            string fetchCustomersDB = "INSERT INTO SecondaryDB.mdb.Customers SELECT * FROM Customers",
+                fetchFlightsDB = "INSERT INTO SecondaryDB.mdb.Flights SELECT * FROM Flights",
+                fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
+                fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
+            string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+
+            var primaryDatabase = new PrimaryDatabase();
+            bool query = primaryDatabase.batchUpdate(dbList, false);
+
+            MessageBox.Show("Your booking has been confirmed.");
+
+            MessageBox.Show("Date: " + date + "\n" + "Firstname: " + firstname + "\n" + "Surname: " + surname + "\n" + "Phone Number: " + phonenumber + "\n" + "Address: " + address + "\n" + "Destination: " + destination + "\n" + "Fight Price" + flightprice + "\n" + "Car hire: " + carDetails + "\n" + "Car Price: " + carhirePrice + "\n" + "Hotel Location: " + hotellocation + "\n" + "Hotel Price: " + hotelprice + "\n" + "Total Price: " + total);
+        }
+    }
+
+    //Sing: Class decaration for Database Query functions
+    public static class DatabaseQuery
+    {
+        //Sing: Defining a structure for flight details
+       public struct flightDetails
         {
             public string flightNumber;
             public string flightType;
@@ -441,19 +490,21 @@ namespace Back_End
             public string childPrice;
         }
 
-        struct cars
+        //Sing: Definiing a structure for car details
+        public struct cars
         {
             public string numPlate;
-            public string HotelID;
             public string carMake;
             public string carModel;
             public string carType;
             public string gearBox;
             public string seats;
+            public string pricePerDay;
 
         }
 
-        struct hotel
+        //Sing: Defining a structure for hotel details.
+       public  struct hotel
         {
             public string rating;
             public string checkIn;
@@ -462,28 +513,36 @@ namespace Back_End
         }
 
 
-        //Update Primary database with new bookings : Sing
-        public void showFlights(string flightNum)
+        // Sing: Function to retrieve flight details from the database based on the flight number and flight date.
+        //This function returns a structure of flight details
+        public static flightDetails getFlightDetails(string flightNum, string flightdate)
         {
+            //Sing: Database connection declarations
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
             OleDbCommand command = new OleDbCommand();
             OleDbDataReader reader;
 
-            connection.Open();
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
 
-            string query = "select * from Flights where [FlightNumber] =" + flightNum;
+            connection.Open();
+            //sing: SQL query string
+            string query = "SELECT * FROM Flights WHERE FlightNumber =" + Int32.Parse(flightNum);
             command.CommandText = query;
             reader = command.ExecuteReader();
 
+            //Sing: Define an instance of the flightDetails structure
             flightDetails flight = new flightDetails();
 
+            //Get all flight details 
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
 
-                    if (reader["ID"].ToString() == flightNum)
+                    if (reader["FlightNumber"].ToString() == flightNum && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
                     {
                         flight.flightNumber = flightNum;
                         flight.flightType = reader["FlightType"].ToString();
@@ -497,38 +556,117 @@ namespace Back_End
                 reader.Close();
             }
             connection.Close();
-
-            //Display flight data on front-end
+            //Sing: Check avalibality based on where entries for the date are availiable
+            if (flight.departure == null)
+            {
+                MessageBox.Show("No availability found for this date.");
+                return flight;
+            }
+            else
+            {
+                //Display flight data on front-end.
+                return flight;
+            }
            
         }
 
 
-
-
-
-        //Sing : Query Databases Function - Accept query and returns boolean value.
-        protected internal bool query(string query, bool flag)
+        // Sing: Function to retrieve car details details from the database based on the care hire name.
+        //This function returns a structure of car rental details
+        public static cars getCarDetails(string carHire)
         {
+            //Sing: Database connection string declarations
             System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
             DataTable dtable = new DataTable();
             OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
 
-            try
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
+
+            connection.Open();
+            //Sing: SQL database query string
+            string query = "SELECT * FROM Cars WHERE CarRentalCompany ='" + carHire + "'";
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+
+            //Sing: Instantiating a new car structure
+            cars carDetails = new cars();
+
+            //Sing: Get all details of car rental 
+            if (reader.HasRows)
             {
-                connection.Open();
-                command.CommandText = query;
-                command.ExecuteNonQuery();
-                connection.Close();
-                return flag = true;
+                while (reader.Read())
+                {
+
+                    if (reader["CarRentalCompany"].ToString() == carHire)
+                    {
+                        carDetails.numPlate = reader["NumberPlate"].ToString();
+                        carDetails.carMake = reader["Make"].ToString();
+                        carDetails.carModel = reader["Model"].ToString();
+                        carDetails.carType = reader["CarType"].ToString();
+                        carDetails.gearBox = reader["GearBox"].ToString();
+                        carDetails.seats = reader["Seats"].ToString();
+                        carDetails.pricePerDay = reader["pricePerDay"].ToString();
+                    }
+                }
+                reader.Close();
             }
-            catch (Exception error)
-            {
-                // connection.Close();
-                MessageBox.Show(error.Message.ToString());
-                return flag = false;
-            }
+            connection.Close();
+           //return car details
+            return carDetails;
+            
         }
+
+
+        // Sing: Function to retrieve Hotel details from the database based on the hotel name.
+        //This function returns a structure of hotel details
+        public static hotel getHotelDetails(string hotelName)
+        {
+            //Sing: Database connection declaration 
+            System.Data.OleDb.OleDbConnection connection = new System.Data.OleDb.OleDbConnection();
+            DataTable dtable = new DataTable();
+            OleDbCommand command = new OleDbCommand();
+            OleDbDataReader reader;
+
+            //Sing : Login database connection
+            connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb;Jet OLEDB:Database Password=;";
+            command.Connection = connection;
+
+            connection.Open();
+            //Sing: SQL database query
+            string query = "SELECT * FROM Hotel WHERE HotelName ='" + hotelName + "'";
+            command.CommandText = query;
+            reader = command.ExecuteReader();
+            //Sing: Instantiating a new hotel structure
+            hotel hotelDetails = new hotel();
+
+            //Sing : get all hotel details
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+
+                    if (reader["HotelName"].ToString() == hotelName)
+                    {
+                        hotelDetails.rating = reader["StarRating"].ToString();
+                        hotelDetails.checkIn = reader["CheckIn"].ToString();
+                        hotelDetails.checkOut = reader["CheckOut"].ToString();
+                        hotelDetails.pricePerNight = reader["PricePerNight"].ToString();
+                        
+                    }
+                }
+                reader.Close();
+            }
+            connection.Close();
+            //Sing: return hotel details
+            return hotelDetails;
+
+        }
+
     }
+
     public class SecondaryDatabase
     {
         public static bool recoveryProgress = false;
@@ -548,11 +686,23 @@ namespace Back_End
             return true;
         }
         //Notify front-end of bacth recovery : Avar
-        protected internal void notifyRecovery()
+        public static void notifyRecovery()
         {
+
+            if (SecondaryDatabase.recoveryProgress == true)
+            {
+            
+                MessageBox.Show("Holiday search might not be upto date");
+
+            }
+            //var secondaryDatabase = new SecondaryDatabase();
+            //bool checkRecovery = SecondaryDatabase.recoveryProgress;
+            //string message = "Holiday search might not be upto date";
+            //string title = "Batch Recovery in progress";
+            //MessageBox.Show(message, title);
         }
 
-         struct customerDetails
+        struct customerDetails
         {
             public string fname;
             string sname;
@@ -592,9 +742,6 @@ namespace Back_End
                 reader.Close();
             }
             connection.Close();
-
-
-
         }
     }
 }

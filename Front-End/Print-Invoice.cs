@@ -14,9 +14,44 @@ namespace Front_End
 {
     public partial class Print_Invoice : Form
     {
-        public Print_Invoice()
+        //Instance of a the invoice structure
+        invoice invoiceDetails = new invoice();
+        //Structure for booking details
+        struct invoice
+        {
+            public string invoiceDate;
+            public string fname;
+            public string sname;
+            public string customerAddress;
+            public string customerPhone;
+            public string flightDestination;
+            public string flightTotalPrice;
+            public string carHirePrice;
+            public string hireDetails;
+            public string hotelDetails;
+            public string hotelTotalPrice;
+            public string totalPrice;
+
+        }
+        
+        public Print_Invoice(string date,string firstname, string surname,string address,string phonenumber,string destination,string flightprice,
+                             string carDetails,string carhirePrice,string hotellocation,string hotelprice,string total)
         {
             InitializeComponent();
+            //Assign data from the previous form to the structure
+            invoiceDetails.invoiceDate = date;
+            invoiceDetails.fname = firstname;
+            invoiceDetails.sname = surname;
+            invoiceDetails.customerPhone = phonenumber;
+            invoiceDetails.customerAddress = address;
+            invoiceDetails.flightDestination = destination;
+            invoiceDetails.flightTotalPrice = flightprice;
+            invoiceDetails.hireDetails = carDetails;
+            invoiceDetails.carHirePrice = carhirePrice;
+            invoiceDetails.hotelDetails = hotellocation;
+            invoiceDetails.hotelTotalPrice = hotelprice;
+            invoiceDetails.totalPrice = total;
+
         }
 
         private void cnlButton_Click(object sender, EventArgs e)
@@ -34,6 +69,7 @@ namespace Front_End
             {
                 this.Close();
             }
+            
         }
 
         private void extButton_Click(object sender, EventArgs e)
@@ -51,20 +87,44 @@ namespace Front_End
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            const string text = "Confirmation Complete!";
+            const string caption = "CANCEL";
+            var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                main m = new main();
+                m.ShowDialog();
+            }
+            else if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
 
         private void Print_Invoice_Load(object sender, EventArgs e)
         {
+            //Display data of structure on the front-end
+            dateLbl.Text = invoiceDetails.invoiceDate;
+            fnameLbl.Text = invoiceDetails.fname;
+            snameLbl.Text = invoiceDetails.sname; ;
+            addrLbl.Text = invoiceDetails.customerAddress; 
+            phonenumLbl.Text = invoiceDetails.customerPhone;
+            destiLbl.Text = invoiceDetails.flightDestination;
+            flipriceLbl.Text = invoiceDetails.flightTotalPrice;
+            cardetailLbl.Text = invoiceDetails.hireDetails;
+            carpriceLbl.Text = invoiceDetails.carHirePrice; ;
+            locatLbl.Text = invoiceDetails.hotelDetails;
+            htlpriLbl.Text = invoiceDetails.hotelTotalPrice;
+            totalLbl.Text = invoiceDetails.totalPrice;
 
         }
 
-        private void label23_Click(object sender, EventArgs e)
+        private void printInvoiceBtn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label29_Click(object sender, EventArgs e)
-        {
-
+            Back_End.printFunction.printInvoice(invoiceDetails.invoiceDate, invoiceDetails.fname, invoiceDetails.sname, invoiceDetails.customerAddress, invoiceDetails.customerPhone, invoiceDetails.flightDestination, invoiceDetails.flightTotalPrice, invoiceDetails.hireDetails, invoiceDetails.carHirePrice, invoiceDetails.hotelDetails, invoiceDetails.hotelTotalPrice, invoiceDetails.totalPrice);
         }
     }
 }
