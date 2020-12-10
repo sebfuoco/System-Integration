@@ -124,9 +124,9 @@ namespace Front_End
                 MessageBox.Show("Nationality can not be empty or contains symbol");
             }
 
-            else if (!Regex.IsMatch(Addresstxtbox.Text, @"^[a-zA-Z0-9]+$"))
+            else if (!Regex.IsMatch(Addresstxtbox.Text, @"^[A-Za-z0-9'\.\-\s\,]"))
             {
-                MessageBox.Show("Address can not be empty or contains symbol");
+                MessageBox.Show("Must be a valid address");
             }
 
             else if (!Regex.IsMatch(postCodetxtbox.Text, @"^[a-zA-Z0-9]{7,8}\b+$"))
@@ -139,7 +139,7 @@ namespace Front_End
                 MessageBox.Show("Contact number can not be empty or contain letters or symbols");
             }
 
-            else if (!Regex.IsMatch(emailtxtbox.Text, @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"))
+            else if (!Regex.IsMatch(emailtxtbox.Text, @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"))
             {
                 MessageBox.Show("Must be a valid email address");
             }
