@@ -70,6 +70,7 @@ namespace Front_End
 
         private void cnlButton_Click_2(object sender, EventArgs e)
         {
+            //exit button code
             const string text = "Do you want to cancel? This will redirect you to the home page.";
             const string caption = "CANCEL";
             var result = MessageBox.Show(text, caption, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -87,6 +88,8 @@ namespace Front_End
 
         private void Copyb_Click(object sender, EventArgs e)
         {
+
+            // code for copy button copying all text on the page to save progress if needed 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine(Locationinput.Text);
             sb.AppendLine(DateTimePicker1.Text);
@@ -167,26 +170,59 @@ namespace Front_End
 
         private void Check_Click_1(object sender, EventArgs e)
         {
-            //Sing : Get flightID
-            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
-            string date = DateTimePicker1.Text.ToString();
-           //Sing: Display flight Details 
-            var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID,date);
-            Flightnum.Text = flightDetails.flightNumber;
-            Destination.Text = flightDetails.destination;
-            Flighttype.Text = flightDetails.flightType;
-            Departuretime.Text = flightDetails.departure;
-            Departure.Text = flightDetails.departure;
-            Arrivaltime.Text = flightDetails.arrival;
-            Adultprice.Text = flightDetails.adultPrice;
-            Childprice.Text = flightDetails.childPrice;
+            //retrieves flight details from database 
 
-            //Sing: Check availability  
-            if (Flightnum.Text != "")
+            try 
             {
-                Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
-                Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
+
+                //Sing : Get flightID
+                string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+                string date = DateTimePicker1.Text.ToString();
+                //Sing: Display flight Details 
+                var flightDetails = Back_End.DatabaseQuery.getFlightDetails(flightID, date);
+                Flightnum.Text = flightDetails.flightNumber;
+                Destination.Text = flightDetails.destination;
+                Flighttype.Text = flightDetails.flightType;
+                Departuretime.Text = flightDetails.departure;
+                Departure.Text = flightDetails.departure;
+                Arrivaltime.Text = flightDetails.arrival;
+                Adultprice.Text = flightDetails.adultPrice;
+                Childprice.Text = flightDetails.childPrice;
+
+                //Sing: Check availability  
+                if (Flightnum.Text != "")
+                {
+                    Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
+                    Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
+                }
+
             }
+            catch
+            {
+                MessageBox.Show("Please Select a location");
+            }
+
+
+           // //Sing : Get flightID
+           // string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+           // string date = DateTimePicker1.Text.ToString();
+           ////Sing: Display flight Details 
+           // var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID,date);
+           // Flightnum.Text = flightDetails.flightNumber;
+           // Destination.Text = flightDetails.destination;
+           // Flighttype.Text = flightDetails.flightType;
+           // Departuretime.Text = flightDetails.departure;
+           // Departure.Text = flightDetails.departure;
+           // Arrivaltime.Text = flightDetails.arrival;
+           // Adultprice.Text = flightDetails.adultPrice;
+           // Childprice.Text = flightDetails.childPrice;
+
+           // //Sing: Check availability  
+           // if (Flightnum.Text != "")
+           // {
+           //     Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
+           //     Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
+           // }
         }
 
       
@@ -211,7 +247,7 @@ namespace Front_End
             Back_End.SecondaryDatabase.notifyRecovery();
 
             {
-              //destnation check to database  
+              //pulls flight destinations from database  
                 OleDbCommand command = new OleDbCommand();
 
                 connection.ConnectionString = @"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=PrimaryDB.mdb";
@@ -229,7 +265,7 @@ namespace Front_End
 
                 connection.Close();
 
-                //car rental 
+                //pulls car rental service names from database  
 
                 connection.Open();
 
@@ -243,7 +279,7 @@ namespace Front_End
 
                 connection.Close();
 
-                //hotel selection
+                //pulls hotel names from database  
 
                 connection.Open();
 
@@ -294,6 +330,7 @@ namespace Front_End
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
+            //adds price of adult tickets up
 
             //Sing : Get flightID
             string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
@@ -316,6 +353,8 @@ namespace Front_End
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
+            //adds price of child tickets up
+
             //Sing : Get flightID
             string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
             string date = DateTimePicker1.Text.ToString();
@@ -351,6 +390,7 @@ namespace Front_End
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
+            //adds up price per day for car rental 
 
             var carDetails = Back_End.DatabaseQuery.getCarDetails(Carinput.Text);
 
@@ -370,6 +410,7 @@ namespace Front_End
 
         private void numericUpDown4_ValueChanged(object sender, EventArgs e)
         {
+            //adds up price per night for hotel rooms 
 
             var hotelDetails = Back_End.DatabaseQuery.getHotelDetails(Hotelinput.Text);
 
@@ -390,14 +431,24 @@ namespace Front_End
 
         private void Caculate_Click(object sender, EventArgs e)
         {
+            //totals up all prices on page to give a overall price 
 
-            int num1, num2, num3, num4, res;
-            num1 = Convert.ToInt32(Adultprice.Text);
-            num2 = Convert.ToInt32(Childprice.Text);
-            num3 = Convert.ToInt32(Priceperday.Text);
-            num4 = Convert.ToInt32(Pricepernight.Text);
-            res = num1 + num2 + num3 + num4;
-            Total.Text = Convert.ToString(res);
+            try
+            {
+
+                int num1, num2, num3, num4, res;
+                num1 = Convert.ToInt32(Adultprice.Text);
+                num2 = Convert.ToInt32(Childprice.Text);
+                num3 = Convert.ToInt32(Priceperday.Text);
+                num4 = Convert.ToInt32(Pricepernight.Text);
+                res = num1 + num2 + num3 + num4;
+                Total.Text = Convert.ToString(res);
+
+            }
+            catch
+            {
+                MessageBox.Show("Please Select a car hire company and hotel company");
+            }
 
         }
 
