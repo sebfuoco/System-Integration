@@ -280,7 +280,7 @@
             this.customersBindingNavigator.BindingSource = this.customersBindingSource;
             this.customersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this.customersBindingNavigator.DeleteItem = null;
-            this.customersBindingNavigator.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.customersBindingNavigator.ImageScalingSize = new System.Drawing.Size(30, 30);
             this.customersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
