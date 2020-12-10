@@ -29,19 +29,6 @@ namespace Front_End
 
         public OleDbCommand cmd { get; private set; }
 
-       // public Print_Invoice(string firstname, string surname, string address, string phonenumber, string destination, string flightprice, string hotellocation, string hotelprice, string carhirePrice)
-       // {
-       //     InitializeComponent();
-       //     fnameLbl.Text = firstname;
-       //     snameLbl.Text = surname;
-       //     addrLbl.Text = address;
-       //     phonenumLbl.Text = phonenumber;
-       //     destiLbl.Text = destination;
-        //    fliprice = flightprice;
-        //    carpriceLbl.Text = carhirePrice;
-        //    locatLbl.Text = hotellocation;
-       //     htlpri = hotelprice;
-        //}
 
         public Availability_Check()
         {
@@ -205,27 +192,6 @@ namespace Front_End
                 MessageBox.Show("Please Select a location");
             }
 
-
-           // //Sing : Get flightID
-           // string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
-           // string date = DateTimePicker1.Text.ToString();
-           ////Sing: Display flight Details 
-           // var flightDetails =  Back_End.DatabaseQuery.getFlightDetails(flightID,date);
-           // Flightnum.Text = flightDetails.flightNumber;
-           // Destination.Text = flightDetails.destination;
-           // Flighttype.Text = flightDetails.flightType;
-           // Departuretime.Text = flightDetails.departure;
-           // Departure.Text = flightDetails.departure;
-           // Arrivaltime.Text = flightDetails.arrival;
-           // Adultprice.Text = flightDetails.adultPrice;
-           // Childprice.Text = flightDetails.childPrice;
-
-           // //Sing: Check availability  
-           // if (Flightnum.Text != "")
-           // {
-           //     Avaoutput.Text = Back_End.Program.calculations.calculateSpacesLeft(flightID, date);
-           //     Seatoutput.Text = Back_End.Program.calculations.spacesTaken(Avaoutput.Text);
-           // }
         }
 
       
