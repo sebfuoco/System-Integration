@@ -129,7 +129,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(224, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 22);
+            this.label2.Size = new System.Drawing.Size(148, 20);
             this.label2.TabIndex = 18;
             this.label2.Text = "Availability Check";
             // 
@@ -187,7 +187,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(255, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 15);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Seats taken";
             // 
@@ -196,7 +196,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(158, 59);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(53, 15);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 28;
             this.label4.Text = "Avaliblity";
             // 
@@ -269,6 +269,7 @@
             // 
             this.Adultprice.Location = new System.Drawing.Point(317, 23);
             this.Adultprice.Name = "Adultprice";
+            this.Adultprice.ReadOnly = true;
             this.Adultprice.Size = new System.Drawing.Size(79, 20);
             this.Adultprice.TabIndex = 48;
             this.Adultprice.TextChanged += new System.EventHandler(this.Adultprice_TextChanged);
@@ -277,6 +278,7 @@
             // 
             this.Childprice.Location = new System.Drawing.Point(317, 71);
             this.Childprice.Name = "Childprice";
+            this.Childprice.ReadOnly = true;
             this.Childprice.Size = new System.Drawing.Size(79, 20);
             this.Childprice.TabIndex = 47;
             this.Childprice.TextChanged += new System.EventHandler(this.Childprice_TextChanged);
@@ -288,7 +290,7 @@
             this.label12.ForeColor = System.Drawing.Color.Black;
             this.label12.Location = new System.Drawing.Point(320, 53);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(66, 15);
+            this.label12.Size = new System.Drawing.Size(57, 13);
             this.label12.TabIndex = 46;
             this.label12.Text = "Child Price";
             // 
@@ -299,28 +301,31 @@
             this.label11.ForeColor = System.Drawing.Color.Black;
             this.label11.Location = new System.Drawing.Point(321, 5);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 15);
+            this.label11.Size = new System.Drawing.Size(58, 13);
             this.label11.TabIndex = 45;
             this.label11.Text = "Adult Price";
             // 
             // Destination
             // 
-            this.Destination.Location = new System.Drawing.Point(232, 22);
+            this.Destination.Location = new System.Drawing.Point(232, 19);
             this.Destination.Name = "Destination";
+            this.Destination.ReadOnly = true;
             this.Destination.Size = new System.Drawing.Size(79, 20);
             this.Destination.TabIndex = 44;
             // 
             // Departuretime
             // 
-            this.Departuretime.Location = new System.Drawing.Point(245, 48);
+            this.Departuretime.Location = new System.Drawing.Point(232, 46);
             this.Departuretime.Name = "Departuretime";
-            this.Departuretime.Size = new System.Drawing.Size(69, 20);
+            this.Departuretime.ReadOnly = true;
+            this.Departuretime.Size = new System.Drawing.Size(79, 20);
             this.Departuretime.TabIndex = 43;
             // 
             // Arrivaltime
             // 
             this.Arrivaltime.Location = new System.Drawing.Point(232, 72);
             this.Arrivaltime.Name = "Arrivaltime";
+            this.Arrivaltime.ReadOnly = true;
             this.Arrivaltime.Size = new System.Drawing.Size(79, 20);
             this.Arrivaltime.TabIndex = 42;
             // 
@@ -329,7 +334,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(151, 48);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 15);
+            this.label10.Size = new System.Drawing.Size(80, 13);
             this.label10.TabIndex = 41;
             this.label10.Text = "Departure Time";
             // 
@@ -338,7 +343,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(151, 74);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 15);
+            this.label9.Size = new System.Drawing.Size(62, 13);
             this.label9.TabIndex = 40;
             this.label9.Text = "Arrival Time";
             // 
@@ -347,7 +352,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(151, 22);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(69, 15);
+            this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 39;
             this.label8.Text = "Destination";
             // 
@@ -356,7 +361,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(2, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 15);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 38;
             this.label7.Text = "Departure";
             // 
@@ -365,7 +370,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(1, 48);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 15);
+            this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 37;
             this.label6.Text = "Flight Type";
             // 
@@ -374,7 +379,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(1, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 15);
+            this.label5.Size = new System.Drawing.Size(72, 13);
             this.label5.TabIndex = 36;
             this.label5.Text = "Flight Number";
             // 
@@ -382,6 +387,7 @@
             // 
             this.Departure.Location = new System.Drawing.Point(69, 72);
             this.Departure.Name = "Departure";
+            this.Departure.ReadOnly = true;
             this.Departure.Size = new System.Drawing.Size(79, 20);
             this.Departure.TabIndex = 34;
             // 
@@ -389,6 +395,7 @@
             // 
             this.Flighttype.Location = new System.Drawing.Point(74, 46);
             this.Flighttype.Name = "Flighttype";
+            this.Flighttype.ReadOnly = true;
             this.Flighttype.Size = new System.Drawing.Size(74, 20);
             this.Flighttype.TabIndex = 34;
             // 
@@ -396,6 +403,7 @@
             // 
             this.Flightnum.Location = new System.Drawing.Point(87, 19);
             this.Flightnum.Name = "Flightnum";
+            this.Flightnum.ReadOnly = true;
             this.Flightnum.Size = new System.Drawing.Size(61, 20);
             this.Flightnum.TabIndex = 34;
             // 
@@ -430,7 +438,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(158, 99);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 37;
             this.label3.Text = "Days Needed";
             // 
@@ -456,6 +464,7 @@
             // 
             this.Priceperday.Location = new System.Drawing.Point(154, 73);
             this.Priceperday.Name = "Priceperday";
+            this.Priceperday.ReadOnly = true;
             this.Priceperday.Size = new System.Drawing.Size(83, 20);
             this.Priceperday.TabIndex = 48;
             this.Priceperday.TextChanged += new System.EventHandler(this.Priceperday_TextChanged);
@@ -464,13 +473,16 @@
             // 
             this.Seats.Location = new System.Drawing.Point(154, 34);
             this.Seats.Name = "Seats";
+            this.Seats.ReadOnly = true;
             this.Seats.Size = new System.Drawing.Size(83, 20);
             this.Seats.TabIndex = 47;
             // 
             // Gearbox
             // 
+            this.Gearbox.BackColor = System.Drawing.SystemColors.Window;
             this.Gearbox.Location = new System.Drawing.Point(61, 69);
             this.Gearbox.Name = "Gearbox";
+            this.Gearbox.ReadOnly = true;
             this.Gearbox.Size = new System.Drawing.Size(83, 20);
             this.Gearbox.TabIndex = 46;
             // 
@@ -479,7 +491,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(176, 57);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(35, 15);
+            this.label23.Size = new System.Drawing.Size(31, 13);
             this.label23.TabIndex = 45;
             this.label23.Text = "Price";
             // 
@@ -488,7 +500,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(176, 18);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(38, 15);
+            this.label22.Size = new System.Drawing.Size(34, 13);
             this.label22.TabIndex = 44;
             this.label22.Text = "Seats";
             // 
@@ -497,7 +509,7 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(7, 74);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 15);
+            this.label21.Size = new System.Drawing.Size(47, 13);
             this.label21.TabIndex = 43;
             this.label21.Text = "Gearbox";
             // 
@@ -505,6 +517,7 @@
             // 
             this.Model.Location = new System.Drawing.Point(61, 119);
             this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
             this.Model.Size = new System.Drawing.Size(83, 20);
             this.Model.TabIndex = 42;
             // 
@@ -513,7 +526,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(6, 122);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(42, 15);
+            this.label20.Size = new System.Drawing.Size(36, 13);
             this.label20.TabIndex = 41;
             this.label20.Text = "Model";
             // 
@@ -522,7 +535,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(6, 95);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(38, 15);
+            this.label19.Size = new System.Drawing.Size(34, 13);
             this.label19.TabIndex = 40;
             this.label19.Text = "Make";
             // 
@@ -531,7 +544,7 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(6, 42);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(55, 30);
+            this.label18.Size = new System.Drawing.Size(47, 26);
             this.label18.TabIndex = 39;
             this.label18.Text = "Number \r\nPlate";
             // 
@@ -549,6 +562,7 @@
             // 
             this.Make.Location = new System.Drawing.Point(61, 94);
             this.Make.Name = "Make";
+            this.Make.ReadOnly = true;
             this.Make.Size = new System.Drawing.Size(83, 20);
             this.Make.TabIndex = 34;
             // 
@@ -556,6 +570,7 @@
             // 
             this.Numplate.Location = new System.Drawing.Point(61, 44);
             this.Numplate.Name = "Numplate";
+            this.Numplate.ReadOnly = true;
             this.Numplate.Size = new System.Drawing.Size(83, 20);
             this.Numplate.TabIndex = 34;
             // 
@@ -612,6 +627,7 @@
             // 
             this.Pricepernight.Location = new System.Drawing.Point(72, 121);
             this.Pricepernight.Name = "Pricepernight";
+            this.Pricepernight.ReadOnly = true;
             this.Pricepernight.Size = new System.Drawing.Size(59, 20);
             this.Pricepernight.TabIndex = 41;
             // 
@@ -620,7 +636,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(25, 124);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(35, 15);
+            this.label16.Size = new System.Drawing.Size(31, 13);
             this.label16.TabIndex = 40;
             this.label16.Text = "Price";
             // 
@@ -629,7 +645,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(6, 99);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(63, 15);
+            this.label15.Size = new System.Drawing.Size(58, 13);
             this.label15.TabIndex = 39;
             this.label15.Text = "Check Out";
             // 
@@ -638,7 +654,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(6, 73);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 15);
+            this.label14.Size = new System.Drawing.Size(50, 13);
             this.label14.TabIndex = 38;
             this.label14.Text = "Check In";
             // 
@@ -647,7 +663,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(6, 48);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 15);
+            this.label13.Size = new System.Drawing.Size(60, 13);
             this.label13.TabIndex = 37;
             this.label13.Text = "Star Rating";
             // 
@@ -655,6 +671,7 @@
             // 
             this.Checkout.Location = new System.Drawing.Point(72, 96);
             this.Checkout.Name = "Checkout";
+            this.Checkout.ReadOnly = true;
             this.Checkout.Size = new System.Drawing.Size(86, 20);
             this.Checkout.TabIndex = 34;
             // 
@@ -662,6 +679,7 @@
             // 
             this.Checkin.Location = new System.Drawing.Point(72, 70);
             this.Checkin.Name = "Checkin";
+            this.Checkin.ReadOnly = true;
             this.Checkin.Size = new System.Drawing.Size(86, 20);
             this.Checkin.TabIndex = 34;
             // 
@@ -669,6 +687,7 @@
             // 
             this.Starrating.Location = new System.Drawing.Point(72, 45);
             this.Starrating.Name = "Starrating";
+            this.Starrating.ReadOnly = true;
             this.Starrating.Size = new System.Drawing.Size(86, 20);
             this.Starrating.TabIndex = 0;
             // 
@@ -707,7 +726,7 @@
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.Location = new System.Drawing.Point(191, 416);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(61, 18);
+            this.label24.Size = new System.Drawing.Size(56, 16);
             this.label24.TabIndex = 35;
             this.label24.Text = "Total =";
             // 
@@ -715,6 +734,7 @@
             // 
             this.Total.Location = new System.Drawing.Point(253, 415);
             this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
             this.Total.Size = new System.Drawing.Size(100, 20);
             this.Total.TabIndex = 36;
             this.Total.TextChanged += new System.EventHandler(this.Total_TextChanged);
