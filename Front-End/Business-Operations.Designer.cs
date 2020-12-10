@@ -865,7 +865,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1476, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1483, 25);
             this.bindingNavigator1.TabIndex = 37;
             this.bindingNavigator1.Text = "bindingNavigator1";
             this.bindingNavigator1.RefreshItems += new System.EventHandler(this.bindingNavigator1_RefreshItems);
@@ -962,7 +962,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1476, 746);
+            this.ClientSize = new System.Drawing.Size(1483, 763);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(emailAddressLabel);
             this.Controls.Add(this.emailAddressTextBox);
