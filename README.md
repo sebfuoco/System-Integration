@@ -1,9 +1,9 @@
 # **Systems Integration**
 
 ## Front end
-
+For use, store the database "PrimaryDB.mdb" and "SecondaryDB.mdb" in the Front-End\bin\Debug directory of the project.
 ## Back end
 >IMPORTANT:
-Store the database "PrimaryDB.mdb" and "SecondaryDB.mdb" in the bin\Debug directory of the project.
+For testing store the database "PrimaryDB.mdb" and "SecondaryDB.mdb" in the Back-End\bin\Debug directory of the project.
 ## Architecture Design
 ![](https://i.imgur.com/wIaupDO.png)
