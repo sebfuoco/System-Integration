@@ -106,5 +106,10 @@ namespace Front_End
                 MessageBox.Show("Sync unsuccessful. Please contact your system administrator.");
             }
         }
+
+        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
     }
 }
