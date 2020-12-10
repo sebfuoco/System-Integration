@@ -29,40 +29,71 @@ namespace Front_End
             public string sname;
             public string customerAddress;
             public string customerPhone;
+            public string gender;
+            public string nationality;
+            public string passportNum;
+            public string postCode;
+            public string email;
+
+            public string flightNumber;
+            public string flightType;
+            public string Departuretime;
+            public string arrivalTime;
+            public string numAdults;
+            public string numChild;
             public string flightDestination;
             public string flightTotalPrice;
+
+            public string carNumPlate;
+            public string carSeats;
+            public string carMake;
+            public string carModel;
             public string carHirePrice;
-            public string hireDetails;
-            public string hotelDetails;
+            public string carHireName;
+
+            public string hotelStar;
+            public string hotelCheckin;
+            public string hotelCheckout;
+            public string hotelName;
             public string hotelTotalPrice;
+
             public string totalPrice;
 
         }
         //Instatiate bookingDetails
         bookingDetails booking = new bookingDetails();
 
-        public Booking_Reservation()
-        {
-        }
-
-            public Booking_Reservation(string date, string firstname, string surname, string address, string phonenumber, string destination, string flightprice,
-                             string carDetails, string carhirePrice, string hotellocation, string hotelprice, string total)
+            public Booking_Reservation(string date,string flightnumber,string flighttype,
+                string flightdeparture,string flightarrival,string adults,
+                string child,string destination, string flightTotalPrice, string numberPlate,
+                string carSeats,string make,string model,string hirePrice,
+                string hireName,string hotelStarRating,string checkIn,
+                string checkOut,string hotelName,string hotelPrice,string totalPrice)
         {
             InitializeComponent();
             //Assign data from the previous form to the structure
-            booking.bookingDate = date;
-            booking.fname = firstname;
-            booking.sname = surname;
-            booking.customerPhone = phonenumber;
-            booking.customerAddress = address;
-            booking.flightDestination = destination;
-            booking.flightTotalPrice = flightprice;
-            booking.hireDetails = carDetails;
-            booking.carHirePrice = carhirePrice;
-            booking.hotelDetails = hotellocation;
-            booking.hotelTotalPrice = hotelprice;
-            booking.totalPrice = total;
 
+            booking.bookingDate = date;
+            booking.flightNumber = flightnumber;
+            booking.flightType = flighttype;
+            booking.Departuretime = flightdeparture;
+            booking.arrivalTime = flightarrival;
+            booking.numAdults = adults;
+            booking.numChild = child;
+            booking.flightDestination = destination;
+            booking.flightTotalPrice = flightTotalPrice;
+            booking.carNumPlate = numberPlate;
+            booking.carSeats = carSeats;
+            booking.carMake = make;
+            booking.carModel = model;
+            booking.carHirePrice = hirePrice;
+            booking.carHireName = hireName;
+            booking.hotelStar = hotelStarRating;
+            booking.hotelCheckin = checkIn;
+            booking.hotelCheckout = checkOut;
+            booking.hotelName = hotelName;
+            booking.hotelTotalPrice = hotelPrice;
+            booking.totalPrice = totalPrice;
         }
 
         private void nxtButton_Click(object sender, EventArgs e)
@@ -108,7 +139,7 @@ namespace Front_End
                 MessageBox.Show("Contact number can not be empty or contain letters or symbols");
             }
 
-            else if (!Regex.IsMatch(emailtxtbox.Text, @"^[a-zA-Z0-9]+$"))
+            else if (!Regex.IsMatch(emailtxtbox.Text, @"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$"))
             {
                 MessageBox.Show("Must be a valid email address");
             }
@@ -132,7 +163,22 @@ namespace Front_End
                     dbFunc.writeDatabase(save, cString, customers);
                     MessageBox.Show("Booking Reserved");
                     this.Hide();
-                    Booking_Confirmation b = new Booking_Confirmation();
+                    booking.fname = firstNametxtbox.Text;
+                    booking.sname = lastNametxtbox.Text;
+                    booking.customerAddress = Addresstxtbox.Text;
+                    booking.customerPhone = contactNumbertxtbox.Text;
+                    booking.gender = gendertxtbox.Text;
+                    booking.passportNum = passportNumbtxtbox.Text;
+                    booking.nationality = Nationalitytxtbox.Text;
+                    booking.postCode = postCodetxtbox.Text;
+                    booking.email = emailtxtbox.Text;
+                    Booking_Confirmation b = new Booking_Confirmation(booking.bookingDate, booking.fname, booking.sname,
+                        booking.customerAddress, booking.customerPhone, booking.gender, booking.nationality,
+                        booking.passportNum, booking.postCode, booking.email, booking.flightNumber,
+                        booking.flightType, booking.Departuretime, booking.arrivalTime, booking.numAdults,
+                        booking.numChild, booking.flightDestination, booking.flightTotalPrice,booking.carNumPlate,
+                        booking.carSeats, booking.carMake, booking.carModel, booking.carHirePrice, booking.carHireName,
+                        booking.hotelStar, booking.hotelCheckin, booking.hotelCheckout, booking.hotelName, booking.hotelTotalPrice, booking.totalPrice);
                     b.ShowDialog();
                 }
                 catch (Exception)

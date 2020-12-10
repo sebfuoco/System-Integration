@@ -52,8 +52,15 @@ namespace Front_End
         private void nxtButton_Click_1(object sender, EventArgs e)
         {
             this.Hide();
-            Booking_Reservation a = new Booking_Reservation();
-            a.ShowDialog();
+           int num1 = Convert.ToInt32(Adultprice.Text);
+            int num2 = Convert.ToInt32(Childprice.Text);
+            int totalFlightPrice = num1 + num2;
+            Booking_Reservation bookingRes = new Booking_Reservation(DateTimePicker1.Text, Flightnum.Text,
+                Flighttype.Text, Departuretime.Text,Arrivaltime.Text, numericUpDown1.ToString(), numericUpDown2.ToString(),
+                Locationinput.Text,totalFlightPrice.ToString(), Numplate.Text, Seats.Text, Make.Text,Model.Text,
+                Priceperday.Text, Carinput.Text,Starrating.Text,Checkin.Text,Checkout.Text,
+                Hotelinput.Text, Pricepernight.Text, Total.Text);
+            bookingRes.Show();
         }
 
         private void extButton_Click_1(object sender, EventArgs e)
