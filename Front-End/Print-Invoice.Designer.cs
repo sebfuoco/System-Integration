@@ -67,6 +67,10 @@
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -216,7 +220,7 @@
             // fnameLbl
             // 
             this.fnameLbl.AutoSize = true;
-            this.fnameLbl.Location = new System.Drawing.Point(576, 190);
+            this.fnameLbl.Location = new System.Drawing.Point(592, 190);
             this.fnameLbl.Name = "fnameLbl";
             this.fnameLbl.Size = new System.Drawing.Size(86, 20);
             this.fnameLbl.TabIndex = 6;
@@ -225,7 +229,7 @@
             // snameLbl
             // 
             this.snameLbl.AutoSize = true;
-            this.snameLbl.Location = new System.Drawing.Point(575, 222);
+            this.snameLbl.Location = new System.Drawing.Point(592, 221);
             this.snameLbl.Name = "snameLbl";
             this.snameLbl.Size = new System.Drawing.Size(86, 20);
             this.snameLbl.TabIndex = 7;
@@ -234,7 +238,7 @@
             // addrLbl
             // 
             this.addrLbl.AutoSize = true;
-            this.addrLbl.Location = new System.Drawing.Point(575, 257);
+            this.addrLbl.Location = new System.Drawing.Point(592, 255);
             this.addrLbl.Name = "addrLbl";
             this.addrLbl.Size = new System.Drawing.Size(68, 20);
             this.addrLbl.TabIndex = 8;
@@ -243,7 +247,7 @@
             // phonenumLbl
             // 
             this.phonenumLbl.AutoSize = true;
-            this.phonenumLbl.Location = new System.Drawing.Point(577, 323);
+            this.phonenumLbl.Location = new System.Drawing.Point(604, 323);
             this.phonenumLbl.Name = "phonenumLbl";
             this.phonenumLbl.Size = new System.Drawing.Size(115, 20);
             this.phonenumLbl.TabIndex = 9;
@@ -275,9 +279,9 @@
             this.dateLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateLbl.Location = new System.Drawing.Point(9, 277);
             this.dateLbl.Name = "dateLbl";
-            this.dateLbl.Size = new System.Drawing.Size(75, 25);
+            this.dateLbl.Size = new System.Drawing.Size(53, 25);
             this.dateLbl.TabIndex = 12;
-            this.dateLbl.Text = "label39";
+            this.dateLbl.Text = "Date";
             // 
             // label40
             // 
@@ -335,9 +339,9 @@
             this.totalLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.totalLbl.Location = new System.Drawing.Point(682, 426);
             this.totalLbl.Name = "totalLbl";
-            this.totalLbl.Size = new System.Drawing.Size(75, 25);
+            this.totalLbl.Size = new System.Drawing.Size(105, 25);
             this.totalLbl.TabIndex = 18;
-            this.totalLbl.Text = "label45";
+            this.totalLbl.Text = "Total Price";
             // 
             // destiLbl
             // 
@@ -366,29 +370,29 @@
             // htlpriLbl
             // 
             this.htlpriLbl.AutoSize = true;
-            this.htlpriLbl.Location = new System.Drawing.Point(366, 426);
+            this.htlpriLbl.Location = new System.Drawing.Point(366, 427);
             this.htlpriLbl.Name = "htlpriLbl";
-            this.htlpriLbl.Size = new System.Drawing.Size(60, 20);
+            this.htlpriLbl.Size = new System.Drawing.Size(86, 20);
             this.htlpriLbl.TabIndex = 23;
-            this.htlpriLbl.Text = "label22";
+            this.htlpriLbl.Text = "Hotel Price";
             // 
             // carpriceLbl
             // 
             this.carpriceLbl.AutoSize = true;
             this.carpriceLbl.Location = new System.Drawing.Point(366, 386);
             this.carpriceLbl.Name = "carpriceLbl";
-            this.carpriceLbl.Size = new System.Drawing.Size(60, 20);
+            this.carpriceLbl.Size = new System.Drawing.Size(73, 20);
             this.carpriceLbl.TabIndex = 24;
-            this.carpriceLbl.Text = "label34";
+            this.carpriceLbl.Text = "Car Price";
             // 
             // flipriceLbl
             // 
             this.flipriceLbl.AutoSize = true;
-            this.flipriceLbl.Location = new System.Drawing.Point(366, 342);
+            this.flipriceLbl.Location = new System.Drawing.Point(366, 344);
             this.flipriceLbl.Name = "flipriceLbl";
-            this.flipriceLbl.Size = new System.Drawing.Size(60, 20);
+            this.flipriceLbl.Size = new System.Drawing.Size(87, 20);
             this.flipriceLbl.TabIndex = 25;
-            this.flipriceLbl.Text = "label35";
+            this.flipriceLbl.Text = "Flight Price";
             // 
             // button1
             // 
@@ -448,9 +452,53 @@
             this.label35.TabIndex = 31;
             this.label35.Text = "Phone Number:";
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(342, 344);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(20, 22);
+            this.label36.TabIndex = 32;
+            this.label36.Text = "£";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(342, 384);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(20, 22);
+            this.label39.TabIndex = 33;
+            this.label39.Text = "£";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(342, 426);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(20, 22);
+            this.label45.TabIndex = 34;
+            this.label45.Text = "£";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(658, 430);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(20, 22);
+            this.label46.TabIndex = 35;
+            this.label46.Text = "£";
+            // 
             // Print_Invoice
             // 
             this.ClientSize = new System.Drawing.Size(823, 534);
+            this.Controls.Add(this.label46);
+            this.Controls.Add(this.label45);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.label36);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.label33);
@@ -556,5 +604,9 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
     }
 }

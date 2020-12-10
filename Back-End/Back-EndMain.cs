@@ -484,7 +484,7 @@ namespace Back_End
 
             MessageBox.Show("Your booking has been confirmed.");
 
-            MessageBox.Show("Date: " + date + "\n" + "Firstname: " + firstname + "\n" + "Surname: " + surname + "\n" + "Phone Number: " + phonenumber + "\n" + "Address: " + address + "\n" + "Destination: " + destination + "\n" + "Fight Price" + flightprice + "\n" + "Car hire: " + carDetails + "\n" + "Car Price: " + carhirePrice + "\n" + "Hotel Location: " + hotellocation + "\n" + "Hotel Price: " + hotelprice + "\n" + "Total Price: " + total);
+            MessageBox.Show("Date: " + date + "\n" + "Firstname: " + firstname + "\n" + "Surname: " + surname + "\n" + "Phone Number: " + phonenumber + "\n" + "Address: " + address + "\n" + "Destination: " + destination + "\n" + "Flight Price" + flightprice + "\n" + "Car hire: " + carDetails + "\n" + "Car Price: " + carhirePrice + "\n" + "Hotel Location: " + hotellocation + "\n" + "Hotel Price: " + hotelprice + "\n" + "Total Price: " + total);
         }
     }
 
