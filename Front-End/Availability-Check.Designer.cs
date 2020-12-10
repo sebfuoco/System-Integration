@@ -75,6 +75,7 @@
             this.Make = new System.Windows.Forms.TextBox();
             this.Numplate = new System.Windows.Forms.TextBox();
             this.Hoteldetails = new System.Windows.Forms.GroupBox();
+            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.Hotelinput = new System.Windows.Forms.ComboBox();
             this.Pricepernight = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -88,7 +89,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label24 = new System.Windows.Forms.Label();
             this.Total = new System.Windows.Forms.TextBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.Caculate = new System.Windows.Forms.Button();
             this.Flightdetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -96,8 +96,8 @@
             this.Cardetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.Hoteldetails.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nxtButton
@@ -473,11 +473,11 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(158, 57);
+            this.label23.Location = new System.Drawing.Point(176, 57);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(72, 13);
+            this.label23.Size = new System.Drawing.Size(31, 13);
             this.label23.TabIndex = 45;
-            this.label23.Text = "Price Per Day";
+            this.label23.Text = "Price";
             // 
             // label22
             // 
@@ -576,6 +576,24 @@
             this.Hoteldetails.Text = "Hotel Details";
             this.Hoteldetails.Enter += new System.EventHandler(this.Hoteldetails_Enter);
             // 
+            // numericUpDown4
+            // 
+            this.numericUpDown4.Location = new System.Drawing.Point(137, 121);
+            this.numericUpDown4.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown4.Name = "numericUpDown4";
+            this.numericUpDown4.Size = new System.Drawing.Size(30, 20);
+            this.numericUpDown4.TabIndex = 42;
+            this.numericUpDown4.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
+            // 
             // Hotelinput
             // 
             this.Hotelinput.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -588,7 +606,7 @@
             // 
             // Pricepernight
             // 
-            this.Pricepernight.Location = new System.Drawing.Point(84, 121);
+            this.Pricepernight.Location = new System.Drawing.Point(72, 121);
             this.Pricepernight.Name = "Pricepernight";
             this.Pricepernight.Size = new System.Drawing.Size(59, 20);
             this.Pricepernight.TabIndex = 41;
@@ -596,11 +614,11 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 125);
+            this.label16.Location = new System.Drawing.Point(25, 124);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(78, 13);
+            this.label16.Size = new System.Drawing.Size(31, 13);
             this.label16.TabIndex = 40;
-            this.label16.Text = "Price Per Night";
+            this.label16.Text = "Price";
             // 
             // label15
             // 
@@ -697,24 +715,6 @@
             this.Total.TabIndex = 36;
             this.Total.TextChanged += new System.EventHandler(this.Total_TextChanged);
             // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Location = new System.Drawing.Point(144, 121);
-            this.numericUpDown4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(30, 20);
-            this.numericUpDown4.TabIndex = 42;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
-            // 
             // Caculate
             // 
             this.Caculate.Location = new System.Drawing.Point(265, 436);
@@ -759,9 +759,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.Hoteldetails.ResumeLayout(false);
             this.Hoteldetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
