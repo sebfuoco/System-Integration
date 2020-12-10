@@ -572,7 +572,7 @@ namespace Back_End
             //Sing: Check avalibality based on where entries for the date are availiable
             if (flight.departure == null)
             {
-                MessageBox.Show("No availability found for this date.");
+                MessageBox.Show("No available flights found for this date.");
                 return flight;
             }
             else
