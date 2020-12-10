@@ -129,5 +129,10 @@ namespace Front_End
             this.Hide();
             invoice.Show();
         }
+
+        private void Booking_Confirmation_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
