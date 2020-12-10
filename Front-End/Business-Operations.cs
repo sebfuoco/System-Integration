@@ -77,7 +77,7 @@ namespace Front_End
             // Avar: notify of recovery process
             if (query == true)
             {
-                MessageBox.Show("System recovery is compeleted.");
+                MessageBox.Show("System recovery is completed.");
             }
             else
             {
@@ -98,8 +98,8 @@ namespace Front_End
             bool query = primaryDatabase.batchUpdate(dbList, false);
 
             if (query == true)
-            {
-                MessageBox.Show("Sync Completed");
+            { 
+                MessageBox.Show("Sync completed successfully.");
             }
             else
             {
