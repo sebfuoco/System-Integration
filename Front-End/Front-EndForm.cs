@@ -33,10 +33,5 @@ namespace Front_End
             Manager m = new Manager();
             m.ShowDialog();
         }
-
-        private void extButton_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
