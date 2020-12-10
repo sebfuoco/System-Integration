@@ -74,7 +74,7 @@ namespace Front_End
             // batch recovery query: Seb + Gianni
             var secondaryDatabase = new SecondaryDatabase();
             bool query = secondaryDatabase.batchRecovery();
-
+            // Avar: notify of recovery process
             if (query == true)
             {
                 MessageBox.Show("System recovery is compeleted.");
@@ -93,7 +93,7 @@ namespace Front_End
                 fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
                 fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
             string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
-
+            // Avar: batch update notification  
             var primaryDatabase = new PrimaryDatabase();
             bool query = primaryDatabase.batchUpdate(dbList, false);
 
