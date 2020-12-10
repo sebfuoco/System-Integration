@@ -62,7 +62,7 @@ namespace Front_End
             string passportNumber, string postCode, string email,
             string flightnumber, string flighttype,
             string flightdeparture, string flightarrival, string adults,
-            string child, string destination, string numberPlate,
+            string child, string destination, string flightTotalPrice, string numberPlate,
             string carSeats, string make, string model, string hirePrice,
             string hireName, string hotelStarRating, string checkIn,
             string checkOut, string hotelName, string hotelPrice, string totalPrice)
@@ -87,6 +87,7 @@ namespace Front_End
             booking.numAdults = adults;
             booking.numChild = child;
             booking.flightDestination = destination;
+            booking.flightTotalPrice = flightTotalPrice;
             booking.carNumPlate = numberPlate;
             booking.carSeats = carSeats;
             booking.carMake = make;
@@ -123,7 +124,7 @@ namespace Front_End
                 booking.customerAddress,booking.customerPhone,booking.gender, booking.nationality,
                 booking.passportNum, booking.postCode, booking.email, booking.flightNumber,
                 booking.flightType, booking.Departuretime,booking.arrivalTime,booking.numAdults,
-                booking.numChild, booking.flightDestination, booking.carNumPlate,
+                booking.numChild, booking.flightDestination,booking.flightTotalPrice, booking.carNumPlate,
                 booking.carSeats, booking.carMake, booking.carModel,booking.carHirePrice, booking.carHireName,
                 booking.hotelStar,booking.hotelCheckin, booking.hotelCheckout, booking.hotelName,booking.hotelTotalPrice,booking.totalPrice);
             this.Hide();

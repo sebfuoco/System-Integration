@@ -63,6 +63,10 @@
             this.flipriceLbl = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.printInvoiceBtn = new System.Windows.Forms.Button();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -239,7 +243,7 @@
             // phonenumLbl
             // 
             this.phonenumLbl.AutoSize = true;
-            this.phonenumLbl.Location = new System.Drawing.Point(575, 292);
+            this.phonenumLbl.Location = new System.Drawing.Point(577, 323);
             this.phonenumLbl.Name = "phonenumLbl";
             this.phonenumLbl.Size = new System.Drawing.Size(115, 20);
             this.phonenumLbl.TabIndex = 9;
@@ -408,9 +412,49 @@
             this.printInvoiceBtn.UseVisualStyleBackColor = true;
             this.printInvoiceBtn.Click += new System.EventHandler(this.printInvoiceBtn_Click);
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(487, 190);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(90, 20);
+            this.label22.TabIndex = 28;
+            this.label22.Text = "First Name:";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(487, 222);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(90, 20);
+            this.label33.TabIndex = 29;
+            this.label33.Text = "Last Name:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(485, 254);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(72, 20);
+            this.label34.TabIndex = 30;
+            this.label34.Text = "Address:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(487, 323);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(119, 20);
+            this.label35.TabIndex = 31;
+            this.label35.Text = "Phone Number:";
+            // 
             // Print_Invoice
             // 
             this.ClientSize = new System.Drawing.Size(823, 534);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.label22);
             this.Controls.Add(this.printInvoiceBtn);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.flipriceLbl);
@@ -508,5 +552,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button printInvoiceBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
     }
 }

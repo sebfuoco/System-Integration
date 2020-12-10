@@ -61,7 +61,7 @@ namespace Front_End
             string passportNumber, string postCode, string email, 
             string flightnumber, string flighttype,
             string flightdeparture, string flightarrival, string adults,
-            string child, string destination, string numberPlate, 
+            string child, string destination, string flightTotalPrice, string numberPlate, 
             string carSeats, string make, string model, string hirePrice,
             string hireName, string hotelStarRating, string checkIn, 
             string checkOut, string hotelName, string hotelPrice, string totalPrice)
@@ -86,6 +86,7 @@ namespace Front_End
             invoiceDetails.numAdults = adults;
             invoiceDetails.numChild = child;
             invoiceDetails.flightDestination = destination;
+            invoiceDetails.flightTotalPrice = flightTotalPrice;
             invoiceDetails.carNumPlate = numberPlate;
             invoiceDetails.carSeats = carSeats;
             invoiceDetails.carMake = make;
@@ -183,6 +184,5 @@ namespace Front_End
                 MessageBox.Show("Could not retrieve invoice");
             }
         }
-
     }
 }

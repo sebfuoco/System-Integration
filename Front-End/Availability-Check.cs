@@ -57,7 +57,7 @@ namespace Front_End
             int totalFlightPrice = num1 + num2;
             Booking_Reservation bookingRes = new Booking_Reservation(DateTimePicker1.Text, Flightnum.Text,
                 Flighttype.Text, Departuretime.Text,Arrivaltime.Text, numericUpDown1.ToString(), numericUpDown2.ToString(),
-                Locationinput.Text, Numplate.Text, Seats.Text, Make.Text,Model.Text,
+                Locationinput.Text,totalFlightPrice.ToString(), Numplate.Text, Seats.Text, Make.Text,Model.Text,
                 Priceperday.Text, Carinput.Text,Starrating.Text,Checkin.Text,Checkout.Text,
                 Hotelinput.Text, Pricepernight.Text, Total.Text);
             bookingRes.Show();
