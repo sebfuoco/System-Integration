@@ -25,7 +25,7 @@ namespace Back_End
             // Primary Database + queries
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb",
                 secondaryConnectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=SecondaryDB.mdb",
-                editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerEmail] = @CustomerEmail",
+                editDB = "UPDATE Customers SET [CustomerFirstName] = @CustomerFirstName, [CustomerLastName] = @CustomerLastName WHERE [CustomerID] = @CustomerID",
                 checkDuplicateDB = "SELECT COUNT(*) FROM Customers WHERE [CustomerFirstName] = @CustomerFirstName AND [CustomerLastName] = @CustomerLastName",
                 readDB = "SELECT * FROM Customers",
                 deleteDB = "DELETE FROM Customers WHERE CustomerID BETWEEN 3 AND 100",
@@ -38,6 +38,8 @@ namespace Back_End
                 fetchHotelDB = "INSERT INTO SecondaryDB.mdb.Hotel SELECT * FROM Hotel",
                 fetchCarsDB = "INSERT INTO SecondaryDB.mdb.Cars SELECT * FROM Cars";
             string[] dbList = { fetchCustomersDB, fetchFlightsDB, fetchHotelDB, fetchCarsDB };
+            object[] duplicate = { "@CustomerFirstName", "Louis", "@CustomerLastName", "Gaye"};
+            object[] edit = { "@CustomerFirstName", "Lewis", "@CustomerLastName", "Guy", "@CustomerEmail", 1};
             // Must initalise class before use
             var dbFunc = new DatabaseFunctions();
             var primaryDatabase = new PrimaryDatabase();
@@ -45,7 +47,7 @@ namespace Back_End
             //bool checkRecovery = SecondaryDatabase.recoveryProgress;
             // tests
             //bool query = primaryDatabase.batchUpdate(dbList, false);
-            bool squery = secondaryDatabase.batchRecovery();
+            //bool squery = secondaryDatabase.batchRecovery();
             var details = dbFunc.createDict();
             //primaryDatabase.fetchData(details);
             // Test database
@@ -54,9 +56,9 @@ namespace Back_End
             dbFunc.deleteDatabase(deleteFDB, connectionString);
             dbFunc.deleteDatabase(deleteHDB, connectionString);
             dbFunc.deleteDatabase(deleteCDB, connectionString);*/
-            //dbFunc.editDatabase(editDB, connectionString, details);
-            //dbFunc.readDatabase(readDB, connectionString);
-            //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, details);
+            dbFunc.editDatabase(editDB, connectionString, edit);
+            dbFunc.readDatabase(readDB, connectionString);
+            //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, duplicate);
         }
 
         //Sing: Class declaration for calculations
@@ -221,7 +223,7 @@ namespace Back_End
             }
         }
     }
-
+    // editDatabase
     public class DatabaseFunctions
     {
         // store data to send: TEST fetchData()
@@ -272,15 +274,19 @@ namespace Back_End
             return id;
         }
 
-        public void checkDuplicateDatabase(string sql, string connectionString, Dictionary<string, string> details)
+        public void checkDuplicateDatabase(string sql, string connectionString, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    command.Parameters.AddWithValue("@CustomerFirstName", details["firstName"]);
-                    command.Parameters.AddWithValue("@CustomerLastName", details["lastName"]);
                     conn.Open();
+                    // loop through parameters
+                    for (int i = 0; i < arr.Length; i += 2)
+                    {
+                        command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
+                    }
+                    command.ExecuteNonQuery();
                     using (OleDbDataReader reader = command.ExecuteReader())
                     {
                         reader.Read();
@@ -308,17 +314,18 @@ namespace Back_End
             }
         }
 
-        public void editDatabase(string sql, string connectionString, Dictionary<string, object> details)
+        public void editDatabase(string sql, string connectionString, object[] arr)
         {
             using (OleDbConnection conn = new OleDbConnection(connectionString))
             {
                 using (OleDbCommand command = new OleDbCommand(sql, conn))
                 {
-                    // Update row from email
-                    command.Parameters.AddWithValue("@CustomerFirstName", OleDbType.VarChar).Value = details["firstName"];
-                    command.Parameters.AddWithValue("@CustomerLastName", OleDbType.VarChar).Value = details["lastName"];
-                    command.Parameters.AddWithValue("@CustomerEmail", OleDbType.VarChar).Value = details["email"];
                     conn.Open();
+                    // loop through parameters
+                    for (int i = 0; i < arr.Length; i += 2)
+                    {
+                        command.Parameters.Add(new OleDbParameter(arr[i].ToString(), OleDbType.VarChar)).Value = arr[i + 1];
+                    }
                     command.ExecuteNonQuery();
                 }
             }
