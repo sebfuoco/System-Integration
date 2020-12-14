@@ -129,7 +129,7 @@ namespace Front_End
                 MessageBox.Show("Must be a valid address");
             }
 
-            else if (!Regex.IsMatch(postCodetxtbox.Text, @"^[a-zA-Z0-9]{7,8}\b+$"))
+            else if (!Regex.IsMatch(postCodetxtbox.Text, @"^[a-zA-Z0-9 ]{7,8}\b+$"))
             {
                 MessageBox.Show("Post code can not be empty or contains symbols");
             }
@@ -149,8 +149,9 @@ namespace Front_End
                 string cString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
 
                 // SQL query that will insert customer details to the database
-                string save = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, ContactNumber, EmailAddress) " +
-                "VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, @PostCode, @ContactNumber, @EmailAddress)";
+                string save = "INSERT INTO Customers (CustomerFirstName, CustomerLastName, Gender, PassportNumber, Nationality, Address, PostCode, " +
+                    "ContactNumber, EmailAddress) VALUES (@CustomerFirstName, @CustomerLastName, @Gender, @PassportNumber, @Nationality, @Address, " +
+                    "@PostCode, @ContactNumber, @EmailAddress)";
 
                 // Objects it requires
                 object[] customers = {"@CustomerFirstName", firstNametxtbox.Text, "@CustomerLastName", lastNametxtbox.Text, "@Gender", gendertxtbox.Text,
