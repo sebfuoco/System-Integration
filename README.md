@@ -1,5 +1,5 @@
 # **Systems Integration**
-
+> Ensure that the databases are set to "Do not copy" in "Copy to Output Directory", so that data is not reset.
 ## Front end
 >IMPORTANT:
 For use, store the database "PrimaryDB.mdb" and "SecondaryDB.mdb" in the Front-End\bin\Debug directory of the project.
