@@ -58,6 +58,7 @@ namespace Front_End
            
         }
 
+      
         private void cnlButton_Click_2(object sender, EventArgs e)
         {
             //exit button code
@@ -299,24 +300,32 @@ namespace Front_End
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            //adds price of adult tickets up
+            try
+            {
+                //adds price of adult tickets up
 
-            //Sing : Get flightID
-            string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
-            string date = DateTimePicker1.Text.ToString();
-            //Sing: Display flight Details 
-            var flightDetails = Back_End.DatabaseQuery.getFlightDetails(flightID, date);
+                //Sing : Get flightID
+                string flightID = Back_End.Program.calculations.getFlightID(Locationinput.Text);
+                string date = DateTimePicker1.Text.ToString();
+                //Sing: Display flight Details 
+                var flightDetails = Back_End.DatabaseQuery.getFlightDetails(flightID, date);
 
-            //times price by value in numericupdown
+                //times price by value in numericupdown
 
-            decimal x = numericUpDown1.Value;
+                decimal x = numericUpDown1.Value;
 
-            string strprice = flightDetails.adultPrice;
-            decimal price = Convert.ToDecimal(strprice);
+                string strprice = flightDetails.adultPrice;
+                decimal price = Convert.ToDecimal(strprice);
 
-            decimal total = x * price;
+                decimal total = x * price;
 
-            Adultprice.Text = total.ToString();
+                Adultprice.Text = total.ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Something went wrong. Please make sure flight detination and date have been selected. Then please click the 'Check' button.");
+            }
+            
 
         }
 
