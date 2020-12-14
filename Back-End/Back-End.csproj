@@ -63,52 +63,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Back-EndMain.cs" />
-    <Compile Include="PrimaryDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="SecondaryDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="PrimaryDBDataSet.xsc">
-      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PrimaryDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PrimaryDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PrimaryDBDataSet.xss">
-      <DependentUpon>PrimaryDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="SecondaryDBDataSet.xsc">
-      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="SecondaryDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>SecondaryDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="SecondaryDBDataSet.xss">
-      <DependentUpon>SecondaryDBDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
