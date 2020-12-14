@@ -117,5 +117,27 @@ namespace Back_End.Properties {
                 return ((string)(this["SecondaryConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\bin\\Debug\\PrimaryDB." +
+            "mdb")]
+        public string PrimaryDBConnectionString {
+            get {
+                return ((string)(this["PrimaryDBConnectionString"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\bin\\Debug\\SecondaryD" +
+            "B.mdb")]
+        public string SecondaryDBConnectionString {
+            get {
+                return ((string)(this["SecondaryDBConnectionString"]));
+            }
+        }
     }
 }

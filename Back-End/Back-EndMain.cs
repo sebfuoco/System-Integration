@@ -56,8 +56,8 @@ namespace Back_End
             dbFunc.deleteDatabase(deleteFDB, connectionString);
             dbFunc.deleteDatabase(deleteHDB, connectionString);
             dbFunc.deleteDatabase(deleteCDB, connectionString);*/
-            dbFunc.editDatabase(editDB, connectionString, edit);
-            dbFunc.readDatabase(readDB, connectionString);
+            //dbFunc.editDatabase(editDB, connectionString, edit);
+            //dbFunc.readDatabase(readDB, connectionString);
             //dbFunc.checkDuplicateDatabase(checkDuplicateDB, connectionString, duplicate);
         }
 
@@ -401,8 +401,8 @@ namespace Back_End
             string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=PrimaryDB.mdb";
             var dbFunc = new DatabaseFunctions();
             // test ID
-            //details["FlightNumber"] = 1200;
-            //details["HotelID"] = 4510;
+            details["FlightNumber"] = 1200;
+            details["HotelID"] = 4510;
             object[] customers = {"@CustomerFirstName", details["CustomerFirstName"], "@CustomerLastName", details["CustomerLastName"], "@Gender", details["Gender"],
                     "@PassportNumber", details["PassportNumber"], "@Nationality", details["Nationality"], "@Address", details["Address"], "@PostCode",
                 details["PostCode"], "@ContactNumber", details["ContactNumber"], "@EmailAddress", details["EmailAddress"]};
