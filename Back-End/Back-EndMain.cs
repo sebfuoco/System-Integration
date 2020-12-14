@@ -562,7 +562,7 @@ namespace Back_End
                 while (reader.Read())
                 {
 
-                    if (reader["FlightNumber"].ToString() == flightNum && reader["DepartureTime"].ToString() == (DateTime.Parse(flightdate)).ToString())
+                    if (reader["FlightNumber"].ToString() == flightNum && reader["DepartureTime"].ToString() == flightdate)
                     {
                         flight.flightNumber = flightNum;
                         flight.flightType = reader["FlightType"].ToString();
